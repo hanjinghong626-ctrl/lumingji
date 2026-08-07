@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useI18n } from '../../i18n-context';
 import LanguageSwitcher from './LanguageSwitcher';
@@ -7,6 +8,13 @@ import LanguageSwitcher from './LanguageSwitcher';
 export default function Navbar() {
   const { locale, t } = useI18n();
   const l = locale;
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const navItems = [
     { key: 'life', label: t('nav.life') },
@@ -16,28 +24,50 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-parchment-50/80 backdrop-blur-md border-b border-primary-100/30">
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      scrolled
+        ? 'navbar-scrolled'
+        : 'bg-transparent border-b border-transparent'
+    }`}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-between h-11">
+        <div className="flex items-center justify-between h-12">
           <Link href={`/${l}`} className="flex items-center gap-1.5 group">
-            <span className="text-lg font-wenkai font-bold text-primary-600 group-hover:text-primary-500 transition-colors">
+            <span className={`text-xl font-wenkai font-bold transition-colors duration-300 ${
+              scrolled ? 'text-primary-700' : 'text-white drop-shadow-md'
+            } group-hover:text-accent-400`}>
               {t('site.name')}
             </span>
           </Link>
 
-          <div className="hidden md:flex items-center gap-5">
+          <div className="hidden md:flex items-center gap-6">
             {navItems.map((item) => (
-              <Link key={item.key} href={`/${l}/${item.key}`} className="text-xs font-medium text-gray-500 hover:text-primary-600 transition-colors">
+              <Link
+                key={item.key}
+                href={`/${l}/${item.key}`}
+                className={`text-sm font-wenkai transition-colors duration-300 ${
+                  scrolled
+                    ? 'text-gray-600 hover:text-primary-600'
+                    : 'text-white/80 hover:text-white'
+                }`}
+              >
                 {item.label}
               </Link>
             ))}
             <LanguageSwitcher />
           </div>
 
-          {/* Mobile nav */}
-          <div className="md:hidden flex items-center gap-1 overflow-x-auto">
+          {/* Mobile */}
+          <div className="md:hidden flex items-center gap-2 overflow-x-auto">
             {navItems.map((item) => (
-              <Link key={item.key} href={`/${l}/${item.key}`} className="text-xs font-medium text-gray-500 hover:text-primary-600 whitespace-nowrap px-1.5 py-0.5 rounded hover:bg-primary-50/50 transition-all">
+              <Link
+                key={item.key}
+                href={`/${l}/${item.key}`}
+                className={`text-xs font-wenkai whitespace-nowrap px-1.5 py-0.5 rounded transition-all duration-300 ${
+                  scrolled
+                    ? 'text-gray-600 hover:text-primary-600'
+                    : 'text-white/70 hover:text-white'
+                }`}
+              >
                 {item.label}
               </Link>
             ))}
