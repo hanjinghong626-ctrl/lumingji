@@ -10,9 +10,9 @@ export function generateStaticParams() {
   return [{ locale: 'zh' }, { locale: 'ru' }, { locale: 'en' }];
 }
 
-export default function RootLayout({ children, params: { locale } }) {
+export default function RootLayout({ children, params }) {
   return (
-    <html lang={locale}>
+    <html lang={params.locale}>
       <head>
         <link
           href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Sans:wght@300;400;500;700&display=swap"
@@ -20,7 +20,7 @@ export default function RootLayout({ children, params: { locale } }) {
         />
       </head>
       <body className="bg-parchment-50 text-gray-800 font-sans min-h-screen flex flex-col">
-        <ClientLayout>
+        <ClientLayout locale={params.locale}>
           {children}
         </ClientLayout>
       </body>
