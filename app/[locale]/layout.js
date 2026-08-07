@@ -15,7 +15,7 @@ export default function RootLayout({ children, params }) {
     <html lang={params.locale}>
       <head>
         <link
-          href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Sans:wght@300;400;500;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Sans:wght@300;400;500;700&family=LXGW+WenKai+TC:wght@300;400;700&display=swap"
           rel="stylesheet"
         />
       </head>
