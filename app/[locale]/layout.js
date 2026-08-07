@@ -1,5 +1,5 @@
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
+import { getMessages, setRequestLocale } from 'next-intl/server';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import '../../styles/globals.css';
@@ -9,6 +9,7 @@ export function generateStaticParams() {
 }
 
 export default async function LocaleLayout({ children, params: { locale } }) {
+  setRequestLocale(locale);
   const messages = await getMessages();
 
   return (
