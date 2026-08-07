@@ -16,27 +16,28 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-parchment-50/90 backdrop-blur-md border-b border-primary-100/50">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-parchment-50/80 backdrop-blur-md border-b border-primary-100/30">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-between h-16">
-          <Link href={`/${l}`} className="flex items-center gap-2 group">
-            <span className="text-2xl font-serif font-bold text-primary-600 group-hover:text-primary-500 transition-colors">
+        <div className="flex items-center justify-between h-11">
+          <Link href={`/${l}`} className="flex items-center gap-1.5 group">
+            <span className="text-lg font-wenkai font-bold text-primary-600 group-hover:text-primary-500 transition-colors">
               {t('site.name')}
             </span>
           </Link>
 
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-5">
             {navItems.map((item) => (
-              <Link key={item.key} href={`/${l}/${item.key}`} className="text-sm font-medium text-gray-600 hover:text-primary-600 transition-colors">
+              <Link key={item.key} href={`/${l}/${item.key}`} className="text-xs font-medium text-gray-500 hover:text-primary-600 transition-colors">
                 {item.label}
               </Link>
             ))}
             <LanguageSwitcher />
           </div>
 
-          <div className="md:hidden flex items-center gap-2 pb-2 overflow-x-auto">
+          {/* Mobile nav */}
+          <div className="md:hidden flex items-center gap-1 overflow-x-auto">
             {navItems.map((item) => (
-              <Link key={item.key} href={`/${l}/${item.key}`} className="text-xs font-medium text-gray-600 hover:text-primary-600 whitespace-nowrap px-2 py-1 rounded-md hover:bg-primary-50 transition-all">
+              <Link key={item.key} href={`/${l}/${item.key}`} className="text-xs font-medium text-gray-500 hover:text-primary-600 whitespace-nowrap px-1.5 py-0.5 rounded hover:bg-primary-50/50 transition-all">
                 {item.label}
               </Link>
             ))}
