@@ -7,12 +7,7 @@ const I18nContext = createContext({
   t: (key) => key,
 });
 
-export function I18nProvider({ locale, children }) {
-  const t = (key) => {
-    // 此函数仅作为 fallback，实际 t 由各页面自行从 messages 中取
-    return key;
-  };
-
+export function I18nProvider({ locale, t, children }) {
   return (
     <I18nContext.Provider value={{ locale, t }}>
       {children}
