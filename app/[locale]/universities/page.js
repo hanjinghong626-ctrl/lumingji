@@ -1,12 +1,6 @@
 'use client';
 
-import { useParams } from 'next/navigation';
-import messages from '../../../messages/universities.json';
-
-function resolve(val, locale) {
-  if (typeof val === 'object' && val !== null) return val[locale] || val['zh'] || '';
-  return val;
-}
+import { useI18n } from '../../../i18n-context';
 
 const universities = [
   {
@@ -52,15 +46,14 @@ const universities = [
 ];
 
 export default function UniversitiesPage() {
-  const { locale } = useParams();
-  const l = locale || 'zh';
-  const t = (key) => resolve(messages[key], l);
+  const { locale, t } = useI18n();
+  const l = locale;
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
       <div className="text-center mb-12">
-        <h1 className="section-title">{t('title')}</h1>
-        <p className="section-subtitle">{t('subtitle')}</p>
+        <h1 className="section-title">{t('universities.title')}</h1>
+        <p className="section-subtitle">{t('universities.subtitle')}</p>
       </div>
 
       <div className="grid md:grid-cols-2 gap-6">
@@ -86,7 +79,7 @@ export default function UniversitiesPage() {
       </div>
 
       <div className="mt-12 text-center">
-        <p className="text-gray-400 text-sm">{t('placeholder')}</p>
+        <p className="text-gray-400 text-sm">{t('universities.placeholder')}</p>
       </div>
     </div>
   );
