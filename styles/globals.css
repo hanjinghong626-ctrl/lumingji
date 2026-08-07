@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply antialiased;
+  }
+}
+
+@layer components {
+  .section-title {
+    @apply text-2xl md:text-3xl font-serif font-bold text-primary-700 mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-base md:text-lg text-gray-500 mb-8;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-sm border border-primary-100/50 p-6 hover:shadow-md hover:border-primary-200 transition-all duration-300;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center px-6 py-3 bg-primary-500 text-white font-medium rounded-full hover:bg-primary-600 transition-all duration-200 shadow-sm hover:shadow-md;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center px-6 py-3 bg-white text-primary-600 font-medium rounded-full border border-primary-200 hover:border-primary-400 hover:bg-primary-50 transition-all duration-200;
+  }
+}
+
+/* Decorative ink wash effect */
+.ink-decoration {
+  background: radial-gradient(ellipse at 20% 50%, rgba(51, 136, 99, 0.05) 0%, transparent 50%),
+              radial-gradient(ellipse at 80% 20%, rgba(196, 146, 42, 0.04) 0%, transparent 40%),
+              radial-gradient(ellipse at 60% 80%, rgba(51, 136, 99, 0.03) 0%, transparent 50%);
+}
