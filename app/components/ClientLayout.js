@@ -1,16 +1,15 @@
 'use client';
 
-import { useParams } from 'next/navigation';
 import { I18nProvider } from '../../i18n-context';
+import { getTranslations } from '../../i18n';
 import Navbar from './Navbar';
 import Footer from './Footer';
 
-export default function ClientLayout({ children }) {
-  const params = useParams();
-  const locale = params?.locale || 'zh';
+export default function ClientLayout({ locale, children }) {
+  const { t } = getTranslations(locale);
 
   return (
-    <I18nProvider locale={locale}>
+    <I18nProvider locale={locale} t={t}>
       <Navbar />
       <main className="flex-grow pt-24 md:pt-16">
         {children}
