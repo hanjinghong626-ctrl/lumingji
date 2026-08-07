@@ -1,20 +1,11 @@
 'use client';
 
 import Link from 'next/link';
-import { useParams } from 'next/navigation';
-import messages from '../../messages/home.json';
-import siteMessages from '../../messages/site.json';
-
-function resolve(val, locale) {
-  if (typeof val === 'object' && val !== null) return val[locale] || val['zh'] || '';
-  return val;
-}
+import { useI18n } from '../../i18n-context';
 
 export default function HomePage() {
-  const { locale } = useParams();
-  const l = locale || 'zh';
-  const t = (key) => resolve(messages[key], l);
-  const siteT = (key) => resolve(siteMessages[key], l);
+  const { locale, t } = useI18n();
+  const l = locale;
 
   return (
     <div>
@@ -23,23 +14,23 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16 md:py-24">
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="text-5xl md:text-7xl font-serif font-bold text-primary-700 mb-4 tracking-wide">
-              {t('hero_title')}
+              {t('home.hero_title')}
             </h1>
             <p className="text-lg md:text-xl text-primary-500 font-medium mb-3">
-              {t('hero_subtitle')}
+              {t('home.hero_subtitle')}
             </p>
             <p className="text-sm md:text-base text-gray-500 italic mb-10 leading-relaxed">
-              {siteT('tagline')}
+              {t('site.tagline')}
             </p>
             <p className="text-base md:text-lg text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
-              {t('hero_desc')}
+              {t('home.hero_desc')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href={`/${l}/life`} className="btn-primary">
-                {t('cta_explore')}
+                {t('home.cta_explore')}
               </Link>
               <Link href={`/${l}/community`} className="btn-secondary">
-                {t('cta_community')}
+                {t('home.cta_community')}
               </Link>
             </div>
           </div>
@@ -47,7 +38,7 @@ export default function HomePage() {
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary-200 to-transparent"></div>
       </section>
 
-      {/* Feature Cards Section */}
+      {/* Feature Cards */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 py-16 md:py-20">
         <div className="grid md:grid-cols-3 gap-6 md:gap-8">
           <Link href={`/${l}/life`} className="card group">
@@ -57,13 +48,13 @@ export default function HomePage() {
               </svg>
             </div>
             <h3 className="text-lg font-serif font-bold text-gray-800 mb-2 group-hover:text-primary-600 transition-colors">
-              {t('section_life_title')}
+              {t('home.section_life_title')}
             </h3>
             <p className="text-sm text-gray-500 leading-relaxed">
-              {t('section_life_desc')}
+              {t('home.section_life_desc')}
             </p>
             <span className="inline-block mt-4 text-sm text-primary-500 font-medium group-hover:text-primary-600">
-              {t('learn_more')} →
+              {t('home.learn_more')} →
             </span>
           </Link>
 
@@ -76,13 +67,13 @@ export default function HomePage() {
               </svg>
             </div>
             <h3 className="text-lg font-serif font-bold text-gray-800 mb-2 group-hover:text-accent-600 transition-colors">
-              {t('section_uni_title')}
+              {t('home.section_uni_title')}
             </h3>
             <p className="text-sm text-gray-500 leading-relaxed">
-              {t('section_uni_desc')}
+              {t('home.section_uni_desc')}
             </p>
             <span className="inline-block mt-4 text-sm text-accent-500 font-medium group-hover:text-accent-600">
-              {t('learn_more')} →
+              {t('home.learn_more')} →
             </span>
           </Link>
 
@@ -93,13 +84,13 @@ export default function HomePage() {
               </svg>
             </div>
             <h3 className="text-lg font-serif font-bold text-gray-800 mb-2 group-hover:text-primary-600 transition-colors">
-              {t('section_community_title')}
+              {t('home.section_community_title')}
             </h3>
             <p className="text-sm text-gray-500 leading-relaxed">
-              {t('section_community_desc')}
+              {t('home.section_community_desc')}
             </p>
             <span className="inline-block mt-4 text-sm text-primary-500 font-medium group-hover:text-primary-600">
-              {t('learn_more')} →
+              {t('home.learn_more')} →
             </span>
           </Link>
         </div>
