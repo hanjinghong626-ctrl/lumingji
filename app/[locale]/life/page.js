@@ -1,4 +1,12 @@
-import { getTranslations } from 'next-intl/server';
+'use client';
+
+import { useParams } from 'next/navigation';
+import messages from '../../../messages/life.json';
+
+function resolve(val, locale) {
+  if (typeof val === 'object' && val !== null) return val[locale] || val['zh'] || '';
+  return val;
+}
 
 const categories = [
   { key: 'transport', icon: '🚌' },
@@ -9,8 +17,18 @@ const categories = [
   { key: 'medical', icon: '🏥' },
 ];
 
-export default async function LifeGuidePage({ params: { locale } }) {
-  const t = await getTranslations({ locale, namespace: 'life' });
+export default function LifeGuidePage() {
+  const { locale } = useParams();
+  const l = locale || 'zh';
+  const t = (key) => {
+    const parts = key.split('.');
+    let val = messages;
+    for (const p of parts) {
+      if (val && typeof val === 'object') val = val[p];
+      else return key;
+    }
+    return resolve(val, l);
+  };
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
@@ -35,7 +53,7 @@ export default async function LifeGuidePage({ params: { locale } }) {
 
       <div className="mt-16 text-center bg-parchment-100 rounded-2xl p-8 border border-primary-100/50">
         <p className="text-gray-500 text-sm">
-          📝 内容正在整理中，敬请期待
+          📝 {l === 'zh' ? '内容正在整理中，敬请期待' : l === 'ru' ? 'Контент готовится, следите за обновлениями' : 'Content coming soon, stay tuned'}
         </p>
       </div>
     </div>

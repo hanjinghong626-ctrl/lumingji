@@ -1,16 +1,16 @@
-import { NextIntlClientProvider } from 'next-intl';
-import { getLocale, getMessages } from 'next-intl/server';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+import ClientLayout from '../components/ClientLayout';
 import '../../styles/globals.css';
+
+export const metadata = {
+  title: '鹿鸣集 | LuMingJi',
+  description: '外国留学生在青岛的生活服务平台',
+};
 
 export function generateStaticParams() {
   return [{ locale: 'zh' }, { locale: 'ru' }, { locale: 'en' }];
 }
 
-export default async function RootLayout({ children, params: { locale } }) {
-  const messages = await getMessages();
-
+export default function RootLayout({ children, params: { locale } }) {
   return (
     <html lang={locale}>
       <head>
@@ -20,13 +20,9 @@ export default async function RootLayout({ children, params: { locale } }) {
         />
       </head>
       <body className="bg-parchment-50 text-gray-800 font-sans min-h-screen flex flex-col">
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          <Navbar />
-          <main className="flex-grow pt-24 md:pt-16">
-            {children}
-          </main>
-          <Footer />
-        </NextIntlClientProvider>
+        <ClientLayout>
+          {children}
+        </ClientLayout>
       </body>
     </html>
   );

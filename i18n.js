@@ -1,13 +1,3 @@
-import { getRequestConfig } from 'next-intl/server';
-
-export default getRequestConfig(async ({ locale }) => {
-  // Ensure fallback for invalid locales
-  if (!locale || !['zh', 'ru', 'en'].includes(locale)) {
-    locale = 'zh';
-  }
-
-  return {
-    locale,
-    messages: (await import(`./messages/${locale}.json`)).default
-  };
-});
+// This file is no longer needed with the manual i18n approach.
+// Kept for reference. All i18n is handled by i18n-context.js.
+export {};

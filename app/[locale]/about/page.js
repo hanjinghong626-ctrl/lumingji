@@ -1,8 +1,19 @@
-import { getTranslations } from 'next-intl/server';
+'use client';
 
-export default async function AboutPage({ params: { locale } }) {
-  const t = await getTranslations({ locale, namespace: 'about' });
-  const siteT = await getTranslations({ locale, namespace: 'site' });
+import { useParams } from 'next/navigation';
+import messages from '../../../messages/about.json';
+import siteMessages from '../../../messages/site.json';
+
+function resolve(val, locale) {
+  if (typeof val === 'object' && val !== null) return val[locale] || val['zh'] || '';
+  return val;
+}
+
+export default function AboutPage() {
+  const { locale } = useParams();
+  const l = locale || 'zh';
+  const t = (key) => resolve(messages[key], l);
+  const siteT = (key) => resolve(siteMessages[key], l);
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">

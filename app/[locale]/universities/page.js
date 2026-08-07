@@ -1,4 +1,12 @@
-import { getTranslations } from 'next-intl/server';
+'use client';
+
+import { useParams } from 'next/navigation';
+import messages from '../../../messages/universities.json';
+
+function resolve(val, locale) {
+  if (typeof val === 'object' && val !== null) return val[locale] || val['zh'] || '';
+  return val;
+}
 
 const universities = [
   {
@@ -43,8 +51,10 @@ const universities = [
   },
 ];
 
-export default async function UniversitiesPage({ params: { locale } }) {
-  const t = await getTranslations({ locale, namespace: 'universities' });
+export default function UniversitiesPage() {
+  const { locale } = useParams();
+  const l = locale || 'zh';
+  const t = (key) => resolve(messages[key], l);
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
@@ -58,10 +68,10 @@ export default async function UniversitiesPage({ params: { locale } }) {
           <div key={idx} className="card">
             <div className="flex items-start justify-between mb-3">
               <h3 className="text-lg font-serif font-bold text-gray-800">
-                {uni.name[locale]}
+                {uni.name[l]}
               </h3>
               <span className="text-xs px-2 py-1 bg-accent-100 text-accent-700 rounded-full font-medium whitespace-nowrap ml-2">
-                {uni.type[locale]}
+                {uni.type[l]}
               </span>
             </div>
             <p className="text-sm text-gray-500 flex items-start gap-1">
@@ -69,7 +79,7 @@ export default async function UniversitiesPage({ params: { locale } }) {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
-              {uni.address[locale]}
+              {uni.address[l]}
             </p>
           </div>
         ))}
