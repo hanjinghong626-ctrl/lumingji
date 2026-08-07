@@ -1,6 +1,5 @@
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 
-// Qingdao universities with international students
 const universities = [
   {
     name: { zh: '中国海洋大学', ru: 'Университет Оукейан', en: 'Ocean University of China' },
@@ -40,12 +39,12 @@ const universities = [
   {
     name: { zh: '青岛农业大学', ru: 'Сельскохозяйственный университет Циндао', en: 'Qingdao Agricultural University' },
     type: { zh: '省属', ru: 'Провинциальный', en: 'Provincial' },
-    address: { zh: '青岛市城阳区长城路700号', ru: '700 Changcheng Rd, Chengyang', en: '700 Changcheng Road, Chengyang District' },
+    address: { zh: '青岛市城阳区长城路700号', ru: '700 Changcheng Rd, Chengyang', en: '700 Changcheng Road, Chengyang' },
   },
 ];
 
-export default function UniversitiesPage({ params: { locale } }) {
-  const t = useTranslations('universities');
+export default async function UniversitiesPage({ params: { locale } }) {
+  const t = await getTranslations({ locale, namespace: 'universities' });
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
@@ -59,24 +58,25 @@ export default function UniversitiesPage({ params: { locale } }) {
           <div key={idx} className="card">
             <div className="flex items-start justify-between mb-3">
               <h3 className="text-lg font-serif font-bold text-gray-800">
-                {uni.name[locale] || uni.name.zh}
+                {uni.name[locale]}
               </h3>
-              <span className="text-xs bg-accent-100 text-accent-700 px-2 py-1 rounded-full font-medium">
-                {uni.type[locale] || uni.type.zh}
+              <span className="text-xs px-2 py-1 bg-accent-100 text-accent-700 rounded-full font-medium whitespace-nowrap ml-2">
+                {uni.type[locale]}
               </span>
             </div>
-            <p className="text-sm text-gray-500">
-              📍 {uni.address[locale] || uni.address.zh}
+            <p className="text-sm text-gray-500 flex items-start gap-1">
+              <svg className="w-4 h-4 mt-0.5 flex-shrink-0 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              {uni.address[locale]}
             </p>
           </div>
         ))}
       </div>
 
-      {/* Notice */}
-      <div className="mt-12 text-center bg-parchment-100 rounded-2xl p-8 border border-primary-100/50">
-        <p className="text-gray-500 text-sm">
-          {t('placeholder')}
-        </p>
+      <div className="mt-12 text-center">
+        <p className="text-gray-400 text-sm">{t('placeholder')}</p>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 
 const categories = [
   { key: 'transport', icon: '🚌' },
@@ -9,8 +9,8 @@ const categories = [
   { key: 'medical', icon: '🏥' },
 ];
 
-export default function LifeGuidePage() {
-  const t = useTranslations('life');
+export default async function LifeGuidePage({ params: { locale } }) {
+  const t = await getTranslations({ locale, namespace: 'life' });
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
@@ -29,17 +29,10 @@ export default function LifeGuidePage() {
             <p className="text-sm text-gray-500 leading-relaxed">
               {t(`categories.${cat.key}.desc`)}
             </p>
-            <div className="mt-4 flex items-center text-sm text-primary-500 font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-              <span>查看详情</span>
-              <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </div>
           </div>
         ))}
       </div>
 
-      {/* Coming Soon Notice */}
       <div className="mt-16 text-center bg-parchment-100 rounded-2xl p-8 border border-primary-100/50">
         <p className="text-gray-500 text-sm">
           📝 内容正在整理中，敬请期待

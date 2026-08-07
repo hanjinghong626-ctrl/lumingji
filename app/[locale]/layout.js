@@ -1,5 +1,5 @@
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages, setRequestLocale } from 'next-intl/server';
+import { getLocale, getMessages } from 'next-intl/server';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import '../../styles/globals.css';
@@ -8,8 +8,7 @@ export function generateStaticParams() {
   return [{ locale: 'zh' }, { locale: 'ru' }, { locale: 'en' }];
 }
 
-export default async function LocaleLayout({ children, params: { locale } }) {
-  setRequestLocale(locale);
+export default async function RootLayout({ children, params: { locale } }) {
   const messages = await getMessages();
 
   return (
@@ -21,7 +20,7 @@ export default async function LocaleLayout({ children, params: { locale } }) {
         />
       </head>
       <body className="bg-parchment-50 text-gray-800 font-sans min-h-screen flex flex-col">
-        <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider locale={locale} messages={messages}>
           <Navbar />
           <main className="flex-grow pt-24 md:pt-16">
             {children}
