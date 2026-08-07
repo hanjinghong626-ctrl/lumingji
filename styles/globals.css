@@ -6,7 +6,6 @@
   html {
     scroll-behavior: smooth;
   }
-
   body {
     @apply antialiased;
   }
@@ -16,51 +15,287 @@
   .section-title {
     @apply text-2xl md:text-3xl font-wenkai font-bold text-primary-700 mb-4;
   }
-
   .section-subtitle {
     @apply text-base md:text-lg text-gray-500 mb-8;
   }
-
   .card {
-    @apply bg-white/80 backdrop-blur-sm rounded-xl shadow-sm border border-primary-100/50 p-6 hover:shadow-md hover:border-primary-200 transition-all duration-300;
+    @apply bg-white/80 backdrop-blur-sm rounded-xl shadow-sm border border-primary-100/50 p-6 hover:shadow-lg hover:border-primary-200 transition-all duration-500;
   }
-
   .btn-primary {
-    @apply inline-flex items-center px-6 py-2.5 bg-primary-500 text-white font-medium rounded-full hover:bg-primary-600 transition-all duration-200 shadow-sm hover:shadow-md;
+    @apply inline-flex items-center px-8 py-3 bg-primary-600 text-white font-wenkai font-medium rounded-full hover:bg-primary-500 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5;
   }
-
   .btn-secondary {
-    @apply inline-flex items-center px-6 py-2.5 bg-white/70 backdrop-blur-sm text-primary-600 font-medium rounded-full border border-primary-200 hover:border-primary-400 hover:bg-primary-50 transition-all duration-200;
+    @apply inline-flex items-center px-8 py-3 bg-white/60 backdrop-blur-sm text-primary-700 font-wenkai font-medium rounded-full border border-primary-300/50 hover:border-primary-400 hover:bg-white/80 transition-all duration-300 hover:-translate-y-0.5;
   }
 }
 
-/* Decorative ink wash effect */
-.ink-decoration {
-  background: radial-gradient(ellipse at 20% 50%, rgba(51, 136, 99, 0.05) 0%, transparent 50%),
-              radial-gradient(ellipse at 80% 20%, rgba(196, 146, 42, 0.04) 0%, transparent 40%),
-              radial-gradient(ellipse at 60% 80%, rgba(51, 136, 99, 0.03) 0%, transparent 50%);
+/* ========== Hero Background ========== */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
 }
 
-/* Hero title with ink background */
-.hero-title-wrap {
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(5, 26, 21, 0.3) 0%,
+    rgba(5, 26, 21, 0.1) 30%,
+    rgba(5, 26, 21, 0.15) 60%,
+    rgba(5, 26, 21, 0.7) 100%
+  );
+}
+
+/* ========== Floating Mist Layers ========== */
+.mist-layer {
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  top: 0;
+  left: -50%;
+  pointer-events: none;
+}
+
+.mist-layer-1 {
+  background: radial-gradient(ellipse 80% 30% at 30% 70%, rgba(200, 235, 224, 0.12) 0%, transparent 70%),
+              radial-gradient(ellipse 60% 20% at 70% 60%, rgba(125, 188, 212, 0.08) 0%, transparent 60%);
+  animation: mistFloat1 20s ease-in-out infinite;
+}
+
+.mist-layer-2 {
+  background: radial-gradient(ellipse 70% 25% at 60% 75%, rgba(200, 235, 224, 0.1) 0%, transparent 65%),
+              radial-gradient(ellipse 50% 15% at 20% 65%, rgba(196, 147, 34, 0.05) 0%, transparent 50%);
+  animation: mistFloat2 28s ease-in-out infinite;
+}
+
+.mist-layer-3 {
+  background: radial-gradient(ellipse 90% 20% at 50% 85%, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
+  animation: mistFloat3 35s ease-in-out infinite;
+}
+
+@keyframes mistFloat1 {
+  0%, 100% { transform: translateX(0) translateY(0); }
+  50% { transform: translateX(5%) translateY(-2%); }
+}
+@keyframes mistFloat2 {
+  0%, 100% { transform: translateX(0) translateY(0); }
+  50% { transform: translateX(-4%) translateY(-1.5%); }
+}
+@keyframes mistFloat3 {
+  0%, 100% { transform: translateX(0) translateY(0); }
+  33% { transform: translateX(3%) translateY(-1%); }
+  66% { transform: translateX(-2%) translateY(0.5%); }
+}
+
+/* ========== Golden Particles ========== */
+.golden-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.golden-particles::before,
+.golden-particles::after {
+  content: '';
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(234, 192, 76, 0.6);
+  box-shadow:
+    120px 80px 0 rgba(234, 192, 76, 0.4),
+    280px 150px 0 rgba(234, 192, 76, 0.3),
+    450px 60px 0 rgba(234, 192, 76, 0.5),
+    600px 200px 0 rgba(234, 192, 76, 0.35),
+    780px 100px 0 rgba(234, 192, 76, 0.45),
+    900px 180px 0 rgba(234, 192, 76, 0.3),
+    150px 300px 0 rgba(234, 192, 76, 0.4),
+    350px 250px 0 rgba(234, 192, 76, 0.25),
+    520px 320px 0 rgba(234, 192, 76, 0.5),
+    700px 280px 0 rgba(234, 192, 76, 0.35);
+  animation: particleFloat 12s ease-in-out infinite;
+}
+
+.golden-particles::after {
+  animation-delay: -6s;
+  animation-duration: 15s;
+  opacity: 0.7;
+}
+
+@keyframes particleFloat {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.6; }
+  25% { transform: translateY(-20px) scale(1.2); opacity: 0.9; }
+  50% { transform: translateY(-35px) scale(0.8); opacity: 0.4; }
+  75% { transform: translateY(-15px) scale(1.1); opacity: 0.8; }
+}
+
+/* ========== Hero Title Calligraphy Reveal ========== */
+.hero-title {
   position: relative;
   display: inline-block;
 }
 
-.hero-title-wrap::before {
+.hero-title::before {
   content: '';
   position: absolute;
-  inset: -12px -24px;
+  inset: -20px -40px;
   background: radial-gradient(ellipse at center,
-    rgba(51, 136, 99, 0.08) 0%,
-    rgba(196, 146, 42, 0.04) 40%,
+    rgba(10, 92, 69, 0.25) 0%,
+    rgba(13, 61, 51, 0.15) 40%,
     transparent 70%);
   border-radius: 50%;
-  z-index: 0;
-  filter: blur(8px);
+  filter: blur(12px);
+  animation: titleGlow 4s ease-in-out infinite alternate;
 }
 
-.hero-title-wrap > * {
+@keyframes titleGlow {
+  0% { opacity: 0.6; transform: scale(1); }
+  100% { opacity: 1; transform: scale(1.05); }
+}
+
+.hero-title-text {
   position: relative;
   z-index: 1;
+  background: linear-gradient(135deg, #eac04c 0%, #f2d78a 30%, #c49322 60%, #eac04c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 2px 8px rgba(196, 147, 34, 0.3));
+}
+
+/* ========== Seal Stamp ========== */
+.seal-stamp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 2px solid #c4382a;
+  color: #c4382a;
+  font-family: 'Noto Serif SC', serif;
+  font-size: 12px;
+  font-weight: 700;
+  transform: rotate(-5deg);
+  opacity: 0.85;
+  line-height: 1;
+}
+
+/* ========== Scroll Reveal Animations ========== */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.reveal-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.reveal-scale.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ========== Hero Entrance Animations ========== */
+.hero-enter {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: heroEnter 1.2s ease-out forwards;
+}
+.hero-enter-delay-1 { animation-delay: 0.3s; }
+.hero-enter-delay-2 { animation-delay: 0.6s; }
+.hero-enter-delay-3 { animation-delay: 0.9s; }
+.hero-enter-delay-4 { animation-delay: 1.2s; }
+
+@keyframes heroEnter {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========== Scroll Indicator ========== */
+.scroll-indicator {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+.scroll-indicator::after {
+  content: '';
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(234, 192, 76, 0.8), transparent);
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ========== Navbar Scroll State ========== */
+.navbar-scrolled {
+  background: rgba(245, 242, 235, 0.95) !important;
+  backdrop-filter: blur(12px);
+  border-bottom-color: rgba(26, 107, 90, 0.15) !important;
+  box-shadow: 0 1px 8px rgba(5, 26, 21, 0.08);
+}
+
+/* ========== Ink Decoration Divider ========== */
+.ink-divider {
+  height: 2px;
+  background: linear-gradient(to right,
+    transparent 0%,
+    rgba(26, 107, 90, 0.1) 15%,
+    rgba(26, 107, 90, 0.3) 50%,
+    rgba(26, 107, 90, 0.1) 85%,
+    transparent 100%);
+  position: relative;
+}
+.ink-divider::after {
+  content: '◆';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(196, 147, 34, 0.5);
+  font-size: 8px;
+  background: inherit;
+}
+
+/* ========== Responsive ========== */
+@media (prefers-reduced-motion: reduce) {
+  .mist-layer,
+  .golden-particles::before,
+  .golden-particles::after,
+  .scroll-indicator,
+  .hero-title::before {
+    animation: none !important;
+  }
+  .reveal-up, .reveal-scale {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
