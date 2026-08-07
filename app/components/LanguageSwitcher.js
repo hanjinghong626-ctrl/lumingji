@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useParams, usePathname } from 'next/navigation';
 
-const locales = [
+const localeList = [
   { code: 'zh', label: '中文' },
   { code: 'ru', label: 'Русский' },
   { code: 'en', label: 'English' },
@@ -26,17 +26,17 @@ export default function LanguageSwitcher() {
 
   return (
     <div className="flex items-center gap-1 bg-parchment-100/80 backdrop-blur-sm rounded-full px-2 py-1 border border-primary-200/50">
-      {locales.map((l) => (
+      {localeList.map((loc) => (
         <Link
-          key={l.code}
-          href={getPathForLocale(l.code)}
+          key={loc.code}
+          href={getPathForLocale(loc.code)}
           className={`px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 ${
-            currentLocale === l.code
+            currentLocale === loc.code
               ? 'bg-primary-500 text-white shadow-sm'
               : 'text-primary-700 hover:bg-primary-100'
           }`}
         >
-          {l.label}
+          {loc.label}
         </Link>
       ))}
     </div>
