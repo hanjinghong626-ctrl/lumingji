@@ -18,9 +18,7 @@
   .section-subtitle {
     @apply text-base md:text-lg text-gray-500 mb-8;
   }
-  .card {
-    @apply bg-white/80 backdrop-blur-sm rounded-xl shadow-sm border border-primary-100/50 p-6 hover:shadow-lg hover:border-primary-200 transition-all duration-500;
-  }
+  /* old .card replaced by .feature-card */
   .btn-primary {
     @apply inline-flex items-center px-8 py-3 bg-primary-600 text-white font-wenkai font-medium rounded-full hover:bg-primary-500 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5;
   }
@@ -282,6 +280,200 @@
   color: rgba(196, 147, 34, 0.5);
   font-size: 8px;
   background: inherit;
+}
+
+
+/* ========== Cards Section Background ========== */
+.cards-section {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    #f5f2eb 0%,
+    #eef8f5 30%,
+    #eef6f9 60%,
+    #f5f2eb 100%
+  );
+}
+
+.cards-section-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 40% at 10% 20%, rgba(15, 155, 116, 0.04) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 50% at 90% 80%, rgba(21, 94, 122, 0.04) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 30% at 50% 50%, rgba(196, 147, 34, 0.02) 0%, transparent 60%);
+}
+
+/* ========== Section Header Ornaments ========== */
+.section-header-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.ornament-line {
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(196, 147, 34, 0.5), transparent);
+}
+
+.ornament-diamond {
+  color: rgba(196, 147, 34, 0.6);
+  font-size: 10px;
+}
+
+/* ========== Feature Cards ========== */
+.feature-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(26, 107, 90, 0.12);
+  border-radius: 16px;
+  padding: 2rem 1.75rem;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--card-accent, #0f9b74), transparent);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--card-accent, #0f9b74);
+  box-shadow:
+    0 20px 40px -12px rgba(0, 0, 0, 0.08),
+    0 0 0 1px var(--card-accent, #0f9b74),
+    0 8px 24px -8px rgba(15, 155, 116, 0.15);
+}
+
+.feature-card:hover::before {
+  opacity: 1;
+}
+
+/* Card accent variants */
+.card-jade { --card-accent: #0f9b74; }
+.card-peacock { --card-accent: #155e7a; }
+.card-accent { --card-accent: #c49322; }
+
+/* Card corner decorations */
+.card-corner {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.feature-card:hover .card-corner {
+  opacity: 0.4;
+}
+
+.card-corner-tl {
+  top: 8px; left: 8px;
+  border-top: 2px solid var(--card-accent, #0f9b74);
+  border-left: 2px solid var(--card-accent, #0f9b74);
+}
+.card-corner-tr {
+  top: 8px; right: 8px;
+  border-top: 2px solid var(--card-accent, #0f9b74);
+  border-right: 2px solid var(--card-accent, #0f9b74);
+}
+.card-corner-bl {
+  bottom: 8px; left: 8px;
+  border-bottom: 2px solid var(--card-accent, #0f9b74);
+  border-left: 2px solid var(--card-accent, #0f9b74);
+}
+.card-corner-br {
+  bottom: 8px; right: 8px;
+  border-bottom: 2px solid var(--card-accent, #0f9b74);
+  border-right: 2px solid var(--card-accent, #0f9b74);
+}
+
+/* Card icon */
+.feature-card-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  background: linear-gradient(135deg, rgba(15, 155, 116, 0.08), rgba(21, 94, 122, 0.08));
+  color: var(--card-accent, #0f9b74);
+  transition: all 0.4s ease;
+}
+
+.feature-card:hover .feature-card-icon {
+  background: linear-gradient(135deg, rgba(15, 155, 116, 0.15), rgba(21, 94, 122, 0.15));
+  transform: scale(1.05);
+}
+
+.card-peacock .feature-card-icon {
+  background: linear-gradient(135deg, rgba(21, 94, 122, 0.08), rgba(29, 122, 158, 0.08));
+}
+.card-peacock:hover .feature-card-icon {
+  background: linear-gradient(135deg, rgba(21, 94, 122, 0.15), rgba(29, 122, 158, 0.15));
+}
+.card-accent .feature-card-icon {
+  background: linear-gradient(135deg, rgba(196, 147, 34, 0.08), rgba(234, 192, 76, 0.08));
+  color: #a0741a;
+}
+.card-accent:hover .feature-card-icon {
+  background: linear-gradient(135deg, rgba(196, 147, 34, 0.15), rgba(234, 192, 76, 0.15));
+}
+
+/* Card title */
+.feature-card-title {
+  font-family: 'LXGW WenKai TC', 'Noto Serif SC', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1c1c18;
+  margin-bottom: 0.75rem;
+  transition: color 0.3s ease;
+}
+
+.feature-card:hover .feature-card-title {
+  color: var(--card-accent, #0f9b74);
+}
+
+/* Card description */
+.feature-card-desc {
+  font-family: 'LXGW WenKai TC', 'Noto Serif SC', serif;
+  font-size: 0.9rem;
+  color: #5c5c52;
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+}
+
+/* Card link */
+.feature-card-link {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'LXGW WenKai TC', 'Noto Serif SC', serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--card-accent, #0f9b74);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: all 0.4s ease;
+}
+
+.feature-card:hover .feature-card-link {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ========== Responsive ========== */
