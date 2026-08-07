@@ -31,9 +31,9 @@ export default function HomePage() {
       href: `/${l}/life`,
       titleKey: 'home.section_life_title',
       descKey: 'home.section_life_desc',
-      iconColor: 'jade',
+      accentClass: 'card-jade',
       icon: (
-        <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
         </svg>
       ),
@@ -42,9 +42,9 @@ export default function HomePage() {
       href: `/${l}/universities`,
       titleKey: 'home.section_uni_title',
       descKey: 'home.section_uni_desc',
-      iconColor: 'peacock',
+      accentClass: 'card-peacock',
       icon: (
-        <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 14l9-5-9-5-9 5 9 5z" />
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
@@ -55,20 +55,14 @@ export default function HomePage() {
       href: `/${l}/community`,
       titleKey: 'home.section_community_title',
       descKey: 'home.section_community_desc',
-      iconColor: 'primary',
+      accentClass: 'card-accent',
       icon: (
-        <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
         </svg>
       ),
     },
   ];
-
-  const iconColors = {
-    jade: 'bg-jade-100 text-jade-600 group-hover:bg-jade-200',
-    peacock: 'bg-peacock-100 text-peacock-600 group-hover:bg-peacock-200',
-    primary: 'bg-primary-100 text-primary-600 group-hover:bg-primary-200',
-  };
 
   return (
     <div>
@@ -135,23 +129,31 @@ export default function HomePage() {
       {/* ============ Ink Divider ============ */}
       <div className="ink-divider" />
 
-      {/* ============ Feature Cards ============ */}
-      <section className="bg-parchment-50 py-20 md:py-28">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+      {/* ============ Feature Cards — 青绿山水风格 ============ */}
+      <section className="cards-section">
+        {/* Decorative background elements */}
+        <div className="cards-section-bg" />
+
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-20 md:py-28">
+          {/* Section Header */}
           <div
             ref={(el) => (sectionRefs.current[0] = el)}
             className="reveal-up text-center mb-16"
           >
-            <h2 className="section-title">
-              <span className="text-accent-500">❖</span>{' '}
-              {t('site.name')}{' '}
-              <span className="text-accent-500">❖</span>
+            <div className="section-header-ornament">
+              <span className="ornament-line" />
+              <span className="ornament-diamond">❖</span>
+              <span className="ornament-line" />
+            </div>
+            <h2 className="section-title mt-4">
+              {t('site.name')}
             </h2>
             <p className="section-subtitle font-wenkai">
               {t('site.description')}
             </p>
           </div>
 
+          {/* Cards Grid */}
           <div className="grid md:grid-cols-3 gap-6 md:gap-8">
             {features.map((feature, i) => (
               <div
@@ -160,21 +162,32 @@ export default function HomePage() {
                 className="reveal-up"
                 style={{ transitionDelay: `${i * 0.15}s` }}
               >
-                <Link href={feature.href} className="card group block h-full">
-                  <div
-                    className={`w-14 h-14 rounded-xl flex items-center justify-center mb-5 transition-colors duration-300 ${iconColors[feature.iconColor]}`}
-                  >
+                <Link href={feature.href} className={`feature-card group block h-full ${feature.accentClass}`}>
+                  {/* Card corner decorations */}
+                  <span className="card-corner card-corner-tl" />
+                  <span className="card-corner card-corner-tr" />
+                  <span className="card-corner card-corner-bl" />
+                  <span className="card-corner card-corner-br" />
+
+                  {/* Icon */}
+                  <div className="feature-card-icon">
                     {feature.icon}
                   </div>
-                  <h3 className="text-lg font-wenkai font-bold text-gray-800 mb-3 group-hover:text-primary-600 transition-colors">
+
+                  {/* Title */}
+                  <h3 className="feature-card-title">
                     {t(feature.titleKey)}
                   </h3>
-                  <p className="text-sm text-gray-500 leading-relaxed mb-4">
+
+                  {/* Description */}
+                  <p className="feature-card-desc">
                     {t(feature.descKey)}
                   </p>
-                  <span className="inline-flex items-center text-sm text-primary-500 font-wenkai font-medium group-hover:text-primary-600 transition-colors">
+
+                  {/* Learn more link */}
+                  <span className="feature-card-link">
                     {t('home.learn_more')}
-                    <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 ml-1 group-hover:translate-x-1.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                   </span>
@@ -184,21 +197,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* ============ Bottom Mountain Silhouette ============ */}
-      <div className="relative h-16 bg-primary-800">
-        <svg
-          className="absolute top-0 left-0 w-full h-full"
-          viewBox="0 0 1440 64"
-          preserveAspectRatio="none"
-          fill="none"
-        >
-          <path
-            d="M0 64L0 32C120 20 240 8 360 16C480 24 600 36 720 32C840 28 960 12 1080 8C1200 4 1320 16 1380 24L1440 32L1440 64Z"
-            fill="rgb(8, 43, 35)"
-          />
-        </svg>
-      </div>
     </div>
   );
 }
