@@ -1,0 +1,90 @@
+{
+  "site": {
+    "name": "鹿鸣集",
+    "tagline": "呦呦鹿鸣，食野之苹。我有嘉宾，鼓瑟吹笙。",
+    "description": "以三千年前的古礼，迎接远方来客"
+  },
+  "nav": {
+    "home": "首页",
+    "life": "生活指南",
+    "universities": "高校信息",
+    "community": "社群",
+    "about": "关于我们"
+  },
+  "home": {
+    "hero_title": "鹿鸣集",
+    "hero_subtitle": "来华留学生生活服务平台",
+    "hero_desc": "源自《诗经·小雅》的千年迎宾之礼，为远道而来的你，提供在中国的温暖指引",
+    "cta_explore": "开始探索",
+    "cta_community": "加入社群",
+    "section_life_title": "生活指南",
+    "section_life_desc": "交通、住房、饮食、银行——在中国生活的实用信息",
+    "section_uni_title": "高校信息",
+    "section_uni_desc": "青岛高校一览，找到你的学术之家",
+    "section_community_title": "留学社群",
+    "section_community_desc": "连接在青岛的各国留学生，不再孤单",
+    "learn_more": "了解更多"
+  },
+  "life": {
+    "title": "生活指南",
+    "subtitle": "在中国的日常生活，从这里开始",
+    "categories": {
+      "transport": {
+        "title": "交通出行",
+        "desc": "公交、地铁、打车、高铁——青岛出行全攻略"
+      },
+      "housing": {
+        "title": "住房租房",
+        "desc": "校内宿舍、校外租房、中介避坑指南"
+      },
+      "food": {
+        "title": "饮食推荐",
+        "desc": "清真餐厅、各国美食、本地特色推荐"
+      },
+      "banking": {
+        "title": "银行开户",
+        "desc": "如何在中国开户、移动支付设置指南"
+      },
+      "visa": {
+        "title": "签证须知",
+        "desc": "签证类型、续签流程、居留许可办理"
+      },
+      "medical": {
+        "title": "医疗健康",
+        "desc": "医院就诊、医疗保险、急诊指南"
+      }
+    }
+  },
+  "universities": {
+    "title": "青岛高校",
+    "subtitle": "找到你的学术之家",
+    "placeholder": "高校详细信息正在整理中，敬请期待"
+  },
+  "community": {
+    "title": "留学社群",
+    "subtitle": "认识朋友，分享经验，不再孤单",
+    "telegram": "Telegram 群组",
+    "telegram_desc": "加入我们的 Telegram 群组，实时交流",
+    "vk": "VK 群组",
+    "vk_desc": "ВКонтакте 俄语社群，连接在青俄语留学生",
+    "wechat": "微信公众号",
+    "wechat_desc": "关注获取最新生活资讯和活动通知",
+    "join_hint": "选择你的平台，立即加入"
+  },
+  "about": {
+    "title": "关于鹿鸣集",
+    "subtitle": "我们的故事",
+    "story_title": "为什么叫鹿鸣集？",
+    "story_p1": "「呦呦鹿鸣，食野之苹。我有嘉宾，鼓瑟吹笙。」",
+    "story_p2": "这段来自三千年前《诗经·小雅》的诗句，是周朝天子宴请远方宾客时唱的歌。鹿在旷野中找到美食，便呼唤同伴来分享——这是中国最古老的待客之道。",
+    "story_p3": "「鹿鸣集」取此典故为名，希望以这份古礼之心，迎接每一位远道而来的留学生。无论你是来自俄罗斯、中亚、非洲还是世界各地，在这片土地上，你都是我们的「嘉宾」。",
+    "mission_title": "我们的使命",
+    "mission_desc": "帮助每一位来华留学生更好地适应在中国的生活，感受中华文化的热情与温度。",
+    "team_title": "团队",
+    "team_desc": "鹿鸣集由在青岛的留学生和教育工作者共同创建，我们了解初来异国的困惑与挑战。"
+  },
+  "footer": {
+    "copyright": "© 2026 鹿鸣集 LuMingJi. All rights reserved.",
+    "made_with": "用 ❤️ 为来华留学生而建"
+  }
+}
