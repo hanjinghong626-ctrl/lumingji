@@ -1,0 +1,90 @@
+{
+  "site": {
+    "name": "LuMingJi",
+    "tagline": "Deer call in the wild, sharing the meadow. We welcome our guests with music and joy.",
+    "description": "A 3,000-year-old ancient greeting for guests from afar"
+  },
+  "nav": {
+    "home": "Home",
+    "life": "Life Guide",
+    "universities": "Universities",
+    "community": "Community",
+    "about": "About"
+  },
+  "home": {
+    "hero_title": "LuMingJi",
+    "hero_subtitle": "International Students Life Platform in China",
+    "hero_desc": "Inspired by the ancient poetry of the Shijing, we warmly welcome every student who comes from afar",
+    "cta_explore": "Start Exploring",
+    "cta_community": "Join Community",
+    "section_life_title": "Life Guide",
+    "section_life_desc": "Transportation, housing, food, banking — practical info for living in China",
+    "section_uni_title": "Universities",
+    "section_uni_desc": "Qingdao universities at a glance — find your academic home",
+    "section_community_title": "Student Community",
+    "section_community_desc": "Connect with international students in Qingdao, never feel alone",
+    "learn_more": "Learn More"
+  },
+  "life": {
+    "title": "Life Guide",
+    "subtitle": "Your daily life in China starts here",
+    "categories": {
+      "transport": {
+        "title": "Transportation",
+        "desc": "Bus, metro, ride-hailing, high-speed rail — getting around Qingdao"
+      },
+      "housing": {
+        "title": "Housing",
+        "desc": "Dormitories, renting apartments, avoiding agency traps"
+      },
+      "food": {
+        "title": "Food & Dining",
+        "desc": "Halal restaurants, international cuisine, local specialties"
+      },
+      "banking": {
+        "title": "Banking",
+        "desc": "Opening accounts, mobile payments — Alipay & WeChat Pay setup"
+      },
+      "visa": {
+        "title": "Visa & Residence",
+        "desc": "Visa types, renewal process, residence permits"
+      },
+      "medical": {
+        "title": "Healthcare",
+        "desc": "Hospitals, insurance, emergency care guide"
+      }
+    }
+  },
+  "universities": {
+    "title": "Qingdao Universities",
+    "subtitle": "Find your academic home",
+    "placeholder": "University information is being compiled. Stay tuned!"
+  },
+  "community": {
+    "title": "Community",
+    "subtitle": "Make friends, share experiences, never feel alone",
+    "telegram": "Telegram Group",
+    "telegram_desc": "Join our Telegram group for real-time chat",
+    "vk": "VK Group",
+    "vk_desc": "Russian-speaking community for international students in Qingdao",
+    "wechat": "WeChat",
+    "wechat_desc": "Follow us for latest updates and events",
+    "join_hint": "Choose your platform and join now"
+  },
+  "about": {
+    "title": "About LuMingJi",
+    "subtitle": "Our Story",
+    "story_title": "Why 'LuMingJi'?",
+    "story_p1": "\"Deer call in the wild, sharing the meadow. We welcome our guests with music and joy.\"",
+    "story_p2": "These lines from the Shijing — poetry from 3,000 years ago — were sung to honor distinguished guests at royal banquets. A deer, upon finding food, calls its companions to share the feast — this is China's most ancient tradition of hospitality.",
+    "story_p3": "LuMingJi (The Gathering of the Deer's Call) takes its name from this tradition. We welcome every international student as an honored guest — whether you come from Russia, Central Asia, Africa, or anywhere else in the world.",
+    "mission_title": "Our Mission",
+    "mission_desc": "To help every international student adapt to life in China and feel the warmth of Chinese culture.",
+    "team_title": "Our Team",
+    "team_desc": "LuMingJi was founded by international students and educators in Qingdao. We understand the challenges of starting fresh in a new country."
+  },
+  "footer": {
+    "copyright": "© 2026 LuMingJi. All rights reserved.",
+    "made_with": "Made with ❤️ for international students in China"
+  }
+}
