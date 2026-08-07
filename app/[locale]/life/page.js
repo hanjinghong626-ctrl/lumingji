@@ -1,12 +1,6 @@
 'use client';
 
-import { useParams } from 'next/navigation';
-import messages from '../../../messages/life.json';
-
-function resolve(val, locale) {
-  if (typeof val === 'object' && val !== null) return val[locale] || val['zh'] || '';
-  return val;
-}
+import { useI18n } from '../../../i18n-context';
 
 const categories = [
   { key: 'transport', icon: '🚌' },
@@ -18,23 +12,13 @@ const categories = [
 ];
 
 export default function LifeGuidePage() {
-  const { locale } = useParams();
-  const l = locale || 'zh';
-  const t = (key) => {
-    const parts = key.split('.');
-    let val = messages;
-    for (const p of parts) {
-      if (val && typeof val === 'object') val = val[p];
-      else return key;
-    }
-    return resolve(val, l);
-  };
+  const { locale, t } = useI18n();
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
       <div className="text-center mb-12">
-        <h1 className="section-title">{t('title')}</h1>
-        <p className="section-subtitle">{t('subtitle')}</p>
+        <h1 className="section-title">{t('life.title')}</h1>
+        <p className="section-subtitle">{t('life.subtitle')}</p>
       </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -42,10 +26,10 @@ export default function LifeGuidePage() {
           <div key={cat.key} className="card group cursor-pointer">
             <div className="text-4xl mb-4">{cat.icon}</div>
             <h3 className="text-lg font-serif font-bold text-gray-800 mb-2 group-hover:text-primary-600 transition-colors">
-              {t(`categories.${cat.key}.title`)}
+              {t(`life.categories.${cat.key}.title`)}
             </h3>
             <p className="text-sm text-gray-500 leading-relaxed">
-              {t(`categories.${cat.key}.desc`)}
+              {t(`life.categories.${cat.key}.desc`)}
             </p>
           </div>
         ))}
@@ -53,7 +37,7 @@ export default function LifeGuidePage() {
 
       <div className="mt-16 text-center bg-parchment-100 rounded-2xl p-8 border border-primary-100/50">
         <p className="text-gray-500 text-sm">
-          📝 {l === 'zh' ? '内容正在整理中，敬请期待' : l === 'ru' ? 'Контент готовится, следите за обновлениями' : 'Content coming soon, stay tuned'}
+          📝 {locale === 'zh' ? '内容正在整理中，敬请期待' : locale === 'ru' ? 'Контент готовится, следите за обновлениями' : 'Content coming soon, stay tuned'}
         </p>
       </div>
     </div>
