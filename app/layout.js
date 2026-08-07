@@ -1,4 +1,4 @@
-import './globals.css';
+import '../styles/globals.css';
 
 export const metadata = {
   title: '鹿鸣集 LuMingJi',
