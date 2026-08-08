@@ -43,8 +43,8 @@ export default function UniversitiesPage() {
     
     const L = window.L;
     const map = L.map(mapRef.current, {
-      center: [36.1, 120.4],
-      zoom: 11,
+      center: [36.15, 120.40],
+      zoom: 10,
       zoomControl: true,
       scrollWheelZoom: false
     });
