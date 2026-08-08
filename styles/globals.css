@@ -252,6 +252,13 @@
   50% { transform: translateX(-50%) translateY(8px); }
 }
 
+/* ========== Navbar Hero State ========== */
+.navbar-hero {
+  background: rgba(5, 26, 21, 0.35) !important;
+  backdrop-filter: blur(8px);
+  border-bottom-color: rgba(255, 255, 255, 0.1) !important;
+}
+
 /* ========== Navbar Scroll State ========== */
 .navbar-scrolled {
   background: rgba(245, 242, 235, 0.95) !important;
@@ -491,3 +498,4 @@
     transition: none;
   }
 }
+
