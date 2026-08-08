@@ -1,85 +1,149 @@
 'use client';
 
 import { useI18n } from '../../../i18n-context';
-
-const universities = [
-  {
-    name: { zh: '中国海洋大学', ru: 'Университет Оукейан', en: 'Ocean University of China' },
-    type: { zh: '985/211', ru: '985/211', en: '985/211' },
-    address: { zh: '青岛市崂山区松岭路23号', ru: '23 Songling Rd, Laoshan', en: '23 Songling Road, Laoshan District' },
-  },
-  {
-    name: { zh: '中国石油大学（华东）', ru: 'Университет нефти Китая (Восток)', en: 'China University of Petroleum (East China)' },
-    type: { zh: '211', ru: '211', en: '211' },
-    address: { zh: '青岛市黄岛区长江西路66号', ru: '66 Changjiang West Rd, Huangdao', en: '66 Changjiang West Road, Huangdao' },
-  },
-  {
-    name: { zh: '山东大学（青岛）', ru: 'Университет Шаньдун (Циндао)', en: 'Shandong University (Qingdao)' },
-    type: { zh: '985/211', ru: '985/211', en: '985/211' },
-    address: { zh: '青岛市即墨区滨海路72号', ru: '72 Binhai Rd, Jimo', en: '72 Binhai Road, Jimo District' },
-  },
-  {
-    name: { zh: '青岛大学', ru: 'Циндаоский университет', en: 'Qingdao University' },
-    type: { zh: '省属重点', ru: 'Провинциальный', en: 'Provincial Key' },
-    address: { zh: '青岛市崂山区宁夏路308号', ru: '308 Ningxia Rd, Laoshan', en: '308 Ningxia Road, Laoshan District' },
-  },
-  {
-    name: { zh: '青岛科技大学', ru: 'Университет науки и технологий Циндао', en: 'Qingdao University of Science & Technology' },
-    type: { zh: '省属重点', ru: 'Провинциальный', en: 'Provincial Key' },
-    address: { zh: '青岛市崂山区松岭路99号', ru: '99 Songling Rd, Laoshan', en: '99 Songling Road, Laoshan District' },
-  },
-  {
-    name: { zh: '山东科技大学', ru: 'Университет науки и техники Шаньдун', en: 'Shandong University of Science and Technology' },
-    type: { zh: '省属重点', ru: 'Провинциальный', en: 'Provincial Key' },
-    address: { zh: '青岛市黄岛区前湾港路579号', ru: '579 Qianwan Port Rd, Huangdao', en: '579 Qianwan Port Road, Huangdao' },
-  },
-  {
-    name: { zh: '青岛理工大学', ru: 'Технологический университет Циндао', en: 'Qingdao University of Technology' },
-    type: { zh: '省属', ru: 'Провинциальный', en: 'Provincial' },
-    address: { zh: '青岛市市北区抚顺路11号', ru: '11 Fushun Rd, Shibei', en: '11 Fushun Road, Shibei District' },
-  },
-  {
-    name: { zh: '青岛农业大学', ru: 'Сельскохозяйственный университет Циндао', en: 'Qingdao Agricultural University' },
-    type: { zh: '省属', ru: 'Провинциальный', en: 'Provincial' },
-    address: { zh: '青岛市城阳区长城路700号', ru: '700 Changcheng Rd, Chengyang', en: '700 Changcheng Road, Chengyang' },
-  },
-];
+import { universities } from './universityData';
+import { useRouter } from 'next/navigation';
+import { useEffect, useRef, useState } from 'react';
 
 export default function UniversitiesPage() {
   const { locale, t } = useI18n();
   const l = locale;
+  const router = useRouter();
+  const mapRef = useRef(null);
+  const mapInstanceRef = useRef(null);
+  const [mapLoaded, setMapLoaded] = useState(false);
+
+  // Load Leaflet CSS and JS
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    
+    // Load Leaflet CSS
+    if (!document.getElementById('leaflet-css')) {
+      const link = document.createElement('link');
+      link.id = 'leaflet-css';
+      link.rel = 'stylesheet';
+      link.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+      document.head.appendChild(link);
+    }
+    
+    // Load Leaflet JS
+    if (!window.L) {
+      const script = document.createElement('script');
+      script.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+      script.onload = () => setMapLoaded(true);
+      document.head.appendChild(script);
+    } else {
+      setMapLoaded(true);
+    }
+  }, []);
+
+  // Initialize map
+  useEffect(() => {
+    if (!mapLoaded || !mapRef.current || mapInstanceRef.current) return;
+    
+    const L = window.L;
+    const map = L.map(mapRef.current, {
+      center: [36.1, 120.4],
+      zoom: 11,
+      zoomControl: true,
+      scrollWheelZoom: false
+    });
+    
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap',
+      maxZoom: 18
+    }).addTo(map);
+    
+    // Add markers
+    universities.forEach(uni => {
+      const marker = L.marker([uni.lat, uni.lng]).addTo(map);
+      marker.bindPopup(`<b>${uni.name[l]}</b><br/>${uni.address[l]}`);
+      marker.on('click', () => {
+        router.push(`/${l}/universities/${uni.id}`);
+      });
+    });
+    
+    mapInstanceRef.current = map;
+  }, [mapLoaded, l]);
+
+  const tagColors = {
+    '985': 'bg-red-100 text-red-700',
+    '211': 'bg-blue-100 text-blue-700',
+    '双一流': 'bg-purple-100 text-purple-700',
+    '省属重点': 'bg-green-100 text-green-700',
+    '省属': 'bg-gray-100 text-gray-700',
+    'Двойной первый класс': 'bg-purple-100 text-purple-700',
+    'Провинциальный ключевой': 'bg-green-100 text-green-700',
+    'Провинциальный': 'bg-gray-100 text-gray-700',
+    'Double First-Class': 'bg-purple-100 text-purple-700',
+    'Provincial Key': 'bg-green-100 text-green-700',
+    'Provincial': 'bg-gray-100 text-gray-700'
+  };
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
-      <div className="text-center mb-12">
-        <h1 className="section-title">{t('universities.title')}</h1>
-        <p className="section-subtitle">{t('universities.subtitle')}</p>
-      </div>
-
-      <div className="grid md:grid-cols-2 gap-6">
-        {universities.map((uni, idx) => (
-          <div key={idx} className="card">
-            <div className="flex items-start justify-between mb-3">
-              <h3 className="text-lg font-serif font-bold text-gray-800">
-                {uni.name[l]}
-              </h3>
-              <span className="text-xs px-2 py-1 bg-accent-100 text-accent-700 rounded-full font-medium whitespace-nowrap ml-2">
-                {uni.type[l]}
-              </span>
-            </div>
-            <p className="text-sm text-gray-500 flex items-start gap-1">
-              <svg className="w-4 h-4 mt-0.5 flex-shrink-0 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
-              {uni.address[l]}
-            </p>
+    <div className="min-h-screen bg-gradient-to-b from-emerald-50 via-white to-emerald-50">
+      {/* Hero */}
+      <div className="relative h-64 md:h-80 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-800 via-teal-700 to-cyan-800"></div>
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-10 left-10 w-32 h-32 rounded-full bg-emerald-400 blur-3xl"></div>
+          <div className="absolute bottom-10 right-10 w-40 h-40 rounded-full bg-teal-300 blur-3xl"></div>
+        </div>
+        <div className="relative h-full flex items-center justify-center">
+          <div className="text-center text-white">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">{t('universities.title')}</h1>
+            <p className="text-lg md:text-xl opacity-90">{t('universities.subtitle')}</p>
           </div>
-        ))}
+        </div>
       </div>
 
-      <div className="mt-12 text-center">
-        <p className="text-gray-400 text-sm">{t('universities.placeholder')}</p>
+      {/* Map Section */}
+      <div className="max-w-7xl mx-auto px-4 py-8">
+        <div className="bg-white rounded-2xl shadow-xl overflow-hidden mb-12">
+          <div className="p-6 bg-gradient-to-r from-emerald-600 to-teal-600">
+            <h2 className="text-2xl font-bold text-white">{t('universities.mapTitle')}</h2>
+          </div>
+          <div ref={mapRef} className="h-96 md:h-[500px] w-full"></div>
+        </div>
+
+        {/* University Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {universities.map(uni => (
+            <div
+              key={uni.id}
+              onClick={() => router.push(`/${l}/universities/${uni.id}`)}
+              className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden group"
+            >
+              <div className="h-32 bg-gradient-to-br from-emerald-500 to-teal-600 relative overflow-hidden">
+                <div className="absolute inset-0 opacity-30">
+                  <div className="absolute -top-4 -right-4 w-24 h-24 rounded-full bg-white blur-2xl"></div>
+                </div>
+                <div className="relative h-full flex items-center justify-center">
+                  <span className="text-4xl font-bold text-white">{uni.shortName[l]}</span>
+                </div>
+              </div>
+              <div className="p-5">
+                <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-emerald-600 transition-colors">
+                  {uni.name[l]}
+                </h3>
+                <div className="flex flex-wrap gap-1 mb-3">
+                  {uni.tags[l].map((tag, idx) => (
+                    <span key={idx} className={`px-2 py-0.5 rounded text-xs font-medium ${tagColors[tag] || 'bg-gray-100 text-gray-700'}`}>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <p className="text-sm text-gray-600 line-clamp-2">{uni.address[l]}</p>
+                <div className="mt-4 flex items-center text-emerald-600 text-sm font-medium group-hover:text-emerald-700">
+                  <span>{t('universities.viewDetails')}</span>
+                  <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
