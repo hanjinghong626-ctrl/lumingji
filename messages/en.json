@@ -28,30 +28,177 @@
   "life": {
     "title": "Life Guide",
     "subtitle": "Your daily life in China starts here",
+    "tip_label": "Tip",
+    "emergency": {
+      "title": "Emergency Numbers",
+      "police": "Police",
+      "ambulance": "Ambulance",
+      "fire": "Fire"
+    },
     "categories": {
       "transport": {
         "title": "Transportation",
-        "desc": "Bus, metro, ride-hailing, high-speed rail — getting around Qingdao"
+        "desc": "Qingdao has convenient public transport. Metro + bus covers the city, and ride-hailing and high-speed rail are also easy to use.",
+        "items": [
+          {
+            "icon": "🚌",
+            "title": "Bus",
+            "content": "Qingdao buses cover the entire city with a fare of usually 1 CNY. Four ways to pay by QR code: ① Search 'Qindao Tong' (琴岛通电子卡) in Alipay; ② Search 'Qindao Tong' mini-program in WeChat; ③ Download UnionPay QuickPass app; ④ Use the Qingdao Metro app. Since 2026, NFC 'tap to pay' is also supported.",
+            "tip": "International passport users can complete real-name verification in Alipay/WeChat to use QR codes."
+          },
+          {
+            "icon": "🚇",
+            "title": "Metro",
+            "content": "Qingdao Metro currently operates Lines 1, 2, 3, 4, 6, 8, 11, and 13, covering the main urban area, Laoshan, West Coast New Area, and Blue Valley. First train around 6:00 AM, last train around 10:00-10:30 PM. Line 8 connects directly to Jiaodong International Airport.",
+            "tip": "Line 2 Phase II and Line 8 South are expected to open by end of 2026."
+          },
+          {
+            "icon": "🚕",
+            "title": "Ride-hailing & Taxi",
+            "content": "We recommend using the 'DiDi' app for ride-hailing. It supports Alipay/WeChat Pay. Taxi starting fare is about 10 CNY. From Jiaodong Airport to the city center costs about 80-120 CNY, approximately 50 minutes.",
+            "tip": "DiDi has an English interface and supports English addresses."
+          },
+          {
+            "icon": "🚄",
+            "title": "High-speed Rail & Stations",
+            "content": "Qingdao has three main stations: Qingdao Station (Shinan District, closest to city center), Qingdao North Station (Licang District, major hub), and Qingdao West Station (West Coast). Buy tickets on the 12306 app or Ctrip — both accept passport registration."
+          }
+        ]
       },
       "housing": {
-        "title": "Housing",
-        "desc": "Dormitories, renting apartments, avoiding agency traps"
+        "title": "Housing & Renting",
+        "desc": "We recommend starting with campus dormitories. Consider renting outside after getting familiar with the city.",
+        "items": [
+          {
+            "icon": "🏫",
+            "title": "Campus Dormitory",
+            "content": "The most affordable and convenient option. Usually arranged by the International Education Office. Costs about 1,000-4,000 CNY per semester (varies by university). Typically a single or double room with basic furniture. Apply in advance through your university's international office."
+          },
+          {
+            "icon": "🔍",
+            "title": "Renting Outside",
+            "content": "Popular platforms: Beike (贝壳找房), Lianjia, 58.com. Shinan and Laoshan districts are convenient but pricier (single room ~1,500-3,000 CNY/month). Licang and Chengyang offer better value. Always visit the apartment in person before signing.",
+            "tip": "Ask a Chinese classmate or school advisor to help with communication and apartment viewing."
+          },
+          {
+            "icon": "⚠️",
+            "title": "Renting Tips",
+            "content": "①Verify the landlord's property certificate; ②Sign a formal lease contract (preferably bilingual); ③Clarify utility rates (residential vs. commercial rates differ greatly); ④Deposit is usually 1-2 months' rent; ⑤If living off-campus, you must register at the local police station for a 'Temporary Accommodation Registration Form'.",
+            "tip": "The Temporary Accommodation Registration is required for your residence permit — keep it safe!"
+          }
+        ]
       },
       "food": {
         "title": "Food & Dining",
-        "desc": "Halal restaurants, international cuisine, local specialties"
+        "desc": "Chinese cuisine is incredibly diverse. Qingdao is famous for seafood and beer.",
+        "items": [
+          {
+            "icon": "🍚",
+            "title": "University Canteen",
+            "content": "The most affordable option, about 8-20 CNY per meal. Many universities have Halal windows and international student-friendly options. Payment via campus card or Alipay/WeChat QR scan."
+          },
+          {
+            "icon": "📱",
+            "title": "Food Delivery Apps",
+            "content": "Meituan (美团) and Ele.me (饿了么) are China's top delivery platforms, covering Chinese, Western, Japanese, Korean cuisine and more. Both support English addresses and accept Alipay or international credit cards. Delivery fee: 2-8 CNY; minimum order: usually 15-25 CNY.",
+            "tip": "First-time users can claim new-user coupons for big discounts."
+          },
+          {
+            "icon": "🥘",
+            "title": "Halal Restaurants",
+            "content": "Qingdao has several Halal restaurants, mainly in Shinan District. Search 'Halal' or '清真' on Meituan/Dianping. Lanzhou hand-pulled noodle shops (兰州拉面) are found everywhere in China and are the easiest Halal option.",
+            "tip": "Look for the 'Halal' sign or Arabic 'حلال' label on restaurant entrances."
+          },
+          {
+            "icon": "🍺",
+            "title": "Qingdao Specialties",
+            "content": "Qingdao is famous for seafood and beer. Must-try: ①Tsingtao Beer (fresh draft beer is a must); ②Pichai Yuan snack street; ③Taidong Pedestrian Street food; ④Pork Rib Rice (local fast food specialty); ⑤Seafood stalls on Yingkou Road Beer Street."
+          }
+        ]
       },
       "banking": {
-        "title": "Banking",
-        "desc": "Opening accounts, mobile payments — Alipay & WeChat Pay setup"
+        "title": "Banking & Payments",
+        "desc": "Mobile payment is everywhere in China. Opening a bank account is your first step.",
+        "items": [
+          {
+            "icon": "🏦",
+            "title": "Opening a Bank Account",
+            "content": "Recommended banks: Bank of China (BOC) or ICBC — they have the most branches and experience with international services. Required documents: ①Valid passport; ②University admission letter or enrollment certificate; ③Temporary Accommodation Registration Form. Processing time: about 30-60 minutes.",
+            "tip": "Ask to activate mobile banking and online banking at the same time."
+          },
+          {
+            "icon": "📲",
+            "title": "Alipay",
+            "content": "China's most popular mobile payment tool — accepted at supermarkets, restaurants, buses, metro, and virtually everywhere. International users can download the Alipay international version and link a foreign credit card (Visa/Mastercard). You can also link a Chinese bank account.",
+            "tip": "Alipay supports multiple languages — switch to English in the app settings."
+          },
+          {
+            "icon": "💬",
+            "title": "WeChat Pay",
+            "content": "Built into WeChat, equally widely accepted. After linking a foreign credit card, you can scan QR codes to pay. WeChat Red Packets and transfers are commonly used in Chinese social life.",
+            "tip": "Enable WeChat Pay via: Me → Services → Wallet. Real-name verification is required first."
+          },
+          {
+            "icon": "💱",
+            "title": "International Transfers",
+            "content": "Bank of China and ICBC both support international wire transfers, typically arriving in 3-5 business days. Western Union and MoneyGram are also available at select bank branches."
+          }
+        ]
       },
       "visa": {
-        "title": "Visa & Residence",
-        "desc": "Visa types, renewal process, residence permits"
+        "title": "Visa & Residence Permit",
+        "desc": "Your student visa is critical. Pay close attention to deadlines and required documents.",
+        "items": [
+          {
+            "icon": "📝",
+            "title": "X1 Visa (Long-term Study)",
+            "content": "For study programs longer than 180 days (6 months). Valid for 30 days after entry — you must apply for a Residence Permit within 30 days. With a residence permit, you can enter and exit China multiple times. Required for visa application: admission letter + JW201/JW202 form."
+          },
+          {
+            "icon": "📄",
+            "title": "X2 Visa (Short-term Study)",
+            "content": "For study programs shorter than 180 days. The permitted stay duration (30-180 days) is shown on the visa. Usually single-entry — once you leave China, you cannot re-enter with the same visa. No residence permit required."
+          },
+          {
+            "icon": "🏛️",
+            "title": "Residence Permit Application",
+            "content": "X1 visa holders must apply within 30 days of entry. Required documents: ①Passport (original + copies of info page, visa page, latest entry stamp); ②Visa Application Form; ③Temporary Accommodation Registration; ④JW201/JW202 form (original); ⑤Admission letter (original); ⑥Medical examination report from a designated hospital; ⑦2-inch white background photo; ⑧Official letter from your university. Usually processed through the international student office.",
+            "tip": "The medical exam requires fasting. Schedule it soon after arrival."
+          },
+          {
+            "icon": "🔄",
+            "title": "Visa Extension",
+            "content": "Apply for extension 30 days before your residence permit expires, through your university's international office. Required: enrollment certificate, tuition payment proof, valid passport. Processing takes 10-15 business days — plan ahead."
+          }
+        ]
       },
       "medical": {
         "title": "Healthcare",
-        "desc": "Hospitals, insurance, emergency care guide"
+        "desc": "We recommend purchasing health insurance before coming to China. Know where the nearest hospitals are.",
+        "items": [
+          {
+            "icon": "🏥",
+            "title": "Campus Clinic",
+            "content": "Every university has a campus clinic or medical office for common illnesses like colds and fevers, at low cost. Usually open Monday-Friday 8:00-17:00. For serious conditions, you'll be referred to a larger hospital."
+          },
+          {
+            "icon": "🏨",
+            "title": "Major Hospitals",
+            "content": "Recommended: Affiliated Hospital of Qingdao University (Class III-A, top comprehensive hospital); Qingdao Municipal Hospital (Class III-A). Book appointments via hospital apps or WeChat. Bring your passport; some hospitals have international medical departments.",
+            "tip": "Make sure you have health insurance that covers your entire stay in China."
+          },
+          {
+            "icon": "💊",
+            "title": "Buying Medicine",
+            "content": "Common medicines (cold, fever, stomach) can be bought at pharmacies without a prescription. Antibiotics require a doctor's prescription. Pharmacies are usually open until 9-10 PM.",
+            "tip": "Ask a Chinese friend to help translate, or show the pharmacist a photo of the medicine name."
+          },
+          {
+            "icon": "🆘",
+            "title": "Emergency",
+            "content": "Ambulance: 120 | Police: 110 | Fire: 119. For multilingual assistance, call 12345 (Citizen Service Hotline) — some cities offer multi-language support."
+          }
+        ]
       }
     }
   },

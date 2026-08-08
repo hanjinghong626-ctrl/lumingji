@@ -499,3 +499,67 @@
   }
 }
 
+
+/* ========== Life Guide Page ========== */
+
+/* Hide scrollbar for tab navigation */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Life guide content cards */
+.life-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(15, 155, 116, 0.12);
+  border-radius: 16px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  animation: lifeCardFadeIn 0.4s ease forwards;
+  opacity: 0;
+}
+
+.life-card:hover {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(15, 155, 116, 0.3);
+  box-shadow: 0 4px 20px rgba(15, 155, 116, 0.08);
+  transform: translateY(-2px);
+}
+
+@keyframes lifeCardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Content area enter animation */
+.life-content-enter {
+  animation: contentFadeIn 0.35s ease;
+}
+
+@keyframes contentFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive for life cards */
+@media (max-width: 640px) {
+  .life-card {
+    padding: 16px;
+  }
+}
