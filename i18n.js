@@ -21,7 +21,7 @@ export function getTranslations(locale) {
         return key;
       }
     }
-    return typeof val === 'string' ? val : key;
+    return val;
   }
 
   return { t, locale: l, messages };
