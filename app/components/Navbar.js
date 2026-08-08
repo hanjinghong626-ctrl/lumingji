@@ -27,13 +27,13 @@ export default function Navbar() {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
       scrolled
         ? 'navbar-scrolled'
-        : 'bg-transparent border-b border-transparent'
+        : 'navbar-hero'
     }`}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-12">
           <Link href={`/${l}`} className="flex items-center gap-1.5 group">
             <span className={`text-xl font-wenkai font-bold transition-colors duration-300 ${
-              scrolled ? 'text-primary-700' : 'text-white drop-shadow-md'
+              scrolled ? 'text-primary-700' : 'text-white'
             } group-hover:text-accent-400`}>
               {t('site.name')}
             </span>
@@ -47,7 +47,7 @@ export default function Navbar() {
                 className={`text-sm font-wenkai transition-colors duration-300 ${
                   scrolled
                     ? 'text-gray-600 hover:text-primary-600'
-                    : 'text-white/80 hover:text-white'
+                    : 'text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)] hover:text-white'
                 }`}
               >
                 {item.label}
@@ -65,7 +65,7 @@ export default function Navbar() {
                 className={`text-xs font-wenkai whitespace-nowrap px-1.5 py-0.5 rounded transition-all duration-300 ${
                   scrolled
                     ? 'text-gray-600 hover:text-primary-600'
-                    : 'text-white/70 hover:text-white'
+                    : 'text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)] hover:text-white'
                 }`}
               >
                 {item.label}
