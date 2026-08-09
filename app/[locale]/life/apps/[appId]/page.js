@@ -62,25 +62,38 @@ export default function AppGuideDetailPage() {
           </div>
         </div>
 
-        {/* 下载区域 */}
+        {/* ⭐ 下载区域 - 最醒目的位置 */}
         {guide.downloads && (
-          <div className="bg-white rounded-2xl border border-gray-100 p-6 mb-6">
-            <h2 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-              <span>📥</span>
-              {lang === 'ru' ? 'Скачать' : lang === 'en' ? 'Download' : '下载'}
+          <div className="bg-gradient-to-r from-emerald-600 to-teal-600 rounded-2xl p-6 md:p-8 mb-8 shadow-lg">
+            <h2 className="text-xl font-bold text-white mb-2 flex items-center gap-2">
+              <span className="text-2xl">⬇️</span>
+              {lang === 'ru' ? 'Скачать приложение' : lang === 'en' ? 'Download App' : '立即下载'}
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <p className="text-emerald-100 text-sm mb-5">
+              {lang === 'ru'
+                ? 'Выберите платформу для скачивания'
+                : lang === 'en'
+                ? 'Choose your platform to download'
+                : '选择你的平台，点击下载'}
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {guide.downloads.ios && (
                 <a
                   href={guide.downloads.ios}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 bg-gray-50 hover:bg-emerald-50 rounded-xl p-3 transition-colors border border-gray-100 hover:border-emerald-200"
+                  className="flex items-center gap-4 bg-white hover:bg-gray-50 rounded-xl p-4 transition-all shadow-md hover:shadow-xl hover:-translate-y-0.5"
                 >
-                  <span className="text-2xl">🍎</span>
+                  <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center flex-shrink-0">
+                    <span className="text-white text-2xl"></span>
+                  </div>
                   <div>
-                    <div className="text-sm font-medium text-gray-900">iOS (iPhone)</div>
-                    <div className="text-xs text-gray-400">App Store</div>
+                    <div className="text-xs text-gray-500">
+                      {lang === 'ru' ? 'Загрузить в' : 'Download on the'} App Store
+                    </div>
+                    <div className="text-lg font-bold text-gray-900">
+                      iOS / iPhone
+                    </div>
                   </div>
                 </a>
               )}
@@ -89,22 +102,26 @@ export default function AppGuideDetailPage() {
                   href={guide.downloads.android_cn}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 bg-gray-50 hover:bg-emerald-50 rounded-xl p-3 transition-colors border border-gray-100 hover:border-emerald-200"
+                  className="flex items-center gap-4 bg-white hover:bg-gray-50 rounded-xl p-4 transition-all shadow-md hover:shadow-xl hover:-translate-y-0.5"
                 >
-                  <span className="text-2xl">🤖</span>
+                  <div className="w-12 h-12 bg-[#3DDC84] rounded-xl flex items-center justify-center flex-shrink-0">
+                    <span className="text-white text-2xl">▶</span>
+                  </div>
                   <div>
-                    <div className="text-sm font-medium text-gray-900">Android</div>
-                    <div className="text-xs text-gray-400">
-                      {lang === 'ru' ? 'Официальный сайт' : lang === 'en' ? 'Official site' : '官网下载'}
+                    <div className="text-xs text-gray-500">
+                      {lang === 'ru' ? 'Скачать для' : lang === 'en' ? 'Get it for' : '下载'} Android
+                    </div>
+                    <div className="text-lg font-bold text-gray-900">
+                      {lang === 'ru' ? 'Официальный сайт' : lang === 'en' ? 'Official Site' : '官网下载'}
                     </div>
                   </div>
                 </a>
               )}
             </div>
             {guide.downloads.note && (
-              <p className="text-xs text-gray-500 mt-3 bg-amber-50 rounded-lg p-3">
+              <div className="mt-4 bg-white/20 rounded-lg p-3 text-sm text-white/90">
                 💡 {getText(guide.downloads.note)}
-              </p>
+              </div>
             )}
           </div>
         )}

@@ -53,8 +53,8 @@ export default function AppsGuideIndexPage() {
                   </p>
                 </div>
 
-                {/* 统计信息 */}
-                <div className="flex flex-wrap gap-3 text-xs text-gray-400">
+                {/* 统计信息 + 下载提示 */}
+                <div className="flex flex-wrap items-center gap-3 text-xs text-gray-400">
                   <span className="bg-gray-50 px-2 py-1 rounded-md">
                     {guide.stepCount} {lang === 'ru' ? 'шагов' : lang === 'en' ? 'steps' : '步'}
                   </span>
@@ -63,6 +63,9 @@ export default function AppsGuideIndexPage() {
                   </span>
                   <span className="bg-gray-50 px-2 py-1 rounded-md">
                     {guide.faqCount} FAQ
+                  </span>
+                  <span className="bg-emerald-50 text-emerald-700 px-2 py-1 rounded-md font-medium">
+                    ⬇️ {lang === 'ru' ? 'Скачать' : lang === 'en' ? 'Download' : '可下载'}
                   </span>
                 </div>
 
