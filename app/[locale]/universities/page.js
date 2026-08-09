@@ -184,12 +184,12 @@ export default function UniversitiesPage() {
               onClick={() => router.push(`/${l}/universities/${uni.id}`)}
               className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden group"
             >
-              <div className="h-28 bg-gradient-to-br from-emerald-500 to-teal-600 relative overflow-hidden">
+              <div className="h-32 bg-gradient-to-br from-emerald-500 to-teal-600 relative overflow-hidden">
                 <div className="absolute inset-0 opacity-30">
                   <div className="absolute -top-4 -right-4 w-24 h-24 rounded-full bg-white blur-2xl"></div>
                 </div>
                 <div className="relative h-full flex flex-col items-center justify-center">
-                  <span className="text-3xl font-bold text-white">{uni.shortName[l]}</span>
+                  <span className="text-lg font-bold text-white text-center px-2 leading-tight">{uni.name[l]}</span>
                   {uni.campuses && uni.campuses.length > 1 && (
                     <span className="text-xs text-white/80 mt-1">
                       {l === 'zh' ? `${uni.campuses.length}个校区` : l === 'ru' ? `${uni.campuses.length} кампуса` : `${uni.campuses.length} campuses`}
@@ -198,9 +198,6 @@ export default function UniversitiesPage() {
                 </div>
               </div>
               <div className="p-4">
-                <h3 className="text-base font-bold text-gray-900 mb-2 group-hover:text-emerald-600 transition-colors line-clamp-1">
-                  {uni.name[l]}
-                </h3>
                 <div className="flex flex-wrap gap-1 mb-2">
                   {uni.tags[l].map((tag, idx) => (
                     <span key={idx} className={`px-2 py-0.5 rounded text-xs font-medium ${tagColors[tag] || 'bg-gray-100 text-gray-700'}`}>
