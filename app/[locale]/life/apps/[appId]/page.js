@@ -1,31 +1,42 @@
-import { getAppGuideData } from '../../../../../data/life/app-guides-loader';
-import { getTranslations } from 'next-intl/server';
-import Link from 'next/link';
-import { notFound } from 'next/navigation';
+'use client';
 
-export default async function AppGuideDetailPage({ params: { locale, appId } }) {
-  const t = await getTranslations({ locale });
-  const guide = getAppGuideData(appId);
+import { useParams } from 'next/navigation';
+import { useI18n } from '../../../../../../i18n-context';
+import { getAppGuideData, hasAppGuide } from '../../../../../../data/life/app-guides-loader';
 
-  if (!guide) {
-    notFound();
+export default function AppGuideDetailPage() {
+  const { locale, appId } = useParams();
+  const { t } = useI18n();
+  const lang = locale || 'zh';
+
+  if (!hasAppGuide(appId)) {
+    return (
+      <div className="max-w-4xl mx-auto px-4 py-16 text-center">
+        <p className="text-gray-500 text-lg">
+          {lang === 'ru' ? 'Руководство не найдено' : lang === 'en' ? 'Guide not found' : '指南未找到'}
+        </p>
+        <a href={`/${lang}/life/apps`} className="text-emerald-600 hover:underline mt-4 inline-block">
+          ← {lang === 'ru' ? 'Назад' : lang === 'en' ? 'Back' : '返回'}
+        </a>
+      </div>
+    );
   }
 
-  // 当前语言文本
-  const getText = (obj) => obj?.[locale] || obj?.zh || '';
+  const guide = getAppGuideData(appId);
+  const getText = (obj) => obj?.[lang] || obj?.zh || '';
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-amber-50">
       <div className="max-w-3xl mx-auto px-4 py-8">
         {/* 面包屑导航 */}
         <nav className="mb-6 text-sm text-gray-500 flex items-center gap-2">
-          <Link href={`/life`} locale={locale} className="hover:text-emerald-600 transition-colors">
-            {locale === 'ru' ? 'Жизнь в Китае' : locale === 'en' ? 'Life in China' : '生活指南'}
-          </Link>
+          <a href={`/${lang}/life`} className="hover:text-emerald-600 transition-colors">
+            {lang === 'ru' ? 'Жизнь в Китае' : lang === 'en' ? 'Life in China' : '生活指南'}
+          </a>
           <span>/</span>
-          <Link href={`/life/apps`} locale={locale} className="hover:text-emerald-600 transition-colors">
-            {locale === 'ru' ? 'Приложения' : locale === 'en' ? 'Apps' : 'App指南'}
-          </Link>
+          <a href={`/${lang}/life/apps`} className="hover:text-emerald-600 transition-colors">
+            {lang === 'ru' ? 'Приложения' : lang === 'en' ? 'Apps' : 'App指南'}
+          </a>
           <span>/</span>
           <span className="text-gray-900 font-medium">{getText(guide.title)}</span>
         </nav>
@@ -40,10 +51,10 @@ export default async function AppGuideDetailPage({ params: { locale, appId } }) 
           </p>
           <div className="flex flex-wrap gap-2 text-xs text-gray-400">
             <span className="bg-emerald-50 text-emerald-700 px-2 py-1 rounded-md">
-              {guide.setupSteps.length} {locale === 'ru' ? 'шагов' : locale === 'en' ? 'steps' : '步'}
+              {guide.setupSteps.length} {lang === 'ru' ? 'шагов' : lang === 'en' ? 'steps' : '步'}
             </span>
             <span className="bg-amber-50 text-amber-700 px-2 py-1 rounded-md">
-              {guide.coreFeatures.length} {locale === 'ru' ? 'функций' : locale === 'en' ? 'features' : '功能'}
+              {guide.coreFeatures.length} {lang === 'ru' ? 'функций' : lang === 'en' ? 'features' : '功能'}
             </span>
             <span className="bg-gray-50 text-gray-600 px-2 py-1 rounded-md">
               {getText(guide.version)}
@@ -56,7 +67,7 @@ export default async function AppGuideDetailPage({ params: { locale, appId } }) 
           <div className="bg-white rounded-2xl border border-gray-100 p-6 mb-6">
             <h2 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
               <span>📥</span>
-              {locale === 'ru' ? 'Скачать' : locale === 'en' ? 'Download' : '下载'}
+              {lang === 'ru' ? 'Скачать' : lang === 'en' ? 'Download' : '下载'}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {guide.downloads.ios && (
@@ -84,7 +95,7 @@ export default async function AppGuideDetailPage({ params: { locale, appId } }) 
                   <div>
                     <div className="text-sm font-medium text-gray-900">Android</div>
                     <div className="text-xs text-gray-400">
-                      {locale === 'ru' ? 'Официальный сайт' : locale === 'en' ? 'Official site' : '官网下载'}
+                      {lang === 'ru' ? 'Официальный сайт' : lang === 'en' ? 'Official site' : '官网下载'}
                     </div>
                   </div>
                 </a>
@@ -102,7 +113,7 @@ export default async function AppGuideDetailPage({ params: { locale, appId } }) 
         <div className="mb-6">
           <h2 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
             <span>📖</span>
-            {locale === 'ru' ? 'Пошаговая инструкция' : locale === 'en' ? 'Step-by-Step Guide' : '使用步骤'}
+            {lang === 'ru' ? 'Пошаговая инструкция' : lang === 'en' ? 'Step-by-Step Guide' : '使用步骤'}
           </h2>
           <div className="space-y-4">
             {guide.setupSteps.map((step, index) => (
@@ -131,7 +142,7 @@ export default async function AppGuideDetailPage({ params: { locale, appId } }) 
           <div className="bg-white rounded-2xl border border-gray-100 p-6 mb-6">
             <h2 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
               <span>✨</span>
-              {locale === 'ru' ? 'Основные функции' : locale === 'en' ? 'Core Features' : '核心功能'}
+              {lang === 'ru' ? 'Основные функции' : lang === 'en' ? 'Core Features' : '核心功能'}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {guide.coreFeatures.map((feature, index) => (
@@ -152,7 +163,7 @@ export default async function AppGuideDetailPage({ params: { locale, appId } }) 
           <div className="bg-white rounded-2xl border border-gray-100 p-6 mb-6">
             <h2 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
               <span>💡</span>
-              {locale === 'ru' ? 'Полезные советы' : locale === 'en' ? 'Useful Tips' : '实用技巧'}
+              {lang === 'ru' ? 'Полезные советы' : lang === 'en' ? 'Useful Tips' : '实用技巧'}
             </h2>
             <div className="space-y-3">
               {guide.tips.map((tip, index) => (
@@ -175,7 +186,7 @@ export default async function AppGuideDetailPage({ params: { locale, appId } }) 
           <div className="bg-white rounded-2xl border border-gray-100 p-6 mb-6">
             <h2 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
               <span>❓</span>
-              {locale === 'ru' ? 'Частые вопросы' : locale === 'en' ? 'FAQ' : '常见问题'}
+              {lang === 'ru' ? 'Частые вопросы' : lang === 'en' ? 'FAQ' : '常见问题'}
             </h2>
             <div className="space-y-3">
               {guide.faq.map((item, index) => (
@@ -198,19 +209,18 @@ export default async function AppGuideDetailPage({ params: { locale, appId } }) 
           <div className="bg-white rounded-2xl border border-gray-100 p-6 mb-6">
             <h2 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
               <span>🔗</span>
-              {locale === 'ru' ? 'Связанные руководства' : locale === 'en' ? 'Related Guides' : '相关指南'}
+              {lang === 'ru' ? 'Связанные руководства' : lang === 'en' ? 'Related Guides' : '相关指南'}
             </h2>
             <div className="flex flex-wrap gap-2">
               {guide.relatedGuides.map((relatedId) => (
-                <Link
+                <a
                   key={relatedId}
-                  href={`/life/newcomer/${relatedId}`}
-                  locale={locale}
+                  href={`/${lang}/life/newcomer/${relatedId}`}
                   className="inline-flex items-center gap-1 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors"
                 >
                   {relatedId}
                   <span>→</span>
-                </Link>
+                </a>
               ))}
             </div>
           </div>
@@ -218,14 +228,13 @@ export default async function AppGuideDetailPage({ params: { locale, appId } }) 
 
         {/* 返回 */}
         <div className="text-center mt-8">
-          <Link
-            href="/life/apps"
-            locale={locale}
+          <a
+            href={`/${lang}/life/apps`}
             className="inline-flex items-center gap-2 text-emerald-700 hover:text-emerald-800 font-medium transition-colors"
           >
             <span>←</span>
-            {locale === 'ru' ? 'Все руководства' : locale === 'en' ? 'All app guides' : '返回所有App指南'}
-          </Link>
+            {lang === 'ru' ? 'Все руководства' : lang === 'en' ? 'All app guides' : '返回所有App指南'}
+          </a>
         </div>
       </div>
     </div>
