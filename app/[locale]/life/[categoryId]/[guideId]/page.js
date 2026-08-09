@@ -5,6 +5,7 @@ import { useI18n } from '../../../../../i18n-context';
 import StepGuide from '../../../../components/life/StepGuide.js';
 import categories from '../../../../../data/life/categories.js';
 import guideIndex from '../../../../../data/life/guide-index.js';
+import getGuideData from '../../../../../data/life/guides-loader.js';
 
 export default function GuideDetailPage() {
   const { locale, categoryId, guideId } = useParams();
@@ -13,6 +14,7 @@ export default function GuideDetailPage() {
 
   const category = categories.find(c => c.id === categoryId);
   const guideMeta = guideIndex.find(g => g.id === guideId);
+  const guideData = getGuideData(guideId);
 
   if (!guideMeta) {
     return (
@@ -105,70 +107,90 @@ export default function GuideDetailPage() {
       )}
 
       {/* 分步引导 */}
-      <GuideContent guideId={guideId} locale={locale} />
+      {guideData ? (
+        <div className="space-y-4">
+          {/* 简介 */}
+          {guideData.intro && (
+            <div className="p-5 bg-blue-50/60 rounded-xl border border-blue-200/50">
+              <p className="text-sm text-blue-700 leading-relaxed">
+                📖 {guideData.intro?.[lang]}
+              </p>
+            </div>
+          )}
 
-      {/* 推荐下一步 */}
-      {guideMeta.tags && (
-        <div className="mt-8 p-5 bg-primary-50/40 rounded-2xl border border-primary-200/30">
-          <h3 className="text-lg font-wenkai font-bold text-gray-800 mb-3">
-            🚀 {t('life.guide.next_steps') || '推荐下一步'}
-          </h3>
-          <div className="flex flex-wrap gap-2">
-            {guideMeta.tags.slice(0, 4).map((tag) => (
-              <span key={tag} className="px-3 py-1 bg-white text-primary-600 text-xs rounded-full border border-primary-200/50">
-                #{tag}
-              </span>
-            ))}
-          </div>
+          {/* 准备工作 */}
+          {guideData.preparation && guideData.preparation.length > 0 && (
+            <div className="p-5 bg-amber-50/60 rounded-xl border border-amber-200/50">
+              <p className="text-sm font-wenkai font-bold text-amber-700 mb-3">
+                🎒 {t('life.guide.preparation') || '准备工作'}
+              </p>
+              <ul className="space-y-2">
+                {guideData.preparation.map((item, i) => (
+                  <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
+                    <span className="text-amber-500 mt-0.5">✓</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {/* 分步操作 */}
+          <StepGuide locale={locale} data={{ steps: guideData.steps || [] }} />
+
+          {/* FAQ */}
+          {guideData.faq && guideData.faq.length > 0 && (
+            <div className="mt-8">
+              <h3 className="text-lg font-wenkai font-bold text-gray-800 mb-4">
+                ❓ {t('life.guide.faq') || '常见问题'}
+              </h3>
+              <div className="space-y-4">
+                {guideData.faq.map((item, i) => (
+                  <div key={i} className="p-4 bg-gray-50 rounded-xl border border-gray-200/50">
+                    <p className="text-sm font-wenkai font-bold text-gray-700 mb-2">
+                      Q: {item.q?.[lang]}
+                    </p>
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      A: {item.a?.[lang]}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* 推荐下一步 */}
+          {guideData.nextGuides && guideData.nextGuides.length > 0 && (
+            <div className="mt-8 p-5 bg-primary-50/40 rounded-2xl border border-primary-200/30">
+              <h3 className="text-lg font-wenkai font-bold text-gray-800 mb-3">
+                🚀 {t('life.guide.next_steps') || '推荐下一步'}
+              </h3>
+              <div className="flex flex-wrap gap-3">
+                {guideData.nextGuides.map((nextId) => {
+                  const nextGuide = guideIndex.find(g => g.id === nextId);
+                  if (!nextGuide) return null;
+                  return (
+                    <a key={nextId} href={`/${locale}/life/${nextGuide.category}/${nextId}`}
+                      className="flex items-center gap-2 px-4 py-2 bg-white rounded-xl border border-primary-200/50 hover:border-primary-400 hover:shadow-sm transition-all">
+                      <span>{nextGuide.icon}</span>
+                      <span className="text-sm text-primary-700">{nextGuide.title?.[lang]}</span>
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+          )}
         </div>
-      )}
-    </div>
-  );
-}
-
-function GuideContent({ guideId, locale }) {
-  const { t } = useI18n();
-  const lang = locale || 'zh';
-
-  const guideContentMap = {
-    'setup-alipay': () => (
-      <div className="space-y-4">
-        <div className="p-5 bg-blue-50/60 rounded-xl border border-blue-200/50">
-          <p className="text-sm text-blue-700 leading-relaxed">
-            {lang === 'zh' ? '📖 本指南将带你一步一步完成支付宝的注册和设置。跟着走，7步搞定！' :
-             lang === 'ru' ? '📖 Это руководство проведёт вас шаг за шагом. 7 шагов — готово!' :
-             '📖 This guide walks you through Alipay step by step. 7 steps and done!'}
+      ) : (
+        <div className="p-8 text-center bg-gray-50 rounded-2xl border border-gray-200/50">
+          <p className="text-gray-400 text-lg mb-2">🚧</p>
+          <p className="text-gray-500">
+            {lang === 'zh' ? '本指南正在编写中，敬请期待...' :
+             lang === 'ru' ? 'Руководство в разработке...' :
+             'This guide is under construction...'}
           </p>
         </div>
-        <StepGuide
-          locale={locale}
-          data={{
-            steps: [
-              { title: { zh: '下载支付宝App', en: 'Download Alipay', ru: 'Скачать Alipay' }, desc: { zh: '在App Store搜索"支付宝"或"Alipay"，认准蓝色蚂蚁图标。', en: 'Search "Alipay" in App Store, look for the blue ant icon.', ru: 'Найдите "Alipay" в App Store, ищите синюю иконку с муравьём.' } },
-              { title: { zh: '注册账号', en: 'Register Account', ru: 'Зарегистрироваться' }, desc: { zh: '输入中国手机号（+86），获取验证码，设置密码。', en: 'Enter Chinese phone (+86), get code, set password.', ru: 'Введите китайский номер (+86), получите код, установите пароль.' } },
-              { title: { zh: '实名认证', en: 'Real-name Verification', ru: 'Верификация' }, desc: { zh: '我的→头像→实名认证→护照验证→拍照上传。', en: 'Me → Profile → Verification → Passport → Photo.', ru: 'Me → Профиль → Верификация → Паспорт → Фото.' } },
-              { title: { zh: '绑定银行卡', en: 'Bind Bank Card', ru: 'Привязать карту' }, desc: { zh: '我的→银行卡→添加→输入境外卡号或中国卡号。', en: 'Me → Bank Cards → Add → Enter card number.', ru: 'Me → Карты → Добавить → номер карты.' } },
-              { title: { zh: '扫码付款', en: 'Scan to Pay', ru: 'Оплата сканированием' }, desc: { zh: '首页→扫一扫→对准商家二维码→输金额→输密码→完成！', en: 'Homepage → Scan → QR → Amount → Password → Done!', ru: 'Главная → Сканировать → QR → Сумма → Пароль → Готово!' } },
-              { title: { zh: '设置指纹/面容支付', en: 'Set Biometric Pay', ru: 'Биометрическая оплата' }, desc: { zh: '设置→支付设置→开启指纹/面容支付。', en: 'Settings → Payment → Enable biometric payment.', ru: 'Настройки → Платежи → Включить биометрию.' } },
-              { title: { zh: '开始使用！', en: 'Start Using!', ru: 'Начинайте!' }, desc: { zh: '现在你可以在中国几乎所有地方扫码付款了！', en: 'Now you can pay almost everywhere in China!', ru: 'Теперь платите почти везде в Китае!' } }
-            ]
-          }}
-        />
-      </div>
-    )
-  };
-
-  const GuideComponent = guideContentMap[guideId];
-  if (GuideComponent) return <GuideComponent />;
-
-  return (
-    <div className="p-8 text-center bg-gray-50 rounded-2xl border border-gray-200/50">
-      <p className="text-gray-400 text-lg mb-2">🚧</p>
-      <p className="text-gray-500">
-        {lang === 'zh' ? '本指南正在编写中，敬请期待...' :
-         lang === 'ru' ? 'Руководство в разработке...' :
-         'This guide is under construction...'}
-      </p>
+      )}
     </div>
   );
 }

@@ -114,7 +114,7 @@ export default {
     },
     {
       q: { zh: '实名认证失败了怎么办？', en: 'What if real-name verification fails?', ru: 'Что делать, если верификация не удалась?' },
-      a: { zh: '最常见的原因：1）护照照片不清晰/有反光→重新拍；2）护照过期→需要有效护照；3）姓名格式不对→按护照MRZ行的顺序填写。如果多次失败，联系支付宝客服：95188。', en: 'Most common reasons: 1) Unclear/glare passport photo → retake; 2) Expired passport → need valid one; 3) Name format wrong → follow MRZ line order. If it keeps failing, contact Alipay customer service: 95188.', ru: 'Частые причины: 1) Нечёткое фото паспорта → переснимите; 2) Просроченный паспорт → нужен действующий; 3) Неверный формат имени → по MRZ-строке. При повторных отказах — служба поддержки: 95188.'
+      a: { zh: '最常见的原因：1）护照照片不清晰/有反光→重新拍；2）护照过期→需要有效护照；3）姓名格式不对→按护照MRZ行的顺序填写。如果多次失败，联系支付宝客服：95188。', en: 'Most common reasons: 1) Unclear/glare passport photo → retake; 2) Expired passport → need valid one; 3) Name format wrong → follow MRZ line order. If it keeps failing, contact Alipay customer service: 95188.', ru: 'Частые причины: 1) Нечёткое фото паспорта → переснимите; 2) Просроченный паспорт → нужен действующий; 3) Неверный формат имени → по MRZ-строке. При повторных отказах — служба поддержки: 95188.' }
     },
     {
       q: { zh: '支付时提示"交易受限"怎么办？', en: 'What if I get "Transaction Limited" during payment?', ru: 'Что делать при ошибке "Транзакция ограничена"?' },
