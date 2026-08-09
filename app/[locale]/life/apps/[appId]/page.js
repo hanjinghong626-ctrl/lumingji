@@ -1,8 +1,8 @@
 'use client';
 
 import { useParams } from 'next/navigation';
-import { useI18n } from '../../../../../../i18n-context';
-import { getAppGuideData, hasAppGuide } from '../../../../../../data/life/app-guides-loader';
+import { useI18n } from '../../../../../i18n-context';
+import { getAppGuideData, hasAppGuide } from '../../../../../data/life/app-guides-loader';
 
 export default function AppGuideDetailPage() {
   const { locale, appId } = useParams();
