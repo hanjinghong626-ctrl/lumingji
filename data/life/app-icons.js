@@ -16,6 +16,16 @@ const appIcons = {
   'jd':              'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/59/c5/d9/59c5d9b7-658f-2214-52f7-4281bc71f9bd/AppIcon-0-0-1x_U007epad-0-1-0-0-85-220.png/100x100bb.jpg',
   'ctrip-app':       'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/cb/45/8d/cb458d8e-6ee1-9c3d-e549-731e463ec006/AppIcon-0-0-1x_U007emarketing-0-5-0-85-220.png/100x100bb.jpg',
   'meituan-app':     'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/de/44/7e/de447ee7-33b4-fb43-96e8-f7754154a8e0/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-85-220.png/100x100bb.jpg',
+
+  // ===== Popular Apps (Second Tier) =====
+  'xiaohongshu':     'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/22/6e/9c/226e9c7b-10c1-c69a-0124-5f5958f945f5/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/100x100bb.jpg',
+  'dianping':        'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/58/c0/0e/58c00e11-7803-733a-1bce-5daf7226c721/AppIcon-0-0-1x_U007epad-0-1-0-sRGB-85-220.png/100x100bb.jpg',
+  'bilibili':        'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/44/ef/40/44ef4051-f1ae-3b11-9e83-edb96696940a/AppIcon-0-0-1x_U007epad-0-1-0-sRGB-85-220.png/100x100bb.jpg',
+  'pinduoduo':       'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c1/09/59/c109598a-a832-712f-68eb-00e0a890286e/AppIcon-1x_U007emarketing-0-8-0-0-0-85-220-0.png/100x100bb.jpg',
+  'xianyu':          'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b9/cd/a7/b9cda78b-0c0c-6f84-0494-4735d05682a4/AppIcon-0-0-1x_U007epad-0-1-0-sRGB-85-220.png/100x100bb.jpg',
+  'cainiao':         'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/88/b5/5a/88b55af9-e3e2-4cae-81a9-cd7da363618d/AppIcon-0-1x_U007epad-0-1-0-85-220-0.png/100x100bb.jpg',
+  'qunar':           'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8c/6d/e2/8c6de2e8-06d5-90eb-08e2-a67a33ec0b2e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.jpg',
+  'hellobike':       'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/68/9b/76/689b76c8-756e-ab3c-92b7-a89cd253b227/AppIcon-0-0-1x_U007emarketing-0-8-0-0-85-220.png/100x100bb.jpg',
 };
 
 // 获取App图标URL

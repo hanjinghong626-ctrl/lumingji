@@ -1,6 +1,7 @@
 // 鹿鸣集 · App使用指南统一加载器
 // 所有App指南通过此文件统一导出
 
+// ===== Essential Apps =====
 import alipayGuide from './app-guides/alipay.js';
 import wechatGuide from './app-guides/wechat.js';
 import gaodeMapGuide from './app-guides/gaode-map.js';
@@ -14,7 +15,18 @@ import jdGuide from './app-guides/jd.js';
 import ctripAppGuide from './app-guides/ctrip-app.js';
 import meituanAppGuide from './app-guides/meituan-app.js';
 
+// ===== Popular Apps (Second Tier) =====
+import xiaohongshuGuide from './app-guides/xiaohongshu.js';
+import dianpingGuide from './app-guides/dianping.js';
+import bilibiliGuide from './app-guides/bilibili.js';
+import pinduoduoGuide from './app-guides/pinduoduo.js';
+import xianyuGuide from './app-guides/xianyu.js';
+import cainiaoGuide from './app-guides/cainiao.js';
+import qunarGuide from './app-guides/qunar.js';
+import hellobikeGuide from './app-guides/hellobike.js';
+
 const appGuidesMap = {
+  // Essential Apps
   'alipay': alipayGuide,
   'wechat': wechatGuide,
   'gaode-map': gaodeMapGuide,
@@ -27,6 +39,15 @@ const appGuidesMap = {
   'jd': jdGuide,
   'ctrip-app': ctripAppGuide,
   'meituan-app': meituanAppGuide,
+  // Popular Apps (Second Tier)
+  'xiaohongshu': xiaohongshuGuide,
+  'dianping': dianpingGuide,
+  'bilibili': bilibiliGuide,
+  'pinduoduo': pinduoduoGuide,
+  'xianyu': xianyuGuide,
+  'cainiao': cainiaoGuide,
+  'qunar': qunarGuide,
+  'hellobike': hellobikeGuide,
 };
 
 /**
