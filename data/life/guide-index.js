@@ -764,6 +764,8 @@ const guideIndex = [
     apps: ['taobao', 'jd'],
     prerequisites: [],
     tags: ['furniture', 'ikea', 'shopping'],
+    title: { zh: '家具采购', en: 'Furniture Shopping', ru: 'Покупка мебели' },
+    summary: { zh: '宜家等家具品牌、线上线下购买渠道、组装服务与搬家处理', en: 'IKEA and furniture brands, online/offline channels, assembly services and moving tips', ru: 'IKEA и мебельные бренды, каналы покупки, сборка и переезд' }
   },
   {
     id: 'moving-guide',
