@@ -8,6 +8,11 @@ import didiGuide from './app-guides/didi.js';
 import train12306Guide from './app-guides/12306.js';
 import chinaMobileGuide from './app-guides/china-mobile.js';
 import taobaoGuide from './app-guides/taobao.js';
+import meituanWaimaiGuide from './app-guides/meituan-waimai.js';
+import elemeGuide from './app-guides/eleme.js';
+import jdGuide from './app-guides/jd.js';
+import ctripAppGuide from './app-guides/ctrip-app.js';
+import meituanAppGuide from './app-guides/meituan-app.js';
 
 const appGuidesMap = {
   'alipay': alipayGuide,
@@ -17,6 +22,11 @@ const appGuidesMap = {
   '12306': train12306Guide,
   'china-mobile': chinaMobileGuide,
   'taobao': taobaoGuide,
+  'meituan-waimai': meituanWaimaiGuide,
+  'eleme': elemeGuide,
+  'jd': jdGuide,
+  'ctrip-app': ctripAppGuide,
+  'meituan-app': meituanAppGuide,
 };
 
 /**
