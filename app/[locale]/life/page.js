@@ -71,6 +71,29 @@ export default function LifeGuidePage() {
         </div>
       </div>
 
+      {/* App指南入口 */}
+      <div className="mb-10">
+        <a
+          href={`/${locale}/life/apps`}
+          className="group flex items-center justify-between p-5 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+        >
+          <div className="flex items-center gap-4">
+            <span className="text-4xl">📲</span>
+            <div>
+              <h3 className="text-xl font-wenkai font-bold text-white">
+                {lang === 'zh' ? '核心App使用指南' : lang === 'ru' ? 'Гайды по приложениям' : 'Essential App Guides'}
+              </h3>
+              <p className="text-emerald-100 text-sm mt-1">
+                {lang === 'zh' ? '支付宝、微信、高德、滴滴等7个必备App的详细教程与下载' :
+                 lang === 'ru' ? 'Alipay, WeChat, Карты, Didi и другие — подробные инструкции' :
+                 'Detailed tutorials for Alipay, WeChat, Maps, Didi & more'}
+              </p>
+            </div>
+          </div>
+          <span className="text-white text-3xl group-hover:translate-x-1 transition-transform">→</span>
+        </a>
+      </div>
+
       {/* 15大分类网格 */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {categories.map((cat, idx) => {
