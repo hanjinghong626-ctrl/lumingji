@@ -3,6 +3,7 @@
 import { useParams } from 'next/navigation';
 import { useI18n } from '../../../../i18n-context';
 import { getAllAppGuidesSummary } from '../../../../data/life/app-guides-loader';
+import appIcons from '../../../../data/life/app-icons';
 
 export default function AppsGuideIndexPage() {
   const { locale } = useParams();
@@ -43,14 +44,28 @@ export default function AppsGuideIndexPage() {
               className="block bg-white rounded-2xl border border-gray-100 hover:border-emerald-200 hover:shadow-lg transition-all duration-300 overflow-hidden group"
             >
               <div className="p-6">
-                {/* 头部：标题 + 描述 */}
-                <div className="mb-4">
-                  <h2 className="text-lg font-bold text-gray-900 group-hover:text-emerald-700 transition-colors">
-                    {guide.title[lang] || guide.title.zh}
-                  </h2>
-                  <p className="text-sm text-gray-500 mt-1 line-clamp-2">
-                    {guide.desc[lang] || guide.desc.zh}
-                  </p>
+                {/* 头部：图标 + 标题 + 描述 */}
+                <div className="flex items-start gap-4 mb-4">
+                  {appIcons[guide.id] ? (
+                    <img
+                      src={appIcons[guide.id]}
+                      alt={guide.title[lang] || guide.title.zh}
+                      className="w-14 h-14 rounded-2xl shadow-md flex-shrink-0 bg-gray-50"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className="w-14 h-14 rounded-2xl shadow-md flex-shrink-0 bg-gradient-to-br from-emerald-100 to-emerald-50 flex items-center justify-center text-2xl">
+                      📱
+                    </div>
+                  )}
+                  <div className="flex-1 min-w-0">
+                    <h2 className="text-lg font-bold text-gray-900 group-hover:text-emerald-700 transition-colors">
+                      {guide.title[lang] || guide.title.zh}
+                    </h2>
+                    <p className="text-sm text-gray-500 mt-1 line-clamp-2">
+                      {guide.desc[lang] || guide.desc.zh}
+                    </p>
+                  </div>
                 </div>
 
                 {/* 统计信息 + 下载提示 */}

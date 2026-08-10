@@ -3,6 +3,7 @@
 import { useParams } from 'next/navigation';
 import { useI18n } from '../../../../../i18n-context';
 import { getAppGuideData, hasAppGuide } from '../../../../../data/life/app-guides-loader';
+import appIcons from '../../../../../data/life/app-icons';
 
 export default function AppGuideDetailPage() {
   const { locale, appId } = useParams();
@@ -43,9 +44,22 @@ export default function AppGuideDetailPage() {
 
         {/* 标题区 */}
         <div className="bg-white rounded-2xl border border-gray-100 p-6 md:p-8 mb-6">
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
-            {getText(guide.title)}
-          </h1>
+          <div className="flex items-center gap-4 mb-4">
+            {appIcons[appId] ? (
+              <img
+                src={appIcons[appId]}
+                alt={getText(guide.title)}
+                className="w-16 h-16 md:w-20 md:h-20 rounded-2xl shadow-lg flex-shrink-0 bg-gray-50"
+              />
+            ) : (
+              <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl shadow-lg flex-shrink-0 bg-gradient-to-br from-emerald-100 to-emerald-50 flex items-center justify-center text-3xl md:text-4xl">
+                📱
+              </div>
+            )}
+            <h1 className="text-2xl md:text-3xl font-bold text-gray-900">
+              {getText(guide.title)}
+            </h1>
+          </div>
           <p className="text-gray-600 text-base md:text-lg mb-4">
             {getText(guide.desc)}
           </p>
