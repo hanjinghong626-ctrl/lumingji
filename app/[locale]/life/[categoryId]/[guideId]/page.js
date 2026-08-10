@@ -6,6 +6,7 @@ import StepGuide from '../../../../components/life/StepGuide.js';
 import categories from '../../../../../data/life/categories.js';
 import guideIndex from '../../../../../data/life/guide-index.js';
 import getGuideData from '../../../../../data/life/guides-loader.js';
+import { getAppGuideData, hasAppGuide } from '../../../../../data/life/app-guides-loader';
 
 export default function GuideDetailPage() {
   const { locale, categoryId, guideId } = useParams();
@@ -105,6 +106,67 @@ export default function GuideDetailPage() {
           </ul>
         </div>
       )}
+
+      {/* ⬇️ 下载相关App */}
+      {guideMeta.apps && guideMeta.apps.length > 0 && (() => {
+        const appsWithDownloads = guideMeta.apps.filter(appId => hasAppGuide(appId));
+        if (appsWithDownloads.length === 0) return null;
+        return (
+          <div className="bg-gradient-to-r from-emerald-600 to-teal-600 rounded-2xl p-6 mb-8 shadow-lg">
+            <h2 className="text-xl font-bold text-white mb-2 flex items-center gap-2">
+              <span className="text-2xl">⬇️</span>
+              {lang === 'ru' ? 'Скачать приложения' : lang === 'en' ? 'Download Apps' : '立即下载'}
+            </h2>
+            <p className="text-emerald-100 text-sm mb-4">
+              {lang === 'ru' ? 'Нажмите, чтобы перейти к загрузке' : lang === 'en' ? 'Tap to download' : '点击下方按钮下载'}
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {appsWithDownloads.map(appId => {
+                const appGuide = getAppGuideData(appId);
+                return (
+                  <div key={appId} className="flex flex-col gap-2">
+                    <div className="font-semibold text-white/90 text-sm">
+                      {appGuide ? (appGuide.title?.[lang] || appGuide.title?.zh || appId) : appId}
+                    </div>
+                    {appGuide?.downloads?.ios && (
+                      <a
+                        href={appGuide.downloads.ios}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-3 bg-white hover:bg-gray-50 rounded-xl p-3 transition-all shadow-md hover:shadow-lg"
+                      >
+                        <div className="w-9 h-9 bg-black rounded-lg flex items-center justify-center flex-shrink-0">
+                          <span className="text-white text-lg"></span>
+                        </div>
+                        <div>
+                          <div className="text-[10px] text-gray-500">Download on the App Store</div>
+                          <div className="text-sm font-bold text-gray-900">iOS</div>
+                        </div>
+                      </a>
+                    )}
+                    {appGuide?.downloads?.android_cn && (
+                      <a
+                        href={appGuide.downloads.android_cn}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-3 bg-white hover:bg-gray-50 rounded-xl p-3 transition-all shadow-md hover:shadow-lg"
+                      >
+                        <div className="w-9 h-9 bg-[#3DDC84] rounded-lg flex items-center justify-center flex-shrink-0">
+                          <span className="text-white text-lg">▶</span>
+                        </div>
+                        <div>
+                          <div className="text-[10px] text-gray-500">{lang === 'ru' ? 'Скачать' : lang === 'en' ? 'Get it for' : '下载'} Android</div>
+                          <div className="text-sm font-bold text-gray-900">{lang === 'ru' ? 'Официальный сайт' : lang === 'en' ? 'Official' : '官网'}</div>
+                        </div>
+                      </a>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        );
+      })()}
 
       {/* 分步引导 */}
       {guideData ? (
