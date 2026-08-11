@@ -3,6 +3,7 @@
 import { useI18n } from '../../../i18n-context';
 import categories from '../../../data/life/categories.js';
 import guideIndex from '../../../data/life/guide-index.js';
+import SearchBar from '../../components/life/SearchBar.js';
 
 export default function LifeGuidePage() {
   const { locale, t } = useI18n();
@@ -25,6 +26,9 @@ export default function LifeGuidePage() {
           </span>
         </div>
       </div>
+
+      {/* 搜索框 */}
+      <SearchBar />
 
       {/* 紧急信息条 */}
       <div className="mb-8 p-4 bg-red-50/60 rounded-2xl border border-red-200/50">
