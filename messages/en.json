@@ -200,7 +200,10 @@
           }
         ]
       }
-    }
+    },
+    "categories_count": "categories",
+    "guides_total": "guides",
+    "newcomer_path": "Newcomer Landing Path"
   },
   "universities": {
     "title": "Universities in Qingdao",

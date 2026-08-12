@@ -200,7 +200,10 @@
           }
         ]
       }
-    }
+    },
+    "categories_count": "категорий",
+    "guides_total": "гайдов",
+    "newcomer_path": "Путь новичка"
   },
   "universities": {
     "title": "Университеты Циндао",

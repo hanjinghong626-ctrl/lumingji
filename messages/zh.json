@@ -200,7 +200,10 @@
           }
         ]
       }
-    }
+    },
+    "categories_count": "个分类",
+    "guides_total": "个指南",
+    "newcomer_path": "新手着陆路线"
   },
   "universities": {
     "title": "青岛高校",
