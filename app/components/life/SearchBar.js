@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useRef, useEffect, useMemo } from 'react';
-import { useParams } from 'next/navigation';
 import { useI18n } from '../../../i18n-context';
 import guideIndex from '../../../data/life/guide-index.js';
 import categories from '../../../data/life/categories.js';
@@ -56,8 +55,7 @@ function searchScore(item, query) {
 }
 
 export default function SearchBar() {
-  const { locale } = useParams();
-  const { t } = useI18n();
+  const { locale, t } = useI18n();
   const lang = locale || 'zh';
 
   const [query, setQuery] = useState('');
