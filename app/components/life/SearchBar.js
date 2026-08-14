@@ -5,6 +5,7 @@ import { useI18n } from '../../../i18n-context';
 import guideIndex from '../../../data/life/guide-index.js';
 import categories from '../../../data/life/categories.js';
 import { getAllAppGuidesSummary } from '../../../data/life/app-guides-loader.js';
+import ChatWindow from './ChatWindow';
 
 const PLACEHOLDERS = {
   zh: '搜索指南、App、话题…  例如"银行卡"',
@@ -61,6 +62,7 @@ export default function SearchBar() {
   const [query, setQuery] = useState('');
   const [isOpen, setIsOpen] = useState(false);
   const [activeIdx, setActiveIdx] = useState(-1);
+  const [showAI, setShowAI] = useState(false);
   const containerRef = useRef(null);
   const inputRef = useRef(null);
 
@@ -198,21 +200,37 @@ export default function SearchBar() {
           onFocus={() => setIsOpen(true)}
           onKeyDown={handleKeyDown}
           placeholder={PLACEHOLDERS[lang] || PLACEHOLDERS.zh}
-          className="w-full pl-12 pr-10 py-3.5 bg-white rounded-2xl border border-gray-200
+          className="w-full pl-12 pr-20 py-3.5 bg-white rounded-2xl border border-gray-200
             shadow-sm focus:outline-none focus:border-primary-400 focus:ring-4 focus:ring-primary-100
             text-gray-800 placeholder-gray-400 text-sm font-wenkai transition-all"
         />
-        {query && (
+        <div className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-1">
           <button
             onClick={() => {
-              setQuery('');
-              inputRef.current?.focus();
+              setShowAI(!showAI);
+              if (!showAI) setIsOpen(false);
             }}
-            className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+            className={`px-2.5 py-1 rounded-lg text-xs font-wenkai font-medium transition-all ${
+              showAI
+                ? 'bg-primary-500 text-white shadow-sm'
+                : 'bg-primary-50 text-primary-600 hover:bg-primary-100'
+            }`}
+            title="AI 助手"
           >
-            ✕
+            🤖 AI
           </button>
-        )}
+          {query && (
+            <button
+              onClick={() => {
+                setQuery('');
+                inputRef.current?.focus();
+              }}
+              className="px-1.5 py-1 text-gray-400 hover:text-gray-600 transition-colors"
+            >
+              ✕
+            </button>
+          )}
+        </div>
       </div>
 
       {/* Dropdown Results */}
@@ -293,6 +311,13 @@ export default function SearchBar() {
               )}
             </>
           )}
+        </div>
+      )}
+
+      {/* AI Chat Popup */}
+      {showAI && (
+        <div className="absolute z-50 w-full mt-2">
+          <ChatWindow embedded onClose={() => setShowAI(false)} />
         </div>
       )}
     </div>
