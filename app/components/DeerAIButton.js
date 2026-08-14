@@ -6,7 +6,8 @@ import dynamic from 'next/dynamic';
 const ChatWindow = dynamic(() => import('./life/ChatWindow'), { ssr: false });
 
 /**
- * 精致小鹿AI组件 - 可复用于按钮和弹窗标题
+ * 可爱小鹿 - 参考景泓提供的kawaii风格插画
+ * 特点：圆滚滚大脸、大眼睛、小鹿角+小叶子、粉色腮红、简洁温暖
  */
 function CuteDeer({ size = 40, className = '' }) {
   return (
@@ -18,102 +19,57 @@ function CuteDeer({ size = 40, className = '' }) {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      {/* === 鹿角 - 左（带小花） === */}
+      {/* === 小鹿角 + 叶子 - 左 === */}
       <g className="deer-antler-l">
-        <path d="M32 30 C30 22, 24 16, 20 10" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round"/>
-        <path d="M26 20 C22 17, 18 16, 14 14" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/>
-        <path d="M28 24 C24 22, 19 23, 16 21" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-        {/* 鹿角上的小花 - 左 */}
-        <circle cx="20" cy="9" r="3.5" fill="#FBBF24" opacity="0.9"/>
-        <circle cx="17" cy="8" r="1.5" fill="white" opacity="0.7"/>
-        <circle cx="23" cy="8" r="1.5" fill="white" opacity="0.7"/>
-        <circle cx="20" cy="6" r="1.5" fill="white" opacity="0.7"/>
-        <circle cx="20" cy="12" r="1.5" fill="white" opacity="0.7"/>
-        <circle cx="20" cy="9" r="1.2" fill="#F59E0B"/>
-        {/* 小花蕾 */}
-        <circle cx="13.5" cy="13.5" r="2" fill="#FB923C" opacity="0.7"/>
-        <circle cx="13.5" cy="13.5" r="0.8" fill="white" opacity="0.5"/>
+        <path d="M36 32 C34 26, 32 22, 30 16" stroke="#D4884A" strokeWidth="3" strokeLinecap="round" fill="none"/>
+        <path d="M32 22 C28 20, 26 19, 23 17" stroke="#D4884A" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+        {/* 叶子 */}
+        <ellipse cx="29" cy="12" rx="5" ry="3.5" fill="#8BC34A" transform="rotate(-20 29 12)"/>
+        <ellipse cx="21" cy="14.5" rx="4.5" ry="3" fill="#7CB342" transform="rotate(-35 21 14.5)"/>
       </g>
 
-      {/* === 鹿角 - 右（带小花） === */}
+      {/* === 小鹿角 + 叶子 - 右 === */}
       <g className="deer-antler-r">
-        <path d="M68 30 C70 22, 76 16, 80 10" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round"/>
-        <path d="M74 20 C78 17, 82 16, 86 14" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/>
-        <path d="M72 24 C76 22, 81 23, 84 21" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-        {/* 鹿角上的小花 - 右 */}
-        <circle cx="80" cy="9" r="3.5" fill="#FBBF24" opacity="0.9"/>
-        <circle cx="77" cy="8" r="1.5" fill="white" opacity="0.7"/>
-        <circle cx="83" cy="8" r="1.5" fill="white" opacity="0.7"/>
-        <circle cx="80" cy="6" r="1.5" fill="white" opacity="0.7"/>
-        <circle cx="80" cy="12" r="1.5" fill="white" opacity="0.7"/>
-        <circle cx="80" cy="9" r="1.2" fill="#F59E0B"/>
-        {/* 小花蕾 */}
-        <circle cx="86.5" cy="13.5" r="2" fill="#FB923C" opacity="0.7"/>
-        <circle cx="86.5" cy="13.5" r="0.8" fill="white" opacity="0.5"/>
+        <path d="M64 32 C66 26, 68 22, 70 16" stroke="#D4884A" strokeWidth="3" strokeLinecap="round" fill="none"/>
+        <path d="M68 22 C72 20, 74 19, 77 17" stroke="#D4884A" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+        {/* 叶子 */}
+        <ellipse cx="71" cy="12" rx="5" ry="3.5" fill="#8BC34A" transform="rotate(20 71 12)"/>
+        <ellipse cx="79" cy="14.5" rx="4.5" ry="3" fill="#7CB342" transform="rotate(35 79 14.5)"/>
       </g>
 
-      {/* === 耳朵 - 左 === */}
-      <ellipse cx="27" cy="38" rx="7" ry="10" fill="currentColor" opacity="0.18" transform="rotate(-15 27 38)"/>
-      <ellipse cx="27" cy="38" rx="4" ry="7" fill="#FCA5A5" opacity="0.35" transform="rotate(-15 27 38)"/>
+      {/* === 耳朵 === */}
+      <ellipse cx="26" cy="40" rx="9" ry="12" fill="#E8A06B" transform="rotate(-12 26 40)"/>
+      <ellipse cx="26" cy="40" rx="5.5" ry="8" fill="#FFF3E8" transform="rotate(-12 26 40)"/>
+      <ellipse cx="74" cy="40" rx="9" ry="12" fill="#E8A06B" transform="rotate(12 74 40)"/>
+      <ellipse cx="74" cy="40" rx="5.5" ry="8" fill="#FFF3E8" transform="rotate(12 74 40)"/>
 
-      {/* === 耳朵 - 右 === */}
-      <ellipse cx="73" cy="38" rx="7" ry="10" fill="currentColor" opacity="0.18" transform="rotate(15 73 38)"/>
-      <ellipse cx="73" cy="38" rx="4" ry="7" fill="#FCA5A5" opacity="0.35" transform="rotate(15 73 38)"/>
-
-      {/* === 脸部 - 圆润大脸 === */}
-      <ellipse cx="50" cy="56" rx="22" ry="20" fill="currentColor" opacity="0.1"/>
-      <ellipse cx="50" cy="56" rx="22" ry="20" stroke="currentColor" strokeWidth="2.5"/>
-
-      {/* === 额头斑点（梅花鹿特征） === */}
-      <circle cx="42" cy="40" r="1.8" fill="currentColor" opacity="0.15"/>
-      <circle cx="50" cy="38" r="1.5" fill="currentColor" opacity="0.12"/>
-      <circle cx="58" cy="40" r="1.8" fill="currentColor" opacity="0.15"/>
-      <circle cx="46" cy="43" r="1.2" fill="currentColor" opacity="0.1"/>
-      <circle cx="54" cy="43" r="1.2" fill="currentColor" opacity="0.1"/>
+      {/* === 头部 - 圆润大脸 === */}
+      <circle cx="50" cy="58" r="26" fill="#E8A06B"/>
+      {/* 脸部白色区域 */}
+      <ellipse cx="50" cy="62" rx="18" ry="16" fill="#FFFAF5"/>
 
       {/* === 腮红 === */}
-      <ellipse cx="33" cy="62" rx="5" ry="3.5" fill="#F87171" opacity="0.2"/>
-      <ellipse cx="67" cy="62" rx="5" ry="3.5" fill="#F87171" opacity="0.2"/>
+      <ellipse cx="30" cy="64" rx="6" ry="4.5" fill="#FFB5B5" opacity="0.55"/>
+      <ellipse cx="70" cy="64" rx="6" ry="4.5" fill="#FFB5B5" opacity="0.55"/>
 
-      {/* === 眼睛 - 大而明亮 === */}
+      {/* === 眼睛 - 大而圆 kawaii === */}
       <g className="deer-eye-l">
-        {/* 眼白 */}
-        <ellipse cx="40" cy="52" rx="5" ry="5.5" fill="white" opacity="0.9"/>
-        {/* 瞳孔 */}
-        <ellipse cx="40.5" cy="52.5" rx="3.8" ry="4.2" fill="currentColor"/>
-        {/* 高光 - 大 */}
-        <circle cx="38.5" cy="50" r="1.8" fill="white" opacity="0.95"/>
-        {/* 高光 - 小 */}
-        <circle cx="42" cy="54" r="0.9" fill="white" opacity="0.7"/>
-        {/* 睫毛 */}
-        <path d="M36 48 C35 46, 34.5 45, 34 44" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" opacity="0.6"/>
-        <path d="M38 47 C37.5 45, 37 44, 37 43" stroke="currentColor" strokeWidth="1" strokeLinecap="round" opacity="0.4"/>
+        <circle cx="39" cy="55" r="5.5" fill="#2D2D2D"/>
+        <circle cx="37" cy="53" r="2.2" fill="white"/>
+        <circle cx="41" cy="57" r="1" fill="white" opacity="0.6"/>
       </g>
-
       <g className="deer-eye-r">
-        {/* 眼白 */}
-        <ellipse cx="60" cy="52" rx="5" ry="5.5" fill="white" opacity="0.9"/>
-        {/* 瞳孔 */}
-        <ellipse cx="59.5" cy="52.5" rx="3.8" ry="4.2" fill="currentColor"/>
-        {/* 高光 - 大 */}
-        <circle cx="57.5" cy="50" r="1.8" fill="white" opacity="0.95"/>
-        {/* 高光 - 小 */}
-        <circle cx="61" cy="54" r="0.9" fill="white" opacity="0.7"/>
-        {/* 睫毛 */}
-        <path d="M64 48 C65 46, 65.5 45, 66 44" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" opacity="0.6"/>
-        <path d="M62 47 C62.5 45, 63 44, 63 43" stroke="currentColor" strokeWidth="1" strokeLinecap="round" opacity="0.4"/>
+        <circle cx="61" cy="55" r="5.5" fill="#2D2D2D"/>
+        <circle cx="59" cy="53" r="2.2" fill="white"/>
+        <circle cx="63" cy="57" r="1" fill="white" opacity="0.6"/>
       </g>
 
-      {/* === 鼻子 - 小巧三角 === */}
-      <path d="M50 61 L47.5 64 C47.5 65.5, 52.5 65.5, 52.5 64 Z" fill="currentColor" opacity="0.45"/>
-      {/* 鼻子高光 */}
-      <ellipse cx="49.5" cy="62.5" rx="1" ry="0.6" fill="white" opacity="0.4"/>
+      {/* === 鼻子 === */}
+      <ellipse cx="50" cy="66" rx="3" ry="2.2" fill="#D4884A"/>
+      <ellipse cx="49" cy="65.5" rx="1" ry="0.6" fill="white" opacity="0.4"/>
 
-      {/* === 嘴巴 - 可爱微笑 === */}
-      <path d="M44 67 Q47 70 50 67 Q53 70 56 67" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" fill="none" opacity="0.35"/>
-
-      {/* === 小门牙（从嘴巴里露出） === */}
-      <rect x="48" y="67" width="4" height="2.5" rx="0.8" fill="white" opacity="0.7" stroke="currentColor" strokeWidth="0.5" strokeOpacity="0.2"/>
+      {/* === 微笑 === */}
+      <path d="M45 70 Q50 74 55 70" stroke="#D4884A" strokeWidth="1.8" strokeLinecap="round" fill="none"/>
     </svg>
   );
 }
@@ -181,19 +137,19 @@ export default function DeerAIButton() {
         }
 
         .deer-ai-button:focus-visible .deer-ai-btn {
-          box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.4),
-            0 4px 15px rgba(5, 150, 105, 0.3);
+          box-shadow: 0 0 0 3px rgba(232, 160, 107, 0.4),
+            0 4px 15px rgba(212, 136, 74, 0.3);
         }
 
-        /* 呼吸光晕 */
+        /* 呼吸光晕 - 改为暖色调 */
         .deer-ai-glow {
           position: absolute;
           inset: -10px;
           border-radius: 50%;
           background: radial-gradient(
             circle,
-            rgba(52, 211, 153, 0.3) 0%,
-            rgba(52, 211, 153, 0.1) 40%,
+            rgba(232, 160, 107, 0.35) 0%,
+            rgba(232, 160, 107, 0.1) 40%,
             transparent 70%
           );
           animation: deerPulse 2.8s ease-in-out infinite;
@@ -205,33 +161,33 @@ export default function DeerAIButton() {
           50% { transform: scale(1.18); opacity: 0.9; }
         }
 
-        /* 按钮主体 */
+        /* 按钮主体 - 暖色调渐变 */
         .deer-ai-btn {
           width: 64px;
           height: 64px;
           border-radius: 50%;
-          background: linear-gradient(145deg, #34D399 0%, #059669 40%, #047857 100%);
+          background: linear-gradient(145deg, #FFF8F0 0%, #FFF3E8 50%, #FFE8D6 100%);
           display: flex;
           align-items: center;
           justify-content: center;
           box-shadow:
-            0 4px 18px rgba(5, 150, 105, 0.4),
+            0 4px 18px rgba(212, 136, 74, 0.3),
             0 2px 8px rgba(0, 0, 0, 0.08),
-            inset 0 1px 0 rgba(255, 255, 255, 0.2),
-            inset 0 -2px 4px rgba(0, 0, 0, 0.1);
+            inset 0 1px 0 rgba(255, 255, 255, 0.6),
+            inset 0 -2px 4px rgba(212, 136, 74, 0.1);
           transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
           position: relative;
           z-index: 1;
-          color: white;
+          border: 2px solid rgba(232, 160, 107, 0.3);
         }
 
         .deer-ai-button:hover .deer-ai-btn {
           transform: scale(1.1) translateY(-2px);
           box-shadow:
-            0 8px 25px rgba(5, 150, 105, 0.5),
+            0 8px 25px rgba(212, 136, 74, 0.4),
             0 4px 10px rgba(0, 0, 0, 0.1),
-            inset 0 1px 0 rgba(255, 255, 255, 0.25),
-            inset 0 -2px 4px rgba(0, 0, 0, 0.1);
+            inset 0 1px 0 rgba(255, 255, 255, 0.6),
+            inset 0 -2px 4px rgba(212, 136, 74, 0.1);
         }
 
         .deer-ai-button:active .deer-ai-btn {
@@ -239,13 +195,13 @@ export default function DeerAIButton() {
           transition-duration: 0.1s;
         }
 
-        /* 鹿角动画 */
+        /* 鹿角弹性动画 */
         .deer-antler-l {
-          transform-origin: 32px 30px;
+          transform-origin: 36px 32px;
           transition: transform 0.3s ease;
         }
         .deer-antler-r {
-          transform-origin: 68px 30px;
+          transform-origin: 64px 32px;
           transition: transform 0.3s ease;
         }
         .deer-ai-button:hover .deer-antler-l {
@@ -257,16 +213,16 @@ export default function DeerAIButton() {
 
         @keyframes antlerBounceL {
           0%, 100% { transform: rotate(0deg); }
-          40% { transform: rotate(-6deg); }
-          70% { transform: rotate(2deg); }
+          40% { transform: rotate(-8deg); }
+          70% { transform: rotate(3deg); }
         }
         @keyframes antlerBounceR {
           0%, 100% { transform: rotate(0deg); }
-          40% { transform: rotate(6deg); }
-          70% { transform: rotate(-2deg); }
+          40% { transform: rotate(8deg); }
+          70% { transform: rotate(-3deg); }
         }
 
-        /* 眨眼 */
+        /* 眨眼动画 */
         .deer-eye-l, .deer-eye-r {
           animation: eyeBlink 3.5s ease-in-out infinite;
         }
@@ -279,13 +235,13 @@ export default function DeerAIButton() {
           92% { transform: scaleY(0.05); }
         }
 
-        /* 提示 */
+        /* 提示标签 */
         .deer-ai-tooltip {
           position: absolute;
           right: calc(100% + 12px);
           top: 50%;
           transform: translateY(-50%) translateX(5px);
-          background: rgba(15, 23, 42, 0.88);
+          background: rgba(212, 136, 74, 0.9);
           color: white;
           padding: 7px 14px;
           border-radius: 10px;
@@ -295,8 +251,7 @@ export default function DeerAIButton() {
           opacity: 0;
           pointer-events: none;
           transition: all 0.25s ease;
-          backdrop-filter: blur(6px);
-          box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+          box-shadow: 0 2px 8px rgba(212, 136, 74, 0.3);
         }
 
         .deer-ai-button:hover .deer-ai-tooltip {
@@ -354,13 +309,13 @@ export default function DeerAIButton() {
           }
         }
 
-        /* 弹窗头部 */
+        /* 弹窗头部 - 暖色调 */
         .deer-popup-header {
           display: flex;
           align-items: center;
           gap: 6px;
           padding: 10px 14px;
-          background: linear-gradient(135deg, #059669 0%, #0d9488 100%);
+          background: linear-gradient(135deg, #E8A06B 0%, #D4884A 100%);
           color: white;
           border-radius: 16px 16px 0 0;
         }
@@ -381,7 +336,7 @@ export default function DeerAIButton() {
           width: 30px;
           height: 30px;
           border-radius: 50%;
-          background: rgba(255,255,255,0.15);
+          background: rgba(255,255,255,0.2);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -392,7 +347,7 @@ export default function DeerAIButton() {
           border: none;
         }
         .deer-popup-close:hover {
-          background: rgba(255,255,255,0.25);
+          background: rgba(255,255,255,0.3);
         }
 
         /* 移动端 */
