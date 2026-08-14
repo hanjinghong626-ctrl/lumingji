@@ -1,6 +1,9 @@
 import { NextResponse } from 'next/server';
 import getGuideData from '../../../data/life/guides-loader.js';
 
+// DeepSeek API Key - 优先从环境变量读取，fallback到硬编码（临时方案）
+const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY || 'sk-51b6e3db1c85457daef0f57a4c94cb65';
+
 /**
  * AI Chat API - 调用 DeepSeek 生成回答
  * 
@@ -12,17 +15,6 @@ export async function POST(request) {
   try {
     const body = await request.json();
     const { messages, locale, relevantGuideIds } = body;
-
-    if (!process.env.DEEPSEEK_API_KEY) {
-      console.error('DEEPSEEK_API_KEY not configured');
-      return NextResponse.json({
-        reply: locale === 'en'
-          ? 'AI service is not configured yet. Please contact the administrator.'
-          : locale === 'ru'
-            ? 'ИИ-сервис ещё не настроен. Обратитесь к администратору.'
-            : 'AI服务尚未配置，请联系管理员设置API Key。',
-      }, { status: 500 });
-    }
 
     const lang = locale || 'zh';
 
@@ -64,7 +56,7 @@ ${context ? `参考资料：\n${context}` : '（本次无相关参考资料，�
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.DEEPSEEK_API_KEY}`,
+        'Authorization': `Bearer ${DEEPSEEK_API_KEY}`,
       },
       body: JSON.stringify({
         model: 'deepseek-chat',
