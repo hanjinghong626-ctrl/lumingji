@@ -1,7 +1,7 @@
 'use client';
 
 import { useI18n } from '../../../../i18n-context';
-import ChatWindow from '../../../../components/life/ChatWindow';
+import ChatWindow from '../../../components/life/ChatWindow';
 
 const TITLES = {
   zh: 'AI 助手',
