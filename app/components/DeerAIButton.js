@@ -42,15 +42,13 @@ const BUBBLE_MESSAGES = {
   ],
 };
 
-const SLEEP_ZZZ = { zh: '💤', en: '💤', ru: '💤' };
-
 /**
  * 小鹿形象大使 - 互动浮动按钮
- * 功能：闲置浮动、点击弹跳、hover互动、随机气泡、睡眠状态
+ * 使用圆形徽章设计，内嵌小鹿原图
  */
 export default function DeerAIButton() {
   const [isOpen, setIsOpen] = useState(false);
-  const [deerState, setDeerState] = useState('idle'); // idle, hover, bounce, thinking, sleeping
+  const [deerState, setDeerState] = useState('idle');
   const [bubbleText, setBubbleText] = useState('');
   const [showBubble, setShowBubble] = useState(false);
   const [bounceKey, setBounceKey] = useState(0);
@@ -60,40 +58,35 @@ export default function DeerAIButton() {
   const lastInteractionRef = useRef(Date.now());
   const [locale, setLocale] = useState('zh');
 
-  // Detect locale from URL
+  // Detect locale
   useEffect(() => {
     const path = window.location.pathname;
     const match = path.match(/^\/(zh|en|ru)\//);
     if (match) setLocale(match[1]);
   }, []);
 
-  // Show random bubble periodically
+  // Show random bubble
   const showRandomBubble = useCallback(() => {
     const msgs = BUBBLE_MESSAGES[locale] || BUBBLE_MESSAGES.zh;
     const msg = msgs[Math.floor(Math.random() * msgs.length)];
     setBubbleText(msg);
     setShowBubble(true);
-
     if (bubbleTimerRef.current) clearTimeout(bubbleTimerRef.current);
-    bubbleTimerRef.current = setTimeout(() => {
-      setShowBubble(false);
-    }, 4000);
+    bubbleTimerRef.current = setTimeout(() => setShowBubble(false), 4000);
   }, [locale]);
 
-  // Show initial bubble after 2s
+  // Initial bubble
   useEffect(() => {
     const t = setTimeout(() => showRandomBubble(), 2000);
     return () => clearTimeout(t);
   }, [showRandomBubble]);
 
-  // Periodic bubble every 30-60s when idle
+  // Periodic bubble
   useEffect(() => {
     function scheduleBubble() {
       const delay = 30000 + Math.random() * 30000;
       timerRef.current = setTimeout(() => {
-        if (deerState === 'idle' && !isOpen) {
-          showRandomBubble();
-        }
+        if (deerState === 'idle' && !isOpen) showRandomBubble();
         scheduleBubble();
       }, delay);
     }
@@ -101,7 +94,7 @@ export default function DeerAIButton() {
     return () => { if (timerRef.current) clearTimeout(timerRef.current); };
   }, [deerState, isOpen, showRandomBubble]);
 
-  // Sleep detection: 3 minutes of no interaction
+  // Sleep detection
   useEffect(() => {
     function checkIdle() {
       const elapsed = Date.now() - lastInteractionRef.current;
@@ -113,61 +106,47 @@ export default function DeerAIButton() {
     return () => { if (idleTimerRef.current) clearInterval(idleTimerRef.current); };
   }, [deerState, isOpen, showBubble]);
 
-  // Wake up on mouse enter or click
   const wakeUp = useCallback(() => {
     lastInteractionRef.current = Date.now();
-    if (deerState === 'sleeping') {
-      setDeerState('idle');
-    }
+    if (deerState === 'sleeping') setDeerState('idle');
   }, [deerState]);
 
-  // Handle click
   const handleClick = () => {
     wakeUp();
     setBounceKey(k => k + 1);
     setDeerState('bounce');
     setShowBubble(false);
-
-    // After bounce animation, open dialog
     setTimeout(() => {
       setIsOpen(true);
       setDeerState('idle');
     }, 400);
   };
 
-  // Handle hover
   const handleMouseEnter = () => {
     wakeUp();
-    if (deerState !== 'bounce') {
-      setDeerState('hover');
-    }
+    if (deerState !== 'bounce') setDeerState('hover');
   };
 
   const handleMouseLeave = () => {
-    if (deerState === 'hover') {
-      setDeerState('idle');
-    }
+    if (deerState === 'hover') setDeerState('idle');
   };
 
-  // Track when chat is open (thinking state)
   useEffect(() => {
-    if (isOpen) {
-      wakeUp();
-    }
+    if (isOpen) wakeUp();
   }, [isOpen, wakeUp]);
 
   return (
     <>
-      {/* 浮动小鹿按钮 */}
+      {/* 浮动小鹿徽章 */}
       <div
-        className="deer-mascot-container"
+        className="deer-badge-container"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         onClick={handleClick}
       >
         {/* 气泡 */}
         {showBubble && !isOpen && (
-          <div className="deer-speech-bubble">
+          <div className="deer-bubble">
             <span>{bubbleText}</span>
             <div className="deer-bubble-tail" />
           </div>
@@ -178,19 +157,22 @@ export default function DeerAIButton() {
           <div className="deer-zzz">💤</div>
         )}
 
-        {/* 小鹿本体 */}
+        {/* 小鹿徽章本体 */}
         <div
           key={bounceKey}
-          className={`deer-mascot-img-wrap deer-state-${deerState}`}
+          className={`deer-badge deer-state-${deerState}`}
         >
           {/* 呼吸光晕 */}
-          <div className="deer-glow" />
-          <img
-            src="/deer-mascot-small.png"
-            alt="小鹿AI助手"
-            className="deer-mascot-img"
-            draggable={false}
-          />
+          <div className="deer-badge-glow" />
+          {/* 圆形图片容器 */}
+          <div className="deer-badge-inner">
+            <img
+              src="/deer-original.png"
+              alt="小鹿AI助手"
+              className="deer-badge-img"
+              draggable={false}
+            />
+          </div>
         </div>
       </div>
 
@@ -201,7 +183,9 @@ export default function DeerAIButton() {
           <div className="deer-dialog-window">
             {/* 头部 */}
             <div className="deer-dialog-header">
-              <img src="/deer-mascot-small.png" alt="" className="deer-dialog-header-img" />
+              <div className="deer-dialog-header-badge">
+                <img src="/deer-original.png" alt="" className="deer-dialog-header-img" />
+              </div>
               <span className="deer-dialog-title">小鹿AI</span>
               <span className="deer-dialog-subtitle">· 有问必答</span>
               <div className="flex-1" />
@@ -217,7 +201,7 @@ export default function DeerAIButton() {
 
       <style jsx>{`
         /* ===== 容器 ===== */
-        .deer-mascot-container {
+        .deer-badge-container {
           position: fixed;
           bottom: 24px;
           right: 24px;
@@ -231,24 +215,24 @@ export default function DeerAIButton() {
         }
 
         /* ===== 呼吸光晕 ===== */
-        .deer-glow {
+        .deer-badge-glow {
           position: absolute;
-          inset: -6px;
+          inset: -8px;
           border-radius: 50%;
-          background: radial-gradient(circle, rgba(232,160,107,0.25) 0%, transparent 70%);
+          background: radial-gradient(circle, rgba(232,160,107,0.35) 0%, rgba(232,160,107,0.1) 50%, transparent 70%);
           animation: deerGlow 3s ease-in-out infinite;
           pointer-events: none;
         }
         @keyframes deerGlow {
-          0%, 100% { transform: scale(1); opacity: 0.4; }
-          50% { transform: scale(1.15); opacity: 0.8; }
+          0%, 100% { transform: scale(1); opacity: 0.5; }
+          50% { transform: scale(1.12); opacity: 0.9; }
         }
 
-        /* ===== 小鹿图片容器 ===== */
-        .deer-mascot-img-wrap {
+        /* ===== 徽章本体 ===== */
+        .deer-badge {
           position: relative;
-          width: 72px;
-          height: 72px;
+          width: 80px;
+          height: 80px;
           border-radius: 50%;
           display: flex;
           align-items: center;
@@ -256,11 +240,32 @@ export default function DeerAIButton() {
           transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
-        .deer-mascot-img {
-          width: 68px;
-          height: 68px;
-          object-fit: contain;
-          filter: drop-shadow(0 3px 8px rgba(180,120,60,0.3));
+        /* 圆形裁剪容器 */
+        .deer-badge-inner {
+          width: 76px;
+          height: 76px;
+          border-radius: 50%;
+          overflow: hidden;
+          position: relative;
+          z-index: 1;
+          background: linear-gradient(145deg, #FFF5E6 0%, #FFE8CC 40%, #FDDDB8 100%);
+          box-shadow: 
+            0 4px 16px rgba(180,120,60,0.25),
+            0 2px 6px rgba(180,120,60,0.15),
+            inset 0 1px 2px rgba(255,255,255,0.6);
+          border: 2.5px solid rgba(255,255,255,0.7);
+        }
+
+        /* 图片在圆形容器中居中偏下显示（聚焦小鹿脸部） */
+        .deer-badge-img {
+          width: 140%;
+          height: 140%;
+          object-fit: cover;
+          object-position: center 38%;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
           pointer-events: none;
         }
 
@@ -270,21 +275,21 @@ export default function DeerAIButton() {
         }
         @keyframes deerFloat {
           0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-6px); }
+          50% { transform: translateY(-8px); }
         }
 
         /* ===== Hover 摇摆 ===== */
         .deer-state-hover {
           animation: deerWiggle 0.6s ease-in-out;
-          transform: scale(1.1);
+          transform: scale(1.12);
         }
         @keyframes deerWiggle {
           0% { transform: scale(1) rotate(0deg); }
-          20% { transform: scale(1.08) rotate(-5deg); }
-          40% { transform: scale(1.1) rotate(4deg); }
-          60% { transform: scale(1.08) rotate(-3deg); }
-          80% { transform: scale(1.1) rotate(2deg); }
-          100% { transform: scale(1.1) rotate(0deg); }
+          20% { transform: scale(1.1) rotate(-6deg); }
+          40% { transform: scale(1.12) rotate(5deg); }
+          60% { transform: scale(1.1) rotate(-4deg); }
+          80% { transform: scale(1.12) rotate(2deg); }
+          100% { transform: scale(1.12) rotate(0deg); }
         }
 
         /* ===== 点击弹跳 ===== */
@@ -293,74 +298,73 @@ export default function DeerAIButton() {
         }
         @keyframes deerBounce {
           0% { transform: scale(1) translateY(0); }
-          20% { transform: scale(0.85, 1.15) translateY(2px); }
-          50% { transform: scale(1.15, 0.85) translateY(-18px); }
-          70% { transform: scale(0.95, 1.05) translateY(-4px); }
+          20% { transform: scale(0.88, 1.12) translateY(3px); }
+          50% { transform: scale(1.12, 0.88) translateY(-20px); }
+          70% { transform: scale(0.96, 1.04) translateY(-5px); }
           100% { transform: scale(1) translateY(0); }
         }
 
         /* ===== 睡眠状态 ===== */
         .deer-state-sleeping {
           animation: deerSleep 2.5s ease-in-out infinite;
-          filter: brightness(0.85);
         }
-        .deer-state-sleeping .deer-mascot-img {
-          filter: brightness(0.9) saturate(0.8);
+        .deer-state-sleeping .deer-badge-inner {
+          filter: brightness(0.88) saturate(0.85);
         }
         @keyframes deerSleep {
           0%, 100% { transform: translateY(0) rotate(-3deg); }
-          50% { transform: translateY(-3px) rotate(3deg); }
+          50% { transform: translateY(-4px) rotate(3deg); }
         }
 
         /* ===== 睡眠 Zzz ===== */
         .deer-zzz {
           position: absolute;
-          top: -8px;
-          right: -4px;
-          font-size: 18px;
+          top: -6px;
+          right: -2px;
+          font-size: 20px;
           animation: zzzFloat 2s ease-in-out infinite;
           pointer-events: none;
+          z-index: 5;
         }
         @keyframes zzzFloat {
-          0%, 100% { transform: translateY(0) scale(1); opacity: 0.7; }
-          50% { transform: translateY(-8px) scale(1.2); opacity: 1; }
+          0%, 100% { transform: translateY(0) scale(1); opacity: 0.6; }
+          50% { transform: translateY(-10px) scale(1.25); opacity: 1; }
         }
 
         /* ===== 气泡 ===== */
-        .deer-speech-bubble {
+        .deer-bubble {
           position: absolute;
-          right: calc(100% + 12px);
-          bottom: 14px;
-          background: rgba(255, 255, 255, 0.95);
+          right: calc(100% + 14px);
+          bottom: 18px;
+          background: rgba(255, 255, 255, 0.96);
           color: #5D4037;
-          padding: 8px 14px;
-          border-radius: 16px 16px 4px 16px;
+          padding: 10px 16px;
+          border-radius: 18px 18px 4px 18px;
           font-size: 13px;
           font-weight: 500;
-          white-space: nowrap;
-          max-width: 220px;
-          white-space: normal;
-          box-shadow: 0 4px 16px rgba(0,0,0,0.1), 0 1px 4px rgba(0,0,0,0.06);
+          max-width: 200px;
+          word-wrap: break-word;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.1), 0 1px 4px rgba(0,0,0,0.06);
           animation: bubbleIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
           pointer-events: none;
-          line-height: 1.4;
-          backdrop-filter: blur(8px);
+          line-height: 1.5;
+          backdrop-filter: blur(10px);
           border: 1px solid rgba(232,160,107,0.15);
         }
         .deer-bubble-tail {
           position: absolute;
           right: -6px;
-          bottom: 8px;
+          bottom: 10px;
           width: 12px;
           height: 12px;
-          background: rgba(255, 255, 255, 0.95);
+          background: rgba(255, 255, 255, 0.96);
           transform: rotate(45deg);
           border-radius: 0 0 3px 0;
           border-right: 1px solid rgba(232,160,107,0.15);
           border-bottom: 1px solid rgba(232,160,107,0.15);
         }
         @keyframes bubbleIn {
-          0% { opacity: 0; transform: scale(0.7) translateY(5px); }
+          0% { opacity: 0; transform: scale(0.7) translateY(6px); }
           100% { opacity: 1; transform: scale(1) translateY(0); }
         }
 
@@ -389,58 +393,71 @@ export default function DeerAIButton() {
           position: relative;
           width: 420px;
           max-width: calc(100vw - 48px);
-          margin-bottom: 80px;
+          margin-bottom: 90px;
           pointer-events: auto;
           animation: dialogPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
           border-radius: 20px;
-          box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12), 0 10px 25px rgba(0, 0, 0, 0.06);
+          box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15), 0 10px 25px rgba(0, 0, 0, 0.08);
           overflow: hidden;
         }
         @keyframes dialogPop {
-          from { opacity: 0; transform: translateY(20px) scale(0.92); }
+          from { opacity: 0; transform: translateY(24px) scale(0.9); }
           to { opacity: 1; transform: translateY(0) scale(1); }
         }
 
         .deer-dialog-header {
           display: flex;
           align-items: center;
-          gap: 8px;
-          padding: 12px 16px;
-          background: linear-gradient(135deg, #E8A06B 0%, #D4884A 60%, #C47A3A 100%);
+          gap: 10px;
+          padding: 14px 18px;
+          background: linear-gradient(135deg, #E8A06B 0%, #D4884A 50%, #C47A3A 100%);
           color: white;
         }
+        .deer-dialog-header-badge {
+          width: 36px;
+          height: 36px;
+          border-radius: 50%;
+          overflow: hidden;
+          border: 2px solid rgba(255,255,255,0.5);
+          flex-shrink: 0;
+          background: linear-gradient(145deg, #FFF5E6, #FFE8CC);
+        }
         .deer-dialog-header-img {
-          width: 32px;
-          height: 32px;
-          object-fit: contain;
-          filter: drop-shadow(0 1px 2px rgba(0,0,0,0.15));
+          width: 140%;
+          height: 140%;
+          object-fit: cover;
+          object-position: center 38%;
+          position: relative;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
         }
         .deer-dialog-title {
           font-size: 16px;
-          font-weight: 600;
+          font-weight: 700;
           letter-spacing: 0.5px;
         }
         .deer-dialog-subtitle {
           font-size: 12px;
-          opacity: 0.75;
+          opacity: 0.8;
           font-style: italic;
         }
         .deer-dialog-close {
-          width: 30px;
-          height: 30px;
+          width: 32px;
+          height: 32px;
           border-radius: 50%;
-          background: rgba(255,255,255,0.18);
+          background: rgba(255,255,255,0.2);
           display: flex;
           align-items: center;
           justify-content: center;
           color: white;
-          font-size: 14px;
+          font-size: 15px;
           border: none;
           cursor: pointer;
           transition: background 0.2s;
         }
         .deer-dialog-close:hover {
-          background: rgba(255,255,255,0.3);
+          background: rgba(255,255,255,0.35);
         }
 
         .deer-dialog-chat {
@@ -452,19 +469,19 @@ export default function DeerAIButton() {
 
         /* ===== 移动端 ===== */
         @media (max-width: 480px) {
-          .deer-mascot-container {
-            bottom: 16px;
-            right: 16px;
+          .deer-badge-container {
+            bottom: 18px;
+            right: 18px;
           }
-          .deer-mascot-img-wrap {
-            width: 62px;
-            height: 62px;
+          .deer-badge {
+            width: 70px;
+            height: 70px;
           }
-          .deer-mascot-img {
-            width: 58px;
-            height: 58px;
+          .deer-badge-inner {
+            width: 66px;
+            height: 66px;
           }
-          .deer-speech-bubble {
+          .deer-bubble {
             display: none;
           }
           .deer-dialog-overlay {
