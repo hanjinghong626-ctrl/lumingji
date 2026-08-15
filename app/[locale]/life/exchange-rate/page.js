@@ -3,76 +3,86 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useI18n } from '../../../../i18n-context';
 
-// 货币列表（排除CNY自身，CNY是基准）
+// 货币列表
 const CURRENCIES = ['USD', 'EUR', 'RUB', 'GBP', 'JPY', 'KRW', 'THB', 'VND', 'INR', 'HKD', 'SGD', 'AUD', 'CAD'];
 
-// 三语翻译
+// 离线备用汇率（前端兜底）
+const FALLBACK_RATES = {
+  USD: 0.138, EUR: 0.127, RUB: 12.5, GBP: 0.108, JPY: 20.8,
+  KRW: 186, THB: 4.85, VND: 3450, INR: 11.5, HKD: 1.08,
+  SGD: 0.185, AUD: 0.212, CAD: 0.19,
+};
+
+const FALLBACK_NAMES = {
+  USD: { zh: '美元', en: 'US Dollar', ru: 'Доллар США', symbol: '$' },
+  EUR: { zh: '欧元', en: 'Euro', ru: 'Евро', symbol: '€' },
+  RUB: { zh: '卢布', en: 'Russian Ruble', ru: 'Российский рубль', symbol: '₽' },
+  GBP: { zh: '英镑', en: 'British Pound', ru: 'Фунт стерлингов', symbol: '£' },
+  JPY: { zh: '日元', en: 'Japanese Yen', ru: 'Японская иена', symbol: '¥' },
+  KRW: { zh: '韩元', en: 'Korean Won', ru: 'Южнокорейская вона', symbol: '₩' },
+  THB: { zh: '泰铢', en: 'Thai Baht', ru: 'Тайский бат', symbol: '฿' },
+  VND: { zh: '越南盾', en: 'Vietnamese Dong', ru: 'Вьетнамский донг', symbol: '₫' },
+  INR: { zh: '印度卢比', en: 'Indian Rupee', ru: 'Индийская рупия', symbol: '₹' },
+  HKD: { zh: '港币', en: 'Hong Kong Dollar', ru: 'Гонконгский доллар', symbol: 'HK$' },
+  SGD: { zh: '新加坡元', en: 'Singapore Dollar', ru: 'Сингапурский доллар', symbol: 'S$' },
+  AUD: { zh: '澳元', en: 'Australian Dollar', ru: 'Австралийский доллар', symbol: 'A$' },
+  CAD: { zh: '加元', en: 'Canadian Dollar', ru: 'Канадский доллар', symbol: 'C$' },
+};
+
 const T = {
   zh: {
     title: '💱 实时汇率',
-    subtitle: '数据每5分钟自动刷新 · 来源 exchangerate-api.com',
+    subtitle: '数据每5分钟自动刷新',
     converter: '汇率换算',
     amount: '金额',
     from: '从',
     to: '兑换为',
-    convert: '换算',
     result: '换算结果',
     loading: '加载中...',
-    error: '获取汇率失败，请稍后重试',
+    error: '获取汇率失败，正在使用参考汇率',
+    retry: '重试',
     lastUpdate: '最后更新',
     baseCNY: '基准：人民币 (CNY)',
-    fallback: '⚠️ 当前为参考汇率，非实时数据',
+    fallback: '⚠️ 参考汇率，可能与实时值有偏差',
     rateTable: '汇率一览',
     per100: '每100',
-    popularCurrencies: ['USD', 'EUR', 'RUB', 'GBP', 'JPY', 'KRW'],
-    toSelect: '请选择',
-    swapBtn: '⇄',
-    fromCNY: '人民币',
-    commonConversions: '常用换算',
+    ref: '参考值',
   },
   en: {
     title: '💱 Live Exchange Rates',
-    subtitle: 'Auto-refreshes every 5 min · Source: exchangerate-api.com',
+    subtitle: 'Auto-refreshes every 5 min',
     converter: 'Currency Converter',
     amount: 'Amount',
     from: 'From',
     to: 'To',
-    convert: 'Convert',
     result: 'Result',
     loading: 'Loading...',
-    error: 'Failed to fetch rates. Please try again later.',
+    error: 'Fetch failed, using reference rates',
+    retry: 'Retry',
     lastUpdate: 'Last updated',
     baseCNY: 'Base: Chinese Yuan (CNY)',
-    fallback: '⚠️ Reference rates only, not live data',
+    fallback: '⚠️ Reference rates, may differ from live',
     rateTable: 'Exchange Rates',
     per100: 'Per 100',
-    popularCurrencies: ['USD', 'EUR', 'RUB', 'GBP', 'JPY', 'KRW'],
-    toSelect: 'Select',
-    swapBtn: '⇄',
-    fromCNY: 'CNY',
-    commonConversions: 'Quick Convert',
+    ref: 'Reference',
   },
   ru: {
     title: '💱 Курс валют',
-    subtitle: 'Авто-обновление каждые 5 мин · Источник: exchangerate-api.com',
+    subtitle: 'Авто-обновление каждые 5 мин',
     converter: 'Конвертер валют',
     amount: 'Сумма',
     from: 'Из',
     to: 'В',
-    convert: 'Конвертировать',
     result: 'Результат',
     loading: 'Загрузка...',
-    error: 'Не удалось получить курсы. Попробуйте позже.',
+    error: 'Не удалось получить, используются справочные курсы',
+    retry: 'Повторить',
     lastUpdate: 'Обновлено',
     baseCNY: 'Базовая: китайский юань (CNY)',
-    fallback: '⚠️ Это справочные курсы, не актуальные',
+    fallback: '⚠️ Справочные курсы, могут отличаться',
     rateTable: 'Курсы валют',
     per100: 'За 100',
-    popularCurrencies: ['USD', 'EUR', 'RUB', 'GBP', 'JPY', 'KRW'],
-    toSelect: 'Выбрать',
-    swapBtn: '⇄',
-    fromCNY: 'юаней',
-    commonConversions: 'Быстрый конверт',
+    ref: 'Справка',
   },
 };
 
@@ -83,65 +93,91 @@ export default function ExchangeRatePage() {
 
   const [rates, setRates] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+  const [isFallback, setIsFallback] = useState(false);
   const [lastUpdate, setLastUpdate] = useState(null);
-  const [prevRates, setPrevRates] = useState(null);
+  const [prevRatesData, setPrevRatesData] = useState(null);
 
   // Converter state
   const [convAmount, setConvAmount] = useState('100');
   const [convFrom, setConvFrom] = useState('USD');
   const [convTo, setConvTo] = useState('CNY');
   const [convResult, setConvResult] = useState(null);
-  const [convLoading, setConvLoading] = useState(false);
 
-  const tickerRef = useRef(null);
-
-  // Fetch exchange rates
-  const fetchRates = useCallback(async () => {
+  // Fetch with retry
+  const fetchRates = useCallback(async (attempt = 1) => {
     try {
-      const res = await fetch('/api/exchange-rate');
+      const res = await fetch('/api/exchange-rate', { signal: AbortSignal.timeout(8000) });
       if (!res.ok) throw new Error('API error');
       const data = await res.json();
-      if (data.success) {
-        setPrevRates(rates);
-        setRates(data);
+      if (data.success && data.currencies) {
+        setPrevRatesData(rates);
+        setRates(data.currencies);
+        setIsFallback(data.isFallback || false);
         setLastUpdate(new Date());
-        setError(false);
-      } else {
-        setError(true);
+        setLoading(false);
+        return;
       }
+      throw new Error('Invalid data');
     } catch (e) {
-      setError(true);
-    } finally {
+      if (attempt < 3) {
+        // Retry after 1s
+        setTimeout(() => fetchRates(attempt + 1), 1000);
+        return;
+      }
+      // All retries failed - use fallback rates
+      const fallbackCurrencies = {};
+      for (const [code, rate] of Object.entries(FALLBACK_RATES)) {
+        fallbackCurrencies[code] = { rate, name: FALLBACK_NAMES[code] };
+      }
+      setPrevRatesData(rates);
+      setRates(fallbackCurrencies);
+      setIsFallback(true);
+      setLastUpdate(new Date());
       setLoading(false);
     }
-  }, []);
+  }, [rates]);
 
   // Convert currency
   const doConvert = useCallback(async () => {
     const amt = parseFloat(convAmount);
     if (isNaN(amt) || amt <= 0) return;
-    setConvLoading(true);
     try {
-      const res = await fetch(`/api/exchange-rate?from=${convFrom}&to=${convTo}&amount=${amt}`);
+      const res = await fetch(`/api/exchange-rate?from=${convFrom}&to=${convTo}&amount=${amt}`,
+        { signal: AbortSignal.timeout(8000) });
       const data = await res.json();
       if (data.success) {
         setConvResult(data.data);
+      } else {
+        // Fallback: calculate locally
+        const fromRate = FALLBACK_RATES[convFrom] || (convFrom === 'CNY' ? 1 : null);
+        const toRate = FALLBACK_RATES[convTo] || (convTo === 'CNY' ? 1 : null);
+        if (fromRate && toRate) {
+          const cnyAmt = amt / fromRate;
+          const result = Math.round(cnyAmt * toRate * 100) / 100;
+          const rate = Math.round((toRate / fromRate) * 10000) / 10000;
+          setConvResult({ amount: amt, from: convFrom, to: convTo, result, rate, isFallback: true });
+        }
       }
     } catch (e) {
-      // silent
-    } finally {
-      setConvLoading(false);
+      // Fallback: calculate locally
+      const fromRate = FALLBACK_RATES[convFrom] || (convFrom === 'CNY' ? 1 : null);
+      const toRate = FALLBACK_RATES[convTo] || (convTo === 'CNY' ? 1 : null);
+      if (fromRate && toRate) {
+        const cnyAmt = amt / fromRate;
+        const result = Math.round(cnyAmt * toRate * 100) / 100;
+        const rate = Math.round((toRate / fromRate) * 10000) / 10000;
+        setConvResult({ amount: amt, from: convFrom, to: convTo, result, rate, isFallback: true });
+      }
     }
   }, [convAmount, convFrom, convTo]);
 
   useEffect(() => {
     fetchRates();
-    const interval = setInterval(fetchRates, 5 * 60 * 1000); // refresh every 5 min
+    const interval = setInterval(() => fetchRates(), 5 * 60 * 1000);
     return () => clearInterval(interval);
-  }, [fetchRates]);
+  }, []);
 
-  // Auto convert on input change (debounced)
+  // Auto convert on input change
   useEffect(() => {
     const timer = setTimeout(() => {
       if (convAmount && !isNaN(parseFloat(convAmount))) {
@@ -149,37 +185,35 @@ export default function ExchangeRatePage() {
       }
     }, 500);
     return () => clearTimeout(timer);
-  }, [convAmount, convFrom, convTo, doConvert]);
+  }, [convAmount, convFrom, convTo]);
 
   const getRateChange = (code) => {
-    if (!prevRates || !rates) return null;
-    const prev = prevRates.currencies?.[code]?.rate;
-    const curr = rates.currencies?.[code]?.rate;
+    if (!prevRatesData || !rates) return null;
+    const prev = prevRatesData[code]?.rate;
+    const curr = rates[code]?.rate;
     if (prev === undefined || curr === undefined) return null;
     if (Math.abs(prev - curr) < 0.00001) return null;
     return curr > prev ? 'up' : 'down';
   };
 
-  const formatRate = (rate, code) => {
+  const formatRate = (rate) => {
     if (rate === undefined || rate === null) return '—';
     if (rate >= 100) return rate.toFixed(2);
     if (rate >= 1) return rate.toFixed(4);
     return rate.toFixed(6);
   };
 
-  const getCurrencyName = (code) => {
-    const info = rates?.currencies?.[code]?.name;
+  const getName = (code) => {
+    const info = rates?.[code]?.name || FALLBACK_NAMES[code];
     if (!info) return code;
-    const names = { zh: info.zh, en: info.en, ru: info.ru };
-    return names[lang] || names.zh || code;
+    return info[lang] || info.zh || code;
   };
 
   const getSymbol = (code) => {
-    const info = rates?.currencies?.[code]?.name;
+    const info = rates?.[code]?.name || FALLBACK_NAMES[code];
     return info?.symbol || '';
   };
 
-  // Swap from/to
   const handleSwap = () => {
     setConvFrom(convTo);
     setConvTo(convFrom);
@@ -200,7 +234,7 @@ export default function ExchangeRatePage() {
       <div className="text-center mb-8">
         <h1 className="section-title">{t.title}</h1>
         <p className="text-sm text-gray-500 font-wenkai mt-2">{t.subtitle}</p>
-        {rates?.isFallback && (
+        {isFallback && (
           <p className="text-sm text-amber-600 mt-2">{t.fallback}</p>
         )}
         {lastUpdate && (
@@ -211,34 +245,33 @@ export default function ExchangeRatePage() {
       </div>
 
       {/* Scrolling Ticker */}
-      {rates && rates.currencies && (
+      {rates && (
         <div className="mb-10">
           <div className="overflow-hidden rounded-2xl bg-gradient-to-r from-primary-50 via-white to-primary-50 border border-primary-100/60 shadow-sm">
-            <div className="ticker-track flex items-center py-3 px-4 whitespace-nowrap">
-              <div className="ticker-content flex items-center gap-8">
+            <div className="overflow-hidden py-3 px-4 whitespace-nowrap">
+              <div className="inline-flex animate-[tickerScroll_40s_linear_infinite] hover:[animation-play-state:paused]">
                 {CURRENCIES.map((code) => {
-                  const currency = rates.currencies[code];
-                  if (!currency) return null;
+                  const c = rates[code];
+                  if (!c) return null;
                   const change = getRateChange(code);
                   return (
-                    <span key={code} className="inline-flex items-center gap-2 text-sm font-mono">
-                      <span className="text-gray-400 text-xs">{currency.name.symbol}</span>
+                    <span key={code} className="inline-flex items-center gap-2 text-sm font-mono mx-4">
+                      <span className="text-gray-400 text-xs">{c.name.symbol}</span>
                       <span className="font-bold text-gray-700">{code}</span>
-                      <span className="text-gray-600">{formatRate(currency.rate, code)}</span>
+                      <span className="text-gray-600">{formatRate(c.rate)}</span>
                       {change === 'up' && <span className="text-green-500 text-xs">▲</span>}
                       {change === 'down' && <span className="text-red-400 text-xs">▼</span>}
                     </span>
                   );
                 })}
-                {/* Duplicate for seamless loop */}
                 {CURRENCIES.map((code) => {
-                  const currency = rates.currencies[code];
-                  if (!currency) return null;
+                  const c = rates[code];
+                  if (!c) return null;
                   return (
-                    <span key={`${code}-dup`} className="inline-flex items-center gap-2 text-sm font-mono">
-                      <span className="text-gray-400 text-xs">{currency.name.symbol}</span>
+                    <span key={`${code}-dup`} className="inline-flex items-center gap-2 text-sm font-mono mx-4">
+                      <span className="text-gray-400 text-xs">{c.name.symbol}</span>
                       <span className="font-bold text-gray-700">{code}</span>
-                      <span className="text-gray-600">{formatRate(currency.rate, code)}</span>
+                      <span className="text-gray-600">{formatRate(c.rate)}</span>
                     </span>
                   );
                 })}
@@ -249,17 +282,18 @@ export default function ExchangeRatePage() {
       )}
 
       {/* Rate Cards Grid */}
-      {rates && rates.currencies && (
+      {rates && (
         <div className="mb-12">
           <h2 className="text-lg font-wenkai font-bold text-gray-700 mb-4 flex items-center gap-2">
             <span className="w-1 h-5 bg-primary-400 rounded-full inline-block"></span>
             {t.rateTable}
             <span className="text-xs text-gray-400 font-normal ml-2">{t.baseCNY}</span>
+            {isFallback && <span className="text-xs text-amber-500 ml-2">({t.ref})</span>}
           </h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
             {CURRENCIES.map((code) => {
-              const currency = rates.currencies[code];
-              if (!currency) return null;
+              const c = rates[code];
+              if (!c) return null;
               const change = getRateChange(code);
               return (
                 <div
@@ -273,17 +307,17 @@ export default function ExchangeRatePage() {
                   }`}
                 >
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="text-xl">{currency.name.symbol}</span>
+                    <span className="text-xl">{c.name.symbol}</span>
                     <span className="font-bold text-gray-700">{code}</span>
                     {change === 'up' && <span className="text-green-500 text-xs ml-auto">▲</span>}
                     {change === 'down' && <span className="text-red-400 text-xs ml-auto">▼</span>}
                   </div>
-                  <p className="text-xs text-gray-400 mb-1">{getCurrencyName(code)}</p>
+                  <p className="text-xs text-gray-400 mb-1">{getName(code)}</p>
                   <p className="text-lg font-mono font-bold text-gray-800">
-                    {formatRate(currency.rate, code)}
+                    {formatRate(c.rate)}
                   </p>
                   <p className="text-xs text-gray-400 mt-1">
-                    {t.per100} CNY = {formatRate(currency.rate * 100, code)} {code}
+                    {t.per100} CNY = {formatRate(c.rate * 100)} {code}
                   </p>
                 </div>
               );
@@ -325,7 +359,7 @@ export default function ExchangeRatePage() {
                 <option value="CNY">🇨🇳 CNY - {lang === 'ru' ? 'Юань' : '人民币'}</option>
                 {CURRENCIES.map((code) => (
                   <option key={code} value={code}>
-                    {getSymbol(code)} {code} - {getCurrencyName(code)}
+                    {getSymbol(code)} {code} - {getName(code)}
                   </option>
                 ))}
               </select>
@@ -334,7 +368,6 @@ export default function ExchangeRatePage() {
             <button
               onClick={handleSwap}
               className="mt-5 w-10 h-10 flex items-center justify-center rounded-full bg-primary-100 text-primary-600 hover:bg-primary-200 transition-colors text-lg font-bold shrink-0"
-              title="Swap"
             >
               ⇄
             </button>
@@ -349,7 +382,7 @@ export default function ExchangeRatePage() {
                 <option value="CNY">🇨🇳 CNY - {lang === 'ru' ? 'Юань' : '人民币'}</option>
                 {CURRENCIES.map((code) => (
                   <option key={code} value={code}>
-                    {getSymbol(code)} {code} - {getCurrencyName(code)}
+                    {getSymbol(code)} {code} - {getName(code)}
                   </option>
                 ))}
               </select>
@@ -365,15 +398,9 @@ export default function ExchangeRatePage() {
               </p>
               <p className="text-xs text-gray-400 mt-1">
                 1 {convFrom} = {convResult.rate} {convTo}
-                {convResult.date && convResult.date !== 'fallback' && (
-                  <span className="ml-2">· {convResult.date}</span>
-                )}
+                {convResult.isFallback && <span className="ml-2 text-amber-500">({t.ref})</span>}
               </p>
             </div>
-          )}
-
-          {convLoading && (
-            <p className="text-center text-sm text-gray-400 py-3 animate-pulse">...</p>
           )}
         </div>
 
@@ -402,31 +429,8 @@ export default function ExchangeRatePage() {
         </div>
       </div>
 
-      {/* Error state */}
-      {error && !rates && (
-        <div className="text-center py-12">
-          <p className="text-amber-600 font-wenkai">{t.error}</p>
-          <button
-            onClick={() => { setLoading(true); fetchRates(); }}
-            className="mt-4 px-6 py-2 bg-primary-500 text-white rounded-full text-sm hover:bg-primary-600 transition-colors"
-          >
-            🔄
-          </button>
-        </div>
-      )}
-
-      {/* CSS for ticker animation */}
-      <style jsx>{`
-        .ticker-track {
-          overflow: hidden;
-        }
-        .ticker-content {
-          display: inline-flex;
-          animation: tickerScroll 40s linear infinite;
-        }
-        .ticker-content:hover {
-          animation-play-state: paused;
-        }
+      {/* Inline CSS for ticker animation */}
+      <style>{`
         @keyframes tickerScroll {
           0% { transform: translateX(0); }
           100% { transform: translateX(-50%); }
