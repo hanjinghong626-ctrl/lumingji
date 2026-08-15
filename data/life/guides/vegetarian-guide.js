@@ -38,24 +38,9 @@ export default {
     {
       title: { zh: '点餐时的关键表达', en: 'Key phrases when ordering', ru: 'Ключевые фразы при заказе' },
       desc: {
-        zh: '在普通餐厅点菜时，可以说：
-• "我是严格的素食者（纯素），不吃任何肉类、蛋、奶" — I\'m a strict vegan
-• "请不要放蚝油、鱼露、鸡精" — Please don\'t use oyster sauce, fish sauce, chicken powder
-• "请用植物油烹饪" — Please cook with vegetable oil
-• "豆腐和蔬菜，不放肉" — Tofu and vegetables, no meat
-如果沟通困难，可以把这些句子翻译成中文保存到手机里展示。',
-        en: 'At regular restaurants, say:
-• "我是严格的素食者（纯素），不吃任何肉类、蛋、奶" — I\'m a strict vegan
-• "请不要放蚝油、鱼露、鸡精" — No oyster sauce, fish sauce, chicken powder
-• "请用植物油烹饪" — Cook with vegetable oil
-• "豆腐和蔬菜，不放肉" — Tofu and vegetables, no meat
-Save these Chinese phrases on your phone to show if communication is difficult.',
-        ru: 'В обычном ресторане скажите:
-• "我是纯素" — строгий веган
-• "请不要放蚝油、鱼露、鸡精" — без устричного соуса, рыбного соуса, куриного порошка
-• "请用植物油烹饪" — готовьте на растительном масле
-• "豆腐和蔬菜，不放肉" — тофу и овощи, без мяса
-Сохраните эти фразы на телефоне для показа.'
+        zh: '在普通餐厅点菜时，可以说：\n• "我是严格的素食者（纯素），不吃任何肉类、蛋、奶" — I\'m a strict vegan\n• "请不要放蚝油、鱼露、鸡精" — Please don\'t use oyster sauce, fish sauce, chicken powder\n• "请用植物油烹饪" — Please cook with vegetable oil\n• "豆腐和蔬菜，不放肉" — Tofu and vegetables, no meat\n如果沟通困难，可以把这些句子翻译成中文保存到手机里展示。',
+        en: 'At regular restaurants, say:\n• "我是严格的素食者（纯素），不吃任何肉类、蛋、奶" — I\'m a strict vegan\n• "请不要放蚝油、鱼露、鸡精" — No oyster sauce, fish sauce, chicken powder\n• "请用植物油烹饪" — Cook with vegetable oil\n• "豆腐和蔬菜，不放肉" — Tofu and vegetables, no meat\nSave these Chinese phrases on your phone to show if communication is difficult.',
+        ru: 'В обычном ресторане скажите:\n• "我是纯素" — строгий веган\n• "请不要放蚝油、鱼露、鸡精" — без устричного соуса, рыбного соуса, куриного порошка\n• "请用植物油烹饪" — готовьте на растительном масле\n• "豆腐和蔬菜，不放肉" — тофу и овощи, без мяса\nСохраните эти фразы на телефоне для показа.'
       }
 ,      tip: {
         zh: '建议：最安全的方式是去专门的素食餐厅，或者在超市购买新鲜食材自己烹饪。大型超市（盒马、Ole\'）有丰富的素食食材选择。',

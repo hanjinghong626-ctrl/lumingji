@@ -25,24 +25,9 @@ export default {
     {
       title: { zh: '在餐厅沟通饮食限制', en: 'Communicate dietary restrictions at restaurants', ru: 'Сообщение о пищевых ограничениях' },
       desc: {
-        zh: '在中国餐厅用餐时，可以用手机翻译App展示以下关键句子：
-• "我对花生过敏，请不要放花生" — I\'m allergic to peanuts, please don\'t add peanuts
-• "我不吃猪肉" — I don\'t eat pork
-• "我吃素，请不要放肉和动物油" — I\'m vegetarian, no meat or animal oil
-• "请不要放辣" — Please don\'t make it spicy
-大部分服务员会理解并配合，但建议点菜时再次确认。',
-        en: 'When dining in China, show these key phrases via translation app:
-• "我对花生过敏，请不要放花生" — I\'m allergic to peanuts
-• "我不吃猪肉" — I don\'t eat pork
-• "我吃素，请不要放肉和动物油" — I\'m vegetarian, no meat/animal oil
-• "请不要放辣" — Please don\'t make it spicy
-Most servers will understand, but always double-check when ordering.',
-        ru: 'Показывайте эти фразы через переводчик:
-• "我对花生过敏" — аллергия на арахис
-• "我不吃猪肉" — не ем свинину
-• "我吃素" — вегетарианец
-• "请不要放辣" — не делайте остро
-Большинство серверов поймут, но всегда уточняйте при заказе.'
+        zh: '在中国餐厅用餐时，可以用手机翻译App展示以下关键句子：\n• "我对花生过敏，请不要放花生" — I\'m allergic to peanuts, please don\'t add peanuts\n• "我不吃猪肉" — I don\'t eat pork\n• "我吃素，请不要放肉和动物油" — I\'m vegetarian, no meat or animal oil\n• "请不要放辣" — Please don\'t make it spicy\n大部分服务员会理解并配合，但建议点菜时再次确认。',
+        en: 'When dining in China, show these key phrases via translation app:\n• "我对花生过敏，请不要放花生" — I\'m allergic to peanuts\n• "我不吃猪肉" — I don\'t eat pork\n• "我吃素，请不要放肉和动物油" — I\'m vegetarian, no meat/animal oil\n• "请不要放辣" — Please don\'t make it spicy\nMost servers will understand, but always double-check when ordering.',
+        ru: 'Показывайте эти фразы через переводчик:\n• "我对花生过敏" — аллергия на арахис\n• "我不吃猪肉" — не ем свинину\n• "我吃素" — вегетарианец\n• "请不要放辣" — не делайте остро\nБольшинство серверов поймут, но всегда уточняйте при заказе.'
       }
 ,      tip: {
         zh: '中国菜中隐藏的过敏原很多：酱油含小麦、很多菜用花生油烹饪、火锅底料可能含虾皮/贝类。点菜时务必反复强调。',
