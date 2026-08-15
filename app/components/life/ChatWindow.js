@@ -45,23 +45,83 @@ const QUICK_ACTIONS = {
     { icon: '🚨', label: '紧急求助', prompt: '紧急联系方式' },
     { icon: '📋', label: '签证', prompt: '签证怎么办？' },
     { icon: '💱', label: '汇率', prompt: '100美元换多少人民币？' },
+    { icon: '🎓', label: '奖学金', prompt: '有哪些奖学金可以申请？' },
   ],
   en: [
     { icon: '🌐', label: 'Translate', prompt: 'Translate: ' },
     { icon: '🚨', label: 'Emergency', prompt: 'Emergency contacts' },
     { icon: '📋', label: 'Visa', prompt: 'How to apply for visa?' },
     { icon: '💱', label: 'Exchange', prompt: 'How much is 100 USD in CNY?' },
+    { icon: '🎓', label: 'Scholarship', prompt: 'What scholarships are available?' },
   ],
   ru: [
     { icon: '🌐', label: 'Перевод', prompt: 'Переведи: ' },
     { icon: '🚨', label: 'Экстренно', prompt: 'Экстренные контакты' },
     { icon: '📋', label: 'Виза', prompt: 'Как оформить визу?' },
     { icon: '💱', label: 'Курс', prompt: 'Сколько будет 100 долларов в юанях?' },
+    { icon: '🎓', label: 'Стипендия', prompt: 'Какие стипендии доступны?' },
   ],
 };
 
 /**
- * ChatWindow - 可复用的AI聊天窗口
+ * 简易Markdown渲染器 - 将文本中的Markdown语法转为HTML
+ * 支持：粗体、斜体、链接、列表、标题、换行
+ */
+function renderMarkdown(text) {
+  if (!text) return '';
+  
+  let html = text
+    // 转义HTML
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+  
+  // 处理代码块 ```...```
+  html = html.replace(/```(\w*)\n?([\s\S]*?)```/g, (_, lang, code) => {
+    return `<pre class="bg-gray-900 text-green-300 rounded-lg p-3 my-2 text-xs overflow-x-auto font-mono">${code.trim()}</pre>`;
+  });
+  
+  // 处理行内代码 `...`
+  html = html.replace(/`([^`]+)`/g, '<code class="bg-gray-100 text-pink-600 px-1.5 py-0.5 rounded text-xs font-mono">$1</code>');
+  
+  // 处理链接 [text](url)
+  html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener" class="text-blue-500 underline hover:text-blue-700">$1</a>');
+  
+  // 处理粗体 **text**
+  html = html.replace(/\*\*([^*]+)\*\*/g, '<strong class="font-semibold text-gray-900">$1</strong>');
+  
+  // 处理斜体 *text*（不在**内部的情况）
+  html = html.replace(/(?<!\*)\*([^*]+)\*(?!\*)/g, '<em>$1</em>');
+  
+  // 处理标题 ### 
+  html = html.replace(/^### (.+)$/gm, '<h3 class="text-sm font-semibold text-gray-800 mt-3 mb-1">$1</h3>');
+  html = html.replace(/^## (.+)$/gm, '<h2 class="text-base font-semibold text-gray-800 mt-3 mb-1">$1</h2>');
+  html = html.replace(/^# (.+)$/gm, '<h1 class="text-lg font-bold text-gray-900 mt-3 mb-1">$1</h1>');
+  
+  // 处理水平线 ---
+  html = html.replace(/^---$/gm, '<hr class="border-gray-200 my-3" />');
+  
+  // 处理列表项
+  html = html.replace(/^(\s*)[-•] (.+)$/gm, (_, indent, content) => {
+    const level = Math.floor(indent.length / 2);
+    const marginLeft = level * 16;
+    return `<div class="flex items-start gap-2 my-0.5" style="margin-left:${marginLeft}px"><span class="text-primary-400 mt-0.5 shrink-0">•</span><span>${content}</span></div>`;
+  });
+  
+  // 处理数字列表 1. 2. 3.
+  html = html.replace(/^(\d+)\. (.+)$/gm, (_, num, content) => {
+    return `<div class="flex items-start gap-2 my-0.5"><span class="text-primary-500 font-semibold shrink-0 min-w-[1.2rem]">${num}.</span><span>${content}</span></div>`;
+  });
+  
+  // 处理换行 - 保留段落间距
+  html = html.replace(/\n\n/g, '<div class="h-2"></div>');
+  html = html.replace(/\n/g, '<br />');
+  
+  return html;
+}
+
+/**
+ * ChatWindow - 可复用的AI聊天窗口（支持Markdown渲染）
  * @param {boolean} embedded - 是否嵌入模式
  * @param {function} onClose - 关闭回调
  */
@@ -115,8 +175,6 @@ export default function ChatWindow({ embedded = false, onClose }) {
     setLoading(true);
 
     try {
-      // 发送所有指南元数据 + 用户消息给后端
-      // 后端会让 DeepSeek 自己选择相关指南，再拉取完整内容生成回答
       const apiMessages = newMessages
         .filter(m => m.role === 'user' || m.role === 'assistant')
         .slice(-10)
@@ -178,9 +236,16 @@ export default function ChatWindow({ embedded = false, onClose }) {
                 ? 'bg-primary-500 text-white rounded-br-md'
                 : 'bg-gray-50 text-gray-800 border border-gray-100 rounded-bl-md'
             }`}>
-              <div className="text-sm font-wenkai whitespace-pre-wrap leading-relaxed break-words">
-                {msg.content}
-              </div>
+              {msg.role === 'user' ? (
+                <div className="text-sm font-wenkai whitespace-pre-wrap leading-relaxed break-words">
+                  {msg.content}
+                </div>
+              ) : (
+                <div 
+                  className="text-sm font-wenkai leading-relaxed break-words chat-markdown"
+                  dangerouslySetInnerHTML={{ __html: renderMarkdown(msg.content) }}
+                />
+              )}
             </div>
           </div>
         ))}

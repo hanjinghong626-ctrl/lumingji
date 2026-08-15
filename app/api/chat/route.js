@@ -9,6 +9,7 @@ import { convertCurrency, extractCurrencyInfo, formatExchangeContext } from '../
 import { extractTranslationIntent, translateText, formatTranslationContext } from '../../../lib/translation-tool.js';
 import { searchEmergencyContacts, formatEmergencyContext, generateEmergencyGuide } from '../../../lib/emergency-contacts.js';
 import { detectVisaQuery, getVisaInfo, formatVisaContext } from '../../../lib/visa-assistant.js';
+import { detectScholarshipQuery, searchScholarships, formatScholarshipContext } from '../../../lib/scholarship-database.js';
 
 // DeepSeek API Key - 优先从环境变量读取，fallback到硬编码（临时方案）
 const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY || 'sk-51b6e3db1c85457daef0f57a4c94cb65';
@@ -124,6 +125,15 @@ export async function POST(request) {
       if (visaResult) {
         const visaText = formatVisaContext(visaResult, lang);
         toolContext = (toolContext ? toolContext + '\n\n' : '') + visaText;
+      }
+    }
+
+    if (intentResult.intent === 'scholarship' || intentResult.allIntents.includes('scholarship')) {
+      // 奖学金查询：从奖学金数据库检索
+      const scholarshipResults = searchScholarships(userQuery, lang);
+      if (scholarshipResults) {
+        const scholarshipText = formatScholarshipContext(scholarshipResults, lang);
+        toolContext = (toolContext ? toolContext + '\n\n' : '') + scholarshipText;
       }
     }
 
@@ -288,6 +298,11 @@ export async function POST(request) {
       sourcesText += '\n\n---\n📋 签证信息来源：鹿鸣集签证知识库。政策可能随时变动，建议咨询学校国际学生办公室确认最新要求。';
     }
 
+    // 奖学金信息来源
+    if (intentResult.intent === 'scholarship' && toolContext) {
+      sourcesText += '\n\n---\n🎓 奖学金数据来源：鹿鸣集奖学金数据库。具体金额和条件以各大学最新招生简章为准。';
+    }
+
     return NextResponse.json({
       reply: reply + sourcesText,
       sources: allSources,
@@ -330,6 +345,7 @@ function buildSystemPrompt(langName, catalogLines, hasToolData) {
 - 🌐 多语言翻译：支持中/英/俄/日/韩/法/德/西/阿等语言互译，音乐术语也能准确翻译
 - 🚨 紧急求助：提供各国紧急电话、中国大使馆联系方式、应急处理指南
 - 📋 签证助手：签证类型详解、居留许可办理/续签、材料清单、流程指导
+- 🎓 奖学金数据库：CSC/地方政府/校级/企业奖学金的金额、申请条件、申请渠道和申请时间线
 - 📖 生活指南知识库：135篇详细指南覆盖来华生活各方面
 - 📱 App使用指南：20个常用App的详细使用教程
 
