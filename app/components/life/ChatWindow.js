@@ -4,42 +4,11 @@ import { useState, useRef, useEffect, useMemo } from 'react';
 import { useI18n } from '../../../i18n-context';
 import guideIndex from '../../../data/life/guide-index.js';
 
-// ===== Search utilities (shared with SearchBar) =====
-function normalize(str) {
-  return (str || '').toLowerCase().trim();
-}
-
-function searchScore(item, query) {
-  const q = normalize(query);
-  if (!q) return 0;
-  let score = 0;
-  const fields = item._searchFields || [];
-  for (const field of fields) {
-    const f = normalize(field);
-    if (!f) continue;
-    if (f === q) score += 100;
-    else if (f.startsWith(q)) score += 50;
-    else if (f.includes(q)) score += 20;
-    if (q.length >= 2) {
-      for (let i = 0; i <= q.length - 2; i++) {
-        if (f.includes(q.substring(i, i + 2))) score += 5;
-      }
-    }
-  }
-  if (item._tags) {
-    for (const tag of item._tags) {
-      if (normalize(tag) === q) score += 30;
-      else if (normalize(tag).includes(q)) score += 10;
-    }
-  }
-  return score;
-}
-
 // ===== i18n texts =====
 const WELCOME = {
-  zh: '你好！我是鹿鸣集的AI助手 🌿\n\n我可以帮你解答在中国生活遇到的各种问题——从办银行卡到租房、从支付宝到看病。\n\n试试问我吧！',
-  en: "Hello! I'm Lumingji's AI assistant 🌿\n\nI can help you with various daily life issues in China — from bank accounts to housing, from Alipay to seeing a doctor.\n\nTry asking me!",
-  ru: 'Привет! Я ИИ-помощник Луминцзи 🌿\n\nЯ помогу вам с бытовыми вопросами в Китае — от банковского счёта до жилья, от Alipay до визита к врачу.\n\nСпросите меня!',
+  zh: '你好！我是小鹿 🦌 鹿鸣集的AI助手\n\n我可以帮你解答在中国生活遇到的各种问题——从办银行卡到租房、从支付宝到看病。\n\n试试问我吧！',
+  en: "Hi! I'm Xiao Lu 🦌, Lumingji's AI assistant\n\nI can help you with daily life in China — bank accounts, housing, Alipay, seeing a doctor, and more.\n\nTry asking me!",
+  ru: 'Привет! Я Сяолу 🦌, ИИ-помощник Луминцзи\n\nПомогу с бытовыми вопросами в Китае — банковский счёт, жильё, Alipay, визит к врачу и многое другое.\n\nСпросите меня!',
 };
 
 const PLACEHOLDERS = {
@@ -62,10 +31,17 @@ const THINKING_LABELS = {
   ru: 'Думаю',
 };
 
+// 快速建议问题
+const SUGGESTIONS = {
+  zh: ['怎么开银行账户？', '支付宝怎么用？', ' visa到期了怎么办？', '怎么租房？'],
+  en: ['How to open a bank account?', 'How to use Alipay?', 'What if my visa expires?', 'How to rent an apartment?'],
+  ru: ['Как открыть банковский счёт?', 'Как пользоваться Alipay?', 'Что делать если виза истекает?', 'Как снять квартиру?'],
+};
+
 /**
  * ChatWindow - 可复用的AI聊天窗口
- * @param {boolean} embedded - 是否嵌入模式（用于弹出框，高度较小）
- * @param {function} onClose - 关闭回调（嵌入模式下使用）
+ * @param {boolean} embedded - 是否嵌入模式
+ * @param {function} onClose - 关闭回调
  */
 export default function ChatWindow({ embedded = false, onClose }) {
   const { locale } = useI18n();
@@ -82,28 +58,17 @@ export default function ChatWindow({ embedded = false, onClose }) {
     setMessages([{ role: 'assistant', content: WELCOME[lang] || WELCOME.zh }]);
   }, [lang]);
 
-  // Build search items for RAG retrieval
-  const searchItems = useMemo(() => {
+  // 预构建指南元数据（只提取标题和摘要，发送给后端让AI选择）
+  const guideMeta = useMemo(() => {
     return guideIndex.map(g => ({
       id: g.id,
-      _searchFields: [
-        g.title?.zh, g.title?.en, g.title?.ru,
-        g.summary?.zh, g.summary?.en, g.summary?.ru,
-        ...(g.tags || []),
-      ],
-      _tags: g.tags || [],
+      category: g.category,
+      icon: g.icon,
+      title: g.title?.[lang] || g.title?.zh || g.id,
+      summary: g.summary?.[lang] || g.summary?.zh || '',
+      tags: g.tags || [],
     }));
-  }, []);
-
-  // Retrieve top 5 relevant guide IDs
-  function retrieveGuides(query) {
-    const scored = searchItems
-      .map(item => ({ ...item, score: searchScore(item, query) }))
-      .filter(item => item.score > 0)
-      .sort((a, b) => b.score - a.score)
-      .slice(0, 5);
-    return scored.map(item => item.id);
-  }
+  }, [lang]);
 
   // Auto-scroll to bottom
   useEffect(() => {
@@ -117,8 +82,8 @@ export default function ChatWindow({ embedded = false, onClose }) {
     }
   }, []);
 
-  async function handleSend() {
-    const text = input.trim();
+  async function handleSend(queryText) {
+    const text = (queryText || input).trim();
     if (!text || loading) return;
 
     const userMessage = { role: 'user', content: text };
@@ -128,10 +93,8 @@ export default function ChatWindow({ embedded = false, onClose }) {
     setLoading(true);
 
     try {
-      // Frontend RAG retrieval
-      const relevantGuideIds = retrieveGuides(text);
-
-      // Build API messages (last 10 for context window)
+      // 发送所有指南元数据 + 用户消息给后端
+      // 后端会让 DeepSeek 自己选择相关指南，再拉取完整内容生成回答
       const apiMessages = newMessages
         .filter(m => m.role === 'user' || m.role === 'assistant')
         .slice(-10)
@@ -143,7 +106,7 @@ export default function ChatWindow({ embedded = false, onClose }) {
         body: JSON.stringify({
           messages: apiMessages,
           locale: lang,
-          relevantGuideIds,
+          guideMeta,
         }),
       });
 
@@ -172,12 +135,14 @@ export default function ChatWindow({ embedded = false, onClose }) {
     }
   }
 
+  const suggestions = SUGGESTIONS[lang] || SUGGESTIONS.zh;
+
   return (
     <div className={`flex flex-col ${embedded ? 'h-[50vh] max-h-[400px]' : 'h-[calc(100vh-180px)] min-h-[400px]'} bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden`}>
       {/* Header */}
       {embedded && (
         <div className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white">
-          <span className="text-sm font-wenkai font-medium">🌿 AI 助手</span>
+          <span className="text-sm font-wenkai font-medium">🦌 小鹿 AI 助手</span>
           <button onClick={onClose} className="text-white/80 hover:text-white text-lg leading-none">✕</button>
         </div>
       )}
@@ -216,6 +181,22 @@ export default function ChatWindow({ embedded = false, onClose }) {
         <div ref={messagesEndRef} />
       </div>
 
+      {/* Suggestions (only show when just welcome message) */}
+      {messages.length === 1 && (
+        <div className="px-4 pb-2 flex flex-wrap gap-2">
+          {suggestions.map((s, i) => (
+            <button
+              key={i}
+              onClick={() => handleSend(s)}
+              className="px-3 py-1.5 text-xs font-wenkai bg-primary-50 text-primary-600 rounded-full
+                border border-primary-100 hover:bg-primary-100 transition-all"
+            >
+              {s}
+            </button>
+          ))}
+        </div>
+      )}
+
       {/* Input area */}
       <div className="border-t border-gray-100 p-3 bg-white">
         <div className="flex gap-2">
@@ -232,7 +213,7 @@ export default function ChatWindow({ embedded = false, onClose }) {
             disabled={loading}
           />
           <button
-            onClick={handleSend}
+            onClick={() => handleSend()}
             disabled={loading || !input.trim()}
             className="px-5 py-2.5 bg-primary-500 text-white rounded-xl text-sm font-wenkai font-medium
               hover:bg-primary-600 active:bg-primary-700
