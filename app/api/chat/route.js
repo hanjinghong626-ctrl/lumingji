@@ -5,6 +5,7 @@ import { getAppGuideData } from '../../../data/life/app-guides-loader.js';
 import { detectIntent, extractRouteInfo, extractPOIInfo, formatRouteContext, formatPOIContext } from '../../../lib/tool-router.js';
 import { queryRoutes, searchPOI } from '../../../lib/amap-route.js';
 import { searchPrices, formatPriceContext, estimateMonthlyBudget } from '../../../data/price-database.js';
+import { convertCurrency, extractCurrencyInfo, formatExchangeContext } from '../../../lib/exchange-rate.js';
 
 // DeepSeek API Key - 优先从环境变量读取，fallback到硬编码（临时方案）
 const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY || 'sk-51b6e3db1c85457daef0f57a4c94cb65';
@@ -79,6 +80,18 @@ export async function POST(request) {
         toolContext = (toolContext ? toolContext + '\n\n' : '') + priceContext + budgetText;
       } else if (priceContext) {
         toolContext = (toolContext ? toolContext + '\n\n' : '') + priceContext;
+      }
+    }
+
+    if (intentResult.intent === 'exchange' || intentResult.allIntents.includes('exchange')) {
+      // 汇率查询：提取货币信息并转换
+      const currencyInfo = extractCurrencyInfo(userQuery);
+      if (currencyInfo) {
+        const exchangeData = await convertCurrency(currencyInfo.amount, currencyInfo.from, currencyInfo.to);
+        if (exchangeData) {
+          const exchangeText = formatExchangeContext(exchangeData);
+          toolContext = (toolContext ? toolContext + '\n\n' : '') + exchangeText;
+        }
       }
     }
 
@@ -223,6 +236,11 @@ export async function POST(request) {
       sourcesText += '\n\n---\n💰 价格数据来源：鹿鸣集生活指南数据库（基于135篇实地调研指南）';
     }
 
+    // 如果有汇率数据，追加来源标注
+    if (intentResult.intent === 'exchange' && toolContext) {
+      sourcesText += '\n\n---\n💱 汇率数据来源：ExchangeRate-API（实时汇率）';
+    }
+
     return NextResponse.json({
       reply: reply + sourcesText,
       sources: allSources,
@@ -261,6 +279,7 @@ function buildSystemPrompt(langName, catalogLines, hasToolData) {
 - 📍 周边搜索：搜索附近的餐厅、超市、医院等
 - 💰 物价数据库：从135篇生活指南中提取的真实价格数据，覆盖餐饮、交通、住房、医疗、通讯、娱乐等
 - 📊 生活费估算：可按城市估算月度生活费
+- 💱 汇率查询：实时汇率换算，支持人民币、美元、卢布、欧元等多种货币
 - 📖 生活指南知识库：135篇详细指南覆盖来华生活各方面
 - 📱 App使用指南：20个常用App的详细使用教程
 
