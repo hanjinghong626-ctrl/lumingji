@@ -1,6 +1,7 @@
 'use client';
 
 import { useParams } from 'next/navigation';
+import { useState } from 'react';
 import { useI18n } from '../../../../../i18n-context';
 import { getAppGuideData, hasAppGuide } from '../../../../../data/life/app-guides-loader';
 import appIcons from '../../../../../data/life/app-icons';
@@ -9,6 +10,7 @@ export default function AppGuideDetailPage() {
   const { locale, appId } = useParams();
   const { t } = useI18n();
   const lang = locale || 'zh';
+  const [copied, setCopied] = useState(false);
 
   if (!hasAppGuide(appId)) {
     return (
@@ -25,6 +27,71 @@ export default function AppGuideDetailPage() {
 
   const guide = getAppGuideData(appId);
   const getText = (obj) => obj?.[lang] || obj?.zh || '';
+
+  // 生成安装指令文本
+  const generateInstallInstructions = () => {
+    const appName = getText(guide.title);
+    const lines = [];
+    
+    lines.push(`📱 ${appName}`);
+    lines.push('');
+    
+    if (guide.downloads?.ios) {
+      lines.push(lang === 'ru' ? '🍎 iPhone/iPad:' : lang === 'en' ? '🍎 iPhone/iPad:' : '🍎 iPhone/iPad:');
+      lines.push(lang === 'ru' 
+        ? `   Откройте App Store → найдите "${appName}" → нажмите "Загрузить"`
+        : lang === 'en'
+        ? `   Open App Store → search "${appName}" → tap "Get"`
+        : `   打开App Store → 搜索"${appName}" → 点击"获取"`
+      );
+      lines.push(`   ${guide.downloads.ios}`);
+      lines.push('');
+    }
+    
+    if (guide.downloads?.android_cn) {
+      lines.push(lang === 'ru' ? '📱 Android:' : lang === 'en' ? '📱 Android:' : '📱 Android:');
+      lines.push(lang === 'ru'
+        ? `   Откройте магазин приложений → найдите "${appName}" → нажмите "Установить"`
+        : lang === 'en'
+        ? `   Open your app store → search "${appName}" → tap "Install"`
+        : `   打开手机应用商店 → 搜索"${appName}" → 点击"安装"`
+      );
+      lines.push(lang === 'ru'
+        ? `   Или скачайте с сайта: ${guide.downloads.android_cn}`
+        : lang === 'en'
+        ? `   Or download from: ${guide.downloads.android_cn}`
+        : `   或浏览器访问: ${guide.downloads.android_cn}`
+      );
+      lines.push('');
+    }
+    
+    if (guide.downloads?.note) {
+      lines.push(`💡 ${getText(guide.downloads.note)}`);
+    }
+    
+    return lines.join('\n');
+  };
+
+  const handleCopyInstructions = async () => {
+    const text = generateInstallInstructions();
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      // Fallback for older browsers
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-amber-50">
@@ -137,6 +204,33 @@ export default function AppGuideDetailPage() {
                 💡 {getText(guide.downloads.note)}
               </div>
             )}
+
+            {/* 🆕 一键复制安装指令 */}
+            <div className="mt-5 pt-5 border-t border-white/20">
+              <button
+                onClick={handleCopyInstructions}
+                className="w-full flex items-center justify-center gap-2 bg-white/15 hover:bg-white/25 text-white rounded-xl px-4 py-3 text-sm font-medium transition-all"
+              >
+                {copied ? (
+                  <>
+                    <span className="text-lg">✅</span>
+                    {lang === 'ru' ? 'Скопировано!' : lang === 'en' ? 'Copied!' : '已复制！'}
+                  </>
+                ) : (
+                  <>
+                    <span className="text-lg">📋</span>
+                    {lang === 'ru' ? 'Скопировать инструкцию по установке' : lang === 'en' ? 'Copy Installation Instructions' : '一键复制安装指令'}
+                  </>
+                )}
+              </button>
+              <p className="text-emerald-100 text-xs text-center mt-2">
+                {lang === 'ru'
+                  ? 'Нажмите, чтобы скопировать пошаговую инструкцию и ссылки — можно отправить другу или сохранить'
+                  : lang === 'en'
+                  ? 'Tap to copy step-by-step instructions and links — share with friends or save for later'
+                  : '点击复制完整安装步骤和下载链接，可发给朋友或自己保存'}
+              </p>
+            </div>
           </div>
         )}
 
@@ -155,7 +249,7 @@ export default function AppGuideDetailPage() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <h3 className="font-semibold text-gray-900 mb-2">{getText(step.title)}</h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">{getText(step.desc)}</p>
+                    <p className="text-sm text-gray-600 leading-relaxed whitespace-pre-line">{getText(step.desc)}</p>
                     {step.tip && (
                       <div className="mt-3 text-sm bg-blue-50 text-blue-700 rounded-lg p-3 border border-blue-100">
                         {getText(step.tip)}
