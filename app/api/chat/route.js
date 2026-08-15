@@ -4,6 +4,7 @@ import guideIndex from '../../../data/life/guide-index.js';
 import { getAppGuideData } from '../../../data/life/app-guides-loader.js';
 import { detectIntent, extractRouteInfo, extractPOIInfo, formatRouteContext, formatPOIContext } from '../../../lib/tool-router.js';
 import { queryRoutes, searchPOI } from '../../../lib/amap-route.js';
+import { searchPrices, formatPriceContext, estimateMonthlyBudget } from '../../../data/price-database.js';
 
 // DeepSeek API Key - 优先从环境变量读取，fallback到硬编码（临时方案）
 const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY || 'sk-51b6e3db1c85457daef0f57a4c94cb65';
@@ -58,6 +59,26 @@ export async function POST(request) {
           address: poiInfo.location,
         });
         toolContext = (toolContext ? toolContext + '\n\n' : '') + formatPOIContext(poiData);
+      }
+    }
+
+    if (intentResult.intent === 'price' || intentResult.allIntents.includes('price')) {
+      // 物价查询：从本地物价数据库获取真实数据
+      const priceContext = formatPriceContext(userQuery);
+      
+      // 检测是否是生活费/预算问题 → 额外提供月度估算
+      const budgetKeywords = ['生活费', '一个月', '每月', '月开销', '月费用', '预算', '总开销', '一个月花', 'monthly', 'budget', 'расход', 'бюджет'];
+      const isBudgetQuery = budgetKeywords.some(k => userQuery.includes(k));
+      
+      if (isBudgetQuery) {
+        // 尝试识别城市
+        const cityMatch = userQuery.match(/(北京|上海|广州|深圳|青岛|成都|武汉|南京|杭州|西安|天津|重庆|长沙|大连|厦门)/);
+        const city = cityMatch ? cityMatch[1] : '二线城市';
+        const budget = estimateMonthlyBudget(city);
+        const budgetText = `\n\n📊 ${city}月度生活费估算：\n总计约 ${budget.total}\n${budget.breakdown}`;
+        toolContext = (toolContext ? toolContext + '\n\n' : '') + priceContext + budgetText;
+      } else if (priceContext) {
+        toolContext = (toolContext ? toolContext + '\n\n' : '') + priceContext;
       }
     }
 
@@ -197,6 +218,11 @@ export async function POST(request) {
       sourcesText += '\n📱 更多路线详情请在高德地图App中查看';
     }
 
+    // 如果有物价数据，追加来源标注
+    if (intentResult.intent === 'price' && toolContext) {
+      sourcesText += '\n\n---\n💰 价格数据来源：鹿鸣集生活指南数据库（基于135篇实地调研指南）';
+    }
+
     return NextResponse.json({
       reply: reply + sourcesText,
       sources: allSources,
@@ -233,6 +259,8 @@ function buildSystemPrompt(langName, catalogLines, hasToolData) {
 你不只是回答文字，你能直接调用实时工具帮用户解决问题：
 - 🗺️ 高德地图路线规划：直接给出真实的地铁/公交/打车路线、耗时、费用
 - 📍 周边搜索：搜索附近的餐厅、超市、医院等
+- 💰 物价数据库：从135篇生活指南中提取的真实价格数据，覆盖餐饮、交通、住房、医疗、通讯、娱乐等
+- 📊 生活费估算：可按城市估算月度生活费
 - 📖 生活指南知识库：135篇详细指南覆盖来华生活各方面
 - 📱 App使用指南：20个常用App的详细使用教程
 
