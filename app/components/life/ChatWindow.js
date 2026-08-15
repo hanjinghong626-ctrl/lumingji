@@ -33,9 +33,31 @@ const THINKING_LABELS = {
 
 // 快速建议问题
 const SUGGESTIONS = {
-  zh: ['怎么开银行账户？', '支付宝怎么用？', ' visa到期了怎么办？', '怎么租房？'],
+  zh: ['怎么开银行账户？', '支付宝怎么用？', '签证到期了怎么办？', '怎么租房？'],
   en: ['How to open a bank account?', 'How to use Alipay?', 'What if my visa expires?', 'How to rent an apartment?'],
   ru: ['Как открыть банковский счёт?', 'Как пользоваться Alipay?', 'Что делать если виза истекает?', 'Как снять квартиру?'],
+};
+
+// 快捷功能按钮
+const QUICK_ACTIONS = {
+  zh: [
+    { icon: '🌐', label: '翻译', prompt: '帮我翻译：' },
+    { icon: '🚨', label: '紧急求助', prompt: '紧急联系方式' },
+    { icon: '📋', label: '签证', prompt: '签证怎么办？' },
+    { icon: '💱', label: '汇率', prompt: '100美元换多少人民币？' },
+  ],
+  en: [
+    { icon: '🌐', label: 'Translate', prompt: 'Translate: ' },
+    { icon: '🚨', label: 'Emergency', prompt: 'Emergency contacts' },
+    { icon: '📋', label: 'Visa', prompt: 'How to apply for visa?' },
+    { icon: '💱', label: 'Exchange', prompt: 'How much is 100 USD in CNY?' },
+  ],
+  ru: [
+    { icon: '🌐', label: 'Перевод', prompt: 'Переведи: ' },
+    { icon: '🚨', label: 'Экстренно', prompt: 'Экстренные контакты' },
+    { icon: '📋', label: 'Виза', prompt: 'Как оформить визу?' },
+    { icon: '💱', label: 'Курс', prompt: 'Сколько будет 100 долларов в юанях?' },
+  ],
 };
 
 /**
@@ -192,6 +214,27 @@ export default function ChatWindow({ embedded = false, onClose }) {
                 border border-primary-100 hover:bg-primary-100 transition-all"
             >
               {s}
+            </button>
+          ))}
+        </div>
+      )}
+
+      {/* Quick actions */}
+      {messages.length <= 1 && (
+        <div className="px-4 pb-2 flex flex-wrap gap-2">
+          {(QUICK_ACTIONS[lang] || QUICK_ACTIONS.zh).map((action, i) => (
+            <button
+              key={`qa-${i}`}
+              onClick={() => {
+                setInput(action.prompt);
+                inputRef.current?.focus();
+              }}
+              className="px-3 py-1.5 text-xs font-wenkai bg-white text-gray-600 rounded-full
+                border border-gray-200 hover:border-primary-300 hover:bg-primary-50 hover:text-primary-600
+                transition-all flex items-center gap-1"
+            >
+              <span>{action.icon}</span>
+              <span>{action.label}</span>
             </button>
           ))}
         </div>

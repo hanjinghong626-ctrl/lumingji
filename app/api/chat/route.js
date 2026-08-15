@@ -6,6 +6,9 @@ import { detectIntent, extractRouteInfo, extractPOIInfo, formatRouteContext, for
 import { queryRoutes, searchPOI } from '../../../lib/amap-route.js';
 import { searchPrices, formatPriceContext, estimateMonthlyBudget } from '../../../data/price-database.js';
 import { convertCurrency, extractCurrencyInfo, formatExchangeContext } from '../../../lib/exchange-rate.js';
+import { extractTranslationIntent, translateText, formatTranslationContext } from '../../../lib/translation-tool.js';
+import { searchEmergencyContacts, formatEmergencyContext, generateEmergencyGuide } from '../../../lib/emergency-contacts.js';
+import { detectVisaQuery, getVisaInfo, formatVisaContext } from '../../../lib/visa-assistant.js';
 
 // DeepSeek API Key - 优先从环境变量读取，fallback到硬编码（临时方案）
 const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY || 'sk-51b6e3db1c85457daef0f57a4c94cb65';
@@ -92,6 +95,35 @@ export async function POST(request) {
           const exchangeText = formatExchangeContext(exchangeData);
           toolContext = (toolContext ? toolContext + '\n\n' : '') + exchangeText;
         }
+      }
+    }
+
+    if (intentResult.intent === 'translate' || intentResult.allIntents.includes('translate')) {
+      // 翻译：提取翻译意图并调用DeepSeek翻译
+      const transIntent = extractTranslationIntent(userQuery);
+      if (transIntent) {
+        const translationResult = await translateText(transIntent.text, transIntent.targetLang, transIntent.sourceLang);
+        if (translationResult) {
+          const translationText = formatTranslationContext(translationResult);
+          toolContext = (toolContext ? toolContext + '\n\n' : '') + translationText;
+        }
+      }
+    }
+
+    if (intentResult.intent === 'emergency' || intentResult.allIntents.includes('emergency')) {
+      // 紧急求助：提供紧急联系方式
+      const emergencyResults = searchEmergencyContacts(userQuery, lang);
+      const emergencyText = formatEmergencyContext(emergencyResults, lang);
+      const emergencyGuide = generateEmergencyGuide(lang);
+      toolContext = (toolContext ? toolContext + '\n\n' : '') + emergencyText + '\n\n' + emergencyGuide;
+    }
+
+    if (intentResult.intent === 'visa' || intentResult.allIntents.includes('visa')) {
+      // 签证/行政手续：提供签证知识和流程
+      const visaResult = getVisaInfo(userQuery);
+      if (visaResult) {
+        const visaText = formatVisaContext(visaResult, lang);
+        toolContext = (toolContext ? toolContext + '\n\n' : '') + visaText;
       }
     }
 
@@ -241,6 +273,21 @@ export async function POST(request) {
       sourcesText += '\n\n---\n💱 汇率数据来源：ExchangeRate-API（实时汇率）';
     }
 
+    // 翻译来源
+    if (intentResult.intent === 'translate' && toolContext) {
+      sourcesText += '\n\n---\n🌐 翻译由 DeepSeek AI 提供';
+    }
+
+    // 紧急联系来源
+    if (intentResult.intent === 'emergency' && toolContext) {
+      sourcesText += '\n\n---\n🚨 紧急联系方式来源：鹿鸣集紧急数据库。如有变动请拨打110确认。';
+    }
+
+    // 签证信息来源
+    if (intentResult.intent === 'visa' && toolContext) {
+      sourcesText += '\n\n---\n📋 签证信息来源：鹿鸣集签证知识库。政策可能随时变动，建议咨询学校国际学生办公室确认最新要求。';
+    }
+
     return NextResponse.json({
       reply: reply + sourcesText,
       sources: allSources,
@@ -280,6 +327,9 @@ function buildSystemPrompt(langName, catalogLines, hasToolData) {
 - 💰 物价数据库：从135篇生活指南中提取的真实价格数据，覆盖餐饮、交通、住房、医疗、通讯、娱乐等
 - 📊 生活费估算：可按城市估算月度生活费
 - 💱 汇率查询：实时汇率换算，支持人民币、美元、卢布、欧元等多种货币
+- 🌐 多语言翻译：支持中/英/俄/日/韩/法/德/西/阿等语言互译，音乐术语也能准确翻译
+- 🚨 紧急求助：提供各国紧急电话、中国大使馆联系方式、应急处理指南
+- 📋 签证助手：签证类型详解、居留许可办理/续签、材料清单、流程指导
 - 📖 生活指南知识库：135篇详细指南覆盖来华生活各方面
 - 📱 App使用指南：20个常用App的详细使用教程
 
