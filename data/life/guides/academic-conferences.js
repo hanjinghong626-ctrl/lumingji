@@ -38,17 +38,37 @@ export default {
       'Знайте ключевые журналы и конференции'
     ]
   },
-  steps: [
+    steps: [
     {
-      title: {
-        zh: '找会议与投稿',
-        en: 'Finding Conferences & Submitting',
-        ru: 'Поиск конференций и подача'
-      },
+      title: { zh: '学术会议信息渠道', en: 'Conference information channels', ru: 'Каналы поиска' },
       desc: {
-        zh: '学术会议信息渠道：\n\n🔍 找会议\n• 导师推荐\n• 学校研究生院通知\n• 学术会议平台：\n  - 中国学术会议在线 (conference.edu.cn)\n  - 万方会议频道\n  - 各学会官网\n• 学术社群/微信群\n\n📝 投稿流程\n1. 阅读征稿通知（Call for Papers）\n2. 按格式要求准备论文\n3. 在线投稿系统提交\n4. 等待审稿结果（通常1-3个月）\n5. 收到录用通知后准备参会\n\n💡 留学生参会小贴士：\n• 很多会议对留学生有注册费优惠\n• 准备中英双语海报/PPT\n• 主动与同行交流，交换联系方式\n• 有些会议提供线上参会选项',
-        en: 'Conference information channels:\n\n🔍 Finding conferences\n• Advisor recommendations\n• Graduate school announcements\n• Conference platforms:\n  - China Academic Conference Online (conference.edu.cn)\n  - Wanfang conference channel\n  - Academic society websites\n• Academic WeChat groups\n\n📝 Submission process\n1. Read Call for Papers\n2. Prepare paper per format requirements\n3. Submit via online system\n4. Wait for review (usually 1-3 months)\n5. After acceptance, prepare for conference\n\n💡 Tips for international students:\n• Many conferences offer registration fee discounts\n• Prepare bilingual poster/PPT\n• Actively network, exchange contacts\n• Some conferences offer online participation',
-        ru: 'Каналы поиска:\n• Рекомендации руководителя\n• conference.edu.cn\n• WeChat группы\n\n📝 Подача: чтение → подготовка → отправка → ожидание (1-3 мес)\n\n💡 Льготы для иностранцев, двуязычные материалы, нетворкинг'
+        zh: '学术会议信息渠道：',
+        en: 'Conference information channels:',
+        ru: 'Каналы поиска:\n• Рекомендации руководителя\n• conference.edu.cn\n• WeChat группы'
+      }
+    },
+    {
+      title: { zh: '找会议', en: 'Finding conferences', ru: 'Подача: чтение → подготовка → отправка → ожидание (1-3 мес)' },
+      desc: {
+        zh: '🔍 找会议\n• 导师推荐\n• 学校研究生院通知\n• 学术会议平台：\n  - 中国学术会议在线 (conference.edu.cn)\n  - 万方会议频道\n  - 各学会官网\n• 学术社群/微信群',
+        en: '🔍 Finding conferences\n• Advisor recommendations\n• Graduate school announcements\n• Conference platforms:\n  - China Academic Conference Online (conference.edu.cn)\n  - Wanfang conference channel\n  - Academic society websites\n• Academic WeChat groups',
+        ru: '📝 Подача: чтение → подготовка → отправка → ожидание (1-3 мес)'
+      }
+    },
+    {
+      title: { zh: '投稿流程', en: 'Submission process', ru: 'Льготы для иностранцев, двуязычные материалы, нетворкинг' },
+      desc: {
+        zh: '📝 投稿流程\n1. 阅读征稿通知（Call for Papers）\n2. 按格式要求准备论文\n3. 在线投稿系统提交\n4. 等待审稿结果（通常1-3个月）\n5. 收到录用通知后准备参会',
+        en: '📝 Submission process\n1. Read Call for Papers\n2. Prepare paper per format requirements\n3. Submit via online system\n4. Wait for review (usually 1-3 months)\n5. After acceptance, prepare for conference',
+        ru: '💡 Льготы для иностранцев, двуязычные материалы, нетворкинг'
+      }
+    },
+    {
+      title: { zh: '留学生参会小贴士', en: 'Tips for international students', ru: 'Льготы для иностранцев, двуязычные материалы, нетворкинг' },
+      desc: {
+        zh: '💡 留学生参会小贴士：\n• 很多会议对留学生有注册费优惠\n• 准备中英双语海报/PPT\n• 主动与同行交流，交换联系方式\n• 有些会议提供线上参会选项',
+        en: '💡 Tips for international students:\n• Many conferences offer registration fee discounts\n• Prepare bilingual poster/PPT\n• Actively network, exchange contacts\n• Some conferences offer online participation',
+        ru: '💡 Льготы для иностранцев, двуязычные материалы, нетворкинг'
       }
     }
   ],

@@ -41,17 +41,29 @@ export default {
       'Контакты арендодателя/коменданта'
     ]
   },
-  steps: [
+    steps: [
     {
-      title: {
-        zh: '报修流程',
-        en: 'Reporting Process',
-        ru: 'Процесс заявки'
-      },
+      title: { zh: '报修步骤', en: 'Repair reporting steps', ru: 'Подача заявки' },
       desc: {
-        zh: '报修步骤：\n\n🏠 宿舍报修\n1. 联系宿管办公室或在学校后勤系统提交报修单\n2. 描述故障情况（可拍照发送）\n3. 维修人员上门处理\n4. 确认修好，签字\n\n🏘️ 校外租房报修\n1. 联系房东，说明问题\n2. 协商维修方式（房东派人修/你自己找人修后报销）\n3. 保留维修单据\n\n💡 常用报修用语：\n• "你好，我房间的[水龙头/空调/灯]坏了" = My [faucet/AC/light] is broken\n• "请问什么时候能来修？" = When can someone come to fix it?\n• "这个需要我自己出钱修吗？" = Do I need to pay for this repair?',
-        en: 'Repair reporting steps:\n\n🏠 Dormitory repair\n1. Contact dormitory office or submit repair request in school logistics system\n2. Describe the issue (photos help)\n3. Maintenance staff come to fix\n4. Confirm repair, sign off\n\n🏘️ Off-campus rental repair\n1. Contact landlord, explain the issue\n2. Agree on repair method (landlord sends someone / you hire someone and get reimbursed)\n3. Keep repair receipts\n\n💡 Useful phrases:\n• "你好，我房间的[水龙头/空调/灯]坏了" = My [faucet/AC/light] is broken\n• "请问什么时候能来修？" = When can someone come fix it?\n• "这个需要我自己出钱修吗？" = Do I pay for this repair?',
-        ru: 'Подача заявки:\n\n🏠 В общежитии\n1. Свяжитесь с комендантом или подайте заявку через систему\n2. Опишите проблему (фото)\n3. Мастер придёт для ремонта\n4. Подтвердите и подпишите\n\n🏘️ Вне кампуса\n1. Свяжитесь с арендодателем\n2. Договоритесь о способе ремонта\n3. Сохраните квитанции\n\n💡 Фразы:\n• "我房间的...坏了" — У меня сломалось...\n• "什么时候能来修？" — Когда придут чинить?'
+        zh: '报修步骤：',
+        en: 'Repair reporting steps:',
+        ru: 'Подача заявки:'
+      }
+    },
+    {
+      title: { zh: '宿舍报修', en: 'Dormitory repair', ru: 'В общежитии' },
+      desc: {
+        zh: '🏠 宿舍报修\n1. 联系宿管办公室或在学校后勤系统提交报修单\n2. 描述故障情况（可拍照发送）\n3. 维修人员上门处理\n4. 确认修好，签字\n\n🏘️ 校外租房报修\n1. 联系房东，说明问题\n2. 协商维修方式（房东派人修/你自己找人修后报销）\n3. 保留维修单据',
+        en: '🏠 Dormitory repair\n1. Contact dormitory office or submit repair request in school logistics system\n2. Describe the issue (photos help)\n3. Maintenance staff come to fix\n4. Confirm repair, sign off\n\n🏘️ Off-campus rental repair\n1. Contact landlord, explain the issue\n2. Agree on repair method (landlord sends someone / you hire someone and get reimbursed)\n3. Keep repair receipts',
+        ru: '🏠 В общежитии\n1. Свяжитесь с комендантом или подайте заявку через систему\n2. Опишите проблему (фото)\n3. Мастер придёт для ремонта\n4. Подтвердите и подпишите\n\n🏘️ Вне кампуса\n1. Свяжитесь с арендодателем\n2. Договоритесь о способе ремонта\n3. Сохраните квитанции'
+      }
+    },
+    {
+      title: { zh: '常用报修用语', en: 'Useful phrases', ru: 'Фразы' },
+      desc: {
+        zh: '💡 常用报修用语：\n• "你好，我房间的[水龙头/空调/灯]坏了" = My [faucet/AC/light] is broken\n• "请问什么时候能来修？" = When can someone come to fix it?\n• "这个需要我自己出钱修吗？" = Do I need to pay for this repair?',
+        en: '💡 Useful phrases:\n• "你好，我房间的[水龙头/空调/灯]坏了" = My [faucet/AC/light] is broken\n• "请问什么时候能来修？" = When can someone come fix it?\n• "这个需要我自己出钱修吗？" = Do I pay for this repair?',
+        ru: '💡 Фразы:\n• "我房间的...坏了" — У меня сломалось...\n• "什么时候能来修？" — Когда придут чинить?'
       }
     }
   ],

@@ -32,17 +32,45 @@ export default {
     ru: [
     ]
   },
-  steps: [
+    steps: [
     {
-      title: {
-        zh: '中国课堂特点',
-        en: 'Chinese Classroom Characteristics',
-        ru: 'Особенности китайских занятий'
-      },
+      title: { zh: '中国大学学习的特点', en: 'Features of Chinese university study', ru: 'Особенности учёбы' },
       desc: {
-        zh: '中国大学学习的特点：\n\n📝 考勤与平时分\n• 很多课程有严格的考勤制度\n• 平时成绩占30-50%（出勤、作业、小测验）\n• 期末考试成绩占50-70%\n• 缺课过多可能被取消考试资格\n\n📚 课程安排\n• 每学期16-18周课程\n• 每周上课时间相对固定\n• 公共课（政治、体育、英语）是必修\n• 专业课由学院安排\n\n📖 考试特点\n• 期末考试通常在1月/7月集中进行\n• 部分课程采用开卷考试\n• 很多课程需要写课程论文\n• 成绩通常按百分制或五级制（优/良/中/及格/不及格）\n\n💡 给留学生的建议：\n• 课堂笔记很重要——中国考试常考课堂讲授内容\n• 主动和 tutor 或助教沟通\n• 找中国同学组成学习小组\n• 提前了解课程的考核方式',
-        en: 'Features of Chinese university study:\n\n📝 Attendance & regular grades\n• Many courses have strict attendance policies\n• Regular grades account for 30-50% (attendance, homework, quizzes)\n• Final exam: 50-70%\n• Excessive absence may disqualify you from the exam\n\n📚 Course schedule\n• 16-18 weeks per semester\n• Weekly schedule relatively fixed\n• General courses (politics, PE, English) are required\n• Major courses arranged by department\n\n📖 Exam characteristics\n• Finals concentrated in January/July\n• Some courses use open-book exams\n• Many courses require course papers\n• Grades: percentage or 5-level (excellent/good/medium/pass/fail)\n\n💡 Tips for international students:\n• Classroom notes are important — exams often test lecture content\n• Communicate actively with tutors and TAs\n• Form study groups with Chinese classmates\n• Understand course assessment methods in advance',
-        ru: 'Особенности учёбы:\n\n📝 Посещаемость: 30-50% оценки\n📚 16-18 недель в семестре\n📖 Экзамены в январе/июле\n\n💡 Советы:\n• Конспектируйте\n• Общайтесь с однокурсниками\n• Узнайте систему оценивания заранее'
+        zh: '中国大学学习的特点：',
+        en: 'Features of Chinese university study:',
+        ru: 'Особенности учёбы:'
+      }
+    },
+    {
+      title: { zh: '考勤与平时分', en: 'Attendance & regular grades', ru: 'Посещаемость: 30-50% оценки' },
+      desc: {
+        zh: '📝 考勤与平时分\n• 很多课程有严格的考勤制度\n• 平时成绩占30-50%（出勤、作业、小测验）\n• 期末考试成绩占50-70%\n• 缺课过多可能被取消考试资格',
+        en: '📝 Attendance & regular grades\n• Many courses have strict attendance policies\n• Regular grades account for 30-50% (attendance, homework, quizzes)\n• Final exam: 50-70%\n• Excessive absence may disqualify you from the exam',
+        ru: '📝 Посещаемость: 30-50% оценки'
+      }
+    },
+    {
+      title: { zh: '课程安排', en: 'Course schedule', ru: '16-18 недель в семестре' },
+      desc: {
+        zh: '📚 课程安排\n• 每学期16-18周课程\n• 每周上课时间相对固定\n• 公共课（政治、体育、英语）是必修\n• 专业课由学院安排',
+        en: '📚 Course schedule\n• 16-18 weeks per semester\n• Weekly schedule relatively fixed\n• General courses (politics, PE, English) are required\n• Major courses arranged by department',
+        ru: '📚 16-18 недель в семестре'
+      }
+    },
+    {
+      title: { zh: '考试特点', en: 'Exam characteristics', ru: 'Экзамены в январе/июле' },
+      desc: {
+        zh: '📖 考试特点\n• 期末考试通常在1月/7月集中进行\n• 部分课程采用开卷考试\n• 很多课程需要写课程论文\n• 成绩通常按百分制或五级制（优/良/中/及格/不及格）',
+        en: '📖 Exam characteristics\n• Finals concentrated in January/July\n• Some courses use open-book exams\n• Many courses require course papers\n• Grades: percentage or 5-level (excellent/good/medium/pass/fail)',
+        ru: '📖 Экзамены в январе/июле'
+      }
+    },
+    {
+      title: { zh: '给留学生的建议', en: 'Tips for international students', ru: 'Советы' },
+      desc: {
+        zh: '💡 给留学生的建议：\n• 课堂笔记很重要——中国考试常考课堂讲授内容\n• 主动和 tutor 或助教沟通\n• 找中国同学组成学习小组\n• 提前了解课程的考核方式',
+        en: '💡 Tips for international students:\n• Classroom notes are important — exams often test lecture content\n• Communicate actively with tutors and TAs\n• Form study groups with Chinese classmates\n• Understand course assessment methods in advance',
+        ru: '💡 Советы:\n• Конспектируйте\n• Общайтесь с однокурсниками\n• Узнайте систему оценивания заранее'
       }
     }
   ],

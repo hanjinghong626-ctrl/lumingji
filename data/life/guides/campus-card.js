@@ -13,15 +13,55 @@ export default {
   summary: { zh: '大学一卡通：食堂、门禁、图书馆、洗浴、超市', en: 'All-in-one card: dining, access, library, showers, stores', ru: 'Единая карта: столовая, доступ, библиотека, душ, магазин' },
   intro: { zh: '中国大学实行一卡通制度，集成食堂消费、门禁、图书馆等多种功能。', en: 'Chinese universities use an all-in-one card for multiple campus services.', ru: 'В китайских вузах одна карта для всех услуг кампуса.' },
   preparation: { zh: ['学生证或录取通知书', '初始充值费用'], en: ['Student ID or admission letter', 'Initial top-up funds'], ru: ['Студенческий билет', 'Средства для пополнения'] },
-  steps: [
+    steps: [
     {
-      title: { zh: '领取与日常使用', en: 'Collection & Daily Use', ru: 'Получение и использование' },
+      title: { zh: '入学注册时领取校园卡，修改初始密码后充值使用。', en: 'Get card at enrollment, change PIN, then top up.', ru: 'Получите при регистрации, смените PIN, пополните.' },
       desc: {
-        zh: '入学注册时领取校园卡，修改初始密码后充值使用。\n\n🍽️ 食堂：刷卡消费\n🚿 洗浴：插卡出水，按时间计费\n📚 图书馆：刷卡进入、借还书\n🏪 超市：刷卡购物\n\n💡 部分学校支持电子校园卡（微信/支付宝扫码）',
-        en: 'Get card at enrollment, change PIN, then top up.\n\n🍽️ Dining: tap card\n🚿 Showers: insert card, billed by time\n📚 Library: card for entry and borrowing\n🏪 Stores: card payment\n\n💡 Some schools support e-cards via WeChat/Alipay',
-        ru: 'Получите при регистрации, смените PIN, пополните.\n\n🍽️ Столовая: приложите карту\n🚿 Душ: карта активирует воду\n📚 Библиотека: вход и книги\n🏪 Магазин: оплата картой'
-      },
+        zh: '入学注册时领取校园卡，修改初始密码后充值使用。',
+        en: 'Get card at enrollment, change PIN, then top up.',
+        ru: 'Получите при регистрации, смените PIN, пополните.'
+      }
     },
+    {
+      title: { zh: '食堂：刷卡消费', en: 'Dining: tap card', ru: 'Столовая: приложите карту' },
+      desc: {
+        zh: '🍽️ 食堂：刷卡消费',
+        en: '🍽️ Dining: tap card',
+        ru: '🍽️ Столовая: приложите карту'
+      }
+    },
+    {
+      title: { zh: '洗浴：插卡出水，按时间计费', en: 'Showers: insert card, billed by time', ru: 'Душ: карта активирует воду' },
+      desc: {
+        zh: '🚿 洗浴：插卡出水，按时间计费',
+        en: '🚿 Showers: insert card, billed by time',
+        ru: '🚿 Душ: карта активирует воду'
+      }
+    },
+    {
+      title: { zh: '图书馆：刷卡进入、借还书', en: 'Library: card for entry and borrowing', ru: 'Библиотека: вход и книги' },
+      desc: {
+        zh: '📚 图书馆：刷卡进入、借还书',
+        en: '📚 Library: card for entry and borrowing',
+        ru: '📚 Библиотека: вход и книги'
+      }
+    },
+    {
+      title: { zh: '超市：刷卡购物', en: 'Stores: card payment', ru: 'Магазин: оплата картой' },
+      desc: {
+        zh: '🏪 超市：刷卡购物',
+        en: '🏪 Stores: card payment',
+        ru: '🏪 Магазин: оплата картой'
+      }
+    },
+    {
+      title: { zh: '部分学校支持电子校园卡（微信/支付宝扫码）', en: 'Some schools support e-cards via WeChat/Alipay', ru: 'Магазин: оплата картой' },
+      desc: {
+        zh: '💡 部分学校支持电子校园卡（微信/支付宝扫码）',
+        en: '💡 Some schools support e-cards via WeChat/Alipay',
+        ru: '🏪 Магазин: оплата картой'
+      }
+    }
   ],
   faq: [
     {

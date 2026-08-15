@@ -32,17 +32,29 @@ export default {
     ru: [
     ]
   },
-  steps: [
+    steps: [
     {
-      title: {
-        zh: '携程使用',
-        en: 'Using Ctrip',
-        ru: 'Использование Ctrip'
-      },
+      title: { zh: '主要功能', en: 'Step 1', ru: 'Билеты, отели, поезда,门票, туры' },
       desc: {
-        zh: '📱 主要功能\n• 订机票：国内/国际航班\n• 订酒店：各档次选择\n• 火车票：高铁/动车/普通\n• 景点门票：比现场便宜\n• 跟团游/自由行套餐\n\n💰 省钱技巧\n• 提前1-2个月订机票最便宜\n• 关注"特价机票"频道\n• 酒店可以对比多个平台价格\n• 学生认证可享学生价\n\n💡 建议同时下载"去哪儿"App对比价格。',
-        en: '📱 Features: flights, hotels, trains, attraction tickets, tour packages\n💰 Tips: book flights 1-2 months ahead, check "特价机票", compare hotels across platforms, student discount\n💡 Also download "去哪儿" (Qunar) for price comparison',
-        ru: '📱 Билеты, отели, поезда,门票, туры\n💰 Бронируйте за 1-2 месяца, ищите спеццены\n💡 Сравните с Qunar'
+        zh: '📱 主要功能\n• 订机票：国内/国际航班\n• 订酒店：各档次选择\n• 火车票：高铁/动车/普通\n• 景点门票：比现场便宜\n• 跟团游/自由行套餐',
+        en: '📱 Features: flights, hotels, trains, attraction tickets, tour packages',
+        ru: '📱 Билеты, отели, поезда,门票, туры'
+      }
+    },
+    {
+      title: { zh: '省钱技巧', en: 'Step 2', ru: 'Бронируйте за 1-2 месяца, ищите спеццены' },
+      desc: {
+        zh: '💰 省钱技巧\n• 提前1-2个月订机票最便宜\n• 关注"特价机票"频道\n• 酒店可以对比多个平台价格\n• 学生认证可享学生价',
+        en: '💰 Tips: book flights 1-2 months ahead, check "特价机票", compare hotels across platforms, student discount',
+        ru: '💰 Бронируйте за 1-2 месяца, ищите спеццены'
+      }
+    },
+    {
+      title: { zh: '建议同时下载"去哪儿"App对比价格。', en: 'Also download "去哪儿" (Qunar) for price comparison', ru: 'Сравните с Qunar' },
+      desc: {
+        zh: '💡 建议同时下载"去哪儿"App对比价格。',
+        en: '💡 Also download "去哪儿" (Qunar) for price comparison',
+        ru: '💡 Сравните с Qunar'
       }
     }
   ],

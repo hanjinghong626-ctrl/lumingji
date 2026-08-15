@@ -32,17 +32,29 @@ export default {
     ru: [
     ]
   },
-  steps: [
+    steps: [
     {
-      title: {
-        zh: '必去景点',
-        en: 'Must-visit Spots',
-        ru: 'Обязательные места'
-      },
+      title: { zh: '🏔 自然风光', en: 'Step 1', ru: 'Чжанцзяце, Цзючжайгоу, Хуаншань, Гуйлинь' },
       desc: {
-        zh: '🏔️ 自然风光\n• 张家界（湖南）：阿凡达取景地\n• 九寨沟（四川）：彩色湖泊\n• 黄山（安徽）：奇松怪石云海\n• 桂林（广西）：山水甲天下\n• 青海湖：高原湖泊\n\n🏛️ 历史人文\n• 长城（北京）：不到长城非好汉\n• 故宫（北京）：世界最大宫殿群\n• 兵马俑（西安）：世界第八大奇迹\n• 莫高窟（敦煌）：佛教艺术宝库\n• 丽江古城（云南）：纳西族文化\n\n💡 大部分景点对学生半价（凭学生证）。',
-        en: '🏔️ Nature: Zhangjiajie (Avatar), Jiuzhaigou (colorful lakes), Huangshan, Guilin, Qinghai Lake\n🏛️ Culture: Great Wall, Forbidden City, Terracotta Warriors, Mogao Caves, Lijiang Old Town\n💡 Most spots offer 50% student discount with student ID',
-        ru: '🏔️ Чжанцзяце, Цзючжайгоу, Хуаншань, Гуйлинь\n🏛️ Великая стена, Запретный город, Терракотовая армия, Могао\n💡 Студентам — 50% скидка'
+        zh: '🏔️ 自然风光\n• 张家界（湖南）：阿凡达取景地\n• 九寨沟（四川）：彩色湖泊\n• 黄山（安徽）：奇松怪石云海\n• 桂林（广西）：山水甲天下\n• 青海湖：高原湖泊',
+        en: '🏔️ Nature: Zhangjiajie (Avatar), Jiuzhaigou (colorful lakes), Huangshan, Guilin, Qinghai Lake',
+        ru: '🏔️ Чжанцзяце, Цзючжайгоу, Хуаншань, Гуйлинь'
+      }
+    },
+    {
+      title: { zh: '历史人文', en: 'Step 2', ru: 'Великая стена, Запретный город, Терракотовая армия, Могао' },
+      desc: {
+        zh: '🏛️ 历史人文\n• 长城（北京）：不到长城非好汉\n• 故宫（北京）：世界最大宫殿群\n• 兵马俑（西安）：世界第八大奇迹\n• 莫高窟（敦煌）：佛教艺术宝库\n• 丽江古城（云南）：纳西族文化',
+        en: '🏛️ Culture: Great Wall, Forbidden City, Terracotta Warriors, Mogao Caves, Lijiang Old Town',
+        ru: '🏛️ Великая стена, Запретный город, Терракотовая армия, Могао'
+      }
+    },
+    {
+      title: { zh: '大部分景点对学生半价（凭学生证）。', en: 'Most spots offer 50% student discount with student ID', ru: 'Студентам — 50% скидка' },
+      desc: {
+        zh: '💡 大部分景点对学生半价（凭学生证）。',
+        en: '💡 Most spots offer 50% student discount with student ID',
+        ru: '💡 Студентам — 50% скидка'
       }
     }
   ],

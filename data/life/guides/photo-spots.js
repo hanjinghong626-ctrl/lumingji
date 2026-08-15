@@ -32,17 +32,29 @@ export default {
     ru: [
     ]
   },
-  steps: [
+    steps: [
     {
-      title: {
-        zh: '拍照攻略',
-        en: 'Photo Tips',
-        ru: 'Советы по фото'
-      },
+      title: { zh: '📸 热门拍照地', en: 'Step 1', ru: 'Хунъягун (Чунцин), стена Сианя, Гуланьюй (Сямэнь)' },
       desc: {
-        zh: '📸 热门拍照地\n• 重庆洪崖洞：夜景绝美\n• 西安城墙：古风大片\n• 厦门鼓浪屿：文艺小清新\n• 成都宽窄巷子：市井生活\n• 上海外滩：现代都市\n• 敦煌鸣沙山：大漠风光\n\n💡 拍照技巧\n• 最佳时间：日出后1小时/日落前1小时（金色光线）\n• 避开正午（光线太硬）\n• 用小红书搜"XX拍照攻略"找机位\n• 穿汉服拍照在很多景点很流行\n\n📱 分享平台\n• 小红书：中国版Instagram\n• 朋友圈：微信社交分享',
-        en: '📸 Hot spots: Hongyadong (Chongqing night), Xi\'an Wall, Gulangyu (Xiamen), Kuanzhai Alley (Chengdu), The Bund (Shanghai), Mingsha Mountain (Dunhuang)\n💡 Best time: 1hr after sunrise/before sunset; search "XX拍照攻略" on Xiaohongshu\n📱 Share on Xiaohongshu or WeChat Moments',
-        ru: '📸 Хунъягун (Чунцин), стена Сианя, Гуланьюй (Сямэнь)\n💡 Лучшее время: рассвет/закат\n📱 Публикуйте в Xiaohongshu'
+        zh: '📸 热门拍照地\n• 重庆洪崖洞：夜景绝美\n• 西安城墙：古风大片\n• 厦门鼓浪屿：文艺小清新\n• 成都宽窄巷子：市井生活\n• 上海外滩：现代都市\n• 敦煌鸣沙山：大漠风光',
+        en: '📸 Hot spots: Hongyadong (Chongqing night), Xi\'an Wall, Gulangyu (Xiamen), Kuanzhai Alley (Chengdu), The Bund (Shanghai), Mingsha Mountain (Dunhuang)',
+        ru: '📸 Хунъягун (Чунцин), стена Сианя, Гуланьюй (Сямэнь)'
+      }
+    },
+    {
+      title: { zh: '拍照技巧', en: 'Step 2', ru: 'Лучшее время: рассвет/закат' },
+      desc: {
+        zh: '💡 拍照技巧\n• 最佳时间：日出后1小时/日落前1小时（金色光线）\n• 避开正午（光线太硬）\n• 用小红书搜"XX拍照攻略"找机位\n• 穿汉服拍照在很多景点很流行',
+        en: '💡 Best time: 1hr after sunrise/before sunset; search "XX拍照攻略" on Xiaohongshu',
+        ru: '💡 Лучшее время: рассвет/закат'
+      }
+    },
+    {
+      title: { zh: '分享平台', en: 'Share on Xiaohongshu or WeChat Moments', ru: 'Публикуйте в Xiaohongshu' },
+      desc: {
+        zh: '📱 分享平台\n• 小红书：中国版Instagram\n• 朋友圈：微信社交分享',
+        en: '📱 Share on Xiaohongshu or WeChat Moments',
+        ru: '📱 Публикуйте в Xiaohongshu'
       }
     }
   ],

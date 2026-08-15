@@ -32,17 +32,45 @@ export default {
     ru: [
     ]
   },
-  steps: [
+    steps: [
     {
-      title: {
-        zh: '社团与活动',
-        en: 'Clubs & Activities',
-        ru: 'Клубы и мероприятия'
-      },
+      title: { zh: '常见社团类型', en: 'Step 1', ru: 'Типы: искусство, спорт, хобби, международные, академические' },
       desc: {
-        zh: '常见社团类型：\n\n🎵 文艺类：合唱团、舞蹈社、话剧社\n⚽ 体育类：篮球、足球、羽毛球、武术\n📸 兴趣类：摄影、电影、美食、旅行\n🌍 国际类：国际文化交流协会\n💻 学术类：辩论社、编程社\n\n📝 加入方式\n• 开学初"百团大战"（社团招新）\n• 关注社团微信公众号报名\n• 部分社团需要面试\n• 大多数社团免费或收费很低\n\n💡 推荐留学生参加的社团：\n• 中文角/汉语协会\n• 武术/太极拳\n• 书法/国画\n• 音乐类（如果你擅长音乐）',
-        en: 'Common types: performing arts, sports, hobbies, international culture, academic\n📝 Join at "百团大战" (club fair) at semester start\n💡 Recommended for international students: Chinese corner, martial arts, calligraphy, music clubs',
-        ru: 'Типы: искусство, спорт, хобби, международные, академические\n📝 Ярмарка клубов в начале семестра\n💡 Рекомендации: китайский клуб, боевые искусства, каллиграфия'
+        zh: '常见社团类型：',
+        en: 'Common types: performing arts, sports, hobbies, international culture, academic',
+        ru: 'Типы: искусство, спорт, хобби, международные, академические'
+      }
+    },
+    {
+      title: { zh: '文艺类：合唱团、舞蹈社、话剧社', en: 'Join at "百团大战" (club fair) at semester start', ru: 'Ярмарка клубов в начале семестра' },
+      desc: {
+        zh: '🎵 文艺类：合唱团、舞蹈社、话剧社',
+        en: '📝 Join at "百团大战" (club fair) at semester start',
+        ru: '📝 Ярмарка клубов в начале семестра'
+      }
+    },
+    {
+      title: { zh: '体育类：篮球、足球、羽毛球、武术', en: 'Step 3', ru: 'Рекомендации: китайский клуб, боевые искусства, каллиграфия' },
+      desc: {
+        zh: '⚽ 体育类：篮球、足球、羽毛球、武术\n📸 兴趣类：摄影、电影、美食、旅行\n🌍 国际类：国际文化交流协会\n💻 学术类：辩论社、编程社',
+        en: '💡 Recommended for international students: Chinese corner, martial arts, calligraphy, music clubs',
+        ru: '💡 Рекомендации: китайский клуб, боевые искусства, каллиграфия'
+      }
+    },
+    {
+      title: { zh: '加入方式', en: 'Step 4', ru: 'Рекомендации: китайский клуб, боевые искусства, каллиграфия' },
+      desc: {
+        zh: '📝 加入方式\n• 开学初"百团大战"（社团招新）\n• 关注社团微信公众号报名\n• 部分社团需要面试\n• 大多数社团免费或收费很低',
+        en: '💡 Recommended for international students: Chinese corner, martial arts, calligraphy, music clubs',
+        ru: '💡 Рекомендации: китайский клуб, боевые искусства, каллиграфия'
+      }
+    },
+    {
+      title: { zh: '推荐留学生参加的社团', en: 'Step 5', ru: 'Рекомендации: китайский клуб, боевые искусства, каллиграфия' },
+      desc: {
+        zh: '💡 推荐留学生参加的社团：\n• 中文角/汉语协会\n• 武术/太极拳\n• 书法/国画\n• 音乐类（如果你擅长音乐）',
+        en: '💡 Recommended for international students: Chinese corner, martial arts, calligraphy, music clubs',
+        ru: '💡 Рекомендации: китайский клуб, боевые искусства, каллиграфия'
       }
     }
   ],

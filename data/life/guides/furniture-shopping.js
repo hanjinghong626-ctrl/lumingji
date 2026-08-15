@@ -41,17 +41,37 @@ export default {
       'Скачайте приложение IKEA или Taobao'
     ]
   },
-  steps: [
+    steps: [
     {
-      title: {
-        zh: '购买渠道',
-        en: 'Where to Buy',
-        ru: 'Где покупать'
-      },
+      title: { zh: '家具购买渠道对比', en: 'Furniture shopping channels', ru: 'Каналы покупки мебели' },
       desc: {
-        zh: '家具购买渠道对比：\n\n🏪 线下\n• 宜家 IKEA：设计好看，价格适中，可体验实物\n  - 中国很多大城市有宜家门店\n  - App可查库存、下单配送\n• 红星美凯龙/居然之家：大型家具卖场\n• 本地家具市场：价格便宜，需要砍价\n\n📱 线上\n• 淘宝/天猫：选择最多，注意看评价\n• 京东：物流快，大件送货上门\n• 宜家官网/App：线上下单，送货+组装\n• 闲鱼：二手家具，毕业季特别便宜\n\n💡 毕业季（6-7月）很多学生低价处理家具，是淘宝贝的好时机。',
-        en: 'Furniture shopping channels:\n\n🏪 Offline\n• IKEA: Good design, moderate price, try in person\n  - Many Chinese cities have IKEA stores\n  - App for inventory check and delivery orders\n• Red Star Macalline/Jurong Home: Large furniture malls\n• Local furniture markets: Cheap, need to bargain\n\n📱 Online\n• Taobao/Tmall: Most choices, check reviews\n• JD: Fast delivery, large items to your door\n• IKEA website/app: Order online, delivery + assembly\n• Xianyu: Second-hand furniture, especially cheap during graduation season\n\n💡 Graduation season (June-July) — many students sell furniture at low prices. Great time to find deals!',
-        ru: 'Каналы покупки мебели:\n\n🏪 Офлайн\n• IKEA: хороший дизайн, средние цены\n• Крупные мебельные торговые центры\n• Местные рынки: дешево, торгуйтесь\n\n📱 Онлайн\n• Taobao/Tmall: самый большой выбор\n• JD: быстрая доставка\n• IKEA: заказ онлайн с доставкой и сборкой\n• Xianyu: б/у мебель\n\n💡 Сезон выпуска (июнь-июль) — студенты продают мебель дёшево.'
+        zh: '家具购买渠道对比：',
+        en: 'Furniture shopping channels:',
+        ru: 'Каналы покупки мебели:'
+      }
+    },
+    {
+      title: { zh: '线下', en: 'Offline', ru: 'Офлайн' },
+      desc: {
+        zh: '🏪 线下\n• 宜家 IKEA：设计好看，价格适中，可体验实物\n  - 中国很多大城市有宜家门店\n  - App可查库存、下单配送\n• 红星美凯龙/居然之家：大型家具卖场\n• 本地家具市场：价格便宜，需要砍价',
+        en: '🏪 Offline\n• IKEA: Good design, moderate price, try in person\n  - Many Chinese cities have IKEA stores\n  - App for inventory check and delivery orders\n• Red Star Macalline/Jurong Home: Large furniture malls\n• Local furniture markets: Cheap, need to bargain',
+        ru: '🏪 Офлайн\n• IKEA: хороший дизайн, средние цены\n• Крупные мебельные торговые центры\n• Местные рынки: дешево, торгуйтесь'
+      }
+    },
+    {
+      title: { zh: '线上', en: 'Online', ru: 'Онлайн' },
+      desc: {
+        zh: '📱 线上\n• 淘宝/天猫：选择最多，注意看评价\n• 京东：物流快，大件送货上门\n• 宜家官网/App：线上下单，送货+组装\n• 闲鱼：二手家具，毕业季特别便宜',
+        en: '📱 Online\n• Taobao/Tmall: Most choices, check reviews\n• JD: Fast delivery, large items to your door\n• IKEA website/app: Order online, delivery + assembly\n• Xianyu: Second-hand furniture, especially cheap during graduation season',
+        ru: '📱 Онлайн\n• Taobao/Tmall: самый большой выбор\n• JD: быстрая доставка\n• IKEA: заказ онлайн с доставкой и сборкой\n• Xianyu: б/у мебель'
+      }
+    },
+    {
+      title: { zh: '毕业季（6-7月）很多学生低价处理家具，是淘宝贝的好时机。', en: 'Step 4', ru: 'Сезон выпуска (июнь-июль) — студенты продают мебель дёшево.' },
+      desc: {
+        zh: '💡 毕业季（6-7月）很多学生低价处理家具，是淘宝贝的好时机。',
+        en: '💡 Graduation season (June-July) — many students sell furniture at low prices. Great time to find deals!',
+        ru: '💡 Сезон выпуска (июнь-июль) — студенты продают мебель дёшево.'
       }
     }
   ],

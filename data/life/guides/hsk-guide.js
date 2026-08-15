@@ -32,17 +32,29 @@ export default {
     ru: [
     ]
   },
-  steps: [
+    steps: [
     {
-      title: {
-        zh: 'HSK等级与备考',
-        en: 'HSK Levels & Preparation',
-        ru: 'Уровни HSK и подготовка'
-      },
+      title: { zh: 'HSK等级（新版6级）', en: 'HSK levels (new 6-level)', ru: 'HSK 1-2: начальный (150-300 слов)' },
       desc: {
-        zh: 'HSK等级（新版6级）：\n\n📊 HSK 1-2：入门\n• 词汇量：150-300\n• 适合：刚学中文\n\n📊 HSK 3-4：中级（多数学校毕业要求）\n• 词汇量：600-1200\n• 包含：听力+阅读+写作\n\n📊 HSK 5-6：高级\n• 词汇量：2500-5000+\n• 适合：读研/学术用途\n\n📝 报名方式\n• 官网：chinesetest.cn\n• 考试频率：每月1-2次\n• 费用：HSK1-2约150-200元，HSK3-6约300-600元\n• 成绩2年有效\n\n💡 备考建议：\n• 使用HSK标准教程\n• 做历年真题（最重要！）\n• HSK Online App可以模拟考试',
-        en: 'HSK levels (new 6-level):\n📊 HSK 1-2: Beginner (150-300 words)\n📊 HSK 3-4: Intermediate (600-1200 words) — most schools require\n📊 HSK 5-6: Advanced (2500-5000+ words)\n\n📝 Registration: chinesetest.cn, monthly, ¥150-600\n💡 Use HSK textbooks, past papers (most important!), HSK Online App for mock tests',
-        ru: 'HSK 1-2: начальный (150-300 слов)\nHSK 3-4: средний (600-1200) — требуют вузы\nHSK 5-6: продвинутый (2500-5000+)\n\n📝 chinesetest.cn, ежемесячно\n💡 Учебники + прошлые экзамены'
+        zh: 'HSK等级（新版6级）：\n\n📊 HSK 1-2：入门\n• 词汇量：150-300\n• 适合：刚学中文\n\n📊 HSK 3-4：中级（多数学校毕业要求）\n• 词汇量：600-1200\n• 包含：听力+阅读+写作\n\n📊 HSK 5-6：高级\n• 词汇量：2500-5000+\n• 适合：读研/学术用途',
+        en: 'HSK levels (new 6-level):\n📊 HSK 1-2: Beginner (150-300 words)\n📊 HSK 3-4: Intermediate (600-1200 words) — most schools require\n📊 HSK 5-6: Advanced (2500-5000+ words)',
+        ru: 'HSK 1-2: начальный (150-300 слов)\nHSK 3-4: средний (600-1200) — требуют вузы\nHSK 5-6: продвинутый (2500-5000+)'
+      }
+    },
+    {
+      title: { zh: '报名方式', en: 'Registration: chinesetest.cn, monthly, ¥150-600', ru: 'chinesetest.cn, ежемесячно' },
+      desc: {
+        zh: '📝 报名方式\n• 官网：chinesetest.cn\n• 考试频率：每月1-2次\n• 费用：HSK1-2约150-200元，HSK3-6约300-600元\n• 成绩2年有效',
+        en: '📝 Registration: chinesetest.cn, monthly, ¥150-600',
+        ru: '📝 chinesetest.cn, ежемесячно'
+      }
+    },
+    {
+      title: { zh: '备考建议', en: 'Step 3', ru: 'Учебники + прошлые экзамены' },
+      desc: {
+        zh: '💡 备考建议：\n• 使用HSK标准教程\n• 做历年真题（最重要！）\n• HSK Online App可以模拟考试',
+        en: '💡 Use HSK textbooks, past papers (most important!), HSK Online App for mock tests',
+        ru: '💡 Учебники + прошлые экзамены'
       }
     }
   ],

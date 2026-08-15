@@ -32,17 +32,29 @@ export default {
     ru: [
     ]
   },
-  steps: [
+    steps: [
     {
-      title: {
-        zh: '交友途径',
-        en: 'Ways to Make Friends',
-        ru: 'Как подружиться'
-      },
+      title: { zh: '结交中国朋友的途径', en: 'Step 1', ru: 'Кампус: однокурсники, клубы, языковой обмен' },
       desc: {
-        zh: '结交中国朋友的途径：\n\n🏫 校园\n• 课堂上的同桌/小组作业\n• 参加社团活动\n• 语言交换伙伴\n• 学生宿舍的邻居\n\n📱 线上\n• 微信加好友后多互动\n• 朋友圈点赞评论\n• 加入兴趣群组\n\n🎯 社交技巧\n• 主动打招呼，微笑是最好的语言\n• 请中国同学吃饭或喝奶茶\n• 对中国文化表现出兴趣\n• 分享你国家的故事和美食\n• 不要太拘谨，中国年轻人很随和\n\n💡 中国人的"朋友圈"很看重互动。经常点赞、评论能让关系更快升温。',
-        en: '🏫 Campus: classmates, group work, clubs, language exchange, dormitory neighbors\n📱 Online: WeChat interactions, Moments likes/comments, interest groups\n🎯 Tips: smile, invite for meals/milk tea, show interest in Chinese culture, share your country\'s stories\n💡 WeChat Moments interaction warms up relationships quickly',
-        ru: '🏫 Кампус: однокурсники, клубы, языковой обмен\n📱 WeChat: лайки, комментарии\n🎯 Улыбайтесь, приглашайте на обед\n💡 Активность в WeChat ускоряет сближение'
+        zh: '结交中国朋友的途径：\n\n🏫 校园\n• 课堂上的同桌/小组作业\n• 参加社团活动\n• 语言交换伙伴\n• 学生宿舍的邻居',
+        en: '🏫 Campus: classmates, group work, clubs, language exchange, dormitory neighbors',
+        ru: '🏫 Кампус: однокурсники, клубы, языковой обмен'
+      }
+    },
+    {
+      title: { zh: '线上', en: 'Step 2', ru: 'WeChat: лайки, комментарии' },
+      desc: {
+        zh: '📱 线上\n• 微信加好友后多互动\n• 朋友圈点赞评论\n• 加入兴趣群组\n\n🎯 社交技巧\n• 主动打招呼，微笑是最好的语言\n• 请中国同学吃饭或喝奶茶\n• 对中国文化表现出兴趣\n• 分享你国家的故事和美食\n• 不要太拘谨，中国年轻人很随和',
+        en: '📱 Online: WeChat interactions, Moments likes/comments, interest groups\n🎯 Tips: smile, invite for meals/milk tea, show interest in Chinese culture, share your country\'s stories',
+        ru: '📱 WeChat: лайки, комментарии\n🎯 Улыбайтесь, приглашайте на обед'
+      }
+    },
+    {
+      title: { zh: '中国人的"朋友圈"很看重互动。经常点赞、评论能让关系更快升温。', en: 'WeChat Moments interaction warms up relationships quickly', ru: 'Активность в WeChat ускоряет сближение' },
+      desc: {
+        zh: '💡 中国人的"朋友圈"很看重互动。经常点赞、评论能让关系更快升温。',
+        en: '💡 WeChat Moments interaction warms up relationships quickly',
+        ru: '💡 Активность в WeChat ускоряет сближение'
       }
     }
   ],

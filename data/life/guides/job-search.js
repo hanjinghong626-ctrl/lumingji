@@ -32,17 +32,37 @@ export default {
     ru: [
     ]
   },
-  steps: [
+    steps: [
     {
-      title: {
-        zh: '求职流程',
-        en: 'Job Search Process',
-        ru: 'Процесс поиска работы'
-      },
+      title: { zh: '🔎 求职渠道', en: 'Step 1', ru: 'BOSS直聘, ярмарки вакансий, хедхантеры' },
       desc: {
-        zh: '🔎 求职渠道\n• 招聘网站：BOSS直聘、智联招聘、前程无忧\n• 校园招聘会：学校组织\n• 猎头公司：高端岗位\n• 人脉推荐：学长学姐/老师\n\n📄 简历准备\n• 中文简历 + 英文简历\n• 突出双语/多语优势\n• 突出跨文化经验\n• 一页为佳\n\n📋 毕业后工作签证\n• 需要找到愿意聘用外国人的公司\n• 申请工作许可（Work Permit）\n• 将学生签证转为工作签证（Z签证）\n• 部分城市有留学生创业优惠政策\n\n💡 留学生在中国的就业优势：双语能力、跨文化理解、国际视野。',
-        en: '🔎 Channels: BOSS直聘, Zhaopin, 51job; campus fairs; headhunters; networking\n📄 Resume: Chinese + English, highlight bilingual + cross-cultural skills, 1 page\n📋 After graduation: find company willing to hire foreigners → work permit → Z visa\n💡 Advantages: bilingual, cross-cultural, international perspective',
-        ru: '🔎 BOSS直聘, ярмарки вакансий, хедхантеры\n📄 Резюме: китайское + английское, выделите двуязычность\n📋 После выпуска: рабочая виза Z\n💡 Преимущества: bilingual, cross-cultural'
+        zh: '🔎 求职渠道\n• 招聘网站：BOSS直聘、智联招聘、前程无忧\n• 校园招聘会：学校组织\n• 猎头公司：高端岗位\n• 人脉推荐：学长学姐/老师',
+        en: '🔎 Channels: BOSS直聘, Zhaopin, 51job; campus fairs; headhunters; networking',
+        ru: '🔎 BOSS直聘, ярмарки вакансий, хедхантеры'
+      }
+    },
+    {
+      title: { zh: '简历准备', en: 'Step 2', ru: 'Резюме: китайское + английское, выделите двуязычность' },
+      desc: {
+        zh: '📄 简历准备\n• 中文简历 + 英文简历\n• 突出双语/多语优势\n• 突出跨文化经验\n• 一页为佳',
+        en: '📄 Resume: Chinese + English, highlight bilingual + cross-cultural skills, 1 page',
+        ru: '📄 Резюме: китайское + английское, выделите двуязычность'
+      }
+    },
+    {
+      title: { zh: '毕业后工作签证', en: 'Step 3', ru: 'После выпуска: рабочая виза Z' },
+      desc: {
+        zh: '📋 毕业后工作签证\n• 需要找到愿意聘用外国人的公司\n• 申请工作许可（Work Permit）\n• 将学生签证转为工作签证（Z签证）\n• 部分城市有留学生创业优惠政策',
+        en: '📋 After graduation: find company willing to hire foreigners → work permit → Z visa',
+        ru: '📋 После выпуска: рабочая виза Z'
+      }
+    },
+    {
+      title: { zh: '留学生在中国的就业优势：双语能力、跨文化理解、国际视野。', en: 'Step 4', ru: 'Преимущества: bilingual, cross-cultural' },
+      desc: {
+        zh: '💡 留学生在中国的就业优势：双语能力、跨文化理解、国际视野。',
+        en: '💡 Advantages: bilingual, cross-cultural, international perspective',
+        ru: '💡 Преимущества: bilingual, cross-cultural'
       }
     }
   ],

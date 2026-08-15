@@ -41,17 +41,37 @@ export default {
       'Знайте расположение ближайшей больницы 3А'
     ]
   },
-  steps: [
+    steps: [
     {
-      title: {
-        zh: '紧急情况处理',
-        en: 'Handling Emergencies',
-        ru: 'Действия в экстренных ситуациях'
-      },
+      title: { zh: '🚨 急救电话', en: 'Emergency numbers', ru: 'Экстренные номера' },
       desc: {
-        zh: '🚨 急救电话\n• 120：急救 ambulance（叫救护车）\n• 110：警察 police\n• 119：消防 fire department\n\n📞 拨打120时：\n• 说明你的地址（越具体越好）\n• 描述伤者情况和症状\n• 保持电话畅通，按调度员指导操作\n• 如果可以，派人到路口接应救护车\n\n🏥 直接去急诊\n• 任何医院的急诊科都24小时开放\n• 不需要预约，直接去\n• 急诊优先级：危重 > 紧急 > 一般\n• 非危重情况可能需要等待\n\n💡 重要：\n• 外国人可以直接去急诊，不需要转诊\n• 带上护照和保险卡\n• 如果不会中文，把关键信息提前写在手机备忘录里：\n  "我是外国人，我需要急救。我的保险信息是..."',
-        en: '🚨 Emergency numbers\n• 120: Ambulance\n• 110: Police\n• 119: Fire department\n\n📞 When calling 120:\n• State your address (as specific as possible)\n• Describe the patient\'s condition and symptoms\n• Keep phone line open, follow dispatcher instructions\n• If possible, send someone to the main road to guide the ambulance\n\n🏥 Going to ER directly\n• Any hospital\'s ER is open 24 hours\n• No appointment needed\n• ER priority: critical > urgent > general\n• Non-critical cases may need to wait\n\n💡 Important:\n• Foreigners can go to ER directly, no referral needed\n• Bring passport and insurance card\n• If you don\'t speak Chinese, save key info in your phone notes:\n  "我是外国人，我需要急救。我的保险信息是..."',
-        ru: '🚨 Экстренные номера\n• 120: Скорая помощь\n• 110: Полиция\n• 119: Пожарная\n\n📞 При звонке 120:\n• Укажите точный адрес\n• Опишите состояние\n• Держите телефон на линии\n\n🏥 Приемное отделение — 24 часа, без записи\n\n💡 Сохраните в телефоне:\n"我是外国人，我需要急救"'
+        zh: '🚨 急救电话\n• 120：急救 ambulance（叫救护车）\n• 110：警察 police\n• 119：消防 fire department',
+        en: '🚨 Emergency numbers\n• 120: Ambulance\n• 110: Police\n• 119: Fire department',
+        ru: '🚨 Экстренные номера\n• 120: Скорая помощь\n• 110: Полиция\n• 119: Пожарная'
+      }
+    },
+    {
+      title: { zh: '拨打120时', en: 'When calling 120', ru: 'При звонке 120' },
+      desc: {
+        zh: '📞 拨打120时：\n• 说明你的地址（越具体越好）\n• 描述伤者情况和症状\n• 保持电话畅通，按调度员指导操作\n• 如果可以，派人到路口接应救护车',
+        en: '📞 When calling 120:\n• State your address (as specific as possible)\n• Describe the patient\'s condition and symptoms\n• Keep phone line open, follow dispatcher instructions\n• If possible, send someone to the main road to guide the ambulance',
+        ru: '📞 При звонке 120:\n• Укажите точный адрес\n• Опишите состояние\n• Держите телефон на линии'
+      }
+    },
+    {
+      title: { zh: '直接去急诊', en: 'Going to ER directly', ru: 'Приемное отделение — 24 часа, без записи' },
+      desc: {
+        zh: '🏥 直接去急诊\n• 任何医院的急诊科都24小时开放\n• 不需要预约，直接去\n• 急诊优先级：危重 > 紧急 > 一般\n• 非危重情况可能需要等待',
+        en: '🏥 Going to ER directly\n• Any hospital\'s ER is open 24 hours\n• No appointment needed\n• ER priority: critical > urgent > general\n• Non-critical cases may need to wait',
+        ru: '🏥 Приемное отделение — 24 часа, без записи'
+      }
+    },
+    {
+      title: { zh: '重要', en: 'Important', ru: 'Сохраните в телефоне' },
+      desc: {
+        zh: '💡 重要：\n• 外国人可以直接去急诊，不需要转诊\n• 带上护照和保险卡\n• 如果不会中文，把关键信息提前写在手机备忘录里：\n  "我是外国人，我需要急救。我的保险信息是..."',
+        en: '💡 Important:\n• Foreigners can go to ER directly, no referral needed\n• Bring passport and insurance card\n• If you don\'t speak Chinese, save key info in your phone notes:\n  "我是外国人，我需要急救。我的保险信息是..."',
+        ru: '💡 Сохраните в телефоне:\n"我是外国人，我需要急救"'
       }
     }
   ],

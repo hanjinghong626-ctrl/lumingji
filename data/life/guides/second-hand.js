@@ -32,17 +32,29 @@ export default {
     ru: [
     ]
   },
-  steps: [
+    steps: [
     {
-      title: {
-        zh: '二手交易渠道',
-        en: 'Second-hand Channels',
-        ru: 'Каналы б/у торговли'
-      },
+      title: { zh: '二手交易方式', en: 'Step 1', ru: 'Xianyu: крупнейшая платформа б/у' },
       desc: {
-        zh: '二手交易方式：\n\n📱 闲鱼App\n• 阿里巴巴旗下，最大二手平台\n• 可以搜任何二手商品\n• 支持验货担保\n• ⚠️ 注意辨别卖家信誉\n\n🏫 校园渠道\n• 毕业季（6-7月）：学长学姐低价处理\n• 校园二手微信群/QQ群\n• 宿舍楼下公告栏\n\n💰 适合买什么\n• 教材书籍（原价50，二手10元）\n• 自行车\n• 小家电\n• 电子设备（需验货）',
-        en: '📱 Xianyu: Alibaba\'s platform, largest second-hand market, supports inspection guarantee\n🏫 Campus: graduation season (June-July), WeChat/QQ groups, bulletin boards\n💰 Best for: textbooks (¥50→¥10), bicycles, small appliances, electronics (verify)',
-        ru: '📱 Xianyu: крупнейшая платформа б/у\n🏫 Кампус: сезон выпуска, группы WeChat/QQ\n💰 Учебники, велосипеды, мелкая техника'
+        zh: '二手交易方式：',
+        en: '📱 Xianyu: Alibaba\'s platform, largest second-hand market, supports inspection guarantee\n🏫 Campus: graduation season (June-July), WeChat/QQ groups, bulletin boards',
+        ru: '📱 Xianyu: крупнейшая платформа б/у\n🏫 Кампус: сезон выпуска, группы WeChat/QQ'
+      }
+    },
+    {
+      title: { zh: '闲鱼App', en: 'Step 2', ru: 'Учебники, велосипеды, мелкая техника' },
+      desc: {
+        zh: '📱 闲鱼App\n• 阿里巴巴旗下，最大二手平台\n• 可以搜任何二手商品\n• 支持验货担保\n• ⚠️ 注意辨别卖家信誉\n\n🏫 校园渠道\n• 毕业季（6-7月）：学长学姐低价处理\n• 校园二手微信群/QQ群\n• 宿舍楼下公告栏',
+        en: '💰 Best for: textbooks (¥50→¥10), bicycles, small appliances, electronics (verify)',
+        ru: '💰 Учебники, велосипеды, мелкая техника'
+      }
+    },
+    {
+      title: { zh: '适合买什么', en: 'Step 3', ru: 'Учебники, велосипеды, мелкая техника' },
+      desc: {
+        zh: '💰 适合买什么\n• 教材书籍（原价50，二手10元）\n• 自行车\n• 小家电\n• 电子设备（需验货）',
+        en: '💰 Best for: textbooks (¥50→¥10), bicycles, small appliances, electronics (verify)',
+        ru: '💰 Учебники, велосипеды, мелкая техника'
       }
     }
   ],

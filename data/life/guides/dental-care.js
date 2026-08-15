@@ -32,17 +32,29 @@ export default {
     ru: [
     ]
   },
-  steps: [
+    steps: [
     {
-      title: {
-        zh: '看牙方式与费用',
-        en: 'Dental Visit Options & Costs',
-        ru: 'Варианты и стоимость'
-      },
+      title: { zh: '牙科就诊渠道', en: 'Dental care channels', ru: 'Варианты' },
       desc: {
-        zh: '牙科就诊渠道：\n\n🏥 公立医院口腔科\n• 费用较低\n• 排队时间长\n• 适合：拔牙、补牙等基础治疗\n\n🦷 私立牙科诊所\n• 环境好，服务好\n• 费用较高\n• 适合：洗牙、正畸、种植牙\n\n💰 费用参考：\n• 洗牙：100-300元\n• 补牙：200-800元/颗\n• 拔牙：200-1000元/颗（智齿更贵）\n• 根管治疗：1000-3000元\n• 种植牙：5000-20000元/颗\n\n⚠️ 大部分牙科项目不在留学生医保范围内。建议在国内先做好牙齿检查和治疗再来中国。',
-        en: 'Dental care channels:\n\n🏥 Public hospital dental dept\n• Lower cost\n• Long wait times\n• Best for: extractions, fillings, basic treatment\n\n🦷 Private dental clinics\n• Better environment and service\n• Higher cost\n• Best for: cleaning, orthodontics, implants\n\n💰 Cost reference:\n• Cleaning: ¥100-300\n• Filling: ¥200-800/tooth\n• Extraction: ¥200-1000/tooth (wisdom teeth cost more)\n• Root canal: ¥1000-3000\n• Implant: ¥5000-20000/tooth\n\n⚠️ Most dental procedures aren\'t covered by student insurance. Recommend getting dental checkup and treatment done in your home country before coming to China.',
-        ru: 'Варианты:\n\n🏥 Государственная больница — дешевле, дольше\n🦷 Частная клиника — комфортнее, дороже\n\n💰 Ориентировочно:\n• Чистка: 100-300 ¥\n• Пломба: 200-800 ¥\n• Удаление: 200-1000 ¥\n• Имплант: 5000-20000 ¥\n\n⚠️ Большинство стоматологических услуг не покрывается студенческой страховкой. Проверьте зубы до приезда в Китай.'
+        zh: '牙科就诊渠道：',
+        en: 'Dental care channels:',
+        ru: 'Варианты:'
+      }
+    },
+    {
+      title: { zh: '公立医院口腔科', en: 'Public hospital dental dept', ru: 'Государственная больница — дешевле, дольше' },
+      desc: {
+        zh: '🏥 公立医院口腔科\n• 费用较低\n• 排队时间长\n• 适合：拔牙、补牙等基础治疗\n\n🦷 私立牙科诊所\n• 环境好，服务好\n• 费用较高\n• 适合：洗牙、正畸、种植牙',
+        en: '🏥 Public hospital dental dept\n• Lower cost\n• Long wait times\n• Best for: extractions, fillings, basic treatment\n\n🦷 Private dental clinics\n• Better environment and service\n• Higher cost\n• Best for: cleaning, orthodontics, implants',
+        ru: '🏥 Государственная больница — дешевле, дольше\n🦷 Частная клиника — комфортнее, дороже'
+      }
+    },
+    {
+      title: { zh: '费用参考', en: 'Cost reference', ru: 'Ориентировочно' },
+      desc: {
+        zh: '💰 费用参考：\n• 洗牙：100-300元\n• 补牙：200-800元/颗\n• 拔牙：200-1000元/颗（智齿更贵）\n• 根管治疗：1000-3000元\n• 种植牙：5000-20000元/颗\n\n⚠️ 大部分牙科项目不在留学生医保范围内。建议在国内先做好牙齿检查和治疗再来中国。',
+        en: '💰 Cost reference:\n• Cleaning: ¥100-300\n• Filling: ¥200-800/tooth\n• Extraction: ¥200-1000/tooth (wisdom teeth cost more)\n• Root canal: ¥1000-3000\n• Implant: ¥5000-20000/tooth\n\n⚠️ Most dental procedures aren\'t covered by student insurance. Recommend getting dental checkup and treatment done in your home country before coming to China.',
+        ru: '💰 Ориентировочно:\n• Чистка: 100-300 ¥\n• Пломба: 200-800 ¥\n• Удаление: 200-1000 ¥\n• Имплант: 5000-20000 ¥\n\n⚠️ Большинство стоматологических услуг не покрывается студенческой страховкой. Проверьте зубы до приезда в Китай.'
       }
     }
   ],

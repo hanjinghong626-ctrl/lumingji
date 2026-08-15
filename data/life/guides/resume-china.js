@@ -32,17 +32,29 @@ export default {
     ru: [
     ]
   },
-  steps: [
+    steps: [
     {
-      title: {
-        zh: '简历要点',
-        en: 'Resume Key Points',
-        ru: 'Ключевые моменты'
-      },
+      title: { zh: '中国简历格式', en: 'Format: 1 page, photo optional', ru: '1 страница' },
       desc: {
-        zh: '📄 中国简历格式\n• 一页为佳\n• 不需要照片（部分行业需要）\n• 不需要年龄/婚姻状况（外企不需要）\n\n📋 内容结构\n1. 基本信息（姓名、联系方式、学历）\n2. 教育背景（学校、专业、GPA）\n3. 实习/工作经历\n4. 项目经验\n5. 技能（语言、计算机、证书）\n6. 自我评价（简短）\n\n💡 留学生亮点\n• 强调语言能力：中文HSK等级 + 俄语 + 英语\n• 强调跨文化沟通能力\n• 突出在中国的学习和生活经验\n• 如果有论文发表，单列学术成果',
-        en: '📄 Format: 1 page, photo optional\n📋 Structure: basic info → education → experience → projects → skills → self-evaluation\n💡 Highlights: HSK level + Russian + English; cross-cultural communication; China experience; academic publications',
-        ru: '📄 1 страница\n📋 Образование → опыт → проекты → навыки\n💡 Выделите: HSK + русский + английский, межкультурный опыт'
+        zh: '📄 中国简历格式\n• 一页为佳\n• 不需要照片（部分行业需要）\n• 不需要年龄/婚姻状况（外企不需要）',
+        en: '📄 Format: 1 page, photo optional',
+        ru: '📄 1 страница'
+      }
+    },
+    {
+      title: { zh: '内容结构', en: 'Step 2', ru: 'Образование → опыт → проекты → навыки' },
+      desc: {
+        zh: '📋 内容结构\n1. 基本信息（姓名、联系方式、学历）\n2. 教育背景（学校、专业、GPA）\n3. 实习/工作经历\n4. 项目经验\n5. 技能（语言、计算机、证书）\n6. 自我评价（简短）',
+        en: '📋 Structure: basic info → education → experience → projects → skills → self-evaluation',
+        ru: '📋 Образование → опыт → проекты → навыки'
+      }
+    },
+    {
+      title: { zh: '留学生亮点', en: 'Step 3', ru: 'Выделите: HSK + русский + английский, межкультурный опыт' },
+      desc: {
+        zh: '💡 留学生亮点\n• 强调语言能力：中文HSK等级 + 俄语 + 英语\n• 强调跨文化沟通能力\n• 突出在中国的学习和生活经验\n• 如果有论文发表，单列学术成果',
+        en: '💡 Highlights: HSK level + Russian + English; cross-cultural communication; China experience; academic publications',
+        ru: '💡 Выделите: HSK + русский + английский, межкультурный опыт'
       }
     }
   ],

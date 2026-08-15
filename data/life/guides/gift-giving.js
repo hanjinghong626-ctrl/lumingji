@@ -32,17 +32,21 @@ export default {
     ru: [
     ]
   },
-  steps: [
+    steps: [
     {
-      title: {
-        zh: '送礼指南',
-        en: 'Gift Guide',
-        ru: 'Руководство по подаркам'
-      },
+      title: { zh: '适合送礼的场合', en: 'Step 1', ru: 'Хорошие подарки:特产 из вашей страны, чай, фрукты' },
       desc: {
-        zh: '🎁 适合送礼的场合\n• 去中国同学家做客\n• 节日（春节、中秋）\n• 感谢帮助（老师、同学）\n• 毕业告别\n\n✅ 推荐礼物\n• 你国家的特产/零食\n• 茶叶（中国人都爱茶）\n• 水果篮\n• 书/文具\n• 红包（节日给小孩）\n\n🚫 禁忌\n• 不要送钟（谐音"送终"）\n• 不要送伞（谐音"散"）\n• 不要送梨（谐音"离"）\n• 不要送白色/黑色的包装\n• 不要当面拆礼物（收礼方）\n\n💡 送礼时谦虚一点："一点小意思，不成敬意"。\n收礼时也会客气推辞一下再收。',
-        en: '✅ Good gifts: your country\'s specialties, tea, fruit baskets, books/stationery\n🚫 Taboos: clocks (sounds like "death"), umbrellas (sounds like "scatter"), pears (sounds like "parting"), white/black wrapping\n💡 Give modestly; recipients politely decline before accepting',
-        ru: '✅ Хорошие подарки:特产 из вашей страны, чай, фрукты\n🚫 Табу: часы, зонты, груши\n💡 Скромность при дарении'
+        zh: '🎁 适合送礼的场合\n• 去中国同学家做客\n• 节日（春节、中秋）\n• 感谢帮助（老师、同学）\n• 毕业告别\n\n✅ 推荐礼物\n• 你国家的特产/零食\n• 茶叶（中国人都爱茶）\n• 水果篮\n• 书/文具\n• 红包（节日给小孩）\n\n🚫 禁忌\n• 不要送钟（谐音"送终"）\n• 不要送伞（谐音"散"）\n• 不要送梨（谐音"离"）\n• 不要送白色/黑色的包装\n• 不要当面拆礼物（收礼方）',
+        en: '✅ Good gifts: your country\'s specialties, tea, fruit baskets, books/stationery\n🚫 Taboos: clocks (sounds like "death"), umbrellas (sounds like "scatter"), pears (sounds like "parting"), white/black wrapping',
+        ru: '✅ Хорошие подарки:特产 из вашей страны, чай, фрукты\n🚫 Табу: часы, зонты, груши'
+      }
+    },
+    {
+      title: { zh: '送礼时谦虚一点："一点小意思，不成敬意"。', en: 'Step 2', ru: 'Скромность при дарении' },
+      desc: {
+        zh: '💡 送礼时谦虚一点："一点小意思，不成敬意"。\n收礼时也会客气推辞一下再收。',
+        en: '💡 Give modestly; recipients politely decline before accepting',
+        ru: '💡 Скромность при дарении'
       }
     }
   ],

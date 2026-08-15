@@ -32,17 +32,45 @@ export default {
     ru: [
     ]
   },
-  steps: [
+    steps: [
     {
-      title: {
-        zh: '超市购物',
-        en: 'Supermarket Shopping',
-        ru: 'Покупки в супермаркете'
-      },
+      title: { zh: '主要超市品牌', en: 'Step 1', ru: 'Сети: Walmart, RT-Mart, Yonghui, Hema' },
       desc: {
-        zh: '主要超市品牌：\n\n🏬 大型超市\n• 沃尔玛（Walmart）：外资，商品全\n• 大润发（RT-Mart）：本土大型超市\n• 永辉超市：生鲜品质好\n• 盒马鲜生：阿里旗下，新零售\n\n🏪 便利店\n• 7-11/全家/罗森：24小时，价格略高\n• 美宜佳：覆盖广\n\n💳 支付方式\n• 大部分超市支持支付宝/微信扫码支付\n• 部分有自助结账机\n\n💡 建议下载盒马App，可以30分钟送菜上门。',
-        en: '🏬 Major chains: Walmart, RT-Mart, Yonghui, Hema Fresh (Alibaba)\n🏪 Convenience: 7-11, FamilyMart, Lawson (24h)\n💳 Payment: Alipay/WeChat QR code\n💡 Download Hema app for 30-min grocery delivery',
-        ru: '🏬 Сети: Walmart, RT-Mart, Yonghui, Hema\n🏪 Магазины: 7-11, FamilyMart\n💳 Оплата: Alipay/WeChat\n💡 Hema — доставка за 30 мин'
+        zh: '主要超市品牌：',
+        en: '🏬 Major chains: Walmart, RT-Mart, Yonghui, Hema Fresh (Alibaba)',
+        ru: '🏬 Сети: Walmart, RT-Mart, Yonghui, Hema'
+      }
+    },
+    {
+      title: { zh: '大型超市', en: 'Convenience: 7-11, FamilyMart, Lawson (24h)', ru: 'Магазины: 7-11, FamilyMart' },
+      desc: {
+        zh: '🏬 大型超市\n• 沃尔玛（Walmart）：外资，商品全\n• 大润发（RT-Mart）：本土大型超市\n• 永辉超市：生鲜品质好\n• 盒马鲜生：阿里旗下，新零售',
+        en: '🏪 Convenience: 7-11, FamilyMart, Lawson (24h)',
+        ru: '🏪 Магазины: 7-11, FamilyMart'
+      }
+    },
+    {
+      title: { zh: '便利店', en: 'Payment: Alipay/WeChat QR code', ru: 'Оплата: Alipay/WeChat' },
+      desc: {
+        zh: '🏪 便利店\n• 7-11/全家/罗森：24小时，价格略高\n• 美宜佳：覆盖广',
+        en: '💳 Payment: Alipay/WeChat QR code',
+        ru: '💳 Оплата: Alipay/WeChat'
+      }
+    },
+    {
+      title: { zh: '支付方式', en: 'Download Hema app for 30-min grocery delivery', ru: 'Hema — доставка за 30 мин' },
+      desc: {
+        zh: '💳 支付方式\n• 大部分超市支持支付宝/微信扫码支付\n• 部分有自助结账机',
+        en: '💡 Download Hema app for 30-min grocery delivery',
+        ru: '💡 Hema — доставка за 30 мин'
+      }
+    },
+    {
+      title: { zh: '建议下载盒马App，可以30分钟送菜上门。', en: 'Download Hema app for 30-min grocery delivery', ru: 'Hema — доставка за 30 мин' },
+      desc: {
+        zh: '💡 建议下载盒马App，可以30分钟送菜上门。',
+        en: '💡 Download Hema app for 30-min grocery delivery',
+        ru: '💡 Hema — доставка за 30 мин'
       }
     }
   ],

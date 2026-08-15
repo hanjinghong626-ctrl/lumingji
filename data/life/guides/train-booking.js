@@ -32,17 +32,37 @@ export default {
     ru: [
     ]
   },
-  steps: [
+    steps: [
     {
-      title: {
-        zh: '购票与乘车',
-        en: 'Booking & Boarding',
-        ru: 'Бронирование и посадка'
-      },
+      title: { zh: '🚄 列车类型', en: 'Step 1', ru: 'G (300-350 км/ч), D (200-250), обычные' },
       desc: {
-        zh: '🚄 列车类型\n• G字头（高铁）：最快，300-350km/h\n• D字头（动车）：较快，200-250km/h\n• Z/T/K字头：普通列车，便宜但慢\n\n📱 购票方式\n• 12306 App（官方，推荐）\n• 携程/去哪儿\n• 车站窗口/自助机\n\n💺 座位等级\n• 商务座：最舒适，价格是二等座3倍\n• 一等座：宽敞，约1.6倍二等座价格\n• 二等座：标准，最常见\n• 硬卧/软卧：长途夜车\n\n📋 乘车流程\n1. 提前30分钟到站\n2. 安检（类似机场）\n3. 刷身份证/护照进站\n4. 找到对应候车区和站台\n5. 列车到达后上车找座位\n\n💡 留学生用护照可以在12306注册并购买火车票。',
-        en: '🚄 Types: G (high-speed 300-350km/h), D (fast 200-250km/h), Z/T/K (regular, slow)\n📱 Book: 12306 app (official), Ctrip, station counter\n💺 Seats: Business (3x price), First (1.6x), Second (standard)\n📋 Boarding: arrive 30min early → security → ID check → waiting area → platform\n💡 Foreigners can register on 12306 with passport',
-        ru: '🚄 G (300-350 км/ч), D (200-250), обычные\n📱 12306, Ctrip\n💺 Бизнес, первый, второй класс\n📋 За 30 мин, досмотр, паспорт\n💡 Иностранцы могут регистрироваться в 12306'
+        zh: '🚄 列车类型\n• G字头（高铁）：最快，300-350km/h\n• D字头（动车）：较快，200-250km/h\n• Z/T/K字头：普通列车，便宜但慢',
+        en: '🚄 Types: G (high-speed 300-350km/h), D (fast 200-250km/h), Z/T/K (regular, slow)',
+        ru: '🚄 G (300-350 км/ч), D (200-250), обычные'
+      }
+    },
+    {
+      title: { zh: '购票方式', en: 'Book: 12306 app (official), Ctrip, station counter', ru: '12306, Ctrip' },
+      desc: {
+        zh: '📱 购票方式\n• 12306 App（官方，推荐）\n• 携程/去哪儿\n• 车站窗口/自助机\n\n💺 座位等级\n• 商务座：最舒适，价格是二等座3倍\n• 一等座：宽敞，约1.6倍二等座价格\n• 二等座：标准，最常见\n• 硬卧/软卧：长途夜车',
+        en: '📱 Book: 12306 app (official), Ctrip, station counter\n💺 Seats: Business (3x price), First (1.6x), Second (standard)',
+        ru: '📱 12306, Ctrip\n💺 Бизнес, первый, второй класс'
+      }
+    },
+    {
+      title: { zh: '乘车流程', en: 'Step 3', ru: 'За 30 мин, досмотр, паспорт' },
+      desc: {
+        zh: '📋 乘车流程\n1. 提前30分钟到站\n2. 安检（类似机场）\n3. 刷身份证/护照进站\n4. 找到对应候车区和站台\n5. 列车到达后上车找座位',
+        en: '📋 Boarding: arrive 30min early → security → ID check → waiting area → platform',
+        ru: '📋 За 30 мин, досмотр, паспорт'
+      }
+    },
+    {
+      title: { zh: '留学生用护照可以在12306注册并购买火车票。', en: 'Foreigners can register on 12306 with passport', ru: 'Иностранцы могут регистрироваться в 12306' },
+      desc: {
+        zh: '💡 留学生用护照可以在12306注册并购买火车票。',
+        en: '💡 Foreigners can register on 12306 with passport',
+        ru: '💡 Иностранцы могут регистрироваться в 12306'
       }
     }
   ],

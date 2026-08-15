@@ -32,17 +32,29 @@ export default {
     ru: [
     ]
   },
-  steps: [
+    steps: [
     {
-      title: {
-        zh: '夜生活选择',
-        en: 'Nightlife Options',
-        ru: 'Варианты ночной жизни'
-      },
+      title: { zh: '🍺 夜生活类型', en: 'Types: quiet bars, clubs, night markets, 24h bookstores', ru: 'Тихие бары, клубы, ночные рынки' },
       desc: {
-        zh: '🍺 夜生活类型\n• 清吧/Live Bar：安静喝酒听歌\n• 夜店/Club：蹦迪跳舞\n• 夜市/大排档：吃喝聊天\n• 24小时书店/咖啡馆\n\n💰 消费参考\n• 清吧：啤酒30-60元/杯\n• 夜店：消费100-300元起\n• 夜市小吃：10-30元/份\n\n💡 安全提示\n• 不要喝太多酒\n• 保管好个人物品\n• 和朋友一起行动\n• 提前叫好代驾或打车回去\n• 中国的治安总体很好，深夜外出相对安全',
-        en: '🍺 Types: quiet bars, clubs, night markets, 24h bookstores\n💰 Beer at bar: ¥30-60/cup; Club: from ¥100-300; Night market snacks: ¥10-30\n💡 Safety: don\'t overdrink, watch belongings, go with friends, arrange ride home',
-        ru: '🍺 Тихие бары, клубы, ночные рынки\n💰 Пиво: 30-60 ¥; Клуб: 100-300 ¥\n💡 Не пейте много, будьте с друзьями'
+        zh: '🍺 夜生活类型\n• 清吧/Live Bar：安静喝酒听歌\n• 夜店/Club：蹦迪跳舞\n• 夜市/大排档：吃喝聊天\n• 24小时书店/咖啡馆',
+        en: '🍺 Types: quiet bars, clubs, night markets, 24h bookstores',
+        ru: '🍺 Тихие бары, клубы, ночные рынки'
+      }
+    },
+    {
+      title: { zh: '消费参考', en: 'Step 2', ru: 'Пиво: 30-60 ¥; Клуб: 100-300 ¥' },
+      desc: {
+        zh: '💰 消费参考\n• 清吧：啤酒30-60元/杯\n• 夜店：消费100-300元起\n• 夜市小吃：10-30元/份',
+        en: '💰 Beer at bar: ¥30-60/cup; Club: from ¥100-300; Night market snacks: ¥10-30',
+        ru: '💰 Пиво: 30-60 ¥; Клуб: 100-300 ¥'
+      }
+    },
+    {
+      title: { zh: '安全提示', en: 'Step 3', ru: 'Не пейте много, будьте с друзьями' },
+      desc: {
+        zh: '💡 安全提示\n• 不要喝太多酒\n• 保管好个人物品\n• 和朋友一起行动\n• 提前叫好代驾或打车回去\n• 中国的治安总体很好，深夜外出相对安全',
+        en: '💡 Safety: don\'t overdrink, watch belongings, go with friends, arrange ride home',
+        ru: '💡 Не пейте много, будьте с друзьями'
       }
     }
   ],

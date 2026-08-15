@@ -32,17 +32,29 @@ export default {
     ru: [
     ]
   },
-  steps: [
+    steps: [
     {
-      title: {
-        zh: '退换货流程',
-        en: 'Return Process',
-        ru: 'Процесс возврата'
-      },
+      title: { zh: '🔄 七天无理由退货', en: 'Step 1', ru: '7 дней без причины' },
       desc: {
-        zh: '🔄 七天无理由退货\n• 网购商品签收后7天内可无理由退\n• 商品需完好、不影响二次销售\n• 定制商品、鲜活易腐等除外\n\n📋 退货步骤\n1. 在订单页面点击"申请退货/退款"\n2. 选择退货原因\n3. 卖家同意（通常24小时内）\n4. 寄回商品（快递费看情况）\n5. 卖家收货确认后退款\n6. 退款到支付宝（1-3天）\n\n⚠️ 运费规则\n• 商品质量问题：卖家承担运费\n• 无理由退货：通常买家承担运费\n• 有"运费险"的商品可以免退货运费\n\n💡 如果卖家不同意退货，可以申请平台介入（淘宝客服）。',
-        en: '🔄 7-day no-reason return: within 7 days of receipt, item must be in original condition\n📋 Steps: apply → seller agrees (24h) → ship back → refund to Alipay (1-3 days)\n⚠️ Quality issues: seller pays shipping; no-reason: buyer usually pays\n💡 If seller refuses, request platform intervention',
-        ru: '🔄 7 дней без причины\n📋 Заявка → одобрение → отправка → возврат (1-3 дня)\n⚠️ Брак: продавец платит; без причины: покупатель\n💡 При отказе — вмешательство платформы'
+        zh: '🔄 七天无理由退货\n• 网购商品签收后7天内可无理由退\n• 商品需完好、不影响二次销售\n• 定制商品、鲜活易腐等除外',
+        en: '🔄 7-day no-reason return: within 7 days of receipt, item must be in original condition',
+        ru: '🔄 7 дней без причины'
+      }
+    },
+    {
+      title: { zh: '退货步骤', en: 'Step 2', ru: 'Заявка → одобрение → отправка → возврат (1-3 дня)' },
+      desc: {
+        zh: '📋 退货步骤\n1. 在订单页面点击"申请退货/退款"\n2. 选择退货原因\n3. 卖家同意（通常24小时内）\n4. 寄回商品（快递费看情况）\n5. 卖家收货确认后退款\n6. 退款到支付宝（1-3天）\n\n⚠️ 运费规则\n• 商品质量问题：卖家承担运费\n• 无理由退货：通常买家承担运费\n• 有"运费险"的商品可以免退货运费',
+        en: '📋 Steps: apply → seller agrees (24h) → ship back → refund to Alipay (1-3 days)\n⚠️ Quality issues: seller pays shipping; no-reason: buyer usually pays',
+        ru: '📋 Заявка → одобрение → отправка → возврат (1-3 дня)\n⚠️ Брак: продавец платит; без причины: покупатель'
+      }
+    },
+    {
+      title: { zh: '如果卖家不同意退货，可以申请平台介入（淘宝客服）。', en: 'If seller refuses, request platform intervention', ru: 'При отказе — вмешательство платформы' },
+      desc: {
+        zh: '💡 如果卖家不同意退货，可以申请平台介入（淘宝客服）。',
+        en: '💡 If seller refuses, request platform intervention',
+        ru: '💡 При отказе — вмешательство платформы'
       }
     }
   ],

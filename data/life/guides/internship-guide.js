@@ -32,17 +32,29 @@ export default {
     ru: [
     ]
   },
-  steps: [
+    steps: [
     {
-      title: {
-        zh: '实习规定与寻找',
-        en: 'Rules & Finding Internships',
-        ru: 'Правила и поиск'
-      },
+      title: { zh: '⚖ 法律要求', en: 'Step 1', ru: 'Нужно разрешение вуза + миграционного бюро' },
       desc: {
-        zh: '⚖️ 法律要求\n• 留学生实习需获得学校同意\n• 需要到出入境管理局办理许可\n• 实习单位必须与专业相关\n• 每周工作时间有限制\n\n🔍 寻找实习\n• 实习僧App：专门的实习平台\n• BOSS直聘：直接和老板聊\n• 领英LinkedIn：外企实习\n• 学校就业指导中心\n• 学长学姐推荐\n\n💡 建议：大二/研一开始找实习，提前积累经验。很多外企欢迎留学生（双语优势）。',
-        en: '⚖️ Legal: need school approval + immigration bureau permit; employer must relate to major; weekly hour limits\n🔍 Platforms: 实习僧, BOSS直聘, LinkedIn, university career center\n💡 Start from 2nd year; multinational companies value bilingual students',
-        ru: '⚖️ Нужно разрешение вуза + миграционного бюро\n🔍 Платформы: 实习僧, BOSS直聘, LinkedIn\n💡 Начинайте со 2 курса'
+        zh: '⚖️ 法律要求\n• 留学生实习需获得学校同意\n• 需要到出入境管理局办理许可\n• 实习单位必须与专业相关\n• 每周工作时间有限制',
+        en: '⚖️ Legal: need school approval + immigration bureau permit; employer must relate to major; weekly hour limits',
+        ru: '⚖️ Нужно разрешение вуза + миграционного бюро'
+      }
+    },
+    {
+      title: { zh: '寻找实习', en: 'Step 2', ru: 'Платформы: 实习僧, BOSS直聘, LinkedIn' },
+      desc: {
+        zh: '🔍 寻找实习\n• 实习僧App：专门的实习平台\n• BOSS直聘：直接和老板聊\n• 领英LinkedIn：外企实习\n• 学校就业指导中心\n• 学长学姐推荐',
+        en: '🔍 Platforms: 实习僧, BOSS直聘, LinkedIn, university career center',
+        ru: '🔍 Платформы: 实习僧, BOSS直聘, LinkedIn'
+      }
+    },
+    {
+      title: { zh: '建议：大二/研一开始找实习，提前积累经验。很多外企欢迎留学生（双语优势）。', en: 'Step 3', ru: 'Начинайте со 2 курса' },
+      desc: {
+        zh: '💡 建议：大二/研一开始找实习，提前积累经验。很多外企欢迎留学生（双语优势）。',
+        en: '💡 Start from 2nd year; multinational companies value bilingual students',
+        ru: '💡 Начинайте со 2 курса'
       }
     }
   ],

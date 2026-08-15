@@ -32,17 +32,21 @@ export default {
     ru: [
     ]
   },
-  steps: [
+    steps: [
     {
-      title: {
-        zh: '购票与观影',
-        en: 'Tickets & Viewing',
-        ru: 'Билеты и просмотр'
-      },
+      title: { zh: '购票方式', en: 'Apps: Maoyan (most popular), Taopiaopiao (in Taobao)', ru: 'Приложения: Maoyan, Taopiaopiao' },
       desc: {
-        zh: '🎬 购票方式\n• 猫眼电影App（最常用）\n• 淘票票（淘宝内）\n• 直接在影院前台购买\n• 票价：30-80元不等\n\n🏢 影城品牌\n• 万达影城：最多最大\n• 大地影院：覆盖面广\n• CGV/百老汇：高端体验\n\n💡 小贴士：\n• 国产电影通常不需要中文字幕\n• 外国电影有中文配音版和原声+字幕版\n• 搜索"原版"/"原声"可以看原文电影\n• 周末和节假日票价更高\n• 可以买爆米花和饮料（比国外便宜很多）',
-        en: '🎬 Apps: Maoyan (most popular), Taopiaopiao (in Taobao)\n💰 Price: ¥30-80\n🏢 Chains: Wanda, Dadi, CGV\n💡 Foreign films: search "原版" for original language with subtitles; weekend prices higher',
-        ru: '🎬 Приложения: Maoyan, Taopiaopiao\n💰 30-80 ¥\n💡 Иностранные фильмы: ищите "原版" для оригинального языка'
+        zh: '🎬 购票方式\n• 猫眼电影App（最常用）\n• 淘票票（淘宝内）\n• 直接在影院前台购买\n• 票价：30-80元不等\n\n🏢 影城品牌\n• 万达影城：最多最大\n• 大地影院：覆盖面广\n• CGV/百老汇：高端体验',
+        en: '🎬 Apps: Maoyan (most popular), Taopiaopiao (in Taobao)',
+        ru: '🎬 Приложения: Maoyan, Taopiaopiao'
+      }
+    },
+    {
+      title: { zh: '小贴士', en: 'Price: ¥30-80', ru: '30-80 ¥' },
+      desc: {
+        zh: '💡 小贴士：\n• 国产电影通常不需要中文字幕\n• 外国电影有中文配音版和原声+字幕版\n• 搜索"原版"/"原声"可以看原文电影\n• 周末和节假日票价更高\n• 可以买爆米花和饮料（比国外便宜很多）',
+        en: '💰 Price: ¥30-80\n🏢 Chains: Wanda, Dadi, CGV',
+        ru: '💰 30-80 ¥'
       }
     }
   ],

@@ -32,17 +32,21 @@ export default {
     ru: [
     ]
   },
-  steps: [
+    steps: [
     {
-      title: {
-        zh: '发音对比练习',
-        en: 'Pronunciation Contrast Practice',
-        ru: 'Сравнительная практика'
-      },
+      title: { zh: '容易混淆的发音对比', en: 'Easily confused sound contrasts', ru: 'Сравнение звуков' },
       desc: {
-        zh: '容易混淆的发音对比：\n\n🔤 zh / z\n• zhī (知) vs zī (滋) — zh舌头翘起\n\n🔤 ch / c\n• chī (吃) vs cī (呲) — ch舌头翘起\n\n🔤 sh / s\n• shī (诗) vs sī (丝) — sh舌头翘起\n\n🔤 j / q / x\n• 这三个音俄语和英语中都没有\n• j像"基"，q像"七"+送气，x像"西"\n\n💡 练习方法：\n• 每天跟读课文10分钟\n• 用手机录音对比原声\n• 找中国语伴纠正发音',
-        en: 'Easily confused sound contrasts:\n\n🔤 zh / z: zhī vs zī — zh curls tongue up\n🔤 ch / c: chī vs cī — ch curls tongue up\n🔤 sh / s: shī vs sī — sh curls tongue up\n🔤 j / q / x: unique to Chinese\n\n💡 Practice: Read aloud 10 min daily, record yourself, find a Chinese language partner to correct pronunciation.',
-        ru: 'Сравнение звуков:\n🔤 zh/z, ch/c, sh/s — разница в положении языка\n🔤 j/q/x — уникальны для китайского\n\n💡 Читайте вслух 10 мин/день, записывайте себя.'
+        zh: '容易混淆的发音对比：\n\n🔤 zh / z\n• zhī (知) vs zī (滋) — zh舌头翘起\n\n🔤 ch / c\n• chī (吃) vs cī (呲) — ch舌头翘起\n\n🔤 sh / s\n• shī (诗) vs sī (丝) — sh舌头翘起\n\n🔤 j / q / x\n• 这三个音俄语和英语中都没有\n• j像"基"，q像"七"+送气，x像"西"',
+        en: 'Easily confused sound contrasts:\n\n🔤 zh / z: zhī vs zī — zh curls tongue up\n🔤 ch / c: chī vs cī — ch curls tongue up\n🔤 sh / s: shī vs sī — sh curls tongue up\n🔤 j / q / x: unique to Chinese',
+        ru: 'Сравнение звуков:\n🔤 zh/z, ch/c, sh/s — разница в положении языка\n🔤 j/q/x — уникальны для китайского'
+      }
+    },
+    {
+      title: { zh: '练习方法', en: 'Step 2', ru: 'Читайте вслух 10 мин/день, записывайте себя.' },
+      desc: {
+        zh: '💡 练习方法：\n• 每天跟读课文10分钟\n• 用手机录音对比原声\n• 找中国语伴纠正发音',
+        en: '💡 Practice: Read aloud 10 min daily, record yourself, find a Chinese language partner to correct pronunciation.',
+        ru: '💡 Читайте вслух 10 мин/день, записывайте себя.'
       }
     }
   ],

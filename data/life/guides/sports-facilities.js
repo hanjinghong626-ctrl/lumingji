@@ -32,17 +32,45 @@ export default {
     ru: [
     ]
   },
-  steps: [
+    steps: [
     {
-      title: {
-        zh: '设施与预约',
-        en: 'Facilities & Booking',
-        ru: 'Объекты и бронирование'
-      },
+      title: { zh: '校园常见运动设施', en: 'Step 1', ru: 'Бесплатно: беговая дорожка, баскетбол' },
       desc: {
-        zh: '校园常见运动设施：\n\n⚽ 免费设施\n• 田径场/操场\n• 篮球场\n• 乒乓球桌（室外）\n• 健身器材区\n\n💰 低价设施\n• 羽毛球馆：5-30元/小时\n• 网球场：10-30元/小时\n• 游泳池：5-20元/次\n• 健身房：50-200元/学期\n\n📱 预约方式\n• 学校体育部App或小程序\n• 微信公众号预约\n• 现场排队\n\n💡 作为俄罗斯人，你可能擅长冰球或滑冰——有些大学有溜冰场。',
-        en: '⚽ Free: track, basketball, outdoor table tennis, fitness area\n💰 Low-cost: badminton ¥5-30/hr, swimming ¥5-20, gym ¥50-200/semester\n📱 Book via sports dept app/WeChat\n💡 Some universities have ice skating rinks',
-        ru: '⚽ Бесплатно: беговая дорожка, баскетбол\n💰 Недорого: бадминтон 5-30 ¥/ч, бассейн 5-20 ¥\n📱 Бронирование через приложение'
+        zh: '校园常见运动设施：',
+        en: '⚽ Free: track, basketball, outdoor table tennis, fitness area',
+        ru: '⚽ Бесплатно: беговая дорожка, баскетбол'
+      }
+    },
+    {
+      title: { zh: '免费设施', en: 'Step 2', ru: 'Недорого: бадминтон 5-30 ¥/ч, бассейн 5-20 ¥' },
+      desc: {
+        zh: '⚽ 免费设施\n• 田径场/操场\n• 篮球场\n• 乒乓球桌（室外）\n• 健身器材区',
+        en: '💰 Low-cost: badminton ¥5-30/hr, swimming ¥5-20, gym ¥50-200/semester',
+        ru: '💰 Недорого: бадминтон 5-30 ¥/ч, бассейн 5-20 ¥'
+      }
+    },
+    {
+      title: { zh: '低价设施', en: 'Book via sports dept app/WeChat', ru: 'Бронирование через приложение' },
+      desc: {
+        zh: '💰 低价设施\n• 羽毛球馆：5-30元/小时\n• 网球场：10-30元/小时\n• 游泳池：5-20元/次\n• 健身房：50-200元/学期',
+        en: '📱 Book via sports dept app/WeChat',
+        ru: '📱 Бронирование через приложение'
+      }
+    },
+    {
+      title: { zh: '预约方式', en: 'Some universities have ice skating rinks', ru: 'Бронирование через приложение' },
+      desc: {
+        zh: '📱 预约方式\n• 学校体育部App或小程序\n• 微信公众号预约\n• 现场排队',
+        en: '💡 Some universities have ice skating rinks',
+        ru: '📱 Бронирование через приложение'
+      }
+    },
+    {
+      title: { zh: '作为俄罗斯人，你可能擅长冰球或滑冰——有些大学有溜冰场。', en: 'Some universities have ice skating rinks', ru: 'Бронирование через приложение' },
+      desc: {
+        zh: '💡 作为俄罗斯人，你可能擅长冰球或滑冰——有些大学有溜冰场。',
+        en: '💡 Some universities have ice skating rinks',
+        ru: '📱 Бронирование через приложение'
       }
     }
   ],

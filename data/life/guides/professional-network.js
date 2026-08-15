@@ -32,17 +32,21 @@ export default {
     ru: [
     ]
   },
-  steps: [
+    steps: [
     {
-      title: {
-        zh: '社交网络建设',
-        en: 'Network Building',
-        ru: 'Построение сетей'
-      },
+      title: { zh: '线上平台', en: 'Step 1', ru: 'LinkedIn, 脉脉, отраслевые группы WeChat' },
       desc: {
-        zh: '🌐 线上平台\n• 领英LinkedIn：国际人脉\n• 脉脉：中国版LinkedIn\n• 行业微信群：加入行业社群\n\n🤝 线下活动\n• 行业论坛/峰会\n• 校友会活动\n• 创业沙龙\n• 行业展会\n\n💡 人脉维护\n• 定期联系（节日问候）\n• 提供帮助（分享信息/资源）\n• 不要只在需要时才联系\n• 保持真诚的关系',
-        en: '🌐 Online: LinkedIn (international), 脉脉 (Chinese LinkedIn), industry WeChat groups\n🤝 Offline: industry forums, alumni events, startup salons, trade shows\n💡 Maintain: regular contact, help others, don\'t only reach out when needing something',
-        ru: '🌐 LinkedIn, 脉脉, отраслевые группы WeChat\n🤝 Форумы, встречи выпускников\n💡 Поддерживайте контакты регулярно'
+        zh: '🌐 线上平台\n• 领英LinkedIn：国际人脉\n• 脉脉：中国版LinkedIn\n• 行业微信群：加入行业社群\n\n🤝 线下活动\n• 行业论坛/峰会\n• 校友会活动\n• 创业沙龙\n• 行业展会',
+        en: '🌐 Online: LinkedIn (international), 脉脉 (Chinese LinkedIn), industry WeChat groups\n🤝 Offline: industry forums, alumni events, startup salons, trade shows',
+        ru: '🌐 LinkedIn, 脉脉, отраслевые группы WeChat\n🤝 Форумы, встречи выпускников'
+      }
+    },
+    {
+      title: { zh: '人脉维护', en: 'Step 2', ru: 'Поддерживайте контакты регулярно' },
+      desc: {
+        zh: '💡 人脉维护\n• 定期联系（节日问候）\n• 提供帮助（分享信息/资源）\n• 不要只在需要时才联系\n• 保持真诚的关系',
+        en: '💡 Maintain: regular contact, help others, don\'t only reach out when needing something',
+        ru: '💡 Поддерживайте контакты регулярно'
       }
     }
   ],

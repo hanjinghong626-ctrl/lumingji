@@ -32,17 +32,29 @@ export default {
     ru: [
     ]
   },
-  steps: [
+    steps: [
     {
-      title: {
-        zh: '找语伴的途径',
-        en: 'Ways to Find Partners',
-        ru: 'Как найти партнёра'
-      },
+      title: { zh: '找语伴的方法', en: 'Step 1', ru: 'В кампусе: языковые уголки, объявления' },
       desc: {
-        zh: '找语伴的方法：\n\n🏫 校内\n• 学校语言角（通常每周固定时间）\n• 国际学生与中国学生配对项目\n• 在公告栏贴"求语伴"海报\n• 课堂上的中国同学\n\n📱 线上平台\n• HelloTalk：全球语言交换App\n• Tandem：语言交换社区\n• 微信/QQ群：搜索"语言交换"\n\n💡 语伴相处建议：\n• 约定固定时间（如每周2次，每次1小时）\n• 前半段说中文，后半段说俄语/英语\n• 从日常话题开始，不要太严肃\n• 互相纠错是进步的捷径',
-        en: '🏫 On campus: language corners, pairing programs, bulletin boards, classmates\n📱 Online: HelloTalk, Tandem, WeChat/QQ groups\n💡 Tips: fixed schedule, half Chinese half English/Russian, start with daily topics, correct each other',
-        ru: '🏫 В кампусе: языковые уголки, объявления\n📱 Онлайн: HelloTalk, Tandem\n💡 Фиксированное время, по half-half языкам'
+        zh: '找语伴的方法：\n\n🏫 校内\n• 学校语言角（通常每周固定时间）\n• 国际学生与中国学生配对项目\n• 在公告栏贴"求语伴"海报\n• 课堂上的中国同学',
+        en: '🏫 On campus: language corners, pairing programs, bulletin boards, classmates',
+        ru: '🏫 В кампусе: языковые уголки, объявления'
+      }
+    },
+    {
+      title: { zh: '线上平台', en: 'Online: HelloTalk, Tandem, WeChat/QQ groups', ru: 'Онлайн: HelloTalk, Tandem' },
+      desc: {
+        zh: '📱 线上平台\n• HelloTalk：全球语言交换App\n• Tandem：语言交换社区\n• 微信/QQ群：搜索"语言交换"',
+        en: '📱 Online: HelloTalk, Tandem, WeChat/QQ groups',
+        ru: '📱 Онлайн: HelloTalk, Tandem'
+      }
+    },
+    {
+      title: { zh: '语伴相处建议', en: 'Step 3', ru: 'Фиксированное время, по half-half языкам' },
+      desc: {
+        zh: '💡 语伴相处建议：\n• 约定固定时间（如每周2次，每次1小时）\n• 前半段说中文，后半段说俄语/英语\n• 从日常话题开始，不要太严肃\n• 互相纠错是进步的捷径',
+        en: '💡 Tips: fixed schedule, half Chinese half English/Russian, start with daily topics, correct each other',
+        ru: '💡 Фиксированное время, по half-half языкам'
       }
     }
   ],

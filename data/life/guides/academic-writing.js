@@ -41,17 +41,37 @@ export default {
       'Системы проверки на плагиат'
     ]
   },
-  steps: [
+    steps: [
     {
-      title: {
-        zh: '论文格式与写作',
-        en: 'Paper Format & Writing',
-        ru: 'Формат и написание'
-      },
+      title: { zh: '中文学术论文基本格式', en: 'Basic format for Chinese academic papers', ru: 'Структура китайских академических работ' },
       desc: {
-        zh: '中文学术论文基本格式：\n\n📄 结构\n1. 标题（中英文）\n2. 摘要 + 关键词（中英文）\n3. 引言/绪论\n4. 文献综述\n5. 研究方法\n6. 研究结果\n7. 讨论\n8. 结论\n9. 参考文献\n10. 致谢（学位论文）\n\n📐 格式要求\n• 字体：正文宋体小四，标题黑体\n• 行距：1.5倍或固定22磅\n• 页边距：上下2.54cm，左右3.17cm\n• 引用格式：GB/T 7714（国家标准）\n• 参考文献格式与英文论文不同，注意学校要求\n\n💡 建议：下载学长学姐的论文作为参考模板。',
-        en: 'Basic format for Chinese academic papers:\n\n📄 Structure\n1. Title (Chinese + English)\n2. Abstract + Keywords (Chinese + English)\n3. Introduction\n4. Literature Review\n5. Research Methods\n6. Results\n7. Discussion\n8. Conclusion\n9. References\n10. Acknowledgments (thesis)\n\n📐 Format requirements\n• Font: Song typeface size small-4 for body, Heiti for headings\n• Line spacing: 1.5x or fixed 22pt\n• Margins: top/bottom 2.54cm, left/right 3.17cm\n• Citation format: GB/T 7714 (national standard)\n• Reference format differs from English papers — check school requirements\n\n💡 Tip: Download senior students\' papers as format templates.',
-        ru: 'Структура китайских академических работ:\n1. Заголовок\n2. Аннотация + ключевые слова\n3. Введение\n4. Обзор литературы\n5. Методы\n6. Результаты\n7. Обсуждение\n8. Заключение\n9. Список литературы\n\n📐 Формат: шрифт Song, интервал 1.5x, ГОСТ GB/T 7714\n💡 Скачайте работы старших студентов как шаблон.'
+        zh: '中文学术论文基本格式：',
+        en: 'Basic format for Chinese academic papers:',
+        ru: 'Структура китайских академических работ:\n1. Заголовок\n2. Аннотация + ключевые слова\n3. Введение\n4. Обзор литературы\n5. Методы\n6. Результаты\n7. Обсуждение\n8. Заключение\n9. Список литературы'
+      }
+    },
+    {
+      title: { zh: '结构', en: 'Structure', ru: 'Формат: шрифт Song, интервал 1.5x, ГОСТ GB/T 7714' },
+      desc: {
+        zh: '📄 结构\n1. 标题（中英文）\n2. 摘要 + 关键词（中英文）\n3. 引言/绪论\n4. 文献综述\n5. 研究方法\n6. 研究结果\n7. 讨论\n8. 结论\n9. 参考文献\n10. 致谢（学位论文）',
+        en: '📄 Structure\n1. Title (Chinese + English)\n2. Abstract + Keywords (Chinese + English)\n3. Introduction\n4. Literature Review\n5. Research Methods\n6. Results\n7. Discussion\n8. Conclusion\n9. References\n10. Acknowledgments (thesis)',
+        ru: '📐 Формат: шрифт Song, интервал 1.5x, ГОСТ GB/T 7714'
+      }
+    },
+    {
+      title: { zh: '格式要求', en: 'Format requirements', ru: 'Скачайте работы старших студентов как шаблон.' },
+      desc: {
+        zh: '📐 格式要求\n• 字体：正文宋体小四，标题黑体\n• 行距：1.5倍或固定22磅\n• 页边距：上下2.54cm，左右3.17cm\n• 引用格式：GB/T 7714（国家标准）\n• 参考文献格式与英文论文不同，注意学校要求',
+        en: '📐 Format requirements\n• Font: Song typeface size small-4 for body, Heiti for headings\n• Line spacing: 1.5x or fixed 22pt\n• Margins: top/bottom 2.54cm, left/right 3.17cm\n• Citation format: GB/T 7714 (national standard)\n• Reference format differs from English papers — check school requirements',
+        ru: '💡 Скачайте работы старших студентов как шаблон.'
+      }
+    },
+    {
+      title: { zh: '建议：下载学长学姐的论文作为参考模板。', en: 'Step 4', ru: 'Скачайте работы старших студентов как шаблон.' },
+      desc: {
+        zh: '💡 建议：下载学长学姐的论文作为参考模板。',
+        en: '💡 Tip: Download senior students\' papers as format templates.',
+        ru: '💡 Скачайте работы старших студентов как шаблон.'
       }
     }
   ],

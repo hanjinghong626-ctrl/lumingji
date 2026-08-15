@@ -41,17 +41,29 @@ export default {
       'Планирование бюджета'
     ]
   },
-  steps: [
+    steps: [
     {
-      title: {
-        zh: '必备家电清单',
-        en: 'Essential Appliance List',
-        ru: 'Список необходимой техники'
-      },
+      title: { zh: '校外租房常见必备家电', en: 'Common essential appliances for off-campus living', ru: 'Необходимая техника' },
       desc: {
-        zh: '校外租房常见必备家电：\n\n🏠 大件\n• 洗衣机（600-2000元）\n• 冰箱（800-3000元）\n• 空调（1500-5000元，部分房间已有）\n• 热水器（500-2000元，部分房间已有）\n\n🍳 厨房\n• 电饭煲（100-500元）\n• 微波炉（200-800元）\n• 电热水壶（50-200元）\n\n💡 建议：先确认房间已有哪些设备，只买缺的。二手家电可以在闲鱼上找到很便宜的。',
-        en: 'Common essential appliances for off-campus living:\n\n🏠 Large items\n• Washing machine (¥600-2000)\n• Refrigerator (¥800-3000)\n• AC (¥1500-5000, may already exist)\n• Water heater (¥500-2000, may already exist)\n\n🍳 Kitchen\n• Rice cooker (¥100-500)\n• Microwave (¥200-800)\n• Electric kettle (¥50-200)\n\n💡 Tip: Check what\'s already in the room first, only buy what\'s missing. Second-hand appliances on Xianyu can be very cheap.',
-        ru: 'Необходимая техника:\n\n🏠 Крупная\n• Стиральная машина (600-2000 ¥)\n• Холодильник (800-3000 ¥)\n• Кондиционер (1500-5000 ¥)\n• Бойлер (500-2000 ¥)\n\n🍳 Кухня\n• Рисоварка (100-500 ¥)\n• Микроволновка (200-800 ¥)\n• Чайник (50-200 ¥)\n\n💡 Сначала проверьте, что уже есть. Б/у техника на Xianyu очень дешёвая.'
+        zh: '校外租房常见必备家电：',
+        en: 'Common essential appliances for off-campus living:',
+        ru: 'Необходимая техника:'
+      }
+    },
+    {
+      title: { zh: '大件', en: 'Large items', ru: 'Крупная' },
+      desc: {
+        zh: '🏠 大件\n• 洗衣机（600-2000元）\n• 冰箱（800-3000元）\n• 空调（1500-5000元，部分房间已有）\n• 热水器（500-2000元，部分房间已有）\n\n🍳 厨房\n• 电饭煲（100-500元）\n• 微波炉（200-800元）\n• 电热水壶（50-200元）',
+        en: '🏠 Large items\n• Washing machine (¥600-2000)\n• Refrigerator (¥800-3000)\n• AC (¥1500-5000, may already exist)\n• Water heater (¥500-2000, may already exist)\n\n🍳 Kitchen\n• Rice cooker (¥100-500)\n• Microwave (¥200-800)\n• Electric kettle (¥50-200)',
+        ru: '🏠 Крупная\n• Стиральная машина (600-2000 ¥)\n• Холодильник (800-3000 ¥)\n• Кондиционер (1500-5000 ¥)\n• Бойлер (500-2000 ¥)\n\n🍳 Кухня\n• Рисоварка (100-500 ¥)\n• Микроволновка (200-800 ¥)\n• Чайник (50-200 ¥)'
+      }
+    },
+    {
+      title: { zh: '建议：先确认房间已有哪些设备，只买缺的。二手家电可以在闲鱼上找到很便宜的。', en: 'Step 3', ru: 'Шаг 3' },
+      desc: {
+        zh: '💡 建议：先确认房间已有哪些设备，只买缺的。二手家电可以在闲鱼上找到很便宜的。',
+        en: '💡 Tip: Check what\'s already in the room first, only buy what\'s missing. Second-hand appliances on Xianyu can be very cheap.',
+        ru: '💡 Сначала проверьте, что уже есть. Б/у техника на Xianyu очень дешёвая.'
       }
     }
   ],

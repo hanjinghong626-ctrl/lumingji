@@ -38,17 +38,29 @@ export default {
       'Alipay/WeChat Pay'
     ]
   },
-  steps: [
+    steps: [
     {
-      title: {
-        zh: '外卖买药',
-        en: 'Order Medicine via Delivery',
-        ru: 'Заказ лекарств через доставку'
-      },
+      title: { zh: '外卖买药步骤', en: 'Steps for medicine delivery', ru: 'Шаги' },
       desc: {
-        zh: '外卖买药步骤：\n\n📱 美团/饿了么买药\n1. 打开App → 搜索"买药"/"送药"\n2. 选择附近药店\n3. 搜索药品名称或按症状分类浏览\n4. 加入购物车，填写地址\n5. 下单支付\n6. 骑手30分钟内送到\n\n💡 小技巧：\n• 深夜也能买药（很多药店24小时营业）\n• 可以在线咨询药师\n• 处方药需上传处方照片\n• 夜间配送费可能略高',
-        en: 'Steps for medicine delivery:\n\n📱 Meituan/Ele.me pharmacy\n1. Open app → search "买药" (buy medicine) / "送药" (deliver medicine)\n2. Choose nearby pharmacy\n3. Search medicine name or browse by symptom category\n4. Add to cart, enter address\n5. Order and pay\n6. Rider delivers within 30 minutes\n\n💡 Tips:\n• Available late at night (many pharmacies are 24h)\n• Can consult pharmacist online\n• Prescription drugs need prescription photo upload\n• Late-night delivery may cost slightly more',
-        ru: 'Шаги:\n1. Откройте App → "买药"\n2. Выберите аптеку\n3. Найдите лекарство\n4. Оформите заказ\n5. Доставка за 30 минут\n\n💡 Работает ночью, можно проконсультироваться онлайн.'
+        zh: '外卖买药步骤：',
+        en: 'Steps for medicine delivery:',
+        ru: 'Шаги:\n1. Откройте App → "买药"\n2. Выберите аптеку\n3. Найдите лекарство\n4. Оформите заказ\n5. Доставка за 30 минут'
+      }
+    },
+    {
+      title: { zh: '美团/饿了么买药', en: 'Meituan/Ele.me pharmacy', ru: 'Работает ночью, можно проконсультироваться онлайн.' },
+      desc: {
+        zh: '📱 美团/饿了么买药\n1. 打开App → 搜索"买药"/"送药"\n2. 选择附近药店\n3. 搜索药品名称或按症状分类浏览\n4. 加入购物车，填写地址\n5. 下单支付\n6. 骑手30分钟内送到',
+        en: '📱 Meituan/Ele.me pharmacy\n1. Open app → search "买药" (buy medicine) / "送药" (deliver medicine)\n2. Choose nearby pharmacy\n3. Search medicine name or browse by symptom category\n4. Add to cart, enter address\n5. Order and pay\n6. Rider delivers within 30 minutes',
+        ru: '💡 Работает ночью, можно проконсультироваться онлайн.'
+      }
+    },
+    {
+      title: { zh: '小技巧', en: 'Tips', ru: 'Работает ночью, можно проконсультироваться онлайн.' },
+      desc: {
+        zh: '💡 小技巧：\n• 深夜也能买药（很多药店24小时营业）\n• 可以在线咨询药师\n• 处方药需上传处方照片\n• 夜间配送费可能略高',
+        en: '💡 Tips:\n• Available late at night (many pharmacies are 24h)\n• Can consult pharmacist online\n• Prescription drugs need prescription photo upload\n• Late-night delivery may cost slightly more',
+        ru: '💡 Работает ночью, можно проконсультироваться онлайн.'
       }
     }
   ],

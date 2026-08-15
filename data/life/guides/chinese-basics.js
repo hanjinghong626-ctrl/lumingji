@@ -38,19 +38,22 @@ export default {
       'Таблица пиньинь'
     ]
   },
-  steps: [
+    steps: [
     {
-      title: {
-        zh: '拼音与声调',
-        en: 'Pinyin & Tones',
-        ru: 'Пиньинь и тоны'
-      },
+      title: { zh: '中文有4个声调 + 1个轻声', en: 'Chinese has 4 tones + 1 neutral tone', ru: 'В китайском 4 тона + нейтральный' },
       desc: {
-        zh: '中文有4个声调 + 1个轻声：\n\n1️⃣ 第一声（阴平）：mā 妈 — 平调，高而稳\n2️⃣ 第二声（阳平）：má 麻 — 升调，像问句\n3️⃣ 第三声（上声）：mǎ 马 — 先降后升\n4️⃣ 第四声（去声）：mà 骂 — 降调，短促有力\n5️⃣ 轻声：ma 吗 — 又轻又短\n\n💡 声调是中文的灵魂，同一个音节不同声调意思完全不同。建议一开始就认真练习声调。',
-        en: 'Chinese has 4 tones + 1 neutral tone:\n\n1st tone (flat): mā — high and steady\n2nd tone (rising): má — like a question\n3rd tone (dipping): mǎ — down then up\n4th tone (falling): mà — sharp, forceful\n5th: neutral ma — light and short\n\n💡 Tones are the soul of Chinese — same syllable, different tone = different meaning. Practice tones carefully from the start.',
-        ru: 'В китайском 4 тона + нейтральный:\n1-й (ровный): mā\n2-й (восходящий): má\n3-й (нисходяще-восходящий): mǎ\n4-й (нисходящий): mà\n\n💡 Тоны — душа китайского. Тренируйте с самого начала.'
+        zh: '中文有4个声调 + 1个轻声：\n\n1️⃣ 第一声（阴平）：mā 妈 — 平调，高而稳\n2️⃣ 第二声（阳平）：má 麻 — 升调，像问句\n3️⃣ 第三声（上声）：mǎ 马 — 先降后升\n4️⃣ 第四声（去声）：mà 骂 — 降调，短促有力\n5️⃣ 轻声：ma 吗 — 又轻又短',
+        en: 'Chinese has 4 tones + 1 neutral tone:\n\n1st tone (flat): mā — high and steady\n2nd tone (rising): má — like a question\n3rd tone (dipping): mǎ — down then up\n4th tone (falling): mà — sharp, forceful\n5th: neutral ma — light and short',
+        ru: 'В китайском 4 тона + нейтральный:\n1-й (ровный): mā\n2-й (восходящий): má\n3-й (нисходяще-восходящий): mǎ\n4-й (нисходящий): mà'
       }
-      ,
+    },
+    {
+      title: { zh: '声调是中文的灵魂，同一个音节不同声调意思完全不同。建议一开始就认真练习声调。', en: 'Step 2', ru: 'Тоны — душа китайского. Тренируйте с самого начала.' },
+      desc: {
+        zh: '💡 声调是中文的灵魂，同一个音节不同声调意思完全不同。建议一开始就认真练习声调。',
+        en: '💡 Tones are the soul of Chinese — same syllable, different tone = different meaning. Practice tones carefully from the start.',
+        ru: '💡 Тоны — душа китайского. Тренируйте с самого начала.'
+      },
       tip: {
         zh: '用"妈麻马骂"反复练习四声的区别，这是最经典的声调练习。',
         en: 'Practice with "mā má mǎ mà" repeatedly — the classic tone drill.',

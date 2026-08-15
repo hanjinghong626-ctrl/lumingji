@@ -41,17 +41,37 @@ export default {
       'Карта или WeChat/Alipay для оплаты'
     ]
   },
-  steps: [
+    steps: [
     {
-      title: {
-        zh: '微信公众号挂号',
-        en: 'WeChat Official Account Booking',
-        ru: 'Запись через WeChat'
-      },
+      title: { zh: '微信挂号步骤', en: 'WeChat booking steps', ru: 'Шаги записи через WeChat' },
       desc: {
-        zh: '微信挂号步骤：\n\n1. 打开微信，搜索医院名称（如"北京协和医院"）\n2. 关注医院官方公众号\n3. 点击菜单"预约挂号"/"就医服务"\n4. 首次使用需绑定个人信息（手机号、身份证/护照号）\n5. 选择科室 → 选择医生 → 选择日期和时间段\n6. 在线支付挂号费\n7. 收到预约成功通知\n\n就诊当天：\n• 提前30分钟到达\n• 在自助机或窗口取号\n• 到候诊区等待叫号\n\n⚠️ 热门专家号很难抢，建议放号当天第一时间预约（通常提前7天放号）。',
-        en: 'WeChat booking steps:\n\n1. Open WeChat, search hospital name\n2. Follow the hospital\'s official account\n3. Click menu "预约挂号" (Appointment) / "就医服务" (Medical Service)\n4. First-time users need to bind personal info (phone, ID/passport)\n5. Choose department → doctor → date and time slot\n6. Pay registration fee online\n7. Receive appointment confirmation\n\nOn the day:\n• Arrive 30 minutes early\n• Get your queue number at self-service kiosk or counter\n• Wait in the consultation area\n\n⚠️ Popular specialist slots are hard to get — book as soon as slots open (usually 7 days in advance).',
-        ru: 'Шаги записи через WeChat:\n1. Найдите аккаунт больницы\n2. Подпишитесь\n3. Меню "预约挂号"\n4. Привяжите данные\n5. Выберите отделение → врача → дату\n6. Оплатите\n7. Получите подтверждение\n\nВ день приёма — за 30 минут, возьмите талон.\n\n⚠️ Популярные специалисты — записывайтесь сразу при открытии (обычно за 7 дней).'
+        zh: '微信挂号步骤：',
+        en: 'WeChat booking steps:',
+        ru: 'Шаги записи через WeChat:\n1. Найдите аккаунт больницы\n2. Подпишитесь\n3. Меню "预约挂号"\n4. Привяжите данные\n5. Выберите отделение → врача → дату\n6. Оплатите\n7. Получите подтверждение'
+      }
+    },
+    {
+      title: { zh: '1. 打开微信，搜索医院名称（如"北京协和医院"）', en: '1. Open WeChat, search hospital name', ru: 'В день приёма — за 30 минут, возьмите талон.' },
+      desc: {
+        zh: '1. 打开微信，搜索医院名称（如"北京协和医院"）\n2. 关注医院官方公众号\n3. 点击菜单"预约挂号"/"就医服务"\n4. 首次使用需绑定个人信息（手机号、身份证/护照号）\n5. 选择科室 → 选择医生 → 选择日期和时间段\n6. 在线支付挂号费\n7. 收到预约成功通知',
+        en: '1. Open WeChat, search hospital name\n2. Follow the hospital\'s official account\n3. Click menu "预约挂号" (Appointment) / "就医服务" (Medical Service)\n4. First-time users need to bind personal info (phone, ID/passport)\n5. Choose department → doctor → date and time slot\n6. Pay registration fee online\n7. Receive appointment confirmation',
+        ru: 'В день приёма — за 30 минут, возьмите талон.'
+      }
+    },
+    {
+      title: { zh: '就诊当天', en: 'On the day', ru: 'Шаг 3' },
+      desc: {
+        zh: '就诊当天：\n• 提前30分钟到达\n• 在自助机或窗口取号\n• 到候诊区等待叫号',
+        en: 'On the day:\n• Arrive 30 minutes early\n• Get your queue number at self-service kiosk or counter\n• Wait in the consultation area',
+        ru: '⚠️ Популярные специалисты — записывайтесь сразу при открытии (обычно за 7 дней).'
+      }
+    },
+    {
+      title: { zh: '⚠ 热门专家号很难抢，建议放号当天第一时间预约（通常提前7天放号）。', en: 'Step 4', ru: 'Шаг 4' },
+      desc: {
+        zh: '⚠️ 热门专家号很难抢，建议放号当天第一时间预约（通常提前7天放号）。',
+        en: '⚠️ Popular specialist slots are hard to get — book as soon as slots open (usually 7 days in advance).',
+        ru: '⚠️ Популярные специалисты — записывайтесь сразу при открытии (обычно за 7 дней).'
       }
     }
   ],

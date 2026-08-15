@@ -32,17 +32,29 @@ export default {
     ru: [
     ]
   },
-  steps: [
+    steps: [
     {
-      title: {
-        zh: '安全须知',
-        en: 'Safety Tips',
-        ru: 'Советы по безопасности'
-      },
+      title: { zh: '🛡 旅行安全', en: 'Step 1', ru: 'Берегите паспорт, остерегайтесь карманников' },
       desc: {
-        zh: '🛡️ 旅行安全\n• 保管好护照和贵重物品\n• 人多景点注意防扒手\n• 不要独自去偏僻地方\n• 晚上尽量结伴出行\n\n🚫 常见旅游骗局\n• "热心人"带你去买"便宜"玉石/茶叶\n• 黑车/黑导游\n• 景区门口的高价特产店\n• "免费拍照"然后收费\n\n📞 紧急联系\n• 报警：110\n• 急救：120\n• 旅游投诉：12301\n• 学校国际处24小时热线\n\n💡 建议买旅行保险（支付宝/携程都可以买，几十元）。',
-        en: '🛡️ Guard passport/valuables, watch for pickpockets in crowds, avoid remote areas alone\n🚫 Scams: "friendly" guides to jade/tea shops, unlicensed taxis, overpriced souvenir shops, "free" photos\n📞 Emergency: 110 (police), 120 (ambulance), 12301 (tourism complaints)\n💡 Buy travel insurance on Alipay/Ctrip (just tens of yuan)',
-        ru: '🛡️ Берегите паспорт, остерегайтесь карманников\n🚫 Мошенничество: "друзья" в магазинах нефрита, нелегальные таксы\n📞 110, 120, 12301\n💡 Купите страховку (десятки юаней)'
+        zh: '🛡️ 旅行安全\n• 保管好护照和贵重物品\n• 人多景点注意防扒手\n• 不要独自去偏僻地方\n• 晚上尽量结伴出行\n\n🚫 常见旅游骗局\n• "热心人"带你去买"便宜"玉石/茶叶\n• 黑车/黑导游\n• 景区门口的高价特产店\n• "免费拍照"然后收费',
+        en: '🛡️ Guard passport/valuables, watch for pickpockets in crowds, avoid remote areas alone\n🚫 Scams: "friendly" guides to jade/tea shops, unlicensed taxis, overpriced souvenir shops, "free" photos',
+        ru: '🛡️ Берегите паспорт, остерегайтесь карманников\n🚫 Мошенничество: "друзья" в магазинах нефрита, нелегальные таксы'
+      }
+    },
+    {
+      title: { zh: '紧急联系', en: 'Step 2', ru: '110, 120, 12301' },
+      desc: {
+        zh: '📞 紧急联系\n• 报警：110\n• 急救：120\n• 旅游投诉：12301\n• 学校国际处24小时热线',
+        en: '📞 Emergency: 110 (police), 120 (ambulance), 12301 (tourism complaints)',
+        ru: '📞 110, 120, 12301'
+      }
+    },
+    {
+      title: { zh: '建议买旅行保险（支付宝/携程都可以买，几十元）。', en: 'Buy travel insurance on Alipay/Ctrip (just tens of yuan)', ru: 'Купите страховку (десятки юаней)' },
+      desc: {
+        zh: '💡 建议买旅行保险（支付宝/携程都可以买，几十元）。',
+        en: '💡 Buy travel insurance on Alipay/Ctrip (just tens of yuan)',
+        ru: '💡 Купите страховку (десятки юаней)'
       }
     }
   ],

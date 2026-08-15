@@ -41,17 +41,37 @@ export default {
       'Знайте членов комиссии'
     ]
   },
-  steps: [
+    steps: [
     {
-      title: {
-        zh: '答辩流程',
-        en: 'Defense Process',
-        ru: 'Процесс защиты'
-      },
+      title: { zh: '答辩完整流程', en: 'Complete defense process', ru: 'Полный процесс' },
       desc: {
-        zh: '答辩完整流程：\n\n📋 答辩前\n1. 提交论文终稿（查重通过）\n2. 导师审核同意答辩\n3. 安排答辩时间、地点、委员会\n4. 准备答辩PPT（15-20分钟）\n\n🎤 答辩当天\n1. 自我介绍（姓名、国籍、专业）\n2. 论文陈述（PPT展示，15-20分钟）\n3. 委员会提问（3-5个问题）\n4. 学生回答\n5. 委员会讨论打分\n6. 宣布结果\n\n📊 PPT内容建议：\n• 研究背景与意义（2-3页）\n• 文献综述（2-3页）\n• 研究方法（2-3页）\n• 研究结果（5-8页）\n• 结论与展望（1-2页）\n• 致谢（1页）\n\n💡 留学生可以用英文答辩（部分学校允许），但需提前申请。',
-        en: 'Complete defense process:\n\n📋 Before defense\n1. Submit final thesis (pass plagiarism check)\n2. Advisor approves defense\n3. Schedule time, venue, committee\n4. Prepare defense PPT (15-20 minutes)\n\n🎤 Defense day\n1. Self-introduction (name, nationality, major)\n2. Paper presentation (PPT, 15-20 min)\n3. Committee questions (3-5 questions)\n4. Student answers\n5. Committee deliberation and scoring\n6. Announce results\n\n📊 Suggested PPT content:\n• Research background & significance (2-3 slides)\n• Literature review (2-3 slides)\n• Research methods (2-3 slides)\n• Results (5-8 slides)\n• Conclusion & outlook (1-2 slides)\n• Acknowledgments (1 slide)\n\n💡 International students may defend in English (some schools allow it), but apply in advance.',
-        ru: 'Полный процесс:\n\n📋 До защиты: подача работы, одобрение руководителя\n\n🎤 В день защиты:\n1. Представление\n2. Презентация (15-20 мин)\n3. Вопросы комиссии\n4. Ответы\n5. Решение комиссии\n\n💡 Иностранные студенты могут защищать на английском (с разрешения вуза).'
+        zh: '答辩完整流程：',
+        en: 'Complete defense process:',
+        ru: 'Полный процесс:'
+      }
+    },
+    {
+      title: { zh: '答辩前', en: 'Before defense', ru: 'До защиты: подача работы, одобрение руководителя' },
+      desc: {
+        zh: '📋 答辩前\n1. 提交论文终稿（查重通过）\n2. 导师审核同意答辩\n3. 安排答辩时间、地点、委员会\n4. 准备答辩PPT（15-20分钟）',
+        en: '📋 Before defense\n1. Submit final thesis (pass plagiarism check)\n2. Advisor approves defense\n3. Schedule time, venue, committee\n4. Prepare defense PPT (15-20 minutes)',
+        ru: '📋 До защиты: подача работы, одобрение руководителя'
+      }
+    },
+    {
+      title: { zh: '答辩当天', en: 'Defense day', ru: 'В день защиты' },
+      desc: {
+        zh: '🎤 答辩当天\n1. 自我介绍（姓名、国籍、专业）\n2. 论文陈述（PPT展示，15-20分钟）\n3. 委员会提问（3-5个问题）\n4. 学生回答\n5. 委员会讨论打分\n6. 宣布结果\n\n📊 PPT内容建议：\n• 研究背景与意义（2-3页）\n• 文献综述（2-3页）\n• 研究方法（2-3页）\n• 研究结果（5-8页）\n• 结论与展望（1-2页）\n• 致谢（1页）',
+        en: '🎤 Defense day\n1. Self-introduction (name, nationality, major)\n2. Paper presentation (PPT, 15-20 min)\n3. Committee questions (3-5 questions)\n4. Student answers\n5. Committee deliberation and scoring\n6. Announce results\n\n📊 Suggested PPT content:\n• Research background & significance (2-3 slides)\n• Literature review (2-3 slides)\n• Research methods (2-3 slides)\n• Results (5-8 slides)\n• Conclusion & outlook (1-2 slides)\n• Acknowledgments (1 slide)',
+        ru: '🎤 В день защиты:\n1. Представление\n2. Презентация (15-20 мин)\n3. Вопросы комиссии\n4. Ответы\n5. Решение комиссии'
+      }
+    },
+    {
+      title: { zh: '留学生可以用英文答辩（部分学校允许），但需提前申请。', en: 'Step 4', ru: 'Шаг 4' },
+      desc: {
+        zh: '💡 留学生可以用英文答辩（部分学校允许），但需提前申请。',
+        en: '💡 International students may defend in English (some schools allow it), but apply in advance.',
+        ru: '💡 Иностранные студенты могут защищать на английском (с разрешения вуза).'
       }
     }
   ],
