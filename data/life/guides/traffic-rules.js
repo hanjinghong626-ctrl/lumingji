@@ -15,9 +15,39 @@ export default {
   preparation: { zh: [], en: [], ru: [] },
   steps: [
     {
-      title: { zh: '行人和乘车安全', en: 'Pedestrian & Passenger Safety', ru: 'Пешеходы и пассажиры' },
-      desc: { zh: '🚶 行人规则：\n• 靠右行走\n• 红灯停、绿灯行\n• 走斑马线过街\n• 不要翻越护栏\n• 过马路看左右——注意右转车辆\n\n🚗 乘车注意：\n• 后排也系安全带\n• 不向窗外扔物品\n• 电动车必须戴头盔\n• 12岁以下不坐副驾驶\n\n🛵 电动车/摩托车：\n• 中国电动车非常多，注意避让\n• 很多电动车不遵守交规，过马路时格外小心\n• 自己骑电动车必须戴头盔', en: '🚶 Pedestrian:\n• Walk on right side\n• Red stop, green go\n• Use crosswalks\n• Don\'t cross barriers\n• Watch for right-turning vehicles\n\n🚗 Passenger:\n• Seatbelt in back seat too\n• No throwing objects out\n• E-bike: must wear helmet\n• Under 12: no front seat\n\n🛵 E-bikes:\n• Very common in China, watch out\n• Many e-bike riders break rules — be extra careful crossing\n• Must wear helmet when riding', ru: '🚶 Пешеход: правая сторона, светофор, зебра\n🚗 Пассажир: ремень сзади, шлем на электро\n🛵 Электровелосипеды: много, будьте осторожны, шлем обязателен' },
+      title: { zh: '基本交通规则', en: 'Basic traffic rules', ru: 'Основные правила дорожного движения' },
+      desc: {
+        zh: '中国靠右行驶。关键规则：①红灯停、绿灯行、黄灯减速；②行人走斑马线，闯红灯罚款5-50元；③非机动车（自行车/电动车）走非机动车道；④机动车礼让行人（违者罚款扣分）。城市道路限速一般40-60km/h，高速公路80-120km/h。',
+        en: 'China drives on the right. Key rules: ① Red stop, green go, yellow slow down; ② Pedestrians use crosswalks — jaywalking fined 5-50 yuan; ③ Non-motorized vehicles (bikes/e-bikes) use bike lanes; ④ Motor vehicles must yield to pedestrians (violators fined and penalized). City road speed limits are usually 40-60km/h, highways 80-120km/h.',
+        ru: 'В Китае правостороннее движение. Ключевые правила: ① Красный стой, зелёный иди, жёлтый замедляйся; ② Пешеходы используют переходы — нарушение штрафа 5-50 юаней; ③ Немоторизованные транспортные средства (велосипеды/электровелосипеды) используют велодорожки; ④ Моторизованные транспортные средства должны уступать пешеходам (нарушители штрафуются). Ограничения скорости в городе обычно 40-60км/ч, на автомагистралях 80-120км/ч.'
+      }
     },
+    {
+      title: { zh: '行人和非机动车注意事项', en: 'Tips for pedestrians and cyclists', ru: 'Советы пешеходам и велосипедистам' },
+      desc: {
+        zh: '走路时：走人行道、看红绿灯、过马路走斑马线或地下通道。骑共享单车时：不走机动车道、不逆行、不闯红灯（违者罚款20-50元）。电动自行车需上牌并佩戴头盔，限速25km/h。',
+        en: 'Walking: use sidewalks, obey traffic lights, cross at crosswalks or underpasses. Riding shared bikes: do not use vehicle lanes, do not go against traffic, do not run red lights (fined 20-50 yuan). E-bikes need license plates and helmets, speed limit 25km/h.',
+        ru: 'Ходьба: используйте тротуары, соблюдайте светофоры, переходите на переходах или подземных переходах. Езда на велосипедах: не используйте полосы для транспорта, не двигайтесь против движения, не проезжайте на красный (штраф 20-50 юаней). Электровелосипеды требуют номеров и шлемов, ограничение скорости 25км/ч.'
+      }
+,      tip: {
+        zh: '即使绿灯，过马路前也先左右看一眼，确认安全再通过。',
+        en: 'Even with a green light, glance left and right before crossing to make sure it is safe.',
+        ru: 'Даже при зелёном свете посмотрите налево и направо перед переходом, чтобы убедиться в безопасности.'
+      }
+    },
+    {
+      title: { zh: '常见违章与处罚', en: 'Common violations and penalties', ru: 'Распространённые нарушения и наказания' },
+      desc: {
+        zh: '行人闯红灯：罚款5-50元。酒后驾驶：血液酒精含量20-80mg/100ml为酒驾（扣证+罚款+拘留）；超过80mg为醉驾（追究刑事责任，吊销驾照）。无证驾驶：罚款200-2000元，可拘留15天。超速：罚款100-2000元，扣分。',
+        en: 'Pedestrian running red light: 5-50 yuan fine. Drunk driving: BAC 20-80mg/100ml is DUI (license suspension + fine + detention); over 80mg is criminal offense (license revoked, criminal charges). Driving without permit: 200-2000 yuan fine, possible 15-day detention. Speeding: 100-2000 yuan fine, demerit points.',
+        ru: 'Пешеход на красный: штраф 5-50 юаней. Пьяное вождение: BAC 20-80мг/100мл — DUI (лишение прав + штраф + задержание); свыше 80мг — уголовное преступление (лишение прав, уголовное преследование). Вождение без прав: штраф 200-2000 юаней, возможно 15 дней задержания. Превышение скорости: штраф 100-2000 юаней, штрафные баллы.'
+      }
+,      tip: {
+        zh: '中国对酒驾处罚非常严格，切勿酒后驾车，即使少量饮酒也不行。',
+        en: 'China has extremely strict penalties for drunk driving — never drive after drinking, even a small amount.',
+        ru: 'В Китае крайне строгие наказания за пьяное вождение — никогда не садитесь за руль после употребления алкоголя, даже в небольшом количестве.'
+      }
+    }
   ],
   faq: [
     { q: { zh: '电动车需要驾照吗？', en: 'Do e-bikes need a license?', ru: 'Нужны ли права на электровелосипед?' }, a: { zh: '符合国标（速度≤25km/h）的电动自行车不需要驾照和上牌。但超过标准的电动摩托车需要驾照和牌照。', en: 'Standard e-bikes (≤25km/h) don\'t need license or registration. E-motorcycles above standard require license and plates.', ru: 'Стандартные (≤25 км/ч) — не нужны. Превышающие стандарт — нужны права и номера.' } },

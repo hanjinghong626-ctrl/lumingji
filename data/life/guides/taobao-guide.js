@@ -40,15 +40,37 @@ export default {
   },
   steps: [
     {
-      title: {
-        zh: '淘宝购物流程',
-        en: 'Taobao Shopping Process',
-        ru: 'Процесс покупки на Taobao'
-      },
+      title: { zh: '了解淘宝', en: 'Understand Taobao', ru: 'Что такое Taobao' },
       desc: {
-        zh: '📱 基本流程\n1. 下载淘宝App或访问taobao.com\n2. 用支付宝/手机号登录\n3. 搜索商品（支持中文/英文）\n4. 浏览评价和详情\n5. 选择规格（颜色、尺寸等）\n6. 加入购物车或直接购买\n7. 填写收货地址\n8. 支付宝付款\n9. 等待快递（通常2-5天）\n10. 确认收货\n\n💡 购物技巧：\n• 看"销量"排序找热门商品\n• 仔细看买家评价（尤其是差评和图片评价）\n• 注意"包邮"标签\n• 用"找相似"比价\n• 大促时（双11/618）价格最低\n\n⚠️ 注意：淘宝上的部分商品可能是仿品，注意辨别。',
-        en: '📱 Basic flow:\n1. Download Taobao app\n2. Login with Alipay/phone\n3. Search products\n4. Check reviews and details\n5. Select specs\n6. Add to cart or buy now\n7. Enter address\n8. Pay with Alipay\n9. Wait for delivery (2-5 days)\n10. Confirm receipt\n\n💡 Tips: Sort by sales, read reviews carefully, look for "包邮" (free shipping), compare prices\n⚠️ Watch out for counterfeit products',
-        ru: '📱 Шаг: скачать → войти → искать → отзывы → заказать → оплатить → получить\n💡 Сортировка по продажам, читайте отзывы\n⚠️ Остерегайтесь подделок'
+        zh: '淘宝（Taobao）是中国最大的C2C电商平台，几乎什么都能买到：衣服、电子产品、家居用品、学习资料、零食……价格通常比实体店便宜很多。国际学生可以通过淘宝体验最地道的中国网购。',
+        en: 'Taobao is China\'s largest C2C e-commerce platform — you can buy almost anything: clothes, electronics, home goods, study materials, snacks. Prices are usually much cheaper than physical stores. International students can experience authentic Chinese online shopping through Taobao.',
+        ru: 'Taobao — крупнейшая C2C платформа электронной коммерции в Китае — можно купить почти всё: одежду, электронику, товары для дома, учебные материалы, закуски. Цены обычно значительно ниже, чем в обычных магазинах. Иностранные студенты могут почувствовать настоящий китайский онлайн-шопинг.'
+      }
+    },
+    {
+      title: { zh: '下载注册和搜索商品', en: 'Download, register, and search products', ru: 'Скачивание, регистрация и поиск товаров' },
+      desc: {
+        zh: '在应用商店搜索"淘宝"下载（橙色图标）。支持手机号注册或支付宝快捷登录。首页搜索框输入你想要的商品关键词。善用筛选功能：按"销量"排序可以找到热门商品，按"价格"排序可以找到最便宜的。',
+        en: 'Search "淘宝" in app stores (orange icon). Register with phone number or quick login via Alipay. Enter product keywords in the search bar. Use filters: sort by "sales" for popular items, sort by "price" for cheapest.',
+        ru: 'Найдите "淘宝" в магазинах приложений (оранжевая иконка). Регистрация по номеру или быстрый вход через Alipay. Введите ключевые слова в поиск. Используйте фильтры: по продажам для популярных, по цене для самых дешёвых.'
+      }
+,      tip: {
+        zh: '淘宝上同一商品可能有成千上万个卖家。技巧：①看销量（月销1000+的通常靠谱）；②看评价（特别是带图评价）；③看店铺等级（皇冠/金冠店铺更可靠）。',
+        en: 'Same products may have thousands of sellers. Tips: ① Check sales volume (1000+ monthly sales is usually reliable); ② Read reviews (especially photo reviews); ③ Check store rating (crown/gold crown stores are more reliable).',
+        ru: 'Один товар могут продавать тысячи продавцов. Советы: ① Объём продаж (1000+ в месяц обычно надёжно); ② Отзывы (особенно с фото); ③ Рейтинг магазина (коронные/золотые магазины надёжнее).'
+      }
+    },
+    {
+      title: { zh: '下单购买和收货', en: 'Order and receive', ru: 'Заказ и получение' },
+      desc: {
+        zh: '选择商品规格（颜色、尺寸等），点击"立即购买"或"加入购物车"。收货地址填写学校地址或宿舍地址。使用支付宝付款。淘宝购物一般3-7天到货。支持7天无理由退货（部分商品标注"不支持七天退货"的除外）。',
+        en: 'Select product specifications (color, size, etc.), tap "Buy Now" or "Add to Cart". Fill in school or dorm address. Pay with Alipay. Taobao orders usually arrive in 3-7 days. Supports 7-day no-reason returns (except items marked "no 7-day returns").',
+        ru: 'Выберите параметры (цвет, размер и т.д.), нажмите "Купить" или "В корзину". Укажите адрес школы или общежития. Оплата через Alipay. Доставка обычно 3-7 дней. Поддержка возврата без причины 7 дней (кроме товаров с отметкой "без возврата").'
+      }
+,      tip: {
+        zh: '淘宝的"菜鸟驿站"是校园包裹代收点。收到取件短信后，凭取件码去菜鸟驿站领取包裹。一般免费保管3-5天，超期可能退回。',
+        en: 'Taobao\'s "Cainiao Station" is the campus package pickup point. After receiving the pickup SMS, use the pickup code to collect your package. Usually free storage for 3-5 days; packages may be returned if overdue.',
+        ru: '"Cainiao Station" — пункт получения посылок в кампусе. После SMS с кодом получения заберите посылку. Бесплатное хранение 3-5 дней; при просрочке посылка может быть возвращена.'
       }
     }
   ],

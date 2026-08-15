@@ -46,33 +46,55 @@ export default {
   },
   steps: [
     {
-      title: {
-        zh: '了解医院分类',
-        en: 'Understanding Hospital Types',
-        ru: 'Типы больниц'
-      },
+      title: { zh: '预约挂号', en: 'Book an appointment', ru: 'Запись на приём' },
       desc: {
-        zh: '中国医院等级划分：\n\n🏥 三级甲等（三甲）\n• 最高等级，设备齐全，专家多\n• 适合：重症、疑难杂症\n• 缺点：人多排队时间长\n\n🏥 二级医院\n• 中等规模，常见病可处理\n• 适合：普通疾病\n• 优点：人少，等待时间短\n\n🏥 社区卫生服务中心\n• 基层医疗机构\n• 适合：感冒发烧、小伤口处理\n• 优点：近、快、便宜\n\n💡 建议：小病去社区，大病去三甲。急诊任何医院都可以直接去。',
-        en: 'Chinese hospital classification:\n\n🏥 Grade 3A (三甲)\n• Highest level, full equipment, many specialists\n• Best for: serious/complex conditions\n• Drawback: crowds, long wait times\n\n🏥 Grade 2 hospitals\n• Medium scale, can handle common illnesses\n• Best for: common diseases\n• Advantage: fewer people, shorter wait\n\n🏥 Community health centers\n• Basic medical facilities\n• Best for: colds, fevers, minor wounds\n• Advantage: nearby, fast, cheap\n\n💡 Tip: Community centers for minor issues; Grade 3A for serious conditions. Emergency departments accept walk-ins at any hospital.',
-        ru: 'Классификация больниц Китая:\n\n🏥 3-й класс А (三甲)\n• Высший уровень, полное оборудование\n• Для: серьёзных/сложных случаев\n• Минус: очереди\n\n🏥 2-й класс\n• Средний размер, обычные болезни\n• Для: распространённых заболеваний\n\n🏥 Общественные центры здоровья\n• Базовая медицина\n• Для: простуды, мелкие раны\n• Плюс: близко, быстро, дёшево\n\n💡 Мелочи — в центр, серьёзное — в 3А. Экстренная помощь — в любой больнице.'
+        zh: '大部分三甲医院（大型综合医院）需要提前预约挂号。方式：①医院官方微信公众号（微信搜索医院名称后关注，点击预约挂号）；②支付宝搜索「挂号」进入挂号平台；③拨打114电话预约。选择科室（如内科、外科、眼科等）和就诊时间。',
+        en: 'Most major hospitals require advance booking. Methods: ① Hospital WeChat Official Account (search hospital name, follow, tap appointment); ② Alipay search appointment booking platform; ③ Call 114 to book. Choose department (Internal Medicine, Surgery, Ophthalmology, etc.) and time.',
+        ru: 'Большинство крупных больниц требуют предварительной записи. Способы: ① Официальный аккаунт больницы в WeChat (найдите, подпишитесь, запишитесь); ② Поиск записи в Alipay; ③ Звонок 114. Выберите отделение и время.'
+      }
+,      tip: {
+        zh: '急诊（急诊科）不需要预约，直接去医院急诊窗口即可。',
+        en: 'Emergency departments do not require appointments — go directly to the ER window.',
+        ru: 'Приёмный покой не требует записи — идите напрямую в окно экстренной помощи.'
       }
     },
     {
-      title: {
-        zh: '挂号与就诊流程',
-        en: 'Registration and Consultation Process',
-        ru: 'Запись и приём'
-      },
+      title: { zh: '到达医院与签到', en: 'Arrive and check in', ru: 'Прибытие и регистрация' },
       desc: {
-        zh: '看病完整流程：\n\n1️⃣ 挂号（预约/现场）\n• 微信搜索医院公众号 → 预约挂号\n• 或到医院自助挂号机/窗口挂号\n• 选择科室：内科、外科、皮肤科等\n• 挂号费：普通号10-50元，专家号50-300元\n\n2️⃣ 候诊\n• 到对应科室候诊区等待叫号\n• 注意听广播/看屏幕上的叫号\n\n3️⃣ 就诊\n• 向医生描述症状（可提前准备好中文描述）\n• 医生检查、开检查单\n\n4️⃣ 检查（如需）\n• 验血、拍X光、B超等\n• 拿到检查报告后回到诊室\n\n5️⃣ 诊断与开药\n• 医生给出诊断，开药方\n\n6️⃣ 缴费\n• 到收费窗口或手机缴费\n\n7️⃣ 取药\n• 到药房窗口凭缴费单取药',
-        en: 'Complete hospital visit process:\n\n1️⃣ Register (book ahead or on-site)\n• Search hospital WeChat official account → make appointment\n• Or use self-service kiosk/counter at hospital\n• Choose department: Internal Medicine, Surgery, Dermatology, etc.\n• Registration fee: regular ¥10-50, specialist ¥50-300\n\n2️⃣ Wait for your turn\n• Go to the department waiting area\n• Listen for announcements / watch display screens\n\n3️⃣ Consultation\n• Describe symptoms to doctor (prepare Chinese description in advance)\n• Doctor examines, orders tests if needed\n\n4️⃣ Tests (if required)\n• Blood test, X-ray, ultrasound, etc.\n• Return to consultation room with results\n\n5️⃣ Diagnosis & prescription\n• Doctor gives diagnosis, writes prescription\n\n6️⃣ Pay\n• Pay at cashier window or via phone\n\n7️⃣ Get medicine\n• Go to pharmacy window with payment receipt',
-        ru: 'Полный процесс визита:\n\n1️⃣ Запись\n• WeChat аккаунт больницы → запись\n• Или автомат/окно в больнице\n• Выберите отделение\n• Стоимость: обычный 10-50 ¥, специалист 50-300 ¥\n\n2️⃣ Ожидание\n\n3️⃣ Приём — опишите симптомы\n\n4️⃣ Анализы (при необходимости)\n\n5️⃣ Диагноз и рецепт\n\n6️⃣ Оплата\n\n7️⃣ Получение лекарств'
+        zh: '按照预约时间提前30分钟到达医院。找到自助挂号机（通常在大厅），插入身份证/护照或扫描预约码完成签到。部分医院需要先去挂号窗口缴费领取就诊卡。注意看大厅屏幕上的叫号信息。',
+        en: 'Arrive 30 minutes before your appointment. Find self-service machines (usually in lobby), insert ID/passport or scan appointment code. Some hospitals require payment at the registration window for a medical card. Watch the lobby screen for queue numbers.',
+        ru: 'Прибудьте за 30 минут до приёма. Найдите автоматы регистрации (обычно в холле), вставьте паспорт или отсканируйте код записи. Некоторые больницы требуют оплату в окне регистрации. Следите за экраном с номерами очереди.'
       }
-      ,
-      tip: {
-        zh: '很多医院有国际医疗部（International Department），有英语服务，挂号费较高但沟通更方便。留学生可以先去学校的医务室（校医院），转诊后再去大医院，这样医保报销比例更高。',
-        en: 'Many hospitals have an International Department with English service — higher registration fees but easier communication. International students can first visit the campus clinic, then get a referral to larger hospitals for better insurance reimbursement.',
-        ru: 'Во многих больницах есть международное отделение с англоязычным обслуживанием — дороже, но проще общаться. Студентам стоит сначала обратиться в университетскую поликлинику, а по направлению — в крупную больницу для лучшего возмещения по страховке.'
+,      tip: {
+        zh: '第一次去某家医院建议提前40分钟到，留出找路和排队的时间。',
+        en: 'For first visit, arrive 40 minutes early to allow time for finding way and queuing.',
+        ru: 'При первом посещении приходите за 40 минут, чтобы найти путь и очередь.'
+      }
+    },
+    {
+      title: { zh: '就诊与检查', en: 'Consultation and tests', ru: 'Осмотр и обследования' },
+      desc: {
+        zh: '听到叫号后进入对应诊室。医生会询问症状、做初步检查。如果需要进一步检查（验血、拍片等），医生会开具检查单。拿着检查单到对应科室做检查，等结果出来后返回诊室让医生看结果并给出诊断。',
+        en: 'Enter the consultation room when your number is called. Doctor will ask about symptoms and do preliminary examination. If further tests needed (blood work, X-rays), doctor issues test orders. Take orders to relevant department, wait for results, return to doctor for diagnosis.',
+        ru: 'Войдите в кабинет при вызове номера. Врач спросит о симптомах и проведёт осмотр. Если нужны анализы (кровь, рентген), врач выдаст направления. Отнесите в соответствующий кабинет, дождитесь результатов, вернитесь к врачу.'
+      }
+,      tip: {
+        zh: '如果听不懂医生的中文诊断，可以请医生写下来或拍照翻译。必要时可请朋友陪同翻译。',
+        en: 'If you don\'t understand the diagnosis, ask doctor to write it down or take a photo for translation. Bring a friend as interpreter if needed.',
+        ru: 'Если не понимаете диагноз, попросите записать или сфотографируйте для перевода. Приведите друга как переводчика.'
+      }
+    },
+    {
+      title: { zh: '缴费与取药', en: 'Pay and collect medicine', ru: 'Оплата и получение лекарств' },
+      desc: {
+        zh: '诊断完成后，医生会开具处方或治疗方案。到缴费窗口（或自助缴费机）用支付宝/微信支付缴费。缴费后凭缴费凭证到药房窗口排队取药。药师会告知用药方法和剂量。',
+        en: 'After diagnosis, doctor issues prescription or treatment plan. Pay at payment window or self-service machine via Alipay/WeChat Pay. After payment, take receipt to pharmacy window and queue for medicine. Pharmacist will explain dosage and instructions.',
+        ru: 'После диагноза врач выпишет рецепт или план лечения. Оплатите в окне или автомате через Alipay/WeChat Pay. После оплаты идите в аптеку с квитанцией. Фармацевт объяснит дозировку.'
+      }
+,      tip: {
+        zh: '保留所有医疗单据和诊断记录，保险理赔可能用到。',
+        en: 'Keep all medical receipts and diagnostic records — you may need them for insurance claims.',
+        ru: 'Сохраняйте все медицинские квитанции и записи — они могут понадобиться для страхования.'
       }
     }
   ],

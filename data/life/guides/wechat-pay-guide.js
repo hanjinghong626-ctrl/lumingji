@@ -15,21 +15,52 @@ export default {
   preparation: { zh: ['已注册微信', '已完成实名认证', '已绑定银行卡'], en: ['Registered WeChat', 'Real-name verified', 'Bank card linked'], ru: ['WeChat зарегистрирован', 'Верификация пройдена', 'Карта привязана'] },
   steps: [
     {
-      title: { zh: '开通微信钱包', en: 'Enable Wallet', ru: 'Активируйте кошелёк' },
+      title: { zh: '下载并安装微信', en: 'Download and install WeChat', ru: 'Скачать и установить WeChat' },
       desc: {
-        zh: '1. 微信 → 我 → 服务 → 钱包\n2. 设置6位支付密码\n3. 绑定银行卡\n\n开通后显示：零钱、零钱通、银行卡、收付款码',
-        en: '1. WeChat → Me → Services → Wallet\n2. Set 6-digit payment PIN\n3. Link bank card\n\nShows: Balance, Balance Plus, Cards, QR codes',
-        ru: '1. WeChat → Me → Services → Wallet\n2. Установите 6-значный PIN\n3. Привяжите карту'
-      },
+        zh: '在App Store或安卓应用商店搜索"WeChat"或"微信"，认准绿色图标（两个对话气泡）。下载后打开，选择"注册"→"用手机号注册"，输入中国手机号获取验证码完成注册。',
+        en: 'Search "WeChat" in App Store or Android app store. Look for the green icon with two chat bubbles. After downloading, open it and tap Register → Register with phone number. Enter your Chinese phone number and verify with the SMS code.',
+        ru: 'Найдите "WeChat" в App Store или магазине приложений Android. Ищите зелёную иконку с двумя пузырьками. После скачивания откройте и нажмите Регистрация → Регистрация по номеру. Введите китайский номер и подтвердите кодом из SMS.'
+      }
     },
     {
-      title: { zh: '收付款与红包', en: 'Payments & Red Packets', ru: 'Платежи и красные конверты' },
+      title: { zh: '开通微信支付', en: 'Activate WeChat Pay', ru: 'Активировать WeChat Pay' },
       desc: {
-        zh: '💰 付款给商家：\n• 我 → 服务 → 收付款 → 出示付款码\n• 小额免密（1000元以下）\n\n🧧 发红包：\n• 聊天窗口 → + → 红包\n• 输入金额 → 发送\n• 群红包可设拼手气（随机金额）\n\n💸 转账：聊天窗口 → + → 转账\n\n💡 红包上限200元/个（节日可调至520元）',
-        en: '💰 Pay merchants: Me → Services → Money → show QR code. Under ¥1000 is PIN-free.\n\n🧧 Red packets: Chat → + → Red Packet → enter amount → send. Group packets have random amounts.\n\n💸 Transfer: Chat → + → Transfer\n\n💡 Red packet limit: ¥200 each (¥520 on holidays)',
-        ru: '💰 Оплата: Me → Services → Money → QR-код. До ¥1000 без PIN.\n\n🧧 Конверты: Чат → + → Red Packet. В группе — случайные суммы.\n\n💸 Перевод: Чат → + → Transfer'
-      },
+        zh: '注册微信后，进入"我"→"服务"（或"支付"）→"钱包"→"银行卡"。点击"添加银行卡"，输入境外Visa/Mastercard信息完成绑定。实名认证需要上传护照照片。',
+        en: 'After registering WeChat, go to Me → Services → Wallet → Bank Cards. Tap Add Bank Card and enter your overseas Visa/Mastercard details. Real-name verification requires uploading your passport photo.',
+        ru: 'После регистрации WeChat перейдите в Я → Сервисы → Кошелёк → Банковские карты. Нажмите Добавить карту и введите данные зарубежной Visa/Mastercard. Для верификации нужно загрузить фото паспорта.'
+      }
+,      tip: {
+        zh: '绑定境外卡后，单笔限额2000元，月累计限额10000元，年累计限额50000元。',
+        en: 'After binding a foreign card: per-transaction limit ¥2,000, monthly limit ¥10,000, annual limit ¥50,000.',
+        ru: 'После привязки зарубежной карты: лимит за транзакцию ¥2 000, в месяц ¥10 000, в год ¥50 000.'
+      }
     },
+    {
+      title: { zh: '扫码支付', en: 'Scan to Pay', ru: 'Оплата по QR-коду' },
+      desc: {
+        zh: '在商店、餐厅等场所，打开微信右上角"+"→"扫一扫"，扫描商家的收款二维码。输入金额和支付密码（或指纹/面容验证）即可完成付款。',
+        en: 'At shops, restaurants, etc., open WeChat tap "+" in the top right → "Scan" and scan the merchant\'s QR code. Enter the amount and payment password (or biometric verification) to complete payment.',
+        ru: 'В магазинах, ресторанах и т.д. откройте WeChat, нажмите "+" вверху справа → "Сканировать" и отсканируйте QR-код продавца. Введите сумму и пароль оплаты (или биометрию) для завершения.'
+      }
+,      tip: {
+        zh: '如果没有二维码，可以点击"收付款"→"向商家付款"出示你的付款码让商家扫。',
+        en: 'If there\'s no QR code, tap "Pay" → "Pay to Merchant" to show your payment code for the merchant to scan.',
+        ru: 'Если нет QR-кода, нажмите "Оплатить" → "Оплата продавцу" и покажите свой код оплаты для сканирования.'
+      }
+    },
+    {
+      title: { zh: '管理账单和提现', en: 'Manage bills and withdraw', ru: 'Управление счетами и вывод средств' },
+      desc: {
+        zh: '进入"我"→"服务"→"钱包"→"账单"可以查看所有交易记录。微信支付收到的转账余额可以提现到银行卡（免费额度1000元/人，超出部分收0.1%手续费）。',
+        en: 'Go to Me → Services → Wallet → Bills to view all transactions. Balance received via WeChat Pay can be withdrawn to bank cards (free quota: ¥1,000/person; 0.1% fee above that).',
+        ru: 'Перейдите в Я → Сервисы → Кошелёк → Счета для просмотра всех транзакций. Баланс, полученный через WeChat Pay, можно вывести на карту (бесплатно до ¥1 000/чел.; комиссия 0,1% сверх того).'
+      }
+,      tip: {
+        zh: '注意：境外卡收到的退款会原路返回到境外卡，可能需要5-15个工作日。',
+        en: 'Note: Refunds to foreign cards are returned to the original card, which may take 5-15 business days.',
+        ru: 'Примечание: возвраты на зарубежные карты возвращаются на исходную карту, это может занять 5-15 рабочих дней.'
+      }
+    }
   ],
   faq: [
     {
