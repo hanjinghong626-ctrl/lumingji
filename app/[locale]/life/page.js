@@ -150,10 +150,6 @@ export default function LifeGuidePage() {
           );
         })}
       </div>
-    </div>
-  );
-}
-
 
       {/* 🚀 快速开始 — 最核心的5步，直接附带操作指引 */}
       <div className="mb-10 p-6 md:p-8 bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl border border-amber-200/40">
@@ -329,3 +325,6 @@ export default function LifeGuidePage() {
           </div>
         </div>
       </div>
+    </div>
+  );
+}
