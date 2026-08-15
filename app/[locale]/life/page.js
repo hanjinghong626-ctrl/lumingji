@@ -98,6 +98,31 @@ export default function LifeGuidePage() {
         </a>
       </div>
 
+      {/* 实用工具入口 */}
+      <div className="mb-10">
+        <a
+          href={`/${locale}/life/exchange-rate`}
+          className="group flex items-center justify-between p-5 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+        >
+          <div className="flex items-center gap-4">
+            <span className="text-4xl">💱</span>
+            <div>
+              <h3 className="text-xl font-wenkai font-bold text-white">
+                {lang === 'zh' ? '实时汇率 · 货币换算' :
+                 lang === 'ru' ? 'Курс валют · Конвертер' :
+                 'Live Rates · Currency Converter'}
+              </h3>
+              <p className="text-blue-100 text-sm mt-1">
+                {lang === 'zh' ? '14种货币实时汇率，自动滚动行情，一键换算' :
+                 lang === 'ru' ? '14 валют в реальном времени, бегущая строка, мгновенный конверт' :
+                 '14 currencies live, scrolling ticker, instant conversion'}
+              </p>
+            </div>
+          </div>
+          <span className="text-white text-3xl group-hover:translate-x-1 transition-transform">→</span>
+        </a>
+      </div>
+
       {/* 15大分类网格 */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {categories.map((cat, idx) => {
