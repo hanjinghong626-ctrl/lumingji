@@ -17,14 +17,7 @@ export default function LifeGuidePage() {
         <p className="section-subtitle">
           {t('life.subtitle') || '一步一步，带你在中国畅通无阻'}
         </p>
-        <div className="mt-4 flex justify-center gap-4 text-sm text-gray-500">
-          <span className="px-3 py-1 bg-primary-50 text-primary-700 rounded-full">
-            <HomeIcon id="scroll" size={14} color="currentColor" /> {categories.length} {t('life.categories_count') || '个分类'}
-          </span>
-          <span className="px-3 py-1 bg-blue-50 text-blue-700 rounded-full">
-            <HomeIcon id="brush" size={14} color="currentColor" /> {guideIndex.length} {t('life.guides_total') || '个指南'}
-          </span>
-        </div>
+        
       </div>
 
       {/* 搜索框 */}
