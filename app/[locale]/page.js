@@ -129,7 +129,7 @@ export default function HomePage() {
       {/* ============ Ink Divider ============ */}
       <div className="ink-divider" />
 
-      {/* ============ Phrasebook Portal — 沉浸式入口 ============ */}
+      {/* ============ Phrasebook Portal — 青绿山水入口 ============ */}
       <section style={{ position: 'relative', overflow: 'hidden' }}>
         <div
           ref={(el) => (sectionRefs.current[4] = el)}
@@ -138,68 +138,72 @@ export default function HomePage() {
         >
           <Link href={`/${l}/life/phrasebook`} style={{ textDecoration: 'none' }}>
             <div style={{
-              position: 'relative', borderRadius: 20, overflow: 'hidden',
-              background: 'linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%)',
-              border: '1px solid rgba(99,102,241,0.2)',
-              padding: '36px 28px', cursor: 'pointer',
+              position: 'relative', borderRadius: 18, overflow: 'hidden',
+              background: 'linear-gradient(135deg, rgba(200,230,215,0.40) 0%, rgba(180,220,200,0.25) 40%, rgba(210,235,225,0.35) 100%)',
+              border: '1px solid rgba(120,180,155,0.25)',
+              backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)',
+              padding: '28px 24px', cursor: 'pointer',
               transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
             }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 20px 60px rgba(99,102,241,0.2)';
-                e.currentTarget.style.borderColor = 'rgba(99,102,241,0.4)';
+                e.currentTarget.style.transform = 'translateY(-3px)';
+                e.currentTarget.style.boxShadow = '0 12px 40px rgba(100,170,140,0.15)';
+                e.currentTarget.style.borderColor = 'rgba(100,170,140,0.4)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0)';
                 e.currentTarget.style.boxShadow = 'none';
-                e.currentTarget.style.borderColor = 'rgba(99,102,241,0.2)';
+                e.currentTarget.style.borderColor = 'rgba(120,180,155,0.25)';
               }}
             >
-              {/* 装饰光斑 */}
-              <div style={{ position: 'absolute', top: '-30%', right: '-10%', width: '40%', height: '200%', borderRadius: '50%', background: 'radial-gradient(circle, rgba(16,185,129,0.12) 0%, transparent 70%)', pointerEvents: 'none' }} />
-              <div style={{ position: 'absolute', bottom: '-40%', left: '-5%', width: '30%', height: '160%', borderRadius: '50%', background: 'radial-gradient(circle, rgba(99,102,241,0.10) 0%, transparent 70%)', pointerEvents: 'none' }} />
+              {/* 内嵌山水装饰 */}
+              <svg style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '55%', pointerEvents: 'none', opacity: 0.35 }} viewBox="0 0 600 100" preserveAspectRatio="none">
+                <path d="M0,100 L0,60 Q75,30 150,50 Q225,20 300,45 Q375,15 450,40 Q525,25 600,55 L600,100 Z" fill="rgba(100,170,140,0.12)" />
+                <path d="M0,100 L0,75 Q100,50 200,65 Q300,40 400,60 Q500,45 600,70 L600,100 Z" fill="rgba(80,160,130,0.08)" />
+              </svg>
+              {/* 云雾 */}
+              <div style={{ position: 'absolute', top: '-20%', right: '-5%', width: '25%', height: '120%', borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(160,210,190,0.15) 0%, transparent 70%)', pointerEvents: 'none' }} />
 
-              <div style={{ position: 'relative', zIndex: 1, display: 'flex', alignItems: 'center', gap: 24, flexWrap: 'wrap' }}>
-                {/* 左侧图标区 */}
+              <div style={{ position: 'relative', zIndex: 1, display: 'flex', alignItems: 'center', gap: 20, flexWrap: 'wrap' }}>
+                {/* 左侧图标 */}
                 <div style={{
-                  width: 64, height: 64, borderRadius: 16, flexShrink: 0,
-                  background: 'linear-gradient(135deg, #6366f1, #10b981)',
+                  width: 56, height: 56, borderRadius: 14, flexShrink: 0,
+                  background: 'linear-gradient(135deg, #5aa085, #4a9075)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontSize: 28, boxShadow: '0 8px 24px rgba(99,102,241,0.3)',
+                  fontSize: 26, boxShadow: '0 6px 20px rgba(80,160,130,0.2)',
                 }}>
                   🗣️
                 </div>
 
-                {/* 中间文案 */}
-                <div style={{ flex: 1, minWidth: 200 }}>
+                {/* 文案 */}
+                <div style={{ flex: 1, minWidth: 180 }}>
                   <div style={{
-                    display: 'inline-block', background: 'rgba(99,102,241,0.15)',
-                    border: '1px solid rgba(99,102,241,0.25)', borderRadius: 12,
-                    padding: '2px 10px', fontSize: 11, color: '#a5b4fc', fontWeight: 500, marginBottom: 8,
+                    display: 'inline-block', background: 'rgba(100,170,140,0.12)',
+                    border: '1px solid rgba(100,170,140,0.25)', borderRadius: 12,
+                    padding: '2px 10px', fontSize: 11, color: '#4a8a6e', fontWeight: 500, marginBottom: 6,
                   }}>
                     {l === 'ru' ? 'Разговорник' : l === 'en' ? 'Phrasebook' : '口语手册'}
                   </div>
                   <h3 style={{
-                    fontSize: 'clamp(18px, 3.5vw, 24px)', fontWeight: 800, margin: '0 0 6px',
-                    background: 'linear-gradient(135deg, #e0e7ff, #6ee7b7)',
-                    WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
+                    fontSize: 'clamp(17px, 3.5vw, 22px)', fontWeight: 800, margin: '0 0 4px',
+                    color: '#2d5a4a',
                   }}>
                     {l === 'ru' ? 'Разговорник для выживания' : l === 'en' ? 'Chinese Survival Phrasebook' : '中文生存口语手册'}
                   </h3>
-                  <p style={{ color: 'rgba(203,213,225,0.6)', fontSize: 13, margin: 0 }}>
+                  <p style={{ color: '#6a9a85', fontSize: 13, margin: 0 }}>
                     {l === 'ru' ? '11 сценариев · 124+ фраз · Нажмите, чтобы скопировать'
                       : l === 'en' ? '11 scenarios · 124+ phrases · Tap to copy'
                       : '11大场景 · 124+实用短句 · 点击即复制'}
                   </p>
                 </div>
 
-                {/* 右侧箭头 */}
+                {/* 箭头 */}
                 <div style={{
-                  width: 40, height: 40, borderRadius: 12, flexShrink: 0,
-                  background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)',
+                  width: 36, height: 36, borderRadius: 10, flexShrink: 0,
+                  background: 'rgba(100,170,140,0.1)', border: '1px solid rgba(100,170,140,0.2)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                 }}>
-                  <svg width="18" height="18" fill="none" stroke="#a5b4fc" viewBox="0 0 24 24">
+                  <svg width="16" height="16" fill="none" stroke="#5aa085" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </div>
@@ -207,7 +211,7 @@ export default function HomePage() {
             </div>
           </Link>
         </div>
-        <div style={{ height: 48 }} />
+        <div style={{ height: 40 }} />
       </section>
 
       {/* ============ Feature Cards — 青绿山水风格 ============ */}
