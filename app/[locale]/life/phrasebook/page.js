@@ -142,7 +142,7 @@ export default function PhrasebookPage() {
             borderRadius: 20, padding: '4px 14px', fontSize: 12, color: '#4a8a6e',
             fontWeight: 500, marginBottom: 14,
           }}>
-            🈶 {ui.badge}
+            <CategoryIcon id="campus" size={12} color="#4a8a6e" /> {ui.badge}
           </div>
 
           {/* 标题 */}
@@ -235,7 +235,7 @@ export default function PhrasebookPage() {
                   boxShadow: isActive ? `0 3px 12px ${c.accent}25` : 'none',
                 }}
               >
-                {cat.icon} {cat.name[lang]}
+                <CategoryIcon id={cat.id} size={14} color={isActive ? '#fff' : '#5a8a75'} /> {cat.name[lang]}
               </button>
             );
           })}
@@ -258,9 +258,9 @@ export default function PhrasebookPage() {
                       width: 34, height: 34, borderRadius: 10,
                       background: `linear-gradient(135deg, ${c.bg}, ${c.border})`,
                       border: `1px solid ${c.border}`,
-                      display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 16,
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
                     }}>
-                      {cat.icon}
+                      <CategoryIcon id={cat.id} size={18} color={c.accent} />
                     </div>
                     <div>
                       <h2 style={{ fontSize: 15, fontWeight: 700, color: '#2d5a4a', margin: 0, lineHeight: 1.2 }}>
@@ -349,7 +349,10 @@ export default function PhrasebookPage() {
             background: 'rgba(200,225,210,0.35)', border: '1px solid rgba(120,180,155,0.2)',
             backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)',
           }}>
-            <span style={{ fontSize: 13, color: '#4a8a6e' }}>💡 {ui.tip}</span>
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 13, color: '#4a8a6e' }}>
+              <svg width={14} height={14} viewBox="0 0 24 24" fill="none" stroke="#4a8a6e" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round"><path d="M12 3c-2 0-3.5 1.5-3.5 3.5 0 1.5.5 2 1.5 3.5.5.8 1 2 1 3h2c0-1 .5-2.2 1-3 1-1.5 1.5-2 1.5-3.5C15.5 4.5 14 3 12 3z" /><path d="M10 17h4M10.5 19.5h3" /></svg>
+              {ui.tip}
+            </span>
           </div>
         </div>
 
@@ -367,4 +370,117 @@ export default function PhrasebookPage() {
       </div>
     </div>
   );
+}
+
+/* ── 分类图标 · 青绿山水主题手绘风 ── */
+function CategoryIcon({ id, size = 16, color = 'currentColor' }) {
+  const s = size;
+  const p = { fill: 'none', stroke: color, strokeWidth: 1.5, strokeLinecap: 'round', strokeLinejoin: 'round' };
+  switch (id) {
+    /* 紧急求助 — 祥云纹 */
+    case 'emergency': return (
+      <svg width={s} height={s} viewBox="0 0 24 24" {...p}>
+        <path d="M4 16c-1.5 0-2.5-1.2-2-2.5.3-1 1.5-1.5 2.5-1 .5-2 3-3.5 5.5-2.5 1-2 4-3 6-1.5 1.5-1 4-.5 4.5 1.5 1.5 0 2.5 1.5 2 3s-2 2-3.5 2H4z" strokeWidth={1.3} />
+      </svg>
+    );
+    /* 交通出行 — 孤舟 */
+    case 'transport': return (
+      <svg width={s} height={s} viewBox="0 0 24 24" {...p}>
+        <path d="M3 17c2-1 4-2 9-2s7 1 9 2" strokeWidth={1.5} />
+        <path d="M5 17c1 2 3 3 7 3s6-1 7-3" strokeWidth={1.3} />
+        <path d="M13 15V7" strokeWidth={1.2} />
+        <path d="M13 7c2 1 4 3.5 4.5 5.5" strokeWidth={1.2} />
+        <path d="M1 20c3-1 5-1.5 8-1" strokeWidth={1} opacity={0.4} />
+        <path d="M15 19.5c3 0 5-.5 8-1" strokeWidth={1} opacity={0.4} />
+      </svg>
+    );
+    /* 吃饭点餐 — 茶壶 */
+    case 'food': return (
+      <svg width={s} height={s} viewBox="0 0 24 24" {...p}>
+        <path d="M8 10h8v6c0 2-2 4-4 4s-4-2-4-4v-6z" strokeWidth={1.3} />
+        <path d="M8 12c-2 0-3.5 1-3.5 2.5S6 17 8 17" strokeWidth={1.2} />
+        <path d="M10 10c0-2 1-4 2-5" strokeWidth={1.2} />
+        <path d="M13 10c0-2 .5-3.5 1.5-5" strokeWidth={1.2} />
+        <path d="M16 10c0-2-.5-3-1-4" strokeWidth={1.2} />
+      </svg>
+    );
+    /* 购物砍价 — 如意结 */
+    case 'shopping': return (
+      <svg width={s} height={s} viewBox="0 0 24 24" {...p}>
+        <path d="M12 4c-3 0-5 2-5 5 0 2 1 3 2.5 4L12 15l2.5-2C16 11 17 10 17 9c0-3-2-5-5-5z" strokeWidth={1.3} />
+        <path d="M12 15v5" strokeWidth={1.3} />
+        <path d="M9 18c1 .5 2 1 3 1s2-.5 3-1" strokeWidth={1.2} />
+        <path d="M12 4v-1" strokeWidth={1.5} />
+        <circle cx="12" cy="2" r="1" strokeWidth={1.2} />
+      </svg>
+    );
+    /* 租房安居 — 飞檐小筑 */
+    case 'housing': return (
+      <svg width={s} height={s} viewBox="0 0 24 24" {...p}>
+        <path d="M4 12c2-1 4-2 8-5 4 3 6 4 8 5" strokeWidth={1.5} />
+        <path d="M3 12.5c1-.5 2-.5 3 0" strokeWidth={1.2} />
+        <path d="M18 12.5c1-.5 2-.5 3 0" strokeWidth={1.2} />
+        <path d="M6 12v7h12v-7" strokeWidth={1.3} />
+        <path d="M10 19v-4h4v4" strokeWidth={1.2} />
+      </svg>
+    );
+    /* 看病买药 — 灵芝 */
+    case 'health': return (
+      <svg width={s} height={s} viewBox="0 0 24 24" {...p}>
+        <path d="M6 10c0-4 3-7 6-7s6 3 6 7c0 2-2 3-6 3s-6-1-6-3z" strokeWidth={1.3} />
+        <path d="M12 13v6" strokeWidth={1.5} />
+        <path d="M9 19c1 .5 2 1 3 1s2-.5 3-1" strokeWidth={1.2} />
+        <path d="M8 8c1-1 2.5-1.5 4-1" strokeWidth={1} opacity={0.4} />
+        <path d="M16 8c-1-1-2.5-1.5-4-1" strokeWidth={1} opacity={0.4} />
+      </svg>
+    );
+    /* 日常社交 — 拱手礼 */
+    case 'social': return (
+      <svg width={s} height={s} viewBox="0 0 24 24" {...p}>
+        <circle cx="12" cy="5.5" r="3" strokeWidth={1.3} />
+        <path d="M7 20c0-3 2-5.5 5-5.5s5 2.5 5 5.5" strokeWidth={1.3} />
+        <path d="M8 13c1 .8 2.5 1.5 4 1.5s3-.7 4-1.5" strokeWidth={1.2} />
+        <path d="M9 13.5h6" strokeWidth={1.3} />
+      </svg>
+    );
+    /* 校园学习 — 竹简 */
+    case 'campus': return (
+      <svg width={s} height={s} viewBox="0 0 24 24" {...p}>
+        <path d="M4 3v18M8 3v18M12 3v18M16 3v18M20 3v18" strokeWidth={1.2} />
+        <path d="M4 7h16M4 12h16M4 17h16" strokeWidth={0.8} opacity={0.4} />
+        <path d="M3 5c2 .5 4 .5 6 0M14 5c2 .5 4 .5 6 0" strokeWidth={1} opacity={0.5} />
+      </svg>
+    );
+    /* 数字时间 — 日晷 */
+    case 'numbers': return (
+      <svg width={s} height={s} viewBox="0 0 24 24" {...p}>
+        <ellipse cx="12" cy="14" rx="9" ry="4.5" strokeWidth={1.3} />
+        <path d="M12 14V5" strokeWidth={1.5} />
+        <path d="M12 5l4 4" strokeWidth={1.2} />
+        <path d="M7 14h10" strokeWidth={0.8} opacity={0.4} />
+        <path d="M12 10v8" strokeWidth={0.8} opacity={0.4} />
+      </svg>
+    );
+    /* 外卖快递 — 食盒 */
+    case 'delivery': return (
+      <svg width={s} height={s} viewBox="0 0 24 24" {...p}>
+        <path d="M5 8h14v10H5z" strokeWidth={1.3} />
+        <path d="M5 13h14" strokeWidth={1} />
+        <path d="M5 8c0-2 3-4 7-4s7 2 7 4" strokeWidth={1.3} />
+        <path d="M11 11h2M11 16h2" strokeWidth={1.5} />
+      </svg>
+    );
+    /* 社交闲聊 — 流云对语 */
+    case 'chatting': return (
+      <svg width={s} height={s} viewBox="0 0 24 24" {...p}>
+        <path d="M3 8c0-2 2-4 5-4s5 2 5 4-2 4-5 4c-1 0-2-.3-3-.8L3 12l.5-1.5C3.2 10 3 9 3 8z" strokeWidth={1.3} />
+        <path d="M11 14c0-1.5 1.5-3 4-3s4 1.5 4 3-1.5 3-4 3c-.8 0-1.5-.2-2.2-.5L11 17.5l.5-1.2c-.3-.5-.5-1-.5-1.3z" strokeWidth={1.3} />
+      </svg>
+    );
+    default: return (
+      <svg width={s} height={s} viewBox="0 0 24 24" {...p}>
+        <circle cx="12" cy="12" r="8" />
+      </svg>
+    );
+  }
 }
