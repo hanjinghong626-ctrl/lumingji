@@ -73,6 +73,7 @@ const categories = [
   },
   {
     id: 'transport',
+    iconId: 'metro',
     icon: '🚄',
     color: 'sky',
     name: { zh: '交通与出行', en: 'Transport & Travel', ru: 'Транспорт' },
@@ -147,6 +148,7 @@ const categories = [
   },
   {
     id: 'visa-legal',
+    iconId: 'seal',
     icon: '📋',
     color: 'red',
     name: { zh: '签证与法律', en: 'Visa & Legal', ru: 'Виза и законы' },
@@ -169,6 +171,7 @@ const categories = [
   },
   {
     id: 'medical',
+    iconId: 'lingzhi',
     icon: '🏥',
     color: 'rose',
     name: { zh: '医疗健康', en: 'Medical & Health', ru: 'Медицина' },
@@ -190,6 +193,7 @@ const categories = [
   },
   {
     id: 'academic',
+    iconId: 'calligraphy',
     icon: '📚',
     color: 'indigo',
     name: { zh: '学术与学习', en: 'Academic & Study', ru: 'Учёба и наука' },
@@ -213,6 +217,7 @@ const categories = [
   },
   {
     id: 'language',
+    iconId: 'wen',
     icon: '🈶',
     color: 'teal',
     name: { zh: '语言与文化', en: 'Language & Culture', ru: 'Язык и культура' },
@@ -321,6 +326,7 @@ const categories = [
   },
   {
     id: 'career',
+    iconId: 'scroll',
     icon: '💼',
     color: 'slate',
     name: { zh: '职业与发展', en: 'Career & Development', ru: 'Карьера' },
