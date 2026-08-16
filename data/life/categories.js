@@ -3,6 +3,7 @@
 const categories = [
   {
     id: 'first-landing',
+    iconId: 'crane',
     icon: '🛬',
     color: 'rose',
     name: { zh: '新手着陆', en: 'First Landing', ru: 'Первые дни' },
@@ -23,6 +24,7 @@ const categories = [
   },
   {
     id: 'payment',
+    iconId: 'wallet',
     icon: '💳',
     color: 'amber',
     name: { zh: '支付与金融', en: 'Payment & Finance', ru: 'Оплата и финансы' },
@@ -48,6 +50,7 @@ const categories = [
   },
   {
     id: 'communication',
+    iconId: 'phone',
     icon: '📱',
     color: 'emerald',
     name: { zh: '通讯与社交', en: 'Communication & Social', ru: 'Связь и общение' },
@@ -96,6 +99,7 @@ const categories = [
   },
   {
     id: 'food',
+    iconId: 'bamboo',
     icon: '🍜',
     color: 'orange',
     name: { zh: '饮食攻略', en: 'Food & Dining', ru: 'Еда и питание' },
@@ -119,6 +123,7 @@ const categories = [
   },
   {
     id: 'housing',
+    iconId: 'moongate',
     icon: '🏠',
     color: 'violet',
     name: { zh: '住房与安居', en: 'Housing & Living', ru: 'Жильё' },
@@ -228,6 +233,7 @@ const categories = [
   },
   {
     id: 'social',
+    iconId: 'chat',
     icon: '🎭',
     color: 'fuchsia',
     name: { zh: '社交与融入', en: 'Social & Integration', ru: 'Общение и интеграция' },
@@ -248,6 +254,7 @@ const categories = [
   },
   {
     id: 'shopping',
+    iconId: 'basket',
     icon: '🛒',
     color: 'pink',
     name: { zh: '购物与快递', en: 'Shopping & Delivery', ru: 'Покупки и доставка' },
@@ -270,6 +277,7 @@ const categories = [
   },
   {
     id: 'entertainment',
+    iconId: 'fan',
     icon: '🎬',
     color: 'purple',
     name: { zh: '文化与娱乐', en: 'Culture & Entertainment', ru: 'Культура и досуг' },
@@ -291,6 +299,7 @@ const categories = [
   },
   {
     id: 'travel',
+    iconId: 'mountain',
     icon: '✈️',
     color: 'cyan',
     name: { zh: '旅行与探索', en: 'Travel & Explore', ru: 'Путешествия' },

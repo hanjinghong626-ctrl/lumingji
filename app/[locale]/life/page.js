@@ -162,7 +162,7 @@ export default function LifeGuidePage() {
               style={{ animationDelay: `${idx * 0.05}s` }}
             >
               <div className="flex items-center gap-3 mb-3">
-                <HomeIcon id={cat.id} size={28} color="#4a8a6e" style={{ flexShrink: 0 }} />
+                <HomeIcon id={cat.iconId} size={28} color="#4a8a6e" style={{ flexShrink: 0 }} />
                 <div>
                   <h3 className="text-lg font-wenkai font-bold text-gray-800 group-hover:text-primary-700 transition-colors">
                     {cat.name[lang]}
