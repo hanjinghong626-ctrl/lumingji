@@ -354,62 +354,6 @@ export default function LifeGuidePage() {
   );
 }
 
-/* ── 青绿山水主题 SVG 图标组件 ── */
-function HomeIcon({ id, size = 16, color = 'currentColor' }) {
-  const p = { fill: 'none', stroke: color, strokeWidth: 1.5, strokeLinecap: 'round', strokeLinejoin: 'round' };
-  switch (id) {
-    case 'scroll':
-      return <svg width={size} height={size} viewBox="0 0 24 24" {...p}><path d="M5 4h10a2 2 0 012 2v12a2 2 0 01-2 2H7a2 2 0 01-2-2V6a2 2 0 012-2z"/><path d="M9 9h4M9 12h4M9 15h2" opacity="0.5"/></svg>;
-    case 'brush':
-      return <svg width={size} height={size} viewBox="0 0 24 24" {...p}><path d="M12 3v10"/><path d="M9 13c0 4 1.5 7 3 7s3-3 3-7"/><path d="M10 5h4" opacity="0.5"/></svg>;
-    case 'bell':
-      return <svg width={size} height={size} viewBox="0 0 24 24" {...p}><path d="M12 3v1"/><path d="M7 10a5 5 0 0110 0v4l2 2H5l2-2v-4z"/><path d="M10 18a2 2 0 004 0"/></svg>;
-    case 'crane':
-      return <svg width={size} height={size} viewBox="0 0 24 24" {...p}><path d="M4 12l5-3 4 1 5-4"/><path d="M9 9l-1 5 4 2"/><path d="M18 6l2 1" opacity="0.5"/></svg>;
-    case 'phone':
-      return <svg width={size} height={size} viewBox="0 0 24 24" {...p}><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 19h2" opacity="0.5"/></svg>;
-    case 'wallet':
-      return <svg width={size} height={size} viewBox="0 0 24 24" {...p}><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 4v2M12 18v2M4 12h2M18 12h2" opacity="0.4"/></svg>;
-    case 'chat':
-      return <svg width={size} height={size} viewBox="0 0 24 24" {...p}><path d="M4 6h12a2 2 0 012 2v6a2 2 0 01-2 2H8l-4 3V8a2 2 0 012-2z"/><path d="M8 10h4M8 13h2" opacity="0.4"/></svg>;
-    case 'bank':
-      return <svg width={size} height={size} viewBox="0 0 24 24" {...p}><path d="M3 10l9-5 9 5"/><path d="M5 10v8h14v-8"/><path d="M9 13v3M12 13v3M15 13v3" opacity="0.5"/></svg>;
-    case 'metro':
-      return <svg width={size} height={size} viewBox="0 0 24 24" {...p}><rect x="5" y="4" width="14" height="12" rx="3"/><path d="M8 20l-1-4M16 20l1-4"/><circle cx="9" cy="12" r="1.5"/><circle cx="15" cy="12" r="1.5"/></svg>;
-    case 'delivery':
-      return <svg width={size} height={size} viewBox="0 0 24 24" {...p}><rect x="3" y="8" width="10" height="9" rx="1"/><path d="M13 11h4l3 3v3h-7"/><circle cx="7" cy="19" r="2"/><circle cx="17" cy="19" r="2"/></svg>;
-    case 'exchange':
-      return <svg width={size} height={size} viewBox="0 0 24 24" {...p}><path d="M7 10h10l-3-3"/><path d="M17 14H7l3 3"/></svg>;
-    case 'wen':
-      return <svg width={size} height={size} viewBox="0 0 24 24" {...p}><path d="M4 4h16M4 10h16M4 16h16"/><path d="M8 4v16M16 4v16" opacity="0.4"/></svg>;
-    case 'seal':
-      return <svg width={size} height={size} viewBox="0 0 24 24" {...p}><rect x="5" y="3" width="14" height="8" rx="1"/><path d="M8 11v5l4 4 4-4v-5"/><path d="M9 6h6" opacity="0.4"/></svg>;
-    case 'lingzhi':
-      return <svg width={size} height={size} viewBox="0 0 24 24" {...p}><path d="M6 10c0-4 3-7 6-7s6 3 6 7c0 2-3 3-6 3s-6-1-6-3z"/><path d="M12 13v6"/><path d="M8 21h8" opacity="0.5"/></svg>;
-    case 'bamboo':
-      return <svg width={size} height={size} viewBox="0 0 24 24" {...p}><path d="M8 3v18M13 3v18M18 3v18"/><path d="M6 8h14M6 14h14" opacity="0.4"/></svg>;
-    case 'calligraphy':
-      return <svg width={size} height={size} viewBox="0 0 24 24" {...p}><path d="M14 3l-2 10"/><path d="M12 13c-1 3-2 5-3 7"/><path d="M10 8h6" opacity="0.4"/></svg>;
-    case 'moongate':
-      return <svg width={size} height={size} viewBox="0 0 24 24" {...p}><circle cx="12" cy="12" r="7"/><path d="M5 20h14"/><path d="M9 19v-2a3 3 0 016 0v2" opacity="0.4"/></svg>;
-    case 'basket':
-      return <svg width={size} height={size} viewBox="0 0 24 24" {...p}><path d="M5 10h14l-2 10H7L5 10z"/><path d="M8 10c0-3 2-6 4-6s4 3 4 6" opacity="0.5"/></svg>;
-    case 'fan':
-      return <svg width={size} height={size} viewBox="0 0 24 24" {...p}><path d="M12 20L4 8a10 10 0 0116 0L12 20z"/><path d="M12 20v-6M9 11l3 3M15 11l-3 3" opacity="0.4"/></svg>;
-    case 'mountain':
-      return <svg width={size} height={size} viewBox="0 0 24 24" {...p}><path d="M3 20l6-12 4 6 3-4 5 10"/><path d="M14 10c-1-1 0-3 1-3s2 1 1 3" opacity="0.5"/></svg>;
-    case 'inkbamboo':
-      return <svg width={size} height={size} viewBox="0 0 24 24" {...p}><path d="M12 22V6"/><path d="M8 9c2-1 4-1 4-3M16 9c-2-1-4-1-4-3"/><path d="M7 14c2.5-1 5-1 5-4M17 14c-2.5-1-5-1-5-4"/><path d="M9 5c1.5-1 3-1 3-2M15 5c-1.5-1-3-1-3-2" opacity="0.5"/></svg>;
-    case 'launch':
-      return <svg width={size} height={size} viewBox="0 0 24 24" {...p}><path d="M12 2c-3 4-4 8-4 12h8c0-4-1-8-4-12z"/><path d="M8 14l-2 4h12l-2-4"/><path d="M11 10h2" opacity="0.5"/></svg>;
-    case 'apple':
-      return <svg width={size} height={size} viewBox="0 0 24 24" {...p}><path d="M12 5c-3 0-6 3-6 7s3 8 6 8 6-4 6-8-3-7-6-7z"/><path d="M12 5c0-2 1-3 3-3"/></svg>;
-    case 'house':
-      return <svg width={size} height={size} viewBox="0 0 24 24" {...p}><path d="M3 12l9-8 9 8"/><path d="M5 12v8h14v-8"/><path d="M10 20v-5h4v5" opacity="0.5"/></svg>;
-    default:
-      return <svg width={size} height={size} viewBox="0 0 24 24" {...p}><circle cx="12" cy="12" r="8"/></svg>;
-  }
-}
 
 /* ── 青绿山水主题 SVG 图标组件 ── */
 function HomeIcon({ id, size = 16, color = 'currentColor', style = {} }) {
