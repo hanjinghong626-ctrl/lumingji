@@ -129,6 +129,87 @@ export default function HomePage() {
       {/* ============ Ink Divider ============ */}
       <div className="ink-divider" />
 
+      {/* ============ Phrasebook Portal — 沉浸式入口 ============ */}
+      <section style={{ position: 'relative', overflow: 'hidden' }}>
+        <div
+          ref={(el) => (sectionRefs.current[4] = el)}
+          className="reveal-up"
+          style={{ maxWidth: 960, margin: '0 auto', padding: '0 16px' }}
+        >
+          <Link href={`/${l}/life/phrasebook`} style={{ textDecoration: 'none' }}>
+            <div style={{
+              position: 'relative', borderRadius: 20, overflow: 'hidden',
+              background: 'linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%)',
+              border: '1px solid rgba(99,102,241,0.2)',
+              padding: '36px 28px', cursor: 'pointer',
+              transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+            }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-4px)';
+                e.currentTarget.style.boxShadow = '0 20px 60px rgba(99,102,241,0.2)';
+                e.currentTarget.style.borderColor = 'rgba(99,102,241,0.4)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
+                e.currentTarget.style.borderColor = 'rgba(99,102,241,0.2)';
+              }}
+            >
+              {/* 装饰光斑 */}
+              <div style={{ position: 'absolute', top: '-30%', right: '-10%', width: '40%', height: '200%', borderRadius: '50%', background: 'radial-gradient(circle, rgba(16,185,129,0.12) 0%, transparent 70%)', pointerEvents: 'none' }} />
+              <div style={{ position: 'absolute', bottom: '-40%', left: '-5%', width: '30%', height: '160%', borderRadius: '50%', background: 'radial-gradient(circle, rgba(99,102,241,0.10) 0%, transparent 70%)', pointerEvents: 'none' }} />
+
+              <div style={{ position: 'relative', zIndex: 1, display: 'flex', alignItems: 'center', gap: 24, flexWrap: 'wrap' }}>
+                {/* 左侧图标区 */}
+                <div style={{
+                  width: 64, height: 64, borderRadius: 16, flexShrink: 0,
+                  background: 'linear-gradient(135deg, #6366f1, #10b981)',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  fontSize: 28, boxShadow: '0 8px 24px rgba(99,102,241,0.3)',
+                }}>
+                  🗣️
+                </div>
+
+                {/* 中间文案 */}
+                <div style={{ flex: 1, minWidth: 200 }}>
+                  <div style={{
+                    display: 'inline-block', background: 'rgba(99,102,241,0.15)',
+                    border: '1px solid rgba(99,102,241,0.25)', borderRadius: 12,
+                    padding: '2px 10px', fontSize: 11, color: '#a5b4fc', fontWeight: 500, marginBottom: 8,
+                  }}>
+                    {l === 'ru' ? 'Разговорник' : l === 'en' ? 'Phrasebook' : '口语手册'}
+                  </div>
+                  <h3 style={{
+                    fontSize: 'clamp(18px, 3.5vw, 24px)', fontWeight: 800, margin: '0 0 6px',
+                    background: 'linear-gradient(135deg, #e0e7ff, #6ee7b7)',
+                    WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
+                  }}>
+                    {l === 'ru' ? 'Разговорник для выживания' : l === 'en' ? 'Chinese Survival Phrasebook' : '中文生存口语手册'}
+                  </h3>
+                  <p style={{ color: 'rgba(203,213,225,0.6)', fontSize: 13, margin: 0 }}>
+                    {l === 'ru' ? '11 сценариев · 124+ фраз · Нажмите, чтобы скопировать'
+                      : l === 'en' ? '11 scenarios · 124+ phrases · Tap to copy'
+                      : '11大场景 · 124+实用短句 · 点击即复制'}
+                  </p>
+                </div>
+
+                {/* 右侧箭头 */}
+                <div style={{
+                  width: 40, height: 40, borderRadius: 12, flexShrink: 0,
+                  background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                }}>
+                  <svg width="18" height="18" fill="none" stroke="#a5b4fc" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </Link>
+        </div>
+        <div style={{ height: 48 }} />
+      </section>
+
       {/* ============ Feature Cards — 青绿山水风格 ============ */}
       <section className="cards-section">
         {/* Decorative background elements */}
