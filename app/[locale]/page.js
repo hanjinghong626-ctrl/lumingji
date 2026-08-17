@@ -135,188 +135,213 @@ export default function HomePage() {
       {/* ============ Ink Divider ============ */}
       <div className="ink-divider" />
 
-      {/* ============ Phrasebook Portal — 青绿山水入口 ============ */}
+      {/* ============ Triple Portal Row — 三卡片并排入口 ============ */}
       <section style={{ position: 'relative', overflow: 'hidden' }}>
         <div
           ref={(el) => (sectionRefs.current[4] = el)}
           className="reveal-up"
           style={{ maxWidth: 960, margin: '0 auto', padding: '0 16px' }}
         >
-          <Link href={`/${l}/life/phrasebook`} style={{ textDecoration: 'none' }}>
-            <div style={{
-              position: 'relative', borderRadius: 18, overflow: 'hidden',
-              background: 'linear-gradient(135deg, rgba(200,230,215,0.40) 0%, rgba(180,220,200,0.25) 40%, rgba(210,235,225,0.35) 100%)',
-              border: '1px solid rgba(120,180,155,0.25)',
-              backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)',
-              padding: '28px 24px', cursor: 'pointer',
-              transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
-            }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-3px)';
-                e.currentTarget.style.boxShadow = '0 12px 40px rgba(100,170,140,0.15)';
-                e.currentTarget.style.borderColor = 'rgba(100,170,140,0.4)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = 'none';
-                e.currentTarget.style.borderColor = 'rgba(120,180,155,0.25)';
-              }}
-            >
-              {/* 内嵌山水装饰 */}
-              <svg style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '55%', pointerEvents: 'none', opacity: 0.35 }} viewBox="0 0 600 100" preserveAspectRatio="none">
-                <path d="M0,100 L0,60 Q75,30 150,50 Q225,20 300,45 Q375,15 450,40 Q525,25 600,55 L600,100 Z" fill="rgba(100,170,140,0.12)" />
-                <path d="M0,100 L0,75 Q100,50 200,65 Q300,40 400,60 Q500,45 600,70 L600,100 Z" fill="rgba(80,160,130,0.08)" />
-              </svg>
-              {/* 云雾 */}
-              <div style={{ position: 'absolute', top: '-20%', right: '-5%', width: '25%', height: '120%', borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(160,210,190,0.15) 0%, transparent 70%)', pointerEvents: 'none' }} />
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14 }}>
 
-              <div style={{ position: 'relative', zIndex: 1, display: 'flex', alignItems: 'center', gap: 20, flexWrap: 'wrap' }}>
-                {/* 左侧图标 */}
-                <div style={{
-                  width: 56, height: 56, borderRadius: 14, flexShrink: 0,
-                  background: 'linear-gradient(135deg, #5aa085, #4a9075)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontSize: 26, boxShadow: '0 6px 20px rgba(80,160,130,0.2)',
-                }}>
-                  🗣️
-                </div>
-
-                {/* 文案 */}
-                <div style={{ flex: 1, minWidth: 180 }}>
+            {/* ── 口语手册 ── */}
+            <Link href={`/${l}/life/phrasebook`} style={{ textDecoration: 'none' }}>
+              <div style={{
+                position: 'relative', borderRadius: 16, overflow: 'hidden',
+                background: 'linear-gradient(135deg, rgba(200,230,215,0.45) 0%, rgba(180,220,200,0.30) 50%, rgba(210,235,225,0.40) 100%)',
+                border: '1px solid rgba(120,180,155,0.25)',
+                backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)',
+                padding: '22px 16px 18px', cursor: 'pointer',
+                transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+              }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-3px)';
+                  e.currentTarget.style.boxShadow = '0 12px 40px rgba(100,170,140,0.15)';
+                  e.currentTarget.style.borderColor = 'rgba(100,170,140,0.4)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = 'none';
+                  e.currentTarget.style.borderColor = 'rgba(120,180,155,0.25)';
+                }}
+              >
+                <svg style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '50%', pointerEvents: 'none', opacity: 0.3 }} viewBox="0 0 600 100" preserveAspectRatio="none">
+                  <path d="M0,100 L0,60 Q75,30 150,50 Q225,20 300,45 Q375,15 450,40 Q525,25 600,55 L600,100 Z" fill="rgba(100,170,140,0.12)" />
+                  <path d="M0,100 L0,75 Q100,50 200,65 Q300,40 400,60 Q500,45 600,70 L600,100 Z" fill="rgba(80,160,130,0.08)" />
+                </svg>
+                <div style={{ position: 'absolute', top: '-15%', right: '-8%', width: '30%', height: '100%', borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(160,210,190,0.15) 0%, transparent 70%)', pointerEvents: 'none' }} />
+                <div style={{ position: 'relative', zIndex: 1 }}>
+                  <div style={{
+                    width: 40, height: 40, borderRadius: 11, marginBottom: 10,
+                    background: 'linear-gradient(135deg, #5aa085, #4a9075)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    fontSize: 20, boxShadow: '0 4px 14px rgba(80,160,130,0.2)',
+                  }}>🗣️</div>
                   <div style={{
                     display: 'inline-block', background: 'rgba(100,170,140,0.12)',
-                    border: '1px solid rgba(100,170,140,0.25)', borderRadius: 12,
-                    padding: '2px 10px', fontSize: 11, color: '#4a8a6e', fontWeight: 500, marginBottom: 6,
+                    border: '1px solid rgba(100,170,140,0.25)', borderRadius: 10,
+                    padding: '2px 8px', fontSize: 10, color: '#4a8a6e', fontWeight: 500, marginBottom: 5,
                   }}>
                     {l === 'ru' ? 'Разговорник' : l === 'en' ? 'Phrasebook' : '口语手册'}
                   </div>
                   <h3 style={{
-                    fontSize: 'clamp(17px, 3.5vw, 22px)', fontWeight: 800, margin: '0 0 4px',
-                    color: '#2d5a4a',
+                    fontSize: 'clamp(13px, 2.2vw, 15px)', fontWeight: 800, margin: '0 0 3px',
+                    color: '#2d5a4a', lineHeight: 1.3,
                   }}>
-                    {l === 'ru' ? 'Разговорник для выживания' : l === 'en' ? 'Chinese Survival Phrasebook' : '中文生存口语手册'}
+                    {l === 'ru' ? 'Разговорник' : l === 'en' ? 'Survival Phrasebook' : '中文生存口语手册'}
                   </h3>
-                  <p style={{ color: '#6a9a85', fontSize: 13, margin: 0 }}>
-                    {l === 'ru' ? '11 сценариев · 124+ фраз · Нажмите, чтобы скопировать'
-                      : l === 'en' ? '11 scenarios · 124+ phrases · Tap to copy'
-                      : '11大场景 · 124+实用短句 · 点击即复制'}
+                  <p style={{ color: '#6a9a85', fontSize: 11, margin: 0, lineHeight: 1.4 }}>
+                    {l === 'ru' ? '11 сценариев · 124+ фраз'
+                      : l === 'en' ? '11 scenarios · 124+ phrases'
+                      : '11大场景 · 124+实用短句'}
                   </p>
-                </div>
-
-                {/* 箭头 */}
-                <div style={{
-                  width: 36, height: 36, borderRadius: 10, flexShrink: 0,
-                  background: 'rgba(100,170,140,0.1)', border: '1px solid rgba(100,170,140,0.2)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                }}>
-                  <svg width="16" height="16" fill="none" stroke="#5aa085" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
+                  <div style={{ marginTop: 10, display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
+                    <div style={{
+                      width: 28, height: 28, borderRadius: 8,
+                      background: 'rgba(100,170,140,0.1)', border: '1px solid rgba(100,170,140,0.2)',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    }}>
+                      <svg width="12" height="12" fill="none" stroke="#5aa085" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </Link>
-        </div>
-        <div style={{ height: 24 }} />
-      </section>
+            </Link>
 
-      {/* ============ Mini Tools Row — 小工具并排入口 ============ */}
-      <section style={{ position: 'relative', overflow: 'hidden' }}>
-        <div
-          ref={(el) => (sectionRefs.current[5] = el)}
-          className="reveal-up"
-          style={{ maxWidth: 960, margin: '0 auto', padding: '0 16px' }}
-        >
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 14 }}>
-            {/* 落地第一周 */}
+            {/* ── 落地第一周 ── */}
             <Link href={`/${l}/life/first-week`} style={{ textDecoration: 'none' }}>
               <div style={{
-                display: 'flex', alignItems: 'center', gap: 14,
-                padding: '16px 18px', borderRadius: 14,
-                background: 'linear-gradient(135deg, rgba(230,220,200,0.30), rgba(220,210,190,0.18))',
-                border: '1px solid rgba(180,160,120,0.20)',
-                backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)',
-                transition: 'all 0.3s ease',
+                position: 'relative', borderRadius: 16, overflow: 'hidden',
+                background: 'linear-gradient(135deg, rgba(200,230,215,0.45) 0%, rgba(180,220,200,0.30) 50%, rgba(210,235,225,0.40) 100%)',
+                border: '1px solid rgba(120,180,155,0.25)',
+                backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)',
+                padding: '22px 16px 18px', cursor: 'pointer',
+                transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
               }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-2px)';
-                  e.currentTarget.style.boxShadow = '0 6px 20px rgba(160,140,100,0.10)';
-                  e.currentTarget.style.borderColor = 'rgba(180,160,120,0.35)';
+                  e.currentTarget.style.transform = 'translateY(-3px)';
+                  e.currentTarget.style.boxShadow = '0 12px 40px rgba(100,170,140,0.15)';
+                  e.currentTarget.style.borderColor = 'rgba(100,170,140,0.4)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'translateY(0)';
                   e.currentTarget.style.boxShadow = 'none';
-                  e.currentTarget.style.borderColor = 'rgba(180,160,120,0.20)';
+                  e.currentTarget.style.borderColor = 'rgba(120,180,155,0.25)';
                 }}
               >
-                <div style={{
-                  width: 42, height: 42, borderRadius: 11, flexShrink: 0,
-                  background: 'linear-gradient(135deg, #c8b890, #b8a878)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontSize: 20, boxShadow: '0 3px 10px rgba(160,140,100,0.15)',
-                }}>
-                  📋
-                </div>
-                <div style={{ flex: 1, minWidth: 0 }}>
-                  <h4 style={{ fontSize: 14, fontWeight: 700, margin: '0 0 2px', color: '#5a4a2a' }}>
+                <svg style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '50%', pointerEvents: 'none', opacity: 0.3 }} viewBox="0 0 600 100" preserveAspectRatio="none">
+                  <path d="M0,100 L0,60 Q75,30 150,50 Q225,20 300,45 Q375,15 450,40 Q525,25 600,55 L600,100 Z" fill="rgba(100,170,140,0.12)" />
+                  <path d="M0,100 L0,75 Q100,50 200,65 Q300,40 400,60 Q500,45 600,70 L600,100 Z" fill="rgba(80,160,130,0.08)" />
+                </svg>
+                <div style={{ position: 'absolute', top: '-15%', right: '-8%', width: '30%', height: '100%', borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(160,210,190,0.15) 0%, transparent 70%)', pointerEvents: 'none' }} />
+                <div style={{ position: 'relative', zIndex: 1 }}>
+                  <div style={{
+                    width: 40, height: 40, borderRadius: 11, marginBottom: 10,
+                    background: 'linear-gradient(135deg, #5aa085, #4a9075)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    fontSize: 20, boxShadow: '0 4px 14px rgba(80,160,130,0.2)',
+                  }}>📋</div>
+                  <div style={{
+                    display: 'inline-block', background: 'rgba(100,170,140,0.12)',
+                    border: '1px solid rgba(100,170,140,0.25)', borderRadius: 10,
+                    padding: '2px 8px', fontSize: 10, color: '#4a8a6e', fontWeight: 500, marginBottom: 5,
+                  }}>
                     {l === 'ru' ? 'Первая неделя' : l === 'en' ? 'First Week' : '落地第一周'}
-                  </h4>
-                  <p style={{ fontSize: 12, color: '#9a8a6e', margin: 0, lineHeight: 1.4 }}>
+                  </div>
+                  <h3 style={{
+                    fontSize: 'clamp(13px, 2.2vw, 15px)', fontWeight: 800, margin: '0 0 3px',
+                    color: '#2d5a4a', lineHeight: 1.3,
+                  }}>
+                    {l === 'ru' ? 'Первая неделя' : l === 'en' ? 'First Week Guide' : '落地第一周指南'}
+                  </h3>
+                  <p style={{ color: '#6a9a85', fontSize: 11, margin: 0, lineHeight: 1.4 }}>
                     {l === 'ru' ? '17 задач · Прогресс по дням'
                       : l === 'en' ? '17 tasks · Day-by-day progress'
                       : '17项任务 · 按天追踪进度'}
                   </p>
+                  <div style={{ marginTop: 10, display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
+                    <div style={{
+                      width: 28, height: 28, borderRadius: 8,
+                      background: 'rgba(100,170,140,0.1)', border: '1px solid rgba(100,170,140,0.2)',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    }}>
+                      <svg width="12" height="12" fill="none" stroke="#5aa085" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </div>
                 </div>
-                <svg width="14" height="14" fill="none" stroke="#c8b890" viewBox="0 0 24 24" style={{ flexShrink: 0, opacity: 0.6 }}>
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
               </div>
             </Link>
 
-            {/* 城市PK */}
+            {/* ── 城市PK ── */}
             <Link href={`/${l}/life/city-compare`} style={{ textDecoration: 'none' }}>
               <div style={{
-                display: 'flex', alignItems: 'center', gap: 14,
-                padding: '16px 18px', borderRadius: 14,
-                background: 'linear-gradient(135deg, rgba(200,215,235,0.30), rgba(190,210,230,0.18))',
-                border: '1px solid rgba(100,150,190,0.20)',
-                backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)',
-                transition: 'all 0.3s ease',
+                position: 'relative', borderRadius: 16, overflow: 'hidden',
+                background: 'linear-gradient(135deg, rgba(200,230,215,0.45) 0%, rgba(180,220,200,0.30) 50%, rgba(210,235,225,0.40) 100%)',
+                border: '1px solid rgba(120,180,155,0.25)',
+                backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)',
+                padding: '22px 16px 18px', cursor: 'pointer',
+                transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
               }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-2px)';
-                  e.currentTarget.style.boxShadow = '0 6px 20px rgba(80,130,180,0.10)';
-                  e.currentTarget.style.borderColor = 'rgba(100,150,190,0.35)';
+                  e.currentTarget.style.transform = 'translateY(-3px)';
+                  e.currentTarget.style.boxShadow = '0 12px 40px rgba(100,170,140,0.15)';
+                  e.currentTarget.style.borderColor = 'rgba(100,170,140,0.4)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'translateY(0)';
                   e.currentTarget.style.boxShadow = 'none';
-                  e.currentTarget.style.borderColor = 'rgba(100,150,190,0.20)';
+                  e.currentTarget.style.borderColor = 'rgba(120,180,155,0.25)';
                 }}
               >
-                <div style={{
-                  width: 42, height: 42, borderRadius: 11, flexShrink: 0,
-                  background: 'linear-gradient(135deg, #6a9ac0, #5a8ab0)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontSize: 20, boxShadow: '0 3px 10px rgba(80,130,180,0.15)',
-                }}>
-                  🏙️
-                </div>
-                <div style={{ flex: 1, minWidth: 0 }}>
-                  <h4 style={{ fontSize: 14, fontWeight: 700, margin: '0 0 2px', color: '#2a4a6a' }}>
-                    {l === 'ru' ? 'Сравнение городов' : l === 'en' ? 'City Compare' : '城市PK对比'}
-                  </h4>
-                  <p style={{ fontSize: 12, color: '#6a8a9a', margin: 0, lineHeight: 1.4 }}>
+                <svg style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '50%', pointerEvents: 'none', opacity: 0.3 }} viewBox="0 0 600 100" preserveAspectRatio="none">
+                  <path d="M0,100 L0,60 Q75,30 150,50 Q225,20 300,45 Q375,15 450,40 Q525,25 600,55 L600,100 Z" fill="rgba(100,170,140,0.12)" />
+                  <path d="M0,100 L0,75 Q100,50 200,65 Q300,40 400,60 Q500,45 600,70 L600,100 Z" fill="rgba(80,160,130,0.08)" />
+                </svg>
+                <div style={{ position: 'absolute', top: '-15%', right: '-8%', width: '30%', height: '100%', borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(160,210,190,0.15) 0%, transparent 70%)', pointerEvents: 'none' }} />
+                <div style={{ position: 'relative', zIndex: 1 }}>
+                  <div style={{
+                    width: 40, height: 40, borderRadius: 11, marginBottom: 10,
+                    background: 'linear-gradient(135deg, #5aa085, #4a9075)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    fontSize: 20, boxShadow: '0 4px 14px rgba(80,160,130,0.2)',
+                  }}>🏙️</div>
+                  <div style={{
+                    display: 'inline-block', background: 'rgba(100,170,140,0.12)',
+                    border: '1px solid rgba(100,170,140,0.25)', borderRadius: 10,
+                    padding: '2px 8px', fontSize: 10, color: '#4a8a6e', fontWeight: 500, marginBottom: 5,
+                  }}>
+                    {l === 'ru' ? 'Города' : l === 'en' ? 'City Compare' : '城市对比'}
+                  </div>
+                  <h3 style={{
+                    fontSize: 'clamp(13px, 2.2vw, 15px)', fontWeight: 800, margin: '0 0 3px',
+                    color: '#2d5a4a', lineHeight: 1.3,
+                  }}>
+                    {l === 'ru' ? 'Сравнение городов' : l === 'en' ? 'City Comparison' : '城市PK对比'}
+                  </h3>
+                  <p style={{ color: '#6a9a85', fontSize: 11, margin: 0, lineHeight: 1.4 }}>
                     {l === 'ru' ? '10 городов · Радарная диаграмма'
                       : l === 'en' ? '10 cities · Radar chart'
                       : '10大城市 · 雷达图可视化'}
                   </p>
+                  <div style={{ marginTop: 10, display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
+                    <div style={{
+                      width: 28, height: 28, borderRadius: 8,
+                      background: 'rgba(100,170,140,0.1)', border: '1px solid rgba(100,170,140,0.2)',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    }}>
+                      <svg width="12" height="12" fill="none" stroke="#5aa085" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </div>
                 </div>
-                <svg width="14" height="14" fill="none" stroke="#6a9ac0" viewBox="0 0 24 24" style={{ flexShrink: 0, opacity: 0.6 }}>
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
               </div>
             </Link>
+
           </div>
         </div>
         <div style={{ height: 40 }} />
