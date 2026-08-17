@@ -243,7 +243,26 @@
     "vk_desc": "ВКонтакте 俄语社群，连接在青俄语留学生",
     "wechat": "微信公众号",
     "wechat_desc": "关注获取最新生活资讯和活动通知",
-    "join_hint": "选择你的平台，立即加入"
+    "join_hint": "选择你的平台，立即加入",
+    "wechat_group": "微信群",
+    "wechat_group_desc": "加入青岛留学生微信群，最活跃的中文交流圈",
+    "wechat_group_link": "#",
+    "telegram_link": "#",
+    "vk_link": "#",
+    "whatsapp": "WhatsApp群",
+    "whatsapp_desc": "面向英语和非洲留学生的WhatsApp交流群",
+    "whatsapp_link": "#",
+    "email": "邮件订阅",
+    "email_desc": "订阅邮件，获取最新生活资讯和活动通知",
+    "email_link": "mailto:sushi-music@coze.email",
+    "join_now": "加入",
+    "join_platforms": "加入我们的社群",
+    "tips_title": "留学生活小贴士",
+    "tip_study": "选课建议：大一先选通识课，熟悉环境后再选专业课，记得关注选课系统开放时间。",
+    "tip_housing": "租房提醒：校外住宿必须去派出所办理临时住宿登记，否则影响签证续签。",
+    "tip_food": "饮食建议：学校食堂最实惠；清真同学认准「清真」标识；首次使用外卖App记得领新人券。",
+    "tip_apps": "必备App：支付宝+微信支付是生活基础，12306买火车票，高德地图出行，美团点外卖。",
+    "closing_quote": "「独学而无友，则孤陋而寡闻。」—— 加入我们，在中国的生活不再孤单。"
   },
   "about": {
     "title": "关于鹿鸣集",
@@ -255,7 +274,14 @@
     "mission_title": "我们的使命",
     "mission_desc": "帮助每一位来华留学生更好地适应在中国的生活，感受中华文化的热情与温度。",
     "team_title": "团队",
-    "team_desc": "鹿鸣集由在青岛的留学生和教育工作者共同创建，我们了解初来异国的困惑与挑战。"
+    "team_desc": "鹿鸣集由在青岛的留学生和教育工作者共同创建，我们了解初来异国的困惑与挑战。",
+    "what_we_offer": "我们能为你做什么",
+    "feat_guides": "135篇三语生活指南，覆盖交通、住房、饮食、银行等15个分类",
+    "feat_ai": "AI智能助手，基于DeepSeek大模型，随时解答你在中国的一切疑问",
+    "feat_trilingual": "中/俄/英三语完整支持，一键切换母语阅读",
+    "feat_local": "聚焦青岛本地，提供28所高校信息和真实物价数据",
+    "feat_free": "完全免费，无任何广告，由留学生社群共建共享",
+    "feat_community": "连接微信、Telegram、WhatsApp等多个社群平台"
   },
   "footer": {
     "copyright": "© 2026 鹿鸣集 LuMingJi. All rights reserved.",

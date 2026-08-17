@@ -563,3 +563,96 @@
     padding: 16px;
   }
 }
+
+/* ========== Generic Card (About/Community pages) ========== */
+.content-card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(26, 107, 90, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+.content-card:hover {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(26, 107, 90, 0.2);
+  box-shadow: 0 8px 30px rgba(15, 155, 116, 0.06);
+  transform: translateY(-2px);
+}
+
+/* ========== About Page Enhancements ========== */
+.about-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+.about-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 12px;
+  background: rgba(15, 155, 116, 0.04);
+  border: 1px solid rgba(15, 155, 116, 0.08);
+  transition: all 0.3s ease;
+}
+.about-feature-item:hover {
+  background: rgba(15, 155, 116, 0.08);
+  border-color: rgba(15, 155, 116, 0.18);
+}
+.about-feature-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, rgba(15, 155, 116, 0.1), rgba(21, 94, 122, 0.1));
+  color: #0f9b74;
+}
+
+/* ========== Community Page Platform Cards ========== */
+.platform-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(26, 107, 90, 0.1);
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+.platform-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--platform-color, #0f9b74);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.platform-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--platform-color, #0f9b74);
+  box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.1);
+}
+.platform-card:hover::before {
+  opacity: 1;
+}
+.platform-icon-wrap {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  background: var(--platform-bg, rgba(15, 155, 116, 0.08));
+  transition: all 0.3s ease;
+}
+.platform-card:hover .platform-icon-wrap {
+  transform: scale(1.08);
+  background: var(--platform-bg-hover, rgba(15, 155, 116, 0.15));
+}

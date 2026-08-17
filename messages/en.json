@@ -243,7 +243,26 @@
     "vk_desc": "Russian-speaking community for international students in Qingdao",
     "wechat": "WeChat",
     "wechat_desc": "Follow us for latest updates and events",
-    "join_hint": "Choose your platform and join now"
+    "join_hint": "Choose your platform and join now",
+    "wechat_group": "WeChat Group",
+    "wechat_group_desc": "Join the Qingdao international student WeChat group",
+    "wechat_group_link": "#",
+    "telegram_link": "#",
+    "vk_link": "#",
+    "whatsapp": "WhatsApp Group",
+    "whatsapp_desc": "WhatsApp group for English-speaking and African students",
+    "whatsapp_link": "#",
+    "email": "Email Newsletter",
+    "email_desc": "Subscribe for latest updates, tips and event notifications",
+    "email_link": "mailto:sushi-music@coze.email",
+    "join_now": "Join Now",
+    "join_platforms": "Join Our Community",
+    "tips_title": "Student Life Tips",
+    "tip_study": "Course selection: Start with general education courses in your first semester, then take major courses once settled.",
+    "tip_housing": "Renting reminder: Off-campus residents must register at the local police station — this is required for visa renewal.",
+    "tip_food": "Food tips: Campus canteens are the most affordable. Look for \"Halal\" signs if needed. Claim new-user coupons on delivery apps.",
+    "tip_apps": "Must-have apps: Alipay + WeChat Pay are essential. 12306 for trains, Amap for navigation, Meituan for food delivery.",
+    "closing_quote": "\"Studying alone without friends leads to narrow and shallow knowledge.\" — Join us, and never feel alone in China."
   },
   "about": {
     "title": "About LuMingJi",
@@ -255,7 +274,14 @@
     "mission_title": "Our Mission",
     "mission_desc": "To help every international student adapt to life in China and feel the warmth of Chinese culture.",
     "team_title": "Our Team",
-    "team_desc": "LuMingJi was founded by international students and educators in Qingdao. We understand the challenges of starting fresh in a new country."
+    "team_desc": "LuMingJi was founded by international students and educators in Qingdao. We understand the challenges of starting fresh in a new country.",
+    "what_we_offer": "What We Offer",
+    "feat_guides": "135 trilingual life guides covering 15 categories: transport, housing, food, banking & more",
+    "feat_ai": "AI assistant powered by DeepSeek, ready to answer anything about life in China",
+    "feat_trilingual": "Full support in Chinese, Russian & English — switch to your母语 with one click",
+    "feat_local": "Focused on Qingdao with 28 universities and real cost-of-living data",
+    "feat_free": "Completely free, no ads — built and shared by the international student community",
+    "feat_community": "Connected across WeChat, Telegram, WhatsApp and more platforms"
   },
   "footer": {
     "copyright": "© 2026 LuMingJi. All rights reserved.",
