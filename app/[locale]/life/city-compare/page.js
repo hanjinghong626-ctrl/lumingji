@@ -429,68 +429,26 @@ export default function CityComparePage() {
       {/* ═══ Hero — 城市PK对比 ═══ */}
       <section style={{
         position: 'relative',
-        background: 'linear-gradient(135deg, #f0f4f8 0%, #e8edf5 40%, #dde5f0 100%)',
+        background: '#f5f7fa',
         padding: '90px 16px 70px',
         overflow: 'hidden',
         minHeight: '40vh',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
       }}>
-        {/* 装饰：古典曲线（左）+ 现代直线（右） */}
-        <div style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', opacity: 0.08 }}>
-          <svg width="100%" height="100%" viewBox="0 0 1200 400" preserveAspectRatio="xMidYMax slice" style={{ position: 'absolute', bottom: 0 }}>
-            {/* 左侧：古典建筑抽象曲线（飞檐/拱门意象） */}
-            <path d="M 0 400 L 0 280 Q 60 260 120 280 Q 120 200 180 180 Q 180 140 240 130 Q 240 100 300 90 L 300 400" fill="none" stroke="#8B6914" strokeWidth="1.5"/>
-            <path d="M 0 400 L 0 310 Q 50 295 100 310 Q 100 240 160 225 Q 160 190 220 180 Q 220 155 280 145 L 280 400" fill="none" stroke="#8B6914" strokeWidth="1"/>
-            <path d="M 60 400 L 60 320 Q 90 310 120 320 L 120 400" fill="none" stroke="#8B6914" strokeWidth="1"/>
-            {/* 拱门 */}
-            <path d="M 140 400 L 140 330 Q 170 310 200 330 L 200 400" fill="none" stroke="#8B6914" strokeWidth="1.2"/>
-            <path d="M 210 400 L 210 340 Q 230 325 250 340 L 250 400" fill="none" stroke="#8B6914" strokeWidth="0.8"/>
-
-            {/* 中间过渡：渐变线条 */}
-            <path d="M 350 400 L 350 300 Q 420 280 490 300 L 490 400" fill="none" stroke="#7a8fa6" strokeWidth="1"/>
-            <path d="M 500 400 L 500 290 Q 560 270 620 290 L 620 400" fill="none" stroke="#7a8fa6" strokeWidth="0.8"/>
-
-            {/* 右侧：现代建筑抽象直线（摩天楼意象） */}
-            <rect x="700" y="220" width="28" height="180" fill="none" stroke="#5a7d9a" strokeWidth="1.2" rx="1"/>
-            <rect x="740" y="170" width="32" height="230" fill="none" stroke="#5a7d9a" strokeWidth="1.2" rx="1"/>
-            <rect x="785" y="250" width="24" height="150" fill="none" stroke="#5a7d9a" strokeWidth="1" rx="1"/>
-            <rect x="820" y="190" width="30" height="210" fill="none" stroke="#5a7d9a" strokeWidth="1.2" rx="1"/>
-            <rect x="862" y="240" width="26" height="160" fill="none" stroke="#5a7d9a" strokeWidth="1" rx="1"/>
-            {/* 窗户细节 */}
-            <line x1="752" y1="190" x2="760" y2="190" stroke="#5a7d9a" strokeWidth="0.6" opacity="0.6"/>
-            <line x1="752" y1="210" x2="760" y2="210" stroke="#5a7d9a" strokeWidth="0.6" opacity="0.6"/>
-            <line x1="752" y1="230" x2="760" y2="230" stroke="#5a7d9a" strokeWidth="0.6" opacity="0.6"/>
-            <line x1="752" y1="250" x2="760" y2="250" stroke="#5a7d9a" strokeWidth="0.6" opacity="0.6"/>
-            <line x1="832" y1="210" x2="840" y2="210" stroke="#5a7d9a" strokeWidth="0.6" opacity="0.6"/>
-            <line x1="832" y1="230" x2="840" y2="230" stroke="#5a7d9a" strokeWidth="0.6" opacity="0.6"/>
-            <line x1="832" y1="250" x2="840" y2="250" stroke="#5a7d9a" strokeWidth="0.6" opacity="0.6"/>
-
-            {/* 更多现代楼 */}
-            <rect x="910" y="200" width="26" height="200" fill="none" stroke="#5a7d9a" strokeWidth="1" rx="1"/>
-            <rect x="948" y="260" width="22" height="140" fill="none" stroke="#5a7d9a" strokeWidth="0.8" rx="1"/>
-            <rect x="982" y="230" width="28" height="170" fill="none" stroke="#5a7d9a" strokeWidth="1" rx="1"/>
-            <rect x="1022" y="270" width="24" height="130" fill="none" stroke="#5a7d9a" strokeWidth="0.8" rx="1"/>
-            <rect x="1058" y="250" width="26" height="150" fill="none" stroke="#5a7d9a" strokeWidth="0.8" rx="1"/>
-            <rect x="1096" y="280" width="22" height="120" fill="none" stroke="#5a7d9a" strokeWidth="0.8" rx="1"/>
-            <rect x="1130" y="260" width="26" height="140" fill="none" stroke="#5a7d9a" strokeWidth="0.8" rx="1"/>
-            <rect x="1168" y="290" width="22" height="110" fill="none" stroke="#5a7d9a" strokeWidth="0.8" rx="1"/>
-
-            {/* 底部地平线 */}
-            <line x1="0" y1="399" x2="1200" y2="399" stroke="#8B6914" strokeWidth="0.5" opacity="0.3"/>
-          </svg>
-        </div>
-
-        {/* 装饰圆 */}
+        {/* 背景图：中国城市天际线 */}
         <div style={{
-          position: 'absolute', top: '20%', left: '10%', width: '200px', height: '200px',
-          borderRadius: '50%', border: '1px solid rgba(139,105,20,0.06)',
-          animation: 'cityGlow 8s ease-in-out infinite',
+          position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
+          backgroundImage: 'url(/city-hero.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          opacity: 0.35,
           pointerEvents: 'none',
         }} />
+        {/* 渐变遮罩，确保文字可读 */}
         <div style={{
-          position: 'absolute', top: '25%', right: '12%', width: '160px', height: '160px',
-          borderRadius: '50%', border: '1px solid rgba(90,125,154,0.06)',
-          animation: 'cityGlow 8s ease-in-out infinite 4s',
+          position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
+          background: 'linear-gradient(180deg, rgba(245,247,250,0.3) 0%, rgba(245,247,250,0.6) 50%, rgba(245,247,250,0.85) 100%)',
           pointerEvents: 'none',
         }} />
 
