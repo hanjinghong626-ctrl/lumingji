@@ -450,6 +450,34 @@ export default function HomePage() {
         {/* Decorative background elements */}
         <div className="cards-section-bg" />
 
+        {/* ── 青绿山水装饰层 ── */}
+        <svg style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '45%', pointerEvents: 'none', zIndex: 1 }} viewBox="0 0 1200 300" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="fm1" x1="600" y1="40" x2="600" y2="280" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stopColor="#4a8a6e" stopOpacity="0.08"/>
+              <stop offset="1" stopColor="#6aaa8e" stopOpacity="0.03"/>
+            </linearGradient>
+            <linearGradient id="fm2" x1="600" y1="80" x2="600" y2="300" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stopColor="#3d7a65" stopOpacity="0.06"/>
+              <stop offset="1" stopColor="#5a9a80" stopOpacity="0.02"/>
+            </linearGradient>
+            <linearGradient id="fm3" x1="600" y1="140" x2="600" y2="300" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stopColor="#2d6a55" stopOpacity="0.05"/>
+              <stop offset="1" stopColor="#4a8a72" stopOpacity="0.015"/>
+            </linearGradient>
+          </defs>
+          {/* 远山层 — 最高最淡 */}
+          <path d="M0,300 L0,120 Q100,40 200,100 Q280,50 380,90 Q460,30 560,80 Q650,20 750,70 Q850,35 950,85 Q1050,45 1150,95 L1200,110 L1200,300Z" fill="url(#fm1)"/>
+          {/* 中山层 */}
+          <path d="M0,300 L0,170 Q80,100 180,150 Q260,90 370,140 Q450,80 560,130 Q660,75 760,125 Q860,90 960,140 Q1060,100 1160,150 L1200,160 L1200,300Z" fill="url(#fm2)"/>
+          {/* 近山层 — 最低最浅 */}
+          <path d="M0,300 L0,220 Q100,170 200,200 Q300,160 400,195 Q500,155 600,190 Q700,150 800,185 Q900,160 1000,200 Q1100,175 1200,210 L1200,300Z" fill="url(#fm3)"/>
+          {/* 云雾点缀 */}
+          <ellipse cx="300" cy="130" rx="120" ry="18" fill="white" opacity="0.06"/>
+          <ellipse cx="800" cy="110" rx="100" ry="15" fill="white" opacity="0.05"/>
+          <ellipse cx="550" cy="160" rx="80" ry="12" fill="white" opacity="0.04"/>
+        </svg>
+
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-20 md:py-28">
           {/* Section Header */}
           <div
@@ -507,6 +535,12 @@ export default function HomePage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                   </span>
+
+                  {/* 青绿山水卡片底纹 */}
+                  <svg style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '35%', pointerEvents: 'none', opacity: 0.06, borderRadius: '0 0 16px 16px', overflow: 'hidden' }} viewBox="0 0 200 80" preserveAspectRatio="none">
+                    <path d="M0,80 L0,40 Q25,15 50,35 Q70,10 100,30 Q130,8 160,28 Q180,18 200,38 L200,80Z" fill="#3d7a65"/>
+                    <path d="M0,80 L0,55 Q30,35 60,50 Q90,30 120,48 Q150,25 180,45 L200,50 L200,80Z" fill="#5a9a80"/>
+                  </svg>
                 </Link>
               </div>
             ))}
