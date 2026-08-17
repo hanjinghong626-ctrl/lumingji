@@ -451,31 +451,31 @@ export default function HomePage() {
         <div className="cards-section-bg" />
 
         {/* ── 青绿山水装饰层 ── */}
-        <svg style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '45%', pointerEvents: 'none', zIndex: 1 }} viewBox="0 0 1200 300" preserveAspectRatio="none">
+        <svg style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '55%', pointerEvents: 'none', zIndex: 1 }} viewBox="0 0 1200 350" preserveAspectRatio="none">
           <defs>
-            <linearGradient id="fm1" x1="600" y1="40" x2="600" y2="280" gradientUnits="userSpaceOnUse">
-              <stop offset="0" stopColor="#4a8a6e" stopOpacity="0.08"/>
-              <stop offset="1" stopColor="#6aaa8e" stopOpacity="0.03"/>
+            <linearGradient id="fm1" x1="600" y1="0" x2="600" y2="350" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stopColor="#4a8a6e" stopOpacity="0.18"/>
+              <stop offset="1" stopColor="#6aaa8e" stopOpacity="0.08"/>
             </linearGradient>
-            <linearGradient id="fm2" x1="600" y1="80" x2="600" y2="300" gradientUnits="userSpaceOnUse">
-              <stop offset="0" stopColor="#3d7a65" stopOpacity="0.06"/>
-              <stop offset="1" stopColor="#5a9a80" stopOpacity="0.02"/>
+            <linearGradient id="fm2" x1="600" y1="0" x2="600" y2="350" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stopColor="#3d7a65" stopOpacity="0.14"/>
+              <stop offset="1" stopColor="#5a9a80" stopOpacity="0.06"/>
             </linearGradient>
-            <linearGradient id="fm3" x1="600" y1="140" x2="600" y2="300" gradientUnits="userSpaceOnUse">
-              <stop offset="0" stopColor="#2d6a55" stopOpacity="0.05"/>
-              <stop offset="1" stopColor="#4a8a72" stopOpacity="0.015"/>
+            <linearGradient id="fm3" x1="600" y1="0" x2="600" y2="350" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stopColor="#2d6a55" stopOpacity="0.12"/>
+              <stop offset="1" stopColor="#4a8a72" stopOpacity="0.04"/>
             </linearGradient>
           </defs>
           {/* 远山层 — 最高最淡 */}
-          <path d="M0,300 L0,120 Q100,40 200,100 Q280,50 380,90 Q460,30 560,80 Q650,20 750,70 Q850,35 950,85 Q1050,45 1150,95 L1200,110 L1200,300Z" fill="url(#fm1)"/>
+          <path d="M0,350 L0,100 Q100,30 220,90 Q320,40 430,80 Q520,20 630,65 Q730,10 840,55 Q940,25 1050,70 Q1130,40 1200,85 L1200,350Z" fill="url(#fm1)"/>
           {/* 中山层 */}
-          <path d="M0,300 L0,170 Q80,100 180,150 Q260,90 370,140 Q450,80 560,130 Q660,75 760,125 Q860,90 960,140 Q1060,100 1160,150 L1200,160 L1200,300Z" fill="url(#fm2)"/>
-          {/* 近山层 — 最低最浅 */}
-          <path d="M0,300 L0,220 Q100,170 200,200 Q300,160 400,195 Q500,155 600,190 Q700,150 800,185 Q900,160 1000,200 Q1100,175 1200,210 L1200,300Z" fill="url(#fm3)"/>
+          <path d="M0,350 L0,160 Q90,90 200,140 Q300,80 420,130 Q520,70 640,120 Q740,65 850,115 Q950,80 1060,130 Q1140,100 1200,145 L1200,350Z" fill="url(#fm2)"/>
+          {/* 近山层 — 最低 */}
+          <path d="M0,350 L0,230 Q120,180 240,215 Q360,170 480,205 Q600,165 720,200 Q840,175 960,210 Q1080,185 1200,220 L1200,350Z" fill="url(#fm3)"/>
           {/* 云雾点缀 */}
-          <ellipse cx="300" cy="130" rx="120" ry="18" fill="white" opacity="0.06"/>
-          <ellipse cx="800" cy="110" rx="100" ry="15" fill="white" opacity="0.05"/>
-          <ellipse cx="550" cy="160" rx="80" ry="12" fill="white" opacity="0.04"/>
+          <ellipse cx="300" cy="130" rx="130" ry="20" fill="white" opacity="0.12"/>
+          <ellipse cx="800" cy="100" rx="110" ry="16" fill="white" opacity="0.10"/>
+          <ellipse cx="560" cy="170" rx="90" ry="14" fill="white" opacity="0.08"/>
         </svg>
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-20 md:py-28">
