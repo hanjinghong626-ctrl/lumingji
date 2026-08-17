@@ -286,5 +286,51 @@
   "footer": {
     "copyright": "© 2026 LuMingJi. All rights reserved.",
     "made_with": "Made with ❤️ for international students in China"
+  },
+  "first_week": {
+    "title": "First Week Checklist",
+    "subtitle": "17 essential tasks to get you through your first week",
+    "hero_desc": "From landing at the airport to settling in, your first week can be exciting yet overwhelming. This checklist organizes the most important tasks by day — check off each one as you go.",
+    "progress": "Completed",
+    "day0_title": "Day 0 · Arrival Day",
+    "day0_desc": "Your first day in China",
+    "day1_title": "Day 1 · Day 1",
+    "day1_desc": "Communication & Payment Basics",
+    "day2_title": "Day 2 · Day 2",
+    "day2_desc": "Banking & Accommodation",
+    "day3_title": "Day 3-4",
+    "day3_desc": "Get Familiar",
+    "day4_title": "Day 5-7",
+    "day4_desc": "School & Life Setup",
+    "task": "Task",
+    "must_do": "Must Do",
+    "recommended": "Recommended",
+    "view_guide": "View Guide",
+    "complete": "Complete",
+    "reset": "Reset"
+  },
+  "city_compare": {
+    "title": "City Comparison",
+    "subtitle": "Compare popular study cities across multiple dimensions",
+    "hero_desc": "Tuition, rent, food costs, climate, transportation, healthcare... every city has its own character. Select two or more cities and compare them side by side to find your perfect match.",
+    "select_cities": "Select Cities",
+    "add_city": "+ Add City",
+    "remove": "Remove",
+    "no_city": "Please select at least 2 cities to compare",
+    "compare": "Start Comparison",
+    "dimensions": {
+      "tuition": "Avg Tuition/Year",
+      "rent": "Monthly Rent (Single)",
+      "food": "Monthly Food Cost",
+      "transport": "Monthly Transport",
+      "climate": "Climate",
+      "community": "Intl Student Community",
+      "language": "English Proficiency",
+      "food_culture": "Food Culture",
+      "safety": "Safety Index",
+      "entertainment": "Entertainment",
+      "healthcare": "Healthcare",
+      "overall": "Overall Rating"
+    }
   }
 }

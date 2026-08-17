@@ -217,6 +217,108 @@ export default function HomePage() {
             </div>
           </Link>
         </div>
+        <div style={{ height: 24 }} />
+      </section>
+
+      {/* ============ Mini Tools Row — 小工具并排入口 ============ */}
+      <section style={{ position: 'relative', overflow: 'hidden' }}>
+        <div
+          ref={(el) => (sectionRefs.current[5] = el)}
+          className="reveal-up"
+          style={{ maxWidth: 960, margin: '0 auto', padding: '0 16px' }}
+        >
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 14 }}>
+            {/* 落地第一周 */}
+            <Link href={`/${l}/life/first-week`} style={{ textDecoration: 'none' }}>
+              <div style={{
+                display: 'flex', alignItems: 'center', gap: 14,
+                padding: '16px 18px', borderRadius: 14,
+                background: 'linear-gradient(135deg, rgba(230,220,200,0.30), rgba(220,210,190,0.18))',
+                border: '1px solid rgba(180,160,120,0.20)',
+                backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)',
+                transition: 'all 0.3s ease',
+              }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                  e.currentTarget.style.boxShadow = '0 6px 20px rgba(160,140,100,0.10)';
+                  e.currentTarget.style.borderColor = 'rgba(180,160,120,0.35)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = 'none';
+                  e.currentTarget.style.borderColor = 'rgba(180,160,120,0.20)';
+                }}
+              >
+                <div style={{
+                  width: 42, height: 42, borderRadius: 11, flexShrink: 0,
+                  background: 'linear-gradient(135deg, #c8b890, #b8a878)',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  fontSize: 20, boxShadow: '0 3px 10px rgba(160,140,100,0.15)',
+                }}>
+                  📋
+                </div>
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <h4 style={{ fontSize: 14, fontWeight: 700, margin: '0 0 2px', color: '#5a4a2a' }}>
+                    {l === 'ru' ? 'Первая неделя' : l === 'en' ? 'First Week' : '落地第一周'}
+                  </h4>
+                  <p style={{ fontSize: 12, color: '#9a8a6e', margin: 0, lineHeight: 1.4 }}>
+                    {l === 'ru' ? '17 задач · Прогресс по дням'
+                      : l === 'en' ? '17 tasks · Day-by-day progress'
+                      : '17项任务 · 按天追踪进度'}
+                  </p>
+                </div>
+                <svg width="14" height="14" fill="none" stroke="#c8b890" viewBox="0 0 24 24" style={{ flexShrink: 0, opacity: 0.6 }}>
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </Link>
+
+            {/* 城市PK */}
+            <Link href={`/${l}/life/city-compare`} style={{ textDecoration: 'none' }}>
+              <div style={{
+                display: 'flex', alignItems: 'center', gap: 14,
+                padding: '16px 18px', borderRadius: 14,
+                background: 'linear-gradient(135deg, rgba(200,215,235,0.30), rgba(190,210,230,0.18))',
+                border: '1px solid rgba(100,150,190,0.20)',
+                backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)',
+                transition: 'all 0.3s ease',
+              }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                  e.currentTarget.style.boxShadow = '0 6px 20px rgba(80,130,180,0.10)';
+                  e.currentTarget.style.borderColor = 'rgba(100,150,190,0.35)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = 'none';
+                  e.currentTarget.style.borderColor = 'rgba(100,150,190,0.20)';
+                }}
+              >
+                <div style={{
+                  width: 42, height: 42, borderRadius: 11, flexShrink: 0,
+                  background: 'linear-gradient(135deg, #6a9ac0, #5a8ab0)',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  fontSize: 20, boxShadow: '0 3px 10px rgba(80,130,180,0.15)',
+                }}>
+                  🏙️
+                </div>
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <h4 style={{ fontSize: 14, fontWeight: 700, margin: '0 0 2px', color: '#2a4a6a' }}>
+                    {l === 'ru' ? 'Сравнение городов' : l === 'en' ? 'City Compare' : '城市PK对比'}
+                  </h4>
+                  <p style={{ fontSize: 12, color: '#6a8a9a', margin: 0, lineHeight: 1.4 }}>
+                    {l === 'ru' ? '10 городов · Радарная диаграмма'
+                      : l === 'en' ? '10 cities · Radar chart'
+                      : '10大城市 · 雷达图可视化'}
+                  </p>
+                </div>
+                <svg width="14" height="14" fill="none" stroke="#6a9ac0" viewBox="0 0 24 24" style={{ flexShrink: 0, opacity: 0.6 }}>
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </Link>
+          </div>
+        </div>
         <div style={{ height: 40 }} />
       </section>
 

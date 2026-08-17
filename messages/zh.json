@@ -286,5 +286,51 @@
   "footer": {
     "copyright": "© 2026 鹿鸣集 LuMingJi. All rights reserved.",
     "made_with": "用 ❤️ 为来华留学生而建"
+  },
+  "first_week": {
+    "title": "落地第一周",
+    "subtitle": "17件必办小事，陪你安稳度过初来乍到的日子",
+    "hero_desc": "从中国机场落地到安顿下来，这一周可能既兴奋又手忙脚乱。这份清单把最重要的事情按天排好，勾选一个就安心一分。",
+    "progress": "已完成",
+    "day0_title": "Day 0 · 落地当天",
+    "day0_desc": "到达中国的第一天",
+    "day1_title": "Day 1 · 第1天",
+    "day1_desc": "通讯与支付基础",
+    "day2_title": "Day 2 · 第2天",
+    "day2_desc": "银行与住宿",
+    "day3_title": "Day 3-4",
+    "day3_desc": "熟悉环境",
+    "day4_title": "Day 5-7",
+    "day4_desc": "学校与生活",
+    "task": "任务",
+    "must_do": "必办",
+    "recommended": "推荐",
+    "view_guide": "查看指南",
+    "complete": "已完成",
+    "reset": "重置"
+  },
+  "city_compare": {
+    "title": "城市PK对比",
+    "subtitle": "多维度对比中国热门留学城市，选对你的目的地",
+    "hero_desc": "学费、房租、物价、气候、交通、医疗资源……每个城市都有自己的脾气。选择两个或多个城市，逐项对比，找到最适合你的那一个。",
+    "select_cities": "选择城市",
+    "add_city": "+ 添加城市",
+    "remove": "移除",
+    "no_city": "请先选择至少两个城市进行对比",
+    "compare": "开始对比",
+    "dimensions": {
+      "tuition": "平均学费/年",
+      "rent": "月租金(单间)",
+      "food": "月餐饮费",
+      "transport": "月交通费",
+      "climate": "气候特征",
+      "community": "留学生社群",
+      "language": "日常英语普及度",
+      "food_culture": "饮食文化",
+      "safety": "治安指数",
+      "entertainment": "休闲娱乐",
+      "healthcare": "医疗资源",
+      "overall": "综合推荐度"
+    }
   }
 }
