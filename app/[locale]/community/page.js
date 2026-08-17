@@ -1,6 +1,7 @@
 'use client';
 
 import { useI18n } from '../../../i18n-context';
+import SEO from '../../components/SEO.js';
 
 export default function CommunityPage() {
   const { t, locale } = useI18n();
@@ -73,6 +74,7 @@ export default function CommunityPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
+      <SEO title={`${t('community.title')} — 鹿鸣集`} description="加入鹿鸣集留学社群：微信、Telegram、WhatsApp多平台连接在青岛的各国留学生。" />
       {/* Hero Banner */}
       <div style={{
         position: 'relative', borderRadius: 20, overflow: 'hidden',

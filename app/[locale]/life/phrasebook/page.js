@@ -3,6 +3,7 @@
 import { useState, useMemo, useEffect } from 'react';
 import { useI18n } from '../../../../i18n-context';
 import phrasebookData from '../../../../data/life/phrasebook-data';
+import SEO from '../../../components/SEO.js';
 
 /* ── 每个分类的青绿色系配色 ── */
 const categoryColors = {
@@ -77,6 +78,7 @@ export default function PhrasebookPage() {
       background: 'linear-gradient(180deg, #f0f7f4 0%, #f8faf8 30%, #fafcfa 60%, #f4f8f5 100%)',
       position: 'relative', overflow: 'hidden',
     }}>
+      <SEO title="中文生存口语手册 — 鹿鸣集" description="11大场景124+实用中文短句，带拼音和三语翻译，点击即复制。来华留学生必备的随身口语手册。" />
       {/* ── 全局样式 ── */}
       <style>{`
         @keyframes mistFloat {

@@ -4,6 +4,7 @@ import { useI18n } from '../../../i18n-context';
 import categories from '../../../data/life/categories.js';
 import guideIndex from '../../../data/life/guide-index.js';
 import SearchBar from '../../components/life/SearchBar.js';
+import SEO from '../../components/SEO.js';
 
 export default function LifeGuidePage() {
   const { locale, t } = useI18n();
@@ -11,6 +12,7 @@ export default function LifeGuidePage() {
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
+      <SEO title={`${t('life.title')} — 鹿鸣集`} description="来华留学生活指南：交通、住房、饮食、银行、签证、医疗等15个分类，135篇三语详细指引。" />
       {/* Hero Header */}
       <div className="text-center mb-12">
         <h1 className="section-title">{t('life.title') || '来华生活导引'}</h1>

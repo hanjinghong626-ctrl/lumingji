@@ -4,6 +4,7 @@ import { useI18n } from '../../../i18n-context';
 import { universities } from './universityData';
 import { useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
+import SEO from '../../components/SEO.js';
 
 export default function UniversitiesPage() {
   const { locale, t } = useI18n();
@@ -147,6 +148,7 @@ export default function UniversitiesPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-emerald-50 via-white to-emerald-50">
+      <SEO title={`${t('universities.title')} — 鹿鸣集`} description="青岛高校数据库：查看28所高校的优势专业、学费、奖学金、地理位置等信息，交互式地图一目了然。" />
       {/* Hero */}
       <div className="relative h-64 md:h-80 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-800 via-teal-700 to-cyan-800"></div>

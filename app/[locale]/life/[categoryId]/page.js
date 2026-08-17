@@ -4,6 +4,7 @@ import { useParams } from 'next/navigation';
 import { useI18n } from '../../../../i18n-context';
 import categories from '../../../../data/life/categories.js';
 import guideIndex from '../../../../data/life/guide-index.js';
+import SEO from '../../../components/SEO.js';
 
 export default function CategoryPage() {
   const { locale, categoryId } = useParams();
@@ -30,6 +31,7 @@ export default function CategoryPage() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+      <SEO title={`${category.name[lang]} — 鹿鸣集`} description={`${category.name[lang]}：来华留学生实用生活指南。${guides.length}篇详细指引。`} />
       <nav className="flex items-center gap-2 text-sm text-gray-400 mb-6 font-wenkai">
         <a href={`/${locale}/life`} className="hover:text-primary-600 transition-colors">
           {t('life.title') || '生活指南'}

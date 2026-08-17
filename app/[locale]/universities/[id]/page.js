@@ -4,6 +4,7 @@ import { useI18n } from '../../../../i18n-context';
 import { getUniversityById, universities } from '../universityData';
 import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useRef } from 'react';
+import SEO from '../../../components/SEO.js';
 
 export default function UniversityDetailPage() {
   const { locale, t } = useI18n();
@@ -103,6 +104,7 @@ export default function UniversityDetailPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-emerald-50 via-white to-emerald-50">
+      <SEO title={`${uni.name[l]} — 鹿鸣集`} description={`${uni.name[l]}详细信息：优势学科、学费、奖学金、住宿、申请要求。`} />
       {/* Hero */}
       <div className="relative h-72 md:h-96 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-800 via-teal-700 to-cyan-800"></div>

@@ -2,6 +2,7 @@
 
 import { useI18n } from '../../../../i18n-context';
 import ChatWindow from '../../../components/life/ChatWindow';
+import SEO from '../../../components/SEO.js';
 
 const TITLES = {
   zh: 'AI 助手',
@@ -21,6 +22,7 @@ export default function AIChatPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-primary-50/30 to-white">
+      <SEO title={`${TITLES[lang] || TITLES.zh} — 鹿鸣集`} description="AI智能助手，基于DeepSeek大模型，随时解答你在中国生活的一切疑问。" />
       <div className="max-w-3xl mx-auto px-4 py-8">
         {/* Header */}
         <div className="text-center mb-6">

@@ -1,6 +1,7 @@
 'use client';
 
 import { useI18n } from '../../../i18n-context';
+import SEO from '../../components/SEO.js';
 
 export default function AboutPage() {
   const { t, locale } = useI18n();
@@ -60,6 +61,7 @@ export default function AboutPage() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+      <SEO title={`${t('about.title')} — 鹿鸣集`} description="了解鹿鸣集：为来华留学生打造的一站式生活服务平台，以诗经古礼迎接远方来客。" />
       {/* Hero Banner */}
       <div style={{
         position: 'relative', borderRadius: 20, overflow: 'hidden',

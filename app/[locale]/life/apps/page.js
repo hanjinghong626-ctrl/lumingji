@@ -4,6 +4,7 @@ import { useParams } from 'next/navigation';
 import { useI18n } from '../../../../i18n-context';
 import { getAllAppGuidesSummary } from '../../../../data/life/app-guides-loader';
 import appIcons from '../../../../data/life/app-icons';
+import SEO from '../../../components/SEO.js';
 
 export default function AppsGuideIndexPage() {
   const { locale } = useParams();
@@ -13,6 +14,7 @@ export default function AppsGuideIndexPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-amber-50">
+      <SEO title="App使用指南 — 鹿鸣集" description="20+款常用App安装与使用指南：支付宝、微信、美团、滴滴、12306等，带详细步骤截图。" />
       <div className="max-w-5xl mx-auto px-4 py-10">
         {/* 标题区 */}
         <div className="text-center mb-10">

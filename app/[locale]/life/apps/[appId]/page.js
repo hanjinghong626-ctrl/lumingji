@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useI18n } from '../../../../../i18n-context';
 import { getAppGuideData, hasAppGuide } from '../../../../../data/life/app-guides-loader';
 import appIcons from '../../../../../data/life/app-icons';
+import SEO from '../../../../components/SEO.js';
 
 export default function AppGuideDetailPage() {
   const { locale, appId } = useParams();
@@ -95,6 +96,7 @@ export default function AppGuideDetailPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-amber-50">
+      <SEO title={`${getText(guide.name)} 使用指南 — 鹿鸣集`} description={`${getText(guide.name)}的详细安装与使用指南，包含多语言说明和一键复制安装指令功能。`} />
       <div className="max-w-3xl mx-auto px-4 py-8">
         {/* 面包屑导航 */}
         <nav className="mb-6 text-sm text-gray-500 flex items-center gap-2">

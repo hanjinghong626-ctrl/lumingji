@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useI18n } from '../../../../i18n-context';
+import SEO from '../../../components/SEO.js';
 
 // 货币列表
 const CURRENCIES = ['USD', 'EUR', 'RUB', 'GBP', 'JPY', 'KRW', 'THB', 'VND', 'INR', 'HKD', 'SGD', 'AUD', 'CAD'];
@@ -289,6 +290,7 @@ export default function ExchangeRatePage() {
 
   return (
     <div className="tech-page">
+      <SEO title="实时汇率查询 — 鹿鸣集" description="人民币兑13种主要货币的实时汇率查询，支持反向计算。数据来源：ExchangeRate-API + Frankfurter，自动刷新。" />
       {/* Animated grid background */}
       <div className="tech-grid-bg"></div>
 

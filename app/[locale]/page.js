@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { useI18n } from '../../i18n-context';
+import SEO from '../components/SEO';
 
 export default function HomePage() {
   const { locale, t } = useI18n();
@@ -66,6 +67,11 @@ export default function HomePage() {
 
   return (
     <div>
+      <SEO
+        title={`${t('home.hero_title')} — 来华留学生活服务平台`}
+        description="鹿鸣集：面向来华留学生的一站式生活服务平台，提供三语生活指南、高校信息、AI智能助手。"
+        ogType="website"
+      />
       {/* ============ Hero Section ============ */}
       <section className="hero-section">
         {/* Background image */}

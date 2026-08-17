@@ -7,6 +7,7 @@ import categories from '../../../../../data/life/categories.js';
 import guideIndex from '../../../../../data/life/guide-index.js';
 import getGuideData from '../../../../../data/life/guides-loader.js';
 import { getAppGuideData, hasAppGuide } from '../../../../../data/life/app-guides-loader';
+import SEO from '../../../../components/SEO.js';
 
 export default function GuideDetailPage() {
   const { locale, categoryId, guideId } = useParams();
@@ -32,6 +33,7 @@ export default function GuideDetailPage() {
 
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8">
+      <SEO title={`${guideMeta?.title?.[lang] || guideId} — 鹿鸣集`} description={`${category?.name?.[lang] || ''}：${guideMeta?.title?.[lang] || guideId}。来华留学生实用指南。`} />
       {/* 面包屑 */}
       <nav className="flex items-center gap-2 text-sm text-gray-400 mb-6 font-wenkai">
         <a href={`/${locale}/life`} className="hover:text-primary-600 transition-colors">
