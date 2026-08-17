@@ -95,7 +95,7 @@ export default function PhrasebookPage() {
 
         {/* ══════ Hero ══════ */}
         <div style={{
-          textAlign: 'center', padding: '36px 24px 28px', marginBottom: 24,
+          textAlign: 'center', padding: '24px 20px 20px', marginBottom: 20,
           background: '#fff',
           borderRadius: 16, border: '1px solid #e8eaed',
           boxShadow: '0 2px 12px rgba(0,0,0,0.04)',
@@ -114,8 +114,8 @@ export default function PhrasebookPage() {
 
           {/* 标题 */}
           <h1 style={{
-            fontSize: 'clamp(22px, 5vw, 28px)', fontWeight: 700,
-            color: '#1a1a2e', lineHeight: 1.3, marginBottom: 10,
+            fontSize: 'clamp(18px, 4vw, 22px)', fontWeight: 700,
+            color: '#1a1a2e', lineHeight: 1.3, marginBottom: 8,
           }}>
             {ui.title}
           </h1>
