@@ -172,11 +172,44 @@ export default function HomePage() {
                 <div style={{ position: 'absolute', top: '-15%', right: '-8%', width: '30%', height: '100%', borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(160,210,190,0.15) 0%, transparent 70%)', pointerEvents: 'none' }} />
                 <div style={{ position: 'relative', zIndex: 1 }}>
                   <div style={{
-                    width: 40, height: 40, borderRadius: 11, marginBottom: 10,
-                    background: 'linear-gradient(135deg, #5aa085, #4a9075)',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    fontSize: 20, boxShadow: '0 4px 14px rgba(80,160,130,0.2)',
-                  }}>🗣️</div>
+                    width: 48, height: 48, borderRadius: 14, marginBottom: 10,
+                    overflow: 'hidden',
+                    boxShadow: '0 4px 14px rgba(80,160,130,0.25)',
+                    border: '1px solid rgba(100,170,140,0.2)',
+                  }}>
+                    <svg width="48" height="48" viewBox="0 0 48 48">
+                      <defs>
+                        <linearGradient id="sky1" x1="24" y1="0" x2="24" y2="48" gradientUnits="userSpaceOnUse">
+                          <stop offset="0" stopColor="#e8f5ee"/>
+                          <stop offset="0.6" stopColor="#c5e4d4"/>
+                          <stop offset="1" stopColor="#a8d4bc"/>
+                        </linearGradient>
+                        <linearGradient id="m1f" x1="24" y1="14" x2="24" y2="38" gradientUnits="userSpaceOnUse">
+                          <stop offset="0" stopColor="#7dc0a5"/>
+                          <stop offset="1" stopColor="#9ad0b8"/>
+                        </linearGradient>
+                        <linearGradient id="m1n" x1="24" y1="22" x2="24" y2="48" gradientUnits="userSpaceOnUse">
+                          <stop offset="0" stopColor="#3d7a65"/>
+                          <stop offset="1" stopColor="#5a9a80"/>
+                        </linearGradient>
+                      </defs>
+                      <rect width="48" height="48" fill="url(#sky1)"/>
+                      <path d="M0 34 Q6 20 16 25 Q22 18 28 22 Q36 14 48 26 L48 48 L0 48Z" fill="url(#m1f)" opacity="0.5"/>
+                      <path d="M0 38 Q8 28 18 31 Q24 25 32 29 Q40 24 48 33 L48 48 L0 48Z" fill="url(#m1n)" opacity="0.75"/>
+                      <path d="M4 33 Q14 30 24 33 Q34 30 44 33" stroke="white" strokeWidth="1.2" fill="none" opacity="0.25"/>
+                      <ellipse cx="11" cy="9" rx="5" ry="2" fill="white" opacity="0.35"/>
+                      <ellipse cx="15" cy="8.5" rx="3.5" ry="1.5" fill="white" opacity="0.25"/>
+                      <path d="M37 27 L38.5 22 L40 27" fill="#2d5a4a" opacity="0.65"/>
+                      <path d="M37.5 30 L38.5 26 L39.5 30" fill="#2d5a4a" opacity="0.5"/>
+                      <line x1="38.5" y1="30" x2="38.5" y2="33" stroke="#2d5a4a" strokeWidth="0.7" opacity="0.45"/>
+                      <rect x="6" y="35" width="11" height="7" rx="1.2" fill="rgba(255,255,255,0.6)" stroke="#3d7a65" strokeWidth="0.5"/>
+                      <line x1="11.5" y1="35" x2="11.5" y2="42" stroke="#3d7a65" strokeWidth="0.35" opacity="0.4"/>
+                      <line x1="7.5" y1="37.5" x2="10.5" y2="37.5" stroke="#5a9a80" strokeWidth="0.45" opacity="0.5"/>
+                      <line x1="7.5" y1="39.5" x2="9.5" y2="39.5" stroke="#5a9a80" strokeWidth="0.45" opacity="0.35"/>
+                      <line x1="12.5" y1="37.5" x2="15.5" y2="37.5" stroke="#5a9a80" strokeWidth="0.45" opacity="0.5"/>
+                      <line x1="12.5" y1="39.5" x2="14.5" y2="39.5" stroke="#5a9a80" strokeWidth="0.45" opacity="0.35"/>
+                    </svg>
+                  </div>
                   <div style={{
                     display: 'inline-block', background: 'rgba(100,170,140,0.12)',
                     border: '1px solid rgba(100,170,140,0.25)', borderRadius: 10,
@@ -238,11 +271,39 @@ export default function HomePage() {
                 <div style={{ position: 'absolute', top: '-15%', right: '-8%', width: '30%', height: '100%', borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(160,210,190,0.15) 0%, transparent 70%)', pointerEvents: 'none' }} />
                 <div style={{ position: 'relative', zIndex: 1 }}>
                   <div style={{
-                    width: 40, height: 40, borderRadius: 11, marginBottom: 10,
-                    background: 'linear-gradient(135deg, #5aa085, #4a9075)',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    fontSize: 20, boxShadow: '0 4px 14px rgba(80,160,130,0.2)',
-                  }}>📋</div>
+                    width: 48, height: 48, borderRadius: 14, marginBottom: 10,
+                    overflow: 'hidden',
+                    boxShadow: '0 4px 14px rgba(80,160,130,0.25)',
+                    border: '1px solid rgba(100,170,140,0.2)',
+                  }}>
+                    <svg width="48" height="48" viewBox="0 0 48 48">
+                      <defs>
+                        <linearGradient id="sky2" x1="24" y1="0" x2="24" y2="48" gradientUnits="userSpaceOnUse">
+                          <stop offset="0" stopColor="#dceee5"/>
+                          <stop offset="0.5" stopColor="#d4e8d8"/>
+                          <stop offset="1" stopColor="#e8dcc0"/>
+                        </linearGradient>
+                        <linearGradient id="m2" x1="24" y1="18" x2="24" y2="42" gradientUnits="userSpaceOnUse">
+                          <stop offset="0" stopColor="#4a8a72"/>
+                          <stop offset="1" stopColor="#6aaa90"/>
+                        </linearGradient>
+                        <radialGradient id="sun2" cx="24" cy="20" r="8" gradientUnits="userSpaceOnUse">
+                          <stop offset="0" stopColor="#f0d870"/>
+                          <stop offset="0.5" stopColor="#e8c860" stopOpacity="0.6"/>
+                          <stop offset="1" stopColor="#d4b850" stopOpacity="0"/>
+                        </radialGradient>
+                      </defs>
+                      <rect width="48" height="48" fill="url(#sky2)"/>
+                      <circle cx="24" cy="20" r="8" fill="url(#sun2)"/>
+                      <circle cx="24" cy="20" r="3.5" fill="#f0d870" opacity="0.7"/>
+                      <path d="M0 32 Q6 22 14 26 Q20 20 26 24 Q32 18 40 22 Q44 20 48 26 L48 48 L0 48Z" fill="url(#m2)" opacity="0.7"/>
+                      <path d="M0 38 Q10 30 20 34 Q28 28 36 32 Q42 30 48 36 L48 48 L0 48Z" fill="#3d7a65" opacity="0.6"/>
+                      <path d="M6 36 Q14 33 24 36 Q34 33 42 36" stroke="white" strokeWidth="1" fill="none" opacity="0.2"/>
+                      <path d="M18 42 Q20 38 24 36 Q28 38 30 42" stroke="#5a9a80" strokeWidth="0.8" fill="none" opacity="0.5" strokeDasharray="1.5 1"/>
+                      <ellipse cx="38" cy="10" rx="4" ry="1.5" fill="white" opacity="0.3"/>
+                      <ellipse cx="8" cy="14" rx="3" ry="1.2" fill="white" opacity="0.25"/>
+                    </svg>
+                  </div>
                   <div style={{
                     display: 'inline-block', background: 'rgba(100,170,140,0.12)',
                     border: '1px solid rgba(100,170,140,0.25)', borderRadius: 10,
@@ -304,11 +365,48 @@ export default function HomePage() {
                 <div style={{ position: 'absolute', top: '-15%', right: '-8%', width: '30%', height: '100%', borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(160,210,190,0.15) 0%, transparent 70%)', pointerEvents: 'none' }} />
                 <div style={{ position: 'relative', zIndex: 1 }}>
                   <div style={{
-                    width: 40, height: 40, borderRadius: 11, marginBottom: 10,
-                    background: 'linear-gradient(135deg, #5aa085, #4a9075)',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    fontSize: 20, boxShadow: '0 4px 14px rgba(80,160,130,0.2)',
-                  }}>🏙️</div>
+                    width: 48, height: 48, borderRadius: 14, marginBottom: 10,
+                    overflow: 'hidden',
+                    boxShadow: '0 4px 14px rgba(80,160,130,0.25)',
+                    border: '1px solid rgba(100,170,140,0.2)',
+                  }}>
+                    <svg width="48" height="48" viewBox="0 0 48 48">
+                      <defs>
+                        <linearGradient id="sky3" x1="24" y1="0" x2="24" y2="48" gradientUnits="userSpaceOnUse">
+                          <stop offset="0" stopColor="#d8ede4"/>
+                          <stop offset="0.5" stopColor="#c0ddd0"/>
+                          <stop offset="1" stopColor="#a8d0c0"/>
+                        </linearGradient>
+                        <linearGradient id="m3a" x1="14" y1="8" x2="14" y2="40" gradientUnits="userSpaceOnUse">
+                          <stop offset="0" stopColor="#3d7a65"/>
+                          <stop offset="1" stopColor="#5a9a80"/>
+                        </linearGradient>
+                        <linearGradient id="m3b" x1="34" y1="6" x2="34" y2="40" gradientUnits="userSpaceOnUse">
+                          <stop offset="0" stopColor="#2d6a55"/>
+                          <stop offset="1" stopColor="#4a8a72"/>
+                        </linearGradient>
+                        <linearGradient id="water3" x1="24" y1="40" x2="24" y2="48" gradientUnits="userSpaceOnUse">
+                          <stop offset="0" stopColor="#90c8b0" stopOpacity="0.4"/>
+                          <stop offset="1" stopColor="#a8d4bc" stopOpacity="0.2"/>
+                        </linearGradient>
+                      </defs>
+                      <rect width="48" height="48" fill="url(#sky3)"/>
+                      <path d="M2 40 L14 10 L26 40Z" fill="url(#m3a)" opacity="0.65"/>
+                      <path d="M18 40 L34 8 L48 40Z" fill="url(#m3b)" opacity="0.75"/>
+                      <path d="M2 40 L14 10 L26 40Z" fill="none" stroke="#2d5a4a" strokeWidth="0.5" opacity="0.3"/>
+                      <path d="M18 40 L34 8 L48 40Z" fill="none" stroke="#2d5a4a" strokeWidth="0.5" opacity="0.3"/>
+                      <path d="M10 14 L14 10 L18 14" fill="rgba(255,255,255,0.15)" stroke="none"/>
+                      <path d="M30 12 L34 8 L38 12" fill="rgba(255,255,255,0.12)" stroke="none"/>
+                      <ellipse cx="22" cy="24" rx="8" ry="2.5" fill="white" opacity="0.3"/>
+                      <ellipse cx="26" cy="28" rx="6" ry="2" fill="white" opacity="0.2"/>
+                      <path d="M20 22 Q22 21 24 22 Q26 21 28 22" stroke="white" strokeWidth="0.8" fill="none" opacity="0.35"/>
+                      <rect x="0" y="40" width="48" height="8" fill="url(#water3)"/>
+                      <path d="M4 42 Q12 41 20 42 Q28 41 36 42 Q42 41 46 42" stroke="white" strokeWidth="0.5" fill="none" opacity="0.2"/>
+                      <path d="M8 44 Q16 43 24 44 Q32 43 40 44" stroke="white" strokeWidth="0.4" fill="none" opacity="0.15"/>
+                      <path d="M10 41 L14 37 L18 41" fill="#5a9a80" opacity="0.15"/>
+                      <path d="M30 41 L34 36 L38 41" fill="#4a8a72" opacity="0.12"/>
+                    </svg>
+                  </div>
                   <div style={{
                     display: 'inline-block', background: 'rgba(100,170,140,0.12)',
                     border: '1px solid rgba(100,170,140,0.25)', borderRadius: 10,
