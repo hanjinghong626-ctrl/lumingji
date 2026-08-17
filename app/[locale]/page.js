@@ -132,8 +132,44 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ============ Ink Divider ============ */}
-      <div className="ink-divider" />
+      {/* ============ Flowing Wave Divider ============ */}
+      <div style={{ position: 'relative', marginTop: -2, overflow: 'hidden', lineHeight: 0 }}>
+        <svg
+          viewBox="0 0 1440 160"
+          preserveAspectRatio="none"
+          style={{ display: 'block', width: '100%', height: 120 }}
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <linearGradient id="waveFade" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#071a15" stopOpacity="0.85" />
+              <stop offset="40%" stopColor="#1a5c4e" stopOpacity="0.18" />
+              <stop offset="100%" stopColor="#f5f2eb" stopOpacity="0" />
+            </linearGradient>
+            <linearGradient id="waveFade2" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#0a2a22" stopOpacity="0.5" />
+              <stop offset="50%" stopColor="#3a8a6e" stopOpacity="0.08" />
+              <stop offset="100%" stopColor="#f5f2eb" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+          {/* 远层波浪 — 最柔 */}
+          <path
+            d="M0,0 L1440,0 L1440,60 C1260,95 1080,35 860,70 C640,105 440,40 240,75 C120,95 40,55 0,80 Z"
+            fill="url(#waveFade2)"
+          />
+          {/* 中层波浪 — 主曲线 */}
+          <path
+            d="M0,0 L1440,0 L1440,40 C1300,80 1100,25 880,58 C660,92 480,28 260,62 C100,88 30,42 0,55 Z"
+            fill="url(#waveFade)"
+          />
+          {/* 近层细线 — 流动感 */}
+          <path
+            d="M0,0 L1440,0 L1440,22 C1280,52 1060,12 840,38 C620,65 420,15 200,42 C80,58 20,30 0,35 Z"
+            fill="url(#waveFade)"
+            opacity="0.5"
+          />
+        </svg>
+      </div>
 
       {/* ============ Triple Portal Row — 三卡片并排入口 ============ */}
       <section style={{ position: 'relative', overflow: 'hidden' }}>
