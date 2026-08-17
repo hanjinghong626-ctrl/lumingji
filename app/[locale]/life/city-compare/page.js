@@ -426,67 +426,110 @@ export default function CityComparePage() {
         }
       `}</style>
 
-      {/* ═══ Hero — 现代城市天际线 ═══ */}
+      {/* ═══ Hero — 中国城市：古典与现代 ═══ */}
       <section style={{
         position: 'relative',
-        background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 40%, #0f3460 70%, #1a1a2e 100%)',
+        background: 'linear-gradient(135deg, #f5e6d3 0%, #e8d4b8 25%, #d4c5a9 50%, #b8d4e8 75%, #a8c8e0 100%)',
         padding: '80px 16px 60px',
         overflow: 'hidden',
         minHeight: '45vh',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
       }}>
-        {/* 城市天际线剪影 */}
-        <div style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '40%', pointerEvents: 'none' }}>
-          <svg width="100%" height="100%" viewBox="0 0 1440 300" preserveAspectRatio="none" style={{ position: 'absolute', bottom: 0 }}>
-            <rect x="50" y="120" width="40" height="180" fill="rgba(255,255,255,0.04)" rx="2"/>
-            <rect x="95" y="80" width="30" height="220" fill="rgba(255,255,255,0.05)" rx="2"/>
-            <rect x="130" y="140" width="50" height="160" fill="rgba(255,255,255,0.03)" rx="2"/>
-            <rect x="200" y="60" width="35" height="240" fill="rgba(255,255,255,0.06)" rx="2"/>
-            <rect x="240" y="100" width="45" height="200" fill="rgba(255,255,255,0.04)" rx="2"/>
-            <rect x="310" y="40" width="28" height="260" fill="rgba(255,255,255,0.07)" rx="2"/>
-            <rect x="345" y="90" width="55" height="210" fill="rgba(255,255,255,0.04)" rx="2"/>
-            <rect x="420" y="70" width="32" height="230" fill="rgba(255,255,255,0.05)" rx="2"/>
-            <rect x="460" y="110" width="48" height="190" fill="rgba(255,255,255,0.03)" rx="2"/>
-            <rect x="530" y="30" width="25" height="270" fill="rgba(255,255,255,0.06)" rx="2"/>
-            <rect x="560" y="85" width="60" height="215" fill="rgba(255,255,255,0.04)" rx="2"/>
-            <rect x="640" y="50" width="30" height="250" fill="rgba(255,255,255,0.07)" rx="2"/>
-            <rect x="680" y="130" width="42" height="170" fill="rgba(255,255,255,0.03)" rx="2"/>
-            <rect x="740" y="45" width="35" height="255" fill="rgba(255,255,255,0.05)" rx="2"/>
-            <rect x="790" y="95" width="50" height="205" fill="rgba(255,255,255,0.04)" rx="2"/>
-            <rect x="860" y="55" width="28" height="245" fill="rgba(255,255,255,0.06)" rx="2"/>
-            <rect x="900" y="120" width="45" height="180" fill="rgba(255,255,255,0.03)" rx="2"/>
-            <rect x="960" y="35" width="32" height="265" fill="rgba(255,255,255,0.07)" rx="2"/>
-            <rect x="1000" y="80" width="55" height="220" fill="rgba(255,255,255,0.04)" rx="2"/>
-            <rect x="1070" y="60" width="38" height="240" fill="rgba(255,255,255,0.05)" rx="2"/>
-            <rect x="1120" y="100" width="48" height="200" fill="rgba(255,255,255,0.04)" rx="2"/>
-            <rect x="1190" y="45" width="30" height="255" fill="rgba(255,255,255,0.06)" rx="2"/>
-            <rect x="1230" y="90" width="52" height="210" fill="rgba(255,255,255,0.04)" rx="2"/>
-            <rect x="1300" y="70" width="35" height="230" fill="rgba(255,255,255,0.05)" rx="2"/>
-            <rect x="1350" y="110" width="40" height="190" fill="rgba(255,255,255,0.03)" rx="2"/>
-            {/* 窗户灯光 */}
-            <rect x="100" y="90" width="4" height="4" fill="rgba(255,200,100,0.5)" style={{ animation: 'windowFlicker 3s ease-in-out infinite' }}/>
-            <rect x="108" y="100" width="4" height="4" fill="rgba(255,200,100,0.4)" style={{ animation: 'windowFlicker 4s ease-in-out infinite 1s' }}/>
-            <rect x="210" y="80" width="4" height="4" fill="rgba(100,200,255,0.5)" style={{ animation: 'windowFlicker 3.5s ease-in-out infinite 0.5s' }}/>
-            <rect x="218" y="110" width="4" height="4" fill="rgba(255,200,100,0.4)" style={{ animation: 'windowFlicker 5s ease-in-out infinite 2s' }}/>
-            <rect x="320" y="60" width="4" height="4" fill="rgba(100,200,255,0.6)" style={{ animation: 'windowFlicker 4s ease-in-out infinite 1.5s' }}/>
-            <rect x="320" y="90" width="4" height="4" fill="rgba(255,200,100,0.3)" style={{ animation: 'windowFlicker 3s ease-in-out infinite 0.8s' }}/>
-            <rect x="540" y="50" width="4" height="4" fill="rgba(255,200,100,0.5)" style={{ animation: 'windowFlicker 3.8s ease-in-out infinite 0.3s' }}/>
-            <rect x="540" y="80" width="4" height="4" fill="rgba(100,200,255,0.4)" style={{ animation: 'windowFlicker 4.5s ease-in-out infinite 2.5s' }}/>
-            <rect x="650" y="70" width="4" height="4" fill="rgba(255,200,100,0.5)" style={{ animation: 'windowFlicker 3.2s ease-in-out infinite 1.2s' }}/>
-            <rect x="750" y="60" width="4" height="4" fill="rgba(100,200,255,0.5)" style={{ animation: 'windowFlicker 4.2s ease-in-out infinite 0.7s' }}/>
-            <rect x="750" y="100" width="4" height="4" fill="rgba(255,200,100,0.4)" style={{ animation: 'windowFlicker 3.6s ease-in-out infinite 1.8s' }}/>
-            <rect x="970" y="50" width="4" height="4" fill="rgba(255,200,100,0.5)" style={{ animation: 'windowFlicker 3.4s ease-in-out infinite 0.4s' }}/>
-            <rect x="1080" y="75" width="4" height="4" fill="rgba(100,200,255,0.5)" style={{ animation: 'windowFlicker 4.1s ease-in-out infinite 1.1s' }}/>
-            <rect x="1200" y="60" width="4" height="4" fill="rgba(255,200,100,0.4)" style={{ animation: 'windowFlicker 3.9s ease-in-out infinite 2.2s' }}/>
+        {/* 城市天际线：左侧古典 + 右侧现代 */}
+        <div style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '45%', pointerEvents: 'none' }}>
+          <svg width="100%" height="100%" viewBox="0 0 1440 320" preserveAspectRatio="none" style={{ position: 'absolute', bottom: 0 }}>
+            {/* 左侧：古典建筑群（北京/西安风格） */}
+            {/* 城墙 */}
+            <rect x="0" y="180" width="320" height="140" fill="rgba(139,90,43,0.12)"/>
+            {/* 城垛 */}
+            <rect x="20" y="170" width="20" height="20" fill="rgba(139,90,43,0.15)"/>
+            <rect x="60" y="170" width="20" height="20" fill="rgba(139,90,43,0.15)"/>
+            <rect x="100" y="170" width="20" height="20" fill="rgba(139,90,43,0.15)"/>
+            <rect x="140" y="170" width="20" height="20" fill="rgba(139,90,43,0.15)"/>
+            <rect x="180" y="170" width="20" height="20" fill="rgba(139,90,43,0.15)"/>
+            <rect x="220" y="170" width="20" height="20" fill="rgba(139,90,43,0.15)"/>
+            <rect x="260" y="170" width="20" height="20" fill="rgba(139,90,43,0.15)"/>
+            <rect x="300" y="170" width="20" height="20" fill="rgba(139,90,43,0.15)"/>
+            {/* 城门拱门 */}
+            <path d="M 120 240 Q 120 220 140 220 Q 160 220 160 240 L 160 320 L 120 320 Z" fill="rgba(139,90,43,0.18)"/>
+            
+            {/* 钟楼 */}
+            <rect x="360" y="120" width="80" height="200" fill="rgba(139,90,43,0.14)"/>
+            {/* 钟楼屋顶（飞檐） */}
+            <path d="M 340 120 L 440 120 L 420 100 L 360 100 Z" fill="rgba(139,90,43,0.16)"/>
+            <path d="M 350 100 L 430 100 L 410 85 L 370 85 Z" fill="rgba(139,90,43,0.18)"/>
+            {/* 钟楼尖顶 */}
+            <path d="M 390 85 L 400 60 L 410 85 Z" fill="rgba(139,90,43,0.2)"/>
+            
+            {/* 宫殿建筑群 */}
+            <rect x="480" y="160" width="120" height="160" fill="rgba(139,90,43,0.12)"/>
+            {/* 宫殿飞檐屋顶 */}
+            <path d="M 460 160 Q 540 140 620 160" fill="none" stroke="rgba(139,90,43,0.2)" strokeWidth="8"/>
+            <path d="M 470 150 Q 540 135 610 150" fill="none" stroke="rgba(139,90,43,0.18)" strokeWidth="6"/>
+            {/* 宫殿柱子 */}
+            <rect x="500" y="180" width="8" height="120" fill="rgba(139,90,43,0.15)"/>
+            <rect x="540" y="180" width="8" height="120" fill="rgba(139,90,43,0.15)"/>
+            <rect x="580" y="180" width="8" height="120" fill="rgba(139,90,43,0.15)"/>
+            
+            {/* 宝塔 */}
+            <rect x="640" y="140" width="60" height="180" fill="rgba(139,90,43,0.13)"/>
+            {/* 宝塔多层屋檐 */}
+            <path d="M 630 140 L 710 140 L 700 130 L 640 130 Z" fill="rgba(139,90,43,0.16)"/>
+            <path d="M 635 120 L 705 120 L 695 112 L 645 112 Z" fill="rgba(139,90,43,0.15)"/>
+            <path d="M 640 100 L 700 100 L 692 93 L 648 93 Z" fill="rgba(139,90,43,0.14)"/>
+            {/* 宝塔尖顶 */}
+            <path d="M 665 93 L 670 70 L 675 93 Z" fill="rgba(139,90,43,0.18)"/>
+
+            {/* 中间过渡区域 */}
+            <rect x="720" y="200" width="40" height="120" fill="rgba(120,120,120,0.1)"/>
+            <rect x="770" y="180" width="50" height="140" fill="rgba(120,120,120,0.12)"/>
+
+            {/* 右侧：现代建筑群（上海/深圳风格） */}
+            {/* 摩天大楼群 */}
+            <rect x="840" y="100" width="45" height="220" fill="rgba(100,150,180,0.14)" rx="2"/>
+            <rect x="895" y="60" width="55" height="260" fill="rgba(100,150,180,0.16)" rx="2"/>
+            <rect x="960" y="130" width="40" height="190" fill="rgba(100,150,180,0.13)" rx="2"/>
+            <rect x="1010" y="80" width="50" height="240" fill="rgba(100,150,180,0.15)" rx="2"/>
+            <rect x="1070" y="110" width="42" height="210" fill="rgba(100,150,180,0.14)" rx="2"/>
+            
+            {/* 东方明珠简化版 */}
+            <rect x="1130" y="90" width="8" height="230" fill="rgba(100,150,180,0.16)"/>
+            <circle cx="1134" cy="140" r="18" fill="rgba(100,150,180,0.18)"/>
+            <circle cx="1134" cy="200" r="14" fill="rgba(100,150,180,0.16)"/>
+            <path d="M 1126 90 L 1134 70 L 1142 90 Z" fill="rgba(100,150,180,0.17)"/>
+            
+            {/* 更多现代高楼 */}
+            <rect x="1170" y="70" width="48" height="250" fill="rgba(100,150,180,0.15)" rx="2"/>
+            <rect x="1230" y="120" width="38" height="200" fill="rgba(100,150,180,0.13)" rx="2"/>
+            <rect x="1280" y="90" width="45" height="230" fill="rgba(100,150,180,0.14)" rx="2"/>
+            <rect x="1340" y="140" width="50" height="180" fill="rgba(100,150,180,0.12)" rx="2"/>
+            <rect x="1400" y="100" width="40" height="220" fill="rgba(100,150,180,0.13)" rx="2"/>
+            
+            {/* 现代建筑窗户灯光 */}
+            <rect x="905" y="80" width="4" height="4" fill="rgba(100,200,255,0.5)" style={{ animation: 'windowFlicker 3.5s ease-in-out infinite' }}/>
+            <rect x="920" y="100" width="4" height="4" fill="rgba(255,220,150,0.4)" style={{ animation: 'windowFlicker 4s ease-in-out infinite 1s' }}/>
+            <rect x="1020" y="100" width="4" height="4" fill="rgba(100,200,255,0.5)" style={{ animation: 'windowFlicker 3.8s ease-in-out infinite 0.5s' }}/>
+            <rect x="1035" y="130" width="4" height="4" fill="rgba(255,220,150,0.4)" style={{ animation: 'windowFlicker 4.2s ease-in-out infinite 1.5s' }}/>
+            <rect x="1180" y="90" width="4" height="4" fill="rgba(100,200,255,0.5)" style={{ animation: 'windowFlicker 3.6s ease-in-out infinite 0.8s' }}/>
+            <rect x="1195" y="120" width="4" height="4" fill="rgba(255,220,150,0.4)" style={{ animation: 'windowFlicker 4.5s ease-in-out infinite 2s' }}/>
+            <rect x="1290" y="110" width="4" height="4" fill="rgba(100,200,255,0.5)" style={{ animation: 'windowFlicker 3.9s ease-in-out infinite 1.2s' }}/>
+            <rect x="1305" y="140" width="4" height="4" fill="rgba(255,220,150,0.4)" style={{ animation: 'windowFlicker 4.1s ease-in-out infinite 0.3s' }}/>
           </svg>
         </div>
 
-        {/* 光点装饰 */}
+        {/* 光晕装饰 */}
         <div style={{
-          position: 'absolute', top: '10%', right: '10%', width: '200px', height: '200px',
+          position: 'absolute', top: '15%', left: '20%', width: '250px', height: '250px',
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(100,180,255,0.15) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(245,230,211,0.3) 0%, transparent 70%)',
           animation: 'cityGlow 6s ease-in-out infinite',
+          pointerEvents: 'none',
+        }} />
+        <div style={{
+          position: 'absolute', top: '15%', right: '20%', width: '250px', height: '250px',
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(168,200,224,0.3) 0%, transparent 70%)',
+          animation: 'cityGlow 6s ease-in-out infinite 3s',
           pointerEvents: 'none',
         }} />
 
@@ -495,8 +538,8 @@ export default function CityComparePage() {
           <div style={{
             display: 'inline-block',
             padding: '4px 16px', borderRadius: 20,
-            background: 'rgba(100,180,255,0.15)', border: '1px solid rgba(100,180,255,0.25)',
-            fontSize: 12, color: 'rgba(255,255,255,0.7)', fontWeight: 500,
+            background: 'rgba(255,255,255,0.6)', border: '1px solid rgba(255,255,255,0.8)',
+            fontSize: 12, color: '#5a6c7d', fontWeight: 500,
             letterSpacing: '0.1em', marginBottom: 16,
             animation: 'fadeInUp 0.8s ease-out',
           }}>
@@ -504,14 +547,14 @@ export default function CityComparePage() {
           </div>
           <h1 style={{
             fontSize: 'clamp(28px, 6vw, 48px)', fontWeight: 800,
-            color: '#fff', lineHeight: 1.2, marginBottom: 16,
-            textShadow: '0 2px 20px rgba(100,180,255,0.3)',
+            color: '#2c3e50', lineHeight: 1.2, marginBottom: 16,
+            textShadow: '0 2px 12px rgba(255,255,255,0.8)',
             animation: 'fadeInUp 0.8s ease-out 0.2s both',
           }}>
             {t('city_compare.title')}
           </h1>
           <p style={{
-            fontSize: 15, color: 'rgba(255,255,255,0.6)', lineHeight: 1.6,
+            fontSize: 15, color: '#5a6c7d', lineHeight: 1.6,
             maxWidth: 480, margin: '0 auto',
             animation: 'fadeInUp 0.8s ease-out 0.4s both',
           }}>
