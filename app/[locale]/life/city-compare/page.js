@@ -332,121 +332,138 @@ export default function CityComparePage() {
         .join(' ');
     }
 
-    return (
-      <svg viewBox="0 0 320 320" style={{ width: '100%', maxWidth: 320, height: 'auto' }}>
-        {/* 背景网格 */}
-        {levels.map((lv) => {
-          const r = (lv / 100) * R;
-          const pts = Array.from({ length: n }, (_, i) => {
-            const { x, y } = polarToXY(i * angleStep, r);
-            return `${x},${y}`;
-          }).join(' ');
-          return (
-            <polygon key={lv} points={pts} fill="none" stroke="rgba(120,180,155,0.2)" strokeWidth={0.8} />
-          );
-        })}
-        {/* 轴线 */}
-        {RADAR_DIMS.map((_, i) => {
-          const { x, y } = polarToXY(i * angleStep, R);
-          return <line key={i} x1={cx} y1={cy} x2={x} y2={y} stroke="rgba(120,180,155,0.25)" strokeWidth={0.6} />;
-        })}
-        {/* 各城市数据 */}
-        {radarCities.map((city, ci) => {
-          const scores = RADAR_DIMS.map((d) => city[d.key]);
-          const fillOpacity = radarCities.length === 1 ? 0.2 : 0.1;
-          return (
-            <g key={city.id}>
-              <polygon
-                points={getPoints(scores)}
-                fill={city.color}
-                fillOpacity={fillOpacity}
-                stroke={city.color}
-                strokeWidth={2}
-                strokeOpacity={0.8}
-              />
-              {scores.map((s, i) => {
-                const r = (s / 100) * R;
-                const { x, y } = polarToXY(i * angleStep, r);
-                return <circle key={i} cx={x} cy={y} r={3} fill={city.color} fillOpacity={0.9} />;
-              })}
-            </g>
-          );
-        })}
-        {/* 标签 */}
-        {RADAR_DIMS.map((dim, i) => {
-          const { x, y } = polarToXY(i * angleStep, R + 22);
-          return (
-            <text
-              key={dim.key}
-              x={x}
-              y={y}
-              textAnchor="middle"
-              dominantBaseline="central"
-              fontSize="10"
-              fill="#5a8a7a"
-              fontFamily="inherit"
-            >
-              {dim.icon}
-            </text>
-          );
-        })}
-      </svg>
-    );
   }
 
   return (
-    <div>
+    <div style={{
+      minHeight: '100vh',
+      background: 'linear-gradient(180deg, #f0f4f8 0%, #f8fafc 30%, #fff 60%, #f8fafc 100%)',
+      position: 'relative', overflow: 'hidden',
+    }}>
       <SEO
         title={`${t('city_compare.title')} — ${t('site.name')}`}
         description={t('city_compare.hero_desc')}
         ogType="website"
       />
 
-      {/* ═══ Hero ═══ */}
-      <section className="hero-section">
-        <div className="hero-bg" />
-        <div className="mist-layer mist-layer-1" />
-        <div className="mist-layer mist-layer-2" />
-        <div className="golden-particles" />
+      {/* ── 全局动画 ── */}
+      <style>{`
+        @keyframes fadeInUp {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes cityGlow {
+          0%, 100% { opacity: 0.6; }
+          50% { opacity: 1; }
+        }
+        @keyframes windowFlicker {
+          0%, 100% { opacity: 0.3; }
+          50% { opacity: 0.8; }
+        }
+        .reveal-up {
+          opacity: 0;
+          transform: translateY(30px);
+          transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+        }
+        .reveal-up.visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      `}</style>
 
-        <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 sm:px-6 text-center">
-          <div className="hero-enter hero-enter-delay-1">
-            <p className="text-white/70 font-wenkai text-sm md:text-base tracking-[0.3em] mb-6 uppercase">
-              {t('city_compare.title')}
-            </p>
-          </div>
+      {/* ═══ Hero — 现代城市天际线 ═══ */}
+      <section style={{
+        position: 'relative',
+        background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 40%, #0f3460 70%, #1a1a2e 100%)',
+        padding: '80px 16px 60px',
+        overflow: 'hidden',
+        minHeight: '45vh',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+      }}>
+        {/* 城市天际线剪影 */}
+        <div style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '40%', pointerEvents: 'none' }}>
+          <svg width="100%" height="100%" viewBox="0 0 1440 300" preserveAspectRatio="none" style={{ position: 'absolute', bottom: 0 }}>
+            <rect x="50" y="120" width="40" height="180" fill="rgba(255,255,255,0.04)" rx="2"/>
+            <rect x="95" y="80" width="30" height="220" fill="rgba(255,255,255,0.05)" rx="2"/>
+            <rect x="130" y="140" width="50" height="160" fill="rgba(255,255,255,0.03)" rx="2"/>
+            <rect x="200" y="60" width="35" height="240" fill="rgba(255,255,255,0.06)" rx="2"/>
+            <rect x="240" y="100" width="45" height="200" fill="rgba(255,255,255,0.04)" rx="2"/>
+            <rect x="310" y="40" width="28" height="260" fill="rgba(255,255,255,0.07)" rx="2"/>
+            <rect x="345" y="90" width="55" height="210" fill="rgba(255,255,255,0.04)" rx="2"/>
+            <rect x="420" y="70" width="32" height="230" fill="rgba(255,255,255,0.05)" rx="2"/>
+            <rect x="460" y="110" width="48" height="190" fill="rgba(255,255,255,0.03)" rx="2"/>
+            <rect x="530" y="30" width="25" height="270" fill="rgba(255,255,255,0.06)" rx="2"/>
+            <rect x="560" y="85" width="60" height="215" fill="rgba(255,255,255,0.04)" rx="2"/>
+            <rect x="640" y="50" width="30" height="250" fill="rgba(255,255,255,0.07)" rx="2"/>
+            <rect x="680" y="130" width="42" height="170" fill="rgba(255,255,255,0.03)" rx="2"/>
+            <rect x="740" y="45" width="35" height="255" fill="rgba(255,255,255,0.05)" rx="2"/>
+            <rect x="790" y="95" width="50" height="205" fill="rgba(255,255,255,0.04)" rx="2"/>
+            <rect x="860" y="55" width="28" height="245" fill="rgba(255,255,255,0.06)" rx="2"/>
+            <rect x="900" y="120" width="45" height="180" fill="rgba(255,255,255,0.03)" rx="2"/>
+            <rect x="960" y="35" width="32" height="265" fill="rgba(255,255,255,0.07)" rx="2"/>
+            <rect x="1000" y="80" width="55" height="220" fill="rgba(255,255,255,0.04)" rx="2"/>
+            <rect x="1070" y="60" width="38" height="240" fill="rgba(255,255,255,0.05)" rx="2"/>
+            <rect x="1120" y="100" width="48" height="200" fill="rgba(255,255,255,0.04)" rx="2"/>
+            <rect x="1190" y="45" width="30" height="255" fill="rgba(255,255,255,0.06)" rx="2"/>
+            <rect x="1230" y="90" width="52" height="210" fill="rgba(255,255,255,0.04)" rx="2"/>
+            <rect x="1300" y="70" width="35" height="230" fill="rgba(255,255,255,0.05)" rx="2"/>
+            <rect x="1350" y="110" width="40" height="190" fill="rgba(255,255,255,0.03)" rx="2"/>
+            {/* 窗户灯光 */}
+            <rect x="100" y="90" width="4" height="4" fill="rgba(255,200,100,0.5)" style={{ animation: 'windowFlicker 3s ease-in-out infinite' }}/>
+            <rect x="108" y="100" width="4" height="4" fill="rgba(255,200,100,0.4)" style={{ animation: 'windowFlicker 4s ease-in-out infinite 1s' }}/>
+            <rect x="210" y="80" width="4" height="4" fill="rgba(100,200,255,0.5)" style={{ animation: 'windowFlicker 3.5s ease-in-out infinite 0.5s' }}/>
+            <rect x="218" y="110" width="4" height="4" fill="rgba(255,200,100,0.4)" style={{ animation: 'windowFlicker 5s ease-in-out infinite 2s' }}/>
+            <rect x="320" y="60" width="4" height="4" fill="rgba(100,200,255,0.6)" style={{ animation: 'windowFlicker 4s ease-in-out infinite 1.5s' }}/>
+            <rect x="320" y="90" width="4" height="4" fill="rgba(255,200,100,0.3)" style={{ animation: 'windowFlicker 3s ease-in-out infinite 0.8s' }}/>
+            <rect x="540" y="50" width="4" height="4" fill="rgba(255,200,100,0.5)" style={{ animation: 'windowFlicker 3.8s ease-in-out infinite 0.3s' }}/>
+            <rect x="540" y="80" width="4" height="4" fill="rgba(100,200,255,0.4)" style={{ animation: 'windowFlicker 4.5s ease-in-out infinite 2.5s' }}/>
+            <rect x="650" y="70" width="4" height="4" fill="rgba(255,200,100,0.5)" style={{ animation: 'windowFlicker 3.2s ease-in-out infinite 1.2s' }}/>
+            <rect x="750" y="60" width="4" height="4" fill="rgba(100,200,255,0.5)" style={{ animation: 'windowFlicker 4.2s ease-in-out infinite 0.7s' }}/>
+            <rect x="750" y="100" width="4" height="4" fill="rgba(255,200,100,0.4)" style={{ animation: 'windowFlicker 3.6s ease-in-out infinite 1.8s' }}/>
+            <rect x="970" y="50" width="4" height="4" fill="rgba(255,200,100,0.5)" style={{ animation: 'windowFlicker 3.4s ease-in-out infinite 0.4s' }}/>
+            <rect x="1080" y="75" width="4" height="4" fill="rgba(100,200,255,0.5)" style={{ animation: 'windowFlicker 4.1s ease-in-out infinite 1.1s' }}/>
+            <rect x="1200" y="60" width="4" height="4" fill="rgba(255,200,100,0.4)" style={{ animation: 'windowFlicker 3.9s ease-in-out infinite 2.2s' }}/>
+          </svg>
+        </div>
 
-          <div className="hero-enter hero-enter-delay-2 hero-title mb-6">
-            <h1 className="hero-title-text text-5xl md:text-7xl lg:text-8xl font-wenkai font-bold tracking-wider">
-              {t('city_compare.title')}
-            </h1>
-          </div>
+        {/* 光点装饰 */}
+        <div style={{
+          position: 'absolute', top: '10%', right: '10%', width: '200px', height: '200px',
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(100,180,255,0.15) 0%, transparent 70%)',
+          animation: 'cityGlow 6s ease-in-out infinite',
+          pointerEvents: 'none',
+        }} />
 
-          <div className="hero-enter hero-enter-delay-3">
-            <div className="flex items-center justify-center gap-3 mb-8">
-              <div className="w-12 h-px bg-gradient-to-r from-transparent to-accent-400/60" />
-              <span className="seal-stamp">城</span>
-              <p className="text-white/60 font-wenkai text-sm md:text-base italic max-w-lg leading-relaxed">
-                {t('city_compare.subtitle')}
-              </p>
-              <span className="seal-stamp">比</span>
-              <div className="w-12 h-px bg-gradient-to-l from-transparent to-accent-400/60" />
-            </div>
+        {/* Hero 内容 */}
+        <div style={{ position: 'relative', zIndex: 10, textAlign: 'center', maxWidth: 600 }}>
+          <div style={{
+            display: 'inline-block',
+            padding: '4px 16px', borderRadius: 20,
+            background: 'rgba(100,180,255,0.15)', border: '1px solid rgba(100,180,255,0.25)',
+            fontSize: 12, color: 'rgba(255,255,255,0.7)', fontWeight: 500,
+            letterSpacing: '0.1em', marginBottom: 16,
+            animation: 'fadeInUp 0.8s ease-out',
+          }}>
+            {t('city_compare.title')}
           </div>
-
-          <div className="hero-enter hero-enter-delay-4">
-            <p className="text-white/75 text-base md:text-lg max-w-xl mx-auto leading-relaxed mb-10 font-wenkai">
-              {t('city_compare.hero_desc')}
-            </p>
-          </div>
-
-          <div className="scroll-indicator">
-            <span className="text-accent-400/80 text-xs font-wenkai tracking-widest">SCROLL</span>
-          </div>
+          <h1 style={{
+            fontSize: 'clamp(28px, 6vw, 48px)', fontWeight: 800,
+            color: '#fff', lineHeight: 1.2, marginBottom: 16,
+            textShadow: '0 2px 20px rgba(100,180,255,0.3)',
+            animation: 'fadeInUp 0.8s ease-out 0.2s both',
+          }}>
+            {t('city_compare.title')}
+          </h1>
+          <p style={{
+            fontSize: 15, color: 'rgba(255,255,255,0.6)', lineHeight: 1.6,
+            maxWidth: 480, margin: '0 auto',
+            animation: 'fadeInUp 0.8s ease-out 0.4s both',
+          }}>
+            {t('city_compare.hero_desc')}
+          </p>
         </div>
       </section>
-
-      <div className="ink-divider" />
 
       {/* ═══ 城市选择器 ═══ */}
       <section style={{ maxWidth: 960, margin: '0 auto', padding: '40px 16px 0' }}>
@@ -455,15 +472,15 @@ export default function CityComparePage() {
           className="reveal-up"
         >
           <div style={{
-            background: 'linear-gradient(135deg, rgba(200,230,215,0.35) 0%, rgba(180,220,200,0.20) 100%)',
-            borderRadius: 18, border: '1px solid rgba(120,180,155,0.25)',
-            backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)',
+            background: '#fff',
+            borderRadius: 16, border: '1px solid #e8eaed',
+            boxShadow: '0 2px 12px rgba(0,0,0,0.04)',
             padding: '24px 20px',
           }}>
             {/* 当前选中的城市 */}
             <div style={{ marginBottom: 16 }}>
-              <div style={{ fontSize: 15, fontWeight: 600, color: '#2d5a4a', marginBottom: 10 }}>
-                {t('city_compare.select_cities')}
+              <div style={{ fontSize: 14, fontWeight: 600, color: '#333', marginBottom: 10 }}>
+                🏙️ {t('city_compare.select_cities')}
               </div>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
                 {cities.map((city) => (
@@ -472,7 +489,7 @@ export default function CityComparePage() {
                     onClick={() => removeCity(city.id)}
                     style={{
                       display: 'flex', alignItems: 'center', gap: 6,
-                      background: city.color + '18', border: `1px solid ${city.color}40`,
+                      background: city.color + '12', border: `1px solid ${city.color}30`,
                       borderRadius: 20, padding: '6px 14px', cursor: 'pointer',
                       fontSize: 14, color: city.color, fontWeight: 500,
                       transition: 'all 0.3s',
@@ -487,13 +504,13 @@ export default function CityComparePage() {
                 <button
                   onClick={() => setShowPicker(!showPicker)}
                   style={{
-                    background: 'rgba(100,170,140,0.1)', border: '1px dashed rgba(100,170,140,0.4)',
+                    background: '#f8f9fa', border: '1px dashed #ccc',
                     borderRadius: 20, padding: '6px 14px', cursor: 'pointer',
-                    fontSize: 13, color: '#5aa085', fontWeight: 500,
+                    fontSize: 13, color: '#888', fontWeight: 500,
                     transition: 'all 0.3s',
                   }}
                 >
-                  {t('city_compare.add_city')}
+                  + {t('city_compare.add_city')}
                 </button>
               </div>
             </div>
@@ -501,8 +518,8 @@ export default function CityComparePage() {
             {/* 城市选择面板 */}
             {showPicker && (
               <div style={{
-                background: 'rgba(255,255,255,0.7)', borderRadius: 12,
-                border: '1px solid rgba(120,180,155,0.2)', padding: '12px 14px',
+                background: '#f8f9fa', borderRadius: 12,
+                border: '1px solid #e8eaed', padding: '12px 14px',
                 display: 'flex', flexWrap: 'wrap', gap: 8,
               }}>
                 {CITY_LIST.map((id) => {
@@ -514,8 +531,8 @@ export default function CityComparePage() {
                       onClick={() => isSelected ? removeCity(id) : addCity(id)}
                       style={{
                         display: 'flex', alignItems: 'center', gap: 5,
-                        background: isSelected ? city.color + '20' : 'rgba(255,255,255,0.6)',
-                        border: `1px solid ${isSelected ? city.color + '50' : 'rgba(200,210,205,0.5)'}`,
+                        background: isSelected ? city.color + '15' : '#fff',
+                        border: `1px solid ${isSelected ? city.color + '40' : '#e0e0e0'}`,
                         borderRadius: 16, padding: '5px 12px', cursor: 'pointer',
                         fontSize: 13, color: isSelected ? city.color : '#666',
                         fontWeight: isSelected ? 600 : 400,
@@ -535,7 +552,7 @@ export default function CityComparePage() {
       </section>
 
       {cities.length < 2 && (
-        <div style={{ textAlign: 'center', padding: '40px 16px', color: '#999', fontSize: 15 }}>
+        <div style={{ textAlign: 'center', padding: '40px 16px', color: '#aaa', fontSize: 15 }}>
           {t('city_compare.no_city')}
         </div>
       )}
@@ -548,19 +565,18 @@ export default function CityComparePage() {
               ref={(el) => (sectionRefs.current[1] = el)}
               className="reveal-up"
             >
-              <div className="section-header-ornament" style={{ marginBottom: 20 }}>
-                <span className="ornament-line" />
-                <span className="ornament-diamond">💰</span>
-                <span className="ornament-line" />
+              {/* Section Header */}
+              <div style={{ textAlign: 'center', marginBottom: 24 }}>
+                <div style={{ fontSize: 11, color: '#aaa', textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: 6 }}>💰 COST</div>
+                <h2 style={{ fontSize: 'clamp(20px, 4vw, 26px)', fontWeight: 700, color: '#1a1a2e', margin: 0 }}>
+                  {l === 'ru' ? 'Стоимость' : l === 'en' ? 'Cost Comparison' : '费用对比'}
+                </h2>
+                <div style={{ width: 40, height: 2, background: 'linear-gradient(90deg, #4a90c4, #6ab0e8)', margin: '10px auto 0', borderRadius: 1 }} />
               </div>
-              <h2 className="section-title" style={{ textAlign: 'center', fontSize: 'clamp(22px, 5vw, 30px)' }}>
-                {l === 'ru' ? 'Стоимость' : l === 'en' ? 'Cost Comparison' : '费用对比'}
-              </h2>
-              <div style={{ height: 24 }} />
 
               {COST_DIMS.map((dim) => (
                 <div key={dim.key} style={{ marginBottom: 20 }}>
-                  <div style={{ fontSize: 13, color: '#7aaa95', marginBottom: 8, fontWeight: 500 }}>
+                  <div style={{ fontSize: 13, color: '#888', marginBottom: 8, fontWeight: 500 }}>
                     {t(`city_compare.dimensions.${dim.key}`)}
                   </div>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
@@ -568,18 +584,17 @@ export default function CityComparePage() {
                       const pct = (city[dim.key] / maxCosts[dim.key]) * 100;
                       return (
                         <div key={city.id} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                          <div style={{ width: 60, fontSize: 13, color: '#5a7a6a', fontWeight: 500, flexShrink: 0, textAlign: 'right' }}>
+                          <div style={{ width: 60, fontSize: 13, color: '#555', fontWeight: 500, flexShrink: 0, textAlign: 'right' }}>
                             {city.emoji} {city[l].name}
                           </div>
                           <div style={{ flex: 1, position: 'relative' }}>
                             <div style={{
-                              height: 24, background: 'rgba(120,180,155,0.08)', borderRadius: 12, overflow: 'hidden',
+                              height: 24, background: '#f0f2f5', borderRadius: 12, overflow: 'hidden',
                             }}>
                               <div style={{
                                 height: '100%', width: `${pct}%`,
-                                background: `linear-gradient(90deg, ${city.color}60, ${city.color}30)`,
+                                background: `linear-gradient(90deg, ${city.color}80, ${city.color}40)`,
                                 borderRadius: 12, transition: 'width 0.6s ease',
-                                border: `1px solid ${city.color}30`,
                               }} />
                             </div>
                           </div>
@@ -598,19 +613,18 @@ export default function CityComparePage() {
 
               {/* 月均总费用 */}
               <div style={{
-                marginTop: 20, padding: '16px 18px', borderRadius: 14,
-                background: 'linear-gradient(135deg, rgba(200,230,215,0.30) 0%, rgba(180,220,200,0.15) 100%)',
-                border: '1px solid rgba(120,180,155,0.20)',
+                marginTop: 20, padding: '16px 18px', borderRadius: 12,
+                background: '#f8f9fa', border: '1px solid #e8eaed',
               }}>
-                <div style={{ fontSize: 13, color: '#7aaa95', marginBottom: 10, fontWeight: 500 }}>
+                <div style={{ fontSize: 13, color: '#888', marginBottom: 10, fontWeight: 500 }}>
                   {l === 'ru' ? 'Ежемесячные расходы' : l === 'en' ? 'Estimated Monthly Total' : '月均总费用'}
-                  <span style={{ fontSize: 11, color: '#aaa', marginLeft: 6 }}>(rent + food + transport)</span>
+                  <span style={{ fontSize: 11, color: '#bbb', marginLeft: 6 }}>(rent + food + transport)</span>
                 </div>
                 {cities.map((city) => {
                   const total = city.rent + city.food + city.transport;
                   return (
                     <div key={city.id} style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 4 }}>
-                      <span style={{ fontSize: 13, color: '#5a7a6a' }}>{city.emoji} {city[l].name}</span>
+                      <span style={{ fontSize: 13, color: '#666' }}>{city.emoji} {city[l].name}</span>
                       <span style={{ fontSize: 16, fontWeight: 700, color: city.color, marginLeft: 'auto' }}>
                         {fmtMoney(total)}/月
                       </span>
@@ -621,24 +635,25 @@ export default function CityComparePage() {
             </div>
           </section>
 
-          <div style={{ height: 40 }} />
-          <div className="ink-divider" />
+          {/* 分隔线 */}
+          <div style={{ maxWidth: 960, margin: '40px auto', padding: '0 16px' }}>
+            <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, #e0e0e0, transparent)' }} />
+          </div>
 
           {/* ═══ 雷达图对比 ═══ */}
-          <section style={{ maxWidth: 960, margin: '0 auto', padding: '40px 16px 0' }}>
+          <section style={{ maxWidth: 960, margin: '0 auto', padding: '0 16px' }}>
             <div
               ref={(el) => (sectionRefs.current[2] = el)}
               className="reveal-up"
             >
-              <div className="section-header-ornament" style={{ marginBottom: 20 }}>
-                <span className="ornament-line" />
-                <span className="ornament-diamond">🎯</span>
-                <span className="ornament-line" />
+              {/* Section Header */}
+              <div style={{ textAlign: 'center', marginBottom: 24 }}>
+                <div style={{ fontSize: 11, color: '#aaa', textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: 6 }}>🎯 RADAR</div>
+                <h2 style={{ fontSize: 'clamp(20px, 4vw, 26px)', fontWeight: 700, color: '#1a1a2e', margin: 0 }}>
+                  {l === 'ru' ? 'Многомерное сравнение' : l === 'en' ? 'Multi-dimensional Comparison' : '多维度评分'}
+                </h2>
+                <div style={{ width: 40, height: 2, background: 'linear-gradient(90deg, #4a90c4, #6ab0e8)', margin: '10px auto 0', borderRadius: 1 }} />
               </div>
-              <h2 className="section-title" style={{ textAlign: 'center', fontSize: 'clamp(22px, 5vw, 30px)' }}>
-                {l === 'ru' ? 'Многомерное сравнение' : l === 'en' ? 'Multi-dimensional Comparison' : '多维度评分'}
-              </h2>
-              <div style={{ height: 24 }} />
 
               <div style={{
                 display: 'flex', justifyContent: 'center', alignItems: 'center',
@@ -652,7 +667,7 @@ export default function CityComparePage() {
                     {cities.map((city) => (
                       <div key={city.id} style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 12 }}>
                         <div style={{ width: 10, height: 10, borderRadius: '50%', background: city.color }} />
-                        <span style={{ color: '#5a7a6a' }}>{city.emoji} {city[l].name}</span>
+                        <span style={{ color: '#666' }}>{city.emoji} {city[l].name}</span>
                       </div>
                     ))}
                   </div>
@@ -664,7 +679,7 @@ export default function CityComparePage() {
                     <div key={dim.key} style={{ marginBottom: 10 }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 4 }}>
                         <span style={{ fontSize: 14 }}>{dim.icon}</span>
-                        <span style={{ fontSize: 12, color: '#7aaa95', fontWeight: 500 }}>
+                        <span style={{ fontSize: 12, color: '#888', fontWeight: 500 }}>
                           {t(`city_compare.dimensions.${dim.key.replace('_score', '')}`)}
                         </span>
                       </div>
@@ -673,10 +688,10 @@ export default function CityComparePage() {
                           const score = city[dim.key];
                           return (
                             <div key={city.id} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                              <span style={{ width: 50, fontSize: 11, color: '#888', textAlign: 'right', flexShrink: 0 }}>
+                              <span style={{ width: 50, fontSize: 11, color: '#aaa', textAlign: 'right', flexShrink: 0 }}>
                                 {city.emoji}
                               </span>
-                              <div style={{ flex: 1, height: 8, background: 'rgba(120,180,155,0.08)', borderRadius: 4, overflow: 'hidden' }}>
+                              <div style={{ flex: 1, height: 8, background: '#f0f2f5', borderRadius: 4, overflow: 'hidden' }}>
                                 <div style={{
                                   height: '100%', width: `${score}%`,
                                   background: getBarGradient(score),
@@ -697,24 +712,25 @@ export default function CityComparePage() {
             </div>
           </section>
 
-          <div style={{ height: 40 }} />
-          <div className="ink-divider" />
+          {/* 分隔线 */}
+          <div style={{ maxWidth: 960, margin: '40px auto', padding: '0 16px' }}>
+            <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, #e0e0e0, transparent)' }} />
+          </div>
 
           {/* ═══ 综合推荐度 ═══ */}
-          <section style={{ maxWidth: 960, margin: '0 auto', padding: '40px 16px 0' }}>
+          <section style={{ maxWidth: 960, margin: '0 auto', padding: '0 16px' }}>
             <div
               ref={(el) => (sectionRefs.current[3] = el)}
               className="reveal-up"
             >
-              <div className="section-header-ornament" style={{ marginBottom: 20 }}>
-                <span className="ornament-line" />
-                <span className="ornament-diamond">🏆</span>
-                <span className="ornament-line" />
+              {/* Section Header */}
+              <div style={{ textAlign: 'center', marginBottom: 24 }}>
+                <div style={{ fontSize: 11, color: '#aaa', textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: 6 }}>🏆 RANKING</div>
+                <h2 style={{ fontSize: 'clamp(20px, 4vw, 26px)', fontWeight: 700, color: '#1a1a2e', margin: 0 }}>
+                  {l === 'ru' ? 'Общий рейтинг' : l === 'en' ? 'Overall Rating' : '综合推荐度'}
+                </h2>
+                <div style={{ width: 40, height: 2, background: 'linear-gradient(90deg, #4a90c4, #6ab0e8)', margin: '10px auto 0', borderRadius: 1 }} />
               </div>
-              <h2 className="section-title" style={{ textAlign: 'center', fontSize: 'clamp(22px, 5vw, 30px)' }}>
-                {l === 'ru' ? 'Общий рейтинг' : l === 'en' ? 'Overall Rating' : '综合推荐度'}
-              </h2>
-              <div style={{ height: 24 }} />
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
                 {[...cities]
@@ -724,19 +740,19 @@ export default function CityComparePage() {
                       key={city.id}
                       style={{
                         display: 'flex', alignItems: 'center', gap: 14,
-                        padding: '14px 18px', borderRadius: 14,
+                        padding: '14px 18px', borderRadius: 12,
                         background: idx === 0
-                          ? `linear-gradient(135deg, ${city.color}12, ${city.color}08)`
-                          : 'rgba(200,230,215,0.15)',
-                        border: `1px solid ${idx === 0 ? city.color + '30' : 'rgba(120,180,155,0.15)'}`,
+                          ? `linear-gradient(135deg, ${city.color}08, ${city.color}04)`
+                          : '#fafbfc',
+                        border: `1px solid ${idx === 0 ? city.color + '20' : '#e8eaed'}`,
                         transition: 'all 0.3s',
                       }}
                     >
                       {/* 排名 */}
                       <div style={{
                         width: 32, height: 32, borderRadius: '50%', flexShrink: 0,
-                        background: idx === 0 ? city.color : 'rgba(120,180,155,0.15)',
-                        color: idx === 0 ? '#fff' : '#7aaa95',
+                        background: idx === 0 ? city.color : '#e8eaed',
+                        color: idx === 0 ? '#fff' : '#888',
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
                         fontSize: 14, fontWeight: 700,
                       }}>
@@ -746,12 +762,12 @@ export default function CityComparePage() {
                       {/* 城市名 */}
                       <div style={{ flexShrink: 0, minWidth: 80 }}>
                         <div style={{ fontSize: 22 }}>{city.emoji}</div>
-                        <div style={{ fontSize: 14, fontWeight: 600, color: '#3d6a5a' }}>{city[l].name}</div>
+                        <div style={{ fontSize: 14, fontWeight: 600, color: '#333' }}>{city[l].name}</div>
                         <div style={{ fontSize: 11, color: '#aaa' }}>{city[l].province}</div>
                       </div>
 
                       {/* 亮点 */}
-                      <div style={{ flex: 1, fontSize: 12, color: '#8aaa9a', lineHeight: 1.5 }}>
+                      <div style={{ flex: 1, fontSize: 12, color: '#888', lineHeight: 1.5 }}>
                         {city[l].highlights}
                       </div>
 
@@ -770,24 +786,25 @@ export default function CityComparePage() {
             </div>
           </section>
 
-          <div style={{ height: 40 }} />
-          <div className="ink-divider" />
+          {/* 分隔线 */}
+          <div style={{ maxWidth: 960, margin: '40px auto', padding: '0 16px' }}>
+            <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, #e0e0e0, transparent)' }} />
+          </div>
 
           {/* ═══ 气候 & 文化描述 ═══ */}
-          <section style={{ maxWidth: 960, margin: '0 auto', padding: '40px 16px 0' }}>
+          <section style={{ maxWidth: 960, margin: '0 auto', padding: '0 16px' }}>
             <div
               ref={(el) => (sectionRefs.current[4] = el)}
               className="reveal-up"
             >
-              <div className="section-header-ornament" style={{ marginBottom: 20 }}>
-                <span className="ornament-line" />
-                <span className="ornament-diamond">📋</span>
-                <span className="ornament-line" />
+              {/* Section Header */}
+              <div style={{ textAlign: 'center', marginBottom: 24 }}>
+                <div style={{ fontSize: 11, color: '#aaa', textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: 6 }}>📋 DETAILS</div>
+                <h2 style={{ fontSize: 'clamp(20px, 4vw, 26px)', fontWeight: 700, color: '#1a1a2e', margin: 0 }}>
+                  {l === 'ru' ? 'Подробная информация' : l === 'en' ? 'City Details' : '详细信息'}
+                </h2>
+                <div style={{ width: 40, height: 2, background: 'linear-gradient(90deg, #4a90c4, #6ab0e8)', margin: '10px auto 0', borderRadius: 1 }} />
               </div>
-              <h2 className="section-title" style={{ textAlign: 'center', fontSize: 'clamp(22px, 5vw, 30px)' }}>
-                {l === 'ru' ? 'Подробная информация' : l === 'en' ? 'City Details' : '详细信息'}
-              </h2>
-              <div style={{ height: 24 }} />
 
               <div style={{
                 display: 'grid',
@@ -798,20 +815,31 @@ export default function CityComparePage() {
                   <div
                     key={city.id}
                     style={{
-                      borderRadius: 16, overflow: 'hidden',
-                      border: '1px solid rgba(120,180,155,0.20)',
-                      background: 'rgba(255,255,255,0.5)',
-                      backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)',
+                      borderRadius: 12, overflow: 'hidden',
+                      border: '1px solid #e8eaed',
+                      background: '#fff',
+                      boxShadow: '0 2px 8px rgba(0,0,0,0.03)',
+                      transition: 'all 0.3s',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderColor = city.color + '40';
+                      e.currentTarget.style.boxShadow = `0 4px 16px ${city.color}15`;
+                      e.currentTarget.style.transform = 'translateY(-2px)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderColor = '#e8eaed';
+                      e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.03)';
+                      e.currentTarget.style.transform = 'translateY(0)';
                     }}
                   >
                     {/* 城市头部 */}
                     <div style={{
                       padding: '16px', textAlign: 'center',
-                      background: `linear-gradient(135deg, ${city.color}12, ${city.color}06)`,
-                      borderBottom: `1px solid ${city.color}15`,
+                      background: `linear-gradient(135deg, ${city.color}08, ${city.color}04)`,
+                      borderBottom: `1px solid ${city.color}10`,
                     }}>
                       <div style={{ fontSize: 32 }}>{city.emoji}</div>
-                      <div style={{ fontSize: 18, fontWeight: 700, color: '#3d6a5a', marginTop: 4 }}>
+                      <div style={{ fontSize: 18, fontWeight: 700, color: '#333', marginTop: 4 }}>
                         {city[l].name}
                       </div>
                       <div style={{ fontSize: 12, color: '#aaa' }}>{city[l].province}</div>
@@ -829,17 +857,17 @@ export default function CityComparePage() {
                         <div key={i} style={{
                           display: 'flex', justifyContent: 'space-between', alignItems: 'center',
                           padding: '6px 0',
-                          borderBottom: i < 4 ? '1px solid rgba(120,180,155,0.08)' : 'none',
+                          borderBottom: i < 4 ? '1px solid #f0f2f5' : 'none',
                         }}>
-                          <span style={{ fontSize: 12, color: '#8aaa9a' }}>{item.label}</span>
-                          <span style={{ fontSize: 12, fontWeight: 600, color: '#3d6a5a', textAlign: 'right', maxWidth: '60%' }}>
+                          <span style={{ fontSize: 12, color: '#999' }}>{item.label}</span>
+                          <span style={{ fontSize: 12, fontWeight: 600, color: '#333', textAlign: 'right', maxWidth: '60%' }}>
                             {item.value}
                           </span>
                         </div>
                       ))}
 
                       {/* 亮点 */}
-                      <div style={{ marginTop: 10, fontSize: 12, color: '#7aaa95', fontStyle: 'italic', lineHeight: 1.5 }}>
+                      <div style={{ marginTop: 10, fontSize: 12, color: '#888', fontStyle: 'italic', lineHeight: 1.5 }}>
                         {city[l].highlights}
                       </div>
                     </div>
@@ -849,7 +877,7 @@ export default function CityComparePage() {
             </div>
           </section>
 
-          <div style={{ height: 60 }} />
+          <div style={{ height: 40 }} />
         </>
       )}
 
@@ -860,12 +888,20 @@ export default function CityComparePage() {
             href={`/${l}/life`}
             style={{
               display: 'inline-flex', alignItems: 'center', gap: 8,
-              padding: '12px 28px', borderRadius: 14,
-              background: 'linear-gradient(135deg, rgba(200,230,215,0.35), rgba(180,220,200,0.20))',
-              border: '1px solid rgba(120,180,155,0.25)',
-              color: '#4a8a6e', textDecoration: 'none',
+              padding: '12px 28px', borderRadius: 12,
+              background: '#f8f9fa',
+              border: '1px solid #e0e0e0',
+              color: '#666', textDecoration: 'none',
               fontSize: 14, fontWeight: 500,
               transition: 'all 0.3s',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = '#4a90c4';
+              e.currentTarget.style.color = '#4a90c4';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = '#e0e0e0';
+              e.currentTarget.style.color = '#666';
             }}
           >
             <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">

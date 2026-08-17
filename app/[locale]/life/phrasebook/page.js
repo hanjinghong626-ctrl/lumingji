@@ -75,16 +75,12 @@ export default function PhrasebookPage() {
   return (
     <div style={{
       minHeight: '100vh',
-      background: 'linear-gradient(180deg, #f0f7f4 0%, #f8faf8 30%, #fafcfa 60%, #f4f8f5 100%)',
+      background: '#f7f8fa',
       position: 'relative', overflow: 'hidden',
     }}>
       <SEO title="中文生存口语手册 — 鹿鸣集" description="11大场景124+实用中文短句，带拼音和三语翻译，点击即复制。来华留学生必备的随身口语手册。" />
       {/* ── 全局样式 ── */}
       <style>{`
-        @keyframes mistFloat {
-          0%, 100% { transform: translateX(0) translateY(0); opacity: 0.3; }
-          50% { transform: translateX(20px) translateY(-8px); opacity: 0.5; }
-        }
         @keyframes fadeInUp {
           from { opacity: 0; transform: translateY(16px); }
           to { opacity: 1; transform: translateY(0); }
@@ -95,79 +91,41 @@ export default function PhrasebookPage() {
         }
       `}</style>
 
-      {/* ── 远山装饰 · SVG ── */}
-      <svg style={{ position: 'fixed', bottom: 0, left: 0, width: '100%', height: '35vh', pointerEvents: 'none', zIndex: 0 }} viewBox="0 0 1440 400" preserveAspectRatio="none">
-        {/* 最远山 */}
-        <path d="M0,400 L0,280 Q120,200 240,260 Q360,180 480,240 Q600,160 720,220 Q840,140 960,200 Q1080,160 1200,230 Q1320,190 1440,250 L1440,400 Z"
-          fill="rgba(120,180,160,0.06)" />
-        {/* 中景山 */}
-        <path d="M0,400 L0,310 Q180,240 360,290 Q540,220 720,270 Q900,200 1080,260 Q1260,230 1440,280 L1440,400 Z"
-          fill="rgba(100,170,145,0.07)" />
-        {/* 近山 */}
-        <path d="M0,400 L0,340 Q200,290 400,320 Q600,270 800,310 Q1000,260 1200,300 Q1350,280 1440,320 L1440,400 Z"
-          fill="rgba(80,160,130,0.06)" />
-      </svg>
-
-      {/* ── 云雾装饰 ── */}
-      <div style={{
-        position: 'fixed', top: '15%', left: '-5%', width: '40vw', height: '20vw',
-        borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(160,210,190,0.12) 0%, transparent 70%)',
-        pointerEvents: 'none', animation: 'mistFloat 12s ease-in-out infinite',
-      }} />
-      <div style={{
-        position: 'fixed', top: '40%', right: '-8%', width: '35vw', height: '18vw',
-        borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(140,200,175,0.10) 0%, transparent 70%)',
-        pointerEvents: 'none', animation: 'mistFloat 15s ease-in-out infinite 3s',
-      }} />
-
       <div style={{ position: 'relative', zIndex: 1, maxWidth: 800, margin: '0 auto', padding: '24px 16px 60px' }}>
 
         {/* ══════ Hero ══════ */}
         <div style={{
-          textAlign: 'center', padding: '44px 24px 32px', marginBottom: 28,
-          background: 'linear-gradient(135deg, rgba(200,230,215,0.35) 0%, rgba(180,220,200,0.20) 50%, rgba(210,235,220,0.25) 100%)',
-          borderRadius: 20, border: '1px solid rgba(120,180,155,0.2)',
-          backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)',
-          position: 'relative', overflow: 'hidden',
+          textAlign: 'center', padding: '36px 24px 28px', marginBottom: 24,
+          background: '#fff',
+          borderRadius: 16, border: '1px solid #e8eaed',
+          boxShadow: '0 2px 12px rgba(0,0,0,0.04)',
+          position: 'relative',
           animation: 'fadeInUp 0.8s ease-out',
         }}>
-          {/* Hero 内小山水装饰 */}
-          <svg style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '60%', pointerEvents: 'none', opacity: 0.4 }} viewBox="0 0 400 120" preserveAspectRatio="none">
-            <path d="M0,120 L0,80 Q50,50 100,70 Q150,40 200,65 Q250,35 300,55 Q350,45 400,70 L400,120 Z" fill="rgba(120,180,155,0.12)" />
-            <path d="M0,120 L0,95 Q80,70 160,85 Q240,60 320,80 Q380,72 400,90 L400,120 Z" fill="rgba(100,170,140,0.08)" />
-          </svg>
-
           {/* 标签 */}
           <div style={{
             display: 'inline-flex', alignItems: 'center', gap: 6,
-            background: 'rgba(120,180,155,0.15)', border: '1px solid rgba(120,180,155,0.3)',
-            borderRadius: 20, padding: '4px 14px', fontSize: 12, color: '#4a8a6e',
+            background: 'rgba(59,130,180,0.08)', border: '1px solid rgba(59,130,180,0.18)',
+            borderRadius: 20, padding: '4px 14px', fontSize: 12, color: '#3a7aaa',
             fontWeight: 500, marginBottom: 14,
           }}>
-            <CategoryIcon id="campus" size={12} color="#4a8a6e" /> {ui.badge}
+            📖 {ui.badge}
           </div>
 
           {/* 标题 */}
           <h1 style={{
-            fontSize: 'clamp(22px, 5vw, 30px)', fontWeight: 800,
-            color: '#2d5a4a', lineHeight: 1.3, marginBottom: 10,
-            position: 'relative',
+            fontSize: 'clamp(22px, 5vw, 28px)', fontWeight: 700,
+            color: '#1a1a2e', lineHeight: 1.3, marginBottom: 10,
           }}>
             {ui.title}
           </h1>
-          <p style={{ color: '#6a9a85', fontSize: 14, marginBottom: 6, position: 'relative' }}>
+          <p style={{ color: '#666', fontSize: 14, marginBottom: 6 }}>
             {ui.subtitle}
           </p>
-          <p style={{ color: '#90b8a5', fontSize: 12, position: 'relative' }}>
+          <p style={{ color: '#999', fontSize: 12 }}>
             {ui.stats}
           </p>
 
-          {/* 标题下装饰线 */}
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, marginTop: 14, position: 'relative' }}>
-            <div style={{ width: 40, height: 1, background: 'linear-gradient(90deg, transparent, rgba(120,180,155,0.4))' }} />
-            <div style={{ width: 6, height: 6, borderRadius: '50%', background: 'rgba(120,180,155,0.3)' }} />
-            <div style={{ width: 40, height: 1, background: 'linear-gradient(90deg, rgba(120,180,155,0.4), transparent)' }} />
-          </div>
         </div>
 
         {/* ══════ 搜索框 ══════ */}
@@ -178,24 +136,21 @@ export default function PhrasebookPage() {
             onChange={(e) => setSearch(e.target.value)}
             placeholder={ui.search}
             style={{
-              width: '100%', padding: '12px 16px 12px 40px', borderRadius: 14,
-              border: '1px solid rgba(120,180,155,0.25)', fontSize: 14,
-              background: 'rgba(255,255,255,0.7)', color: '#2d5a4a',
-              backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)',
+              width: '100%', padding: '12px 16px 12px 40px', borderRadius: 12,
+              border: '1px solid #e0e0e0', fontSize: 14,
+              background: '#fff', color: '#333',
               outline: 'none', transition: 'all 0.3s', boxSizing: 'border-box',
             }}
             onFocus={(e) => {
-              e.target.style.borderColor = 'rgba(100,170,140,0.5)';
-              e.target.style.boxShadow = '0 0 0 3px rgba(120,180,155,0.12)';
-              e.target.style.background = 'rgba(255,255,255,0.9)';
+              e.target.style.borderColor = '#a0c0e0';
+              e.target.style.boxShadow = '0 0 0 3px rgba(59,130,180,0.08)';
             }}
             onBlur={(e) => {
-              e.target.style.borderColor = 'rgba(120,180,155,0.25)';
+              e.target.style.borderColor = '#e0e0e0';
               e.target.style.boxShadow = 'none';
-              e.target.style.background = 'rgba(255,255,255,0.7)';
             }}
           />
-          <svg style={{ position: 'absolute', left: 14, top: '50%', transform: 'translateY(-50%)', width: 16, height: 16, color: '#90b8a5' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg style={{ position: 'absolute', left: 14, top: '50%', transform: 'translateY(-50%)', width: 16, height: 16, color: '#bbb' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
         </div>
@@ -211,12 +166,12 @@ export default function PhrasebookPage() {
             style={{
               padding: '7px 16px', borderRadius: 20, fontSize: 12, fontWeight: 600,
               whiteSpace: 'nowrap', cursor: 'pointer', flexShrink: 0, transition: 'all 0.3s',
-              border: activeCategory === 'all' ? '1px solid rgba(80,160,130,0.4)' : '1px solid rgba(120,180,155,0.15)',
+              border: activeCategory === 'all' ? '1px solid rgba(59,130,180,0.3)' : '1px solid #e0e0e0',
               background: activeCategory === 'all'
-                ? 'linear-gradient(135deg, #5aa085, #4a9075)'
-                : 'rgba(255,255,255,0.5)',
-              color: activeCategory === 'all' ? '#fff' : '#5a8a75',
-              boxShadow: activeCategory === 'all' ? '0 3px 12px rgba(80,160,130,0.2)' : 'none',
+                ? 'linear-gradient(135deg, #4a90c4, #3a7aaa)'
+                : '#fff',
+              color: activeCategory === 'all' ? '#fff' : '#666',
+              boxShadow: activeCategory === 'all' ? '0 3px 12px rgba(59,130,180,0.15)' : 'none',
             }}
           >
             {ui.all} ({totalPhrases})
@@ -231,13 +186,13 @@ export default function PhrasebookPage() {
                 style={{
                   padding: '7px 16px', borderRadius: 20, fontSize: 12, fontWeight: 600,
                   whiteSpace: 'nowrap', cursor: 'pointer', flexShrink: 0, transition: 'all 0.3s',
-                  border: isActive ? `1px solid ${c.accent}40` : '1px solid rgba(120,180,155,0.15)',
-                  background: isActive ? `linear-gradient(135deg, ${c.accent}, ${c.chip})` : 'rgba(255,255,255,0.5)',
-                  color: isActive ? '#fff' : '#5a8a75',
-                  boxShadow: isActive ? `0 3px 12px ${c.accent}25` : 'none',
+                  border: isActive ? `1px solid ${c.accent}40` : '1px solid #e0e0e0',
+                  background: isActive ? `linear-gradient(135deg, ${c.accent}, ${c.chip})` : '#fff',
+                  color: isActive ? '#fff' : '#666',
+                  boxShadow: isActive ? `0 3px 12px ${c.accent}20` : 'none',
                 }}
               >
-                <CategoryIcon id={cat.id} size={14} color={isActive ? '#fff' : '#5a8a75'} /> {cat.name[lang]}
+                <CategoryIcon id={cat.id} size={14} color={isActive ? '#fff' : '#888'} /> {cat.name[lang]}
               </button>
             );
           })}
@@ -245,7 +200,7 @@ export default function PhrasebookPage() {
 
         {/* ══════ 短语卡片 ══════ */}
         {filteredData.length === 0 ? (
-          <div style={{ textAlign: 'center', padding: '60px 0', color: '#a0c0b0', fontSize: 14 }}>
+          <div style={{ textAlign: 'center', padding: '60px 0', color: '#bbb', fontSize: 14 }}>
             {ui.noResult}
           </div>
         ) : (
@@ -258,22 +213,20 @@ export default function PhrasebookPage() {
                   <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 14 }}>
                     <div style={{
                       width: 34, height: 34, borderRadius: 10,
-                      background: `linear-gradient(135deg, ${c.bg}, ${c.border})`,
+                      background: c.bg,
                       border: `1px solid ${c.border}`,
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                     }}>
                       <CategoryIcon id={cat.id} size={18} color={c.accent} />
                     </div>
                     <div>
-                      <h2 style={{ fontSize: 15, fontWeight: 700, color: '#2d5a4a', margin: 0, lineHeight: 1.2 }}>
+                      <h2 style={{ fontSize: 15, fontWeight: 700, color: '#333', margin: 0, lineHeight: 1.2 }}>
                         {cat.name[lang]}
                       </h2>
-                      <span style={{ fontSize: 11, color: '#90b8a5' }}>
+                      <span style={{ fontSize: 11, color: '#aaa' }}>
                         {cat.phrases.length} {ui.phrases}
                       </span>
                     </div>
-                    {/* 装饰线 */}
-                    <div style={{ flex: 1, height: 1, background: `linear-gradient(90deg, ${c.border}, transparent)` }} />
                   </div>
 
                   {/* 短句网格 */}
@@ -305,19 +258,19 @@ export default function PhrasebookPage() {
                         }} />
 
                         {/* 中文 */}
-                        <div style={{ fontSize: 15, fontWeight: 700, color: '#2d4a3e', marginBottom: 3, lineHeight: 1.4 }}>
+                        <div style={{ fontSize: 15, fontWeight: 700, color: '#333', marginBottom: 3, lineHeight: 1.4 }}>
                           {phrase.zh}
                         </div>
                         {/* 拼音 */}
-                        <div style={{ fontSize: 11, color: c.accent, fontStyle: 'italic', marginBottom: 4, opacity: 0.7 }}>
+                        <div style={{ fontSize: 11, color: c.accent, fontStyle: 'italic', marginBottom: 4, opacity: 0.6 }}>
                           {phrase.py}
                         </div>
                         {/* 翻译 */}
-                        <div style={{ fontSize: 12, color: '#5a7a6e', lineHeight: 1.4 }}>
+                        <div style={{ fontSize: 12, color: '#666', lineHeight: 1.4 }}>
                           {lang === 'zh' ? phrase.en : (phrase[lang] || phrase.en)}
                         </div>
                         {lang === 'zh' && (
-                          <div style={{ fontSize: 11, color: '#90a89e', marginTop: 2 }}>
+                          <div style={{ fontSize: 11, color: '#999', marginTop: 2 }}>
                             {phrase.ru}
                           </div>
                         )}
@@ -326,7 +279,7 @@ export default function PhrasebookPage() {
                         <div style={{ position: 'absolute', top: 10, right: 12 }}>
                           {copied === phrase.zh ? (
                             <span style={{
-                              fontSize: 11, fontWeight: 600, color: '#4a9075',
+                              fontSize: 11, fontWeight: 600, color: '#2ecc71',
                               animation: 'copiedPulse 0.8s ease-in-out',
                             }}>已复制 ✓</span>
                           ) : (
@@ -345,15 +298,14 @@ export default function PhrasebookPage() {
         )}
 
         {/* ══════ 底部提示 ══════ */}
-        <div style={{ marginTop: 36, textAlign: 'center' }}>
+        <div style={{ marginTop: 32, textAlign: 'center' }}>
           <div style={{
-            display: 'inline-block', padding: '10px 20px', borderRadius: 14,
-            background: 'rgba(200,225,210,0.35)', border: '1px solid rgba(120,180,155,0.2)',
-            backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)',
+            display: 'inline-block', padding: '10px 20px', borderRadius: 12,
+            background: '#fff', border: '1px solid #e8eaed',
+            boxShadow: '0 1px 6px rgba(0,0,0,0.03)',
           }}>
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 13, color: '#4a8a6e' }}>
-              <svg width={14} height={14} viewBox="0 0 24 24" fill="none" stroke="#4a8a6e" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round"><path d="M12 3c-2 0-3.5 1.5-3.5 3.5 0 1.5.5 2 1.5 3.5.5.8 1 2 1 3h2c0-1 .5-2.2 1-3 1-1.5 1.5-2 1.5-3.5C15.5 4.5 14 3 12 3z" /><path d="M10 17h4M10.5 19.5h3" /></svg>
-              {ui.tip}
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 13, color: '#888' }}>
+              💡 {ui.tip}
             </span>
           </div>
         </div>
@@ -361,10 +313,10 @@ export default function PhrasebookPage() {
         {/* ══════ 返回 ══════ */}
         <div style={{ textAlign: 'center', marginTop: 20 }}>
           <a href={`/${lang}/life`} style={{
-            fontSize: 13, color: '#7aaa95', textDecoration: 'none', transition: 'color 0.3s',
+            fontSize: 13, color: '#999', textDecoration: 'none', transition: 'color 0.3s',
           }}
-            onMouseEnter={(e) => e.target.style.color = '#4a8a6e'}
-            onMouseLeave={(e) => e.target.style.color = '#7aaa95'}
+            onMouseEnter={(e) => e.target.style.color = '#555'}
+            onMouseLeave={(e) => e.target.style.color = '#999'}
           >
             ← {ui.back}
           </a>
