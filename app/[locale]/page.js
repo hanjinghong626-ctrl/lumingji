@@ -85,6 +85,43 @@ export default function HomePage() {
         {/* Golden particles */}
         <div className="golden-particles" />
 
+        {/* ============ Flowing Wave — 锚定Hero底部 ============ */}
+        <svg
+          viewBox="0 0 1440 200"
+          preserveAspectRatio="none"
+          style={{
+            position: 'absolute', bottom: 0, left: 0, width: '100%', height: '22%',
+            display: 'block', pointerEvents: 'none', zIndex: 5,
+          }}
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <linearGradient id="wf1" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#f5f2eb" stopOpacity="0" />
+              <stop offset="100%" stopColor="#f5f2eb" stopOpacity="1" />
+            </linearGradient>
+            <linearGradient id="wf2" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#f5f2eb" stopOpacity="0" />
+              <stop offset="80%" stopColor="#eef8f5" stopOpacity="0.6" />
+            </linearGradient>
+          </defs>
+          {/* 远浪 — 最柔、最宽 */}
+          <path
+            d="M0,120 C180,80 360,150 540,110 C720,70 900,140 1080,100 C1200,75 1340,120 1440,90 L1440,200 L0,200 Z"
+            fill="url(#wf2)"
+          />
+          {/* 中浪 — 主曲线 */}
+          <path
+            d="M0,140 C200,100 400,160 600,120 C800,80 1000,150 1200,110 C1320,90 1400,130 1440,115 L1440,200 L0,200 Z"
+            fill="url(#wf1)"
+          />
+          {/* 近浪 — 最锐、最亮 */}
+          <path
+            d="M0,160 C240,130 480,175 720,140 C960,105 1150,165 1320,135 C1400,122 1440,145 1440,140 L1440,200 L0,200 Z"
+            fill="#f5f2eb"
+          />
+        </svg>
+
         {/* Hero Content */}
         <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 sm:px-6 text-center">
           <div className="hero-enter hero-enter-delay-1">
@@ -131,45 +168,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* ============ Flowing Wave Divider ============ */}
-      <div style={{ position: 'relative', marginTop: -2, overflow: 'hidden', lineHeight: 0 }}>
-        <svg
-          viewBox="0 0 1440 160"
-          preserveAspectRatio="none"
-          style={{ display: 'block', width: '100%', height: 120 }}
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <defs>
-            <linearGradient id="waveFade" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#071a15" stopOpacity="0.85" />
-              <stop offset="40%" stopColor="#1a5c4e" stopOpacity="0.18" />
-              <stop offset="100%" stopColor="#f5f2eb" stopOpacity="0" />
-            </linearGradient>
-            <linearGradient id="waveFade2" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#0a2a22" stopOpacity="0.5" />
-              <stop offset="50%" stopColor="#3a8a6e" stopOpacity="0.08" />
-              <stop offset="100%" stopColor="#f5f2eb" stopOpacity="0" />
-            </linearGradient>
-          </defs>
-          {/* 远层波浪 — 最柔 */}
-          <path
-            d="M0,0 L1440,0 L1440,60 C1260,95 1080,35 860,70 C640,105 440,40 240,75 C120,95 40,55 0,80 Z"
-            fill="url(#waveFade2)"
-          />
-          {/* 中层波浪 — 主曲线 */}
-          <path
-            d="M0,0 L1440,0 L1440,40 C1300,80 1100,25 880,58 C660,92 480,28 260,62 C100,88 30,42 0,55 Z"
-            fill="url(#waveFade)"
-          />
-          {/* 近层细线 — 流动感 */}
-          <path
-            d="M0,0 L1440,0 L1440,22 C1280,52 1060,12 840,38 C620,65 420,15 200,42 C80,58 20,30 0,35 Z"
-            fill="url(#waveFade)"
-            opacity="0.5"
-          />
-        </svg>
-      </div>
 
       {/* ============ Triple Portal Row — 三卡片并排入口 ============ */}
       <section style={{ position: 'relative', overflow: 'hidden' }}>
