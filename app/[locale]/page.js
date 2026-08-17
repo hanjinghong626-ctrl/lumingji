@@ -85,42 +85,12 @@ export default function HomePage() {
         {/* Golden particles */}
         <div className="golden-particles" />
 
-        {/* ============ Flowing Wave — 锚定Hero底部 ============ */}
-        <svg
-          viewBox="0 0 1440 200"
-          preserveAspectRatio="none"
-          style={{
-            position: 'absolute', bottom: 0, left: 0, width: '100%', height: '22%',
-            display: 'block', pointerEvents: 'none', zIndex: 5,
-          }}
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <defs>
-            <linearGradient id="wf1" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#f5f2eb" stopOpacity="0" />
-              <stop offset="100%" stopColor="#f5f2eb" stopOpacity="1" />
-            </linearGradient>
-            <linearGradient id="wf2" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#f5f2eb" stopOpacity="0" />
-              <stop offset="80%" stopColor="#eef8f5" stopOpacity="0.6" />
-            </linearGradient>
-          </defs>
-          {/* 远浪 — 最柔、最宽 */}
-          <path
-            d="M0,140 C360,110 720,160 1080,120 C1260,100 1380,130 1440,125 L1440,200 L0,200 Z"
-            fill="url(#wf2)"
-          />
-          {/* 中浪 — 主曲线 */}
-          <path
-            d="M0,155 C320,135 640,170 960,145 C1200,125 1360,150 1440,148 L1440,200 L0,200 Z"
-            fill="url(#wf1)"
-          />
-          {/* 近浪 — 柔和流线 */}
-          <path
-            d="M0,170 C480,155 960,180 1440,165 L1440,200 L0,200 Z"
-            fill="#f5f2eb"
-          />
-        </svg>
+        {/* ============ 底部渐变过渡 — 柔和淡出 ============ */}
+        <div style={{
+          position: 'absolute', bottom: 0, left: 0, width: '100%', height: 180,
+          background: 'linear-gradient(to bottom, transparent 0%, rgba(245,242,235,0.3) 40%, rgba(245,242,235,0.7) 70%, #f5f2eb 100%)',
+          pointerEvents: 'none', zIndex: 5,
+        }} />
 
         {/* Hero Content */}
         <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 sm:px-6 text-center">
